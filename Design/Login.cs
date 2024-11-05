@@ -37,6 +37,7 @@ namespace Design
         private void Login_Load(object sender, EventArgs e)
         {
             buttonHidePassword.Hide();
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -66,38 +67,50 @@ namespace Design
                 string role = NguoiDungBLL.getVaiTro(loginAccount);
                 if (role == "Admin")
                 {
-                    HomeSuperAdmin fHomeSuperAdmin = new HomeSuperAdmin();
+                    HomeSuperAdmin fHomeSuperAdmin = new HomeSuperAdmin(this);
                     this.Hide();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                     fHomeSuperAdmin.Show();
                 }
                 else if (role == "CEO")
                 {
-                    HomeDirector0 fHomeDirector0 = new HomeDirector0();
+                    HomeDirector0 fHomeDirector0 = new HomeDirector0(this);
                     this.Hide();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                     fHomeDirector0.Show();
                 }
                 else if (role == "Sale")
                 {
-                    HomeSale fHomeSale = new HomeSale();
+                    HomeSale fHomeSale = new HomeSale(this);
                     this.Hide();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                     fHomeSale.Show();
                 }
                 else if (role == "Accountant")
                 {
-                    HomeAccountant fHomeAccountant = new HomeAccountant();
+                    HomeAccountant fHomeAccountant = new HomeAccountant(this);
                     this.Hide();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                     fHomeAccountant.Show();
                 }
                 else if (role == "Sale Manager")
                 {
-                    HomeHeadOfSales fHomeSaleManager = new HomeHeadOfSales();
+                    HomeSalesManager fHomeSalesManager = new HomeSalesManager(this);
                     this.Hide();
-                    fHomeSaleManager.Show();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
+                    fHomeSalesManager.Show();
                 }
                 else if (role == "Accountant Manager")
                 {
-                    HomeAccountantManager fHomeAccountantManager = new HomeAccountantManager();
+                    HomeAccountantManager fHomeAccountantManager = new HomeAccountantManager(this);
                     this.Hide();
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                     fHomeAccountantManager.Show();
                 }
             }

@@ -12,9 +12,11 @@ namespace Design
 {
     public partial class HomeSuperAdmin : Form
     {
-        public HomeSuperAdmin()
+        private Login fLogin;
+        public HomeSuperAdmin(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;
         }
 
         private void buttonCreateAccount_Click(object sender, EventArgs e)
@@ -30,6 +32,13 @@ namespace Design
             SAListUser fSAListUser = new SAListUser();
             this.Hide();
             fSAListUser.Show();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fLogin.Show();
+
         }
     }
 }

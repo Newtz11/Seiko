@@ -1,6 +1,6 @@
 ﻿namespace Design
 {
-    partial class HomeHeadOfSales
+    partial class HomeSalesManager
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeHeadOfSales));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeSalesManager));
             groupBoxFeature = new GroupBox();
             buttonProjectAssignment = new Button();
             buttonPerformanceReport = new Button();
@@ -151,6 +151,7 @@
             buttonLogout.TabIndex = 11;
             buttonLogout.Text = "ĐĂNG XUẤT";
             buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Click += buttonLogout_Click;
             // 
             // pictureBoxSecurity
             // 
@@ -270,7 +271,7 @@
             pictureBoxIconHome.TabIndex = 21;
             pictureBoxIconHome.TabStop = false;
             // 
-            // HomeHeadOfSales
+            // HomeSalesManager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -281,7 +282,7 @@
             Controls.Add(pictureBoxIconHome);
             Controls.Add(groupBoxFeature);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "HomeHeadOfSales";
+            Name = "HomeSalesManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang chủ";
             groupBoxFeature.ResumeLayout(false);

@@ -12,9 +12,17 @@ namespace Design
 {
     public partial class HomeAccountantManager : Form
     {
-        public HomeAccountantManager()
+        private Login fLogin;
+        public HomeAccountantManager(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fLogin.Show();
         }
     }
 }

@@ -12,9 +12,12 @@ namespace Design
 {
     public partial class HomeDirector0 : Form
     {
-        public HomeDirector0()
+        private Login fLogin;
+
+        public HomeDirector0(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;   
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -25,6 +28,12 @@ namespace Design
         private void pictureBoxSecurity_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fLogin.Show();
         }
     }
 }

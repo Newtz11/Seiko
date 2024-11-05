@@ -12,14 +12,22 @@ namespace Design
 {
     public partial class HomeAccountant : Form
     {
-        public HomeAccountant()
+        private Login fLogin;
+        public HomeAccountant(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;
         }
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fLogin.Show();
         }
     }
 }

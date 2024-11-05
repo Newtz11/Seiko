@@ -116,6 +116,7 @@
             buttonLogout.TabIndex = 11;
             buttonLogout.Text = "ĐĂNG XUẤT";
             buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Click += buttonLogout_Click;
             // 
             // pictureBox1
             // 
@@ -241,7 +242,7 @@
             groupBoxHome.Controls.Add(labelDescribe);
             groupBoxHome.Location = new Point(246, 89);
             groupBoxHome.Name = "groupBoxHome";
-            groupBoxHome.Size = new Size(1024, 926);
+            groupBoxHome.Size = new Size(1003, 929);
             groupBoxHome.TabIndex = 13;
             groupBoxHome.TabStop = false;
             groupBoxHome.Text = "Trang chủ";
@@ -252,7 +253,7 @@
             pictureBoxSubHome.Image = Properties.Resources.SubHome;
             pictureBoxSubHome.Location = new Point(122, 585);
             pictureBoxSubHome.Name = "pictureBoxSubHome";
-            pictureBoxSubHome.Size = new Size(841, 249);
+            pictureBoxSubHome.Size = new Size(820, 252);
             pictureBoxSubHome.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBoxSubHome.TabIndex = 10;
             pictureBoxSubHome.TabStop = false;
@@ -263,7 +264,7 @@
             pictureBoxHomeMain.Image = Properties.Resources.HomeMain;
             pictureBoxHomeMain.Location = new Point(77, 74);
             pictureBoxHomeMain.Name = "pictureBoxHomeMain";
-            pictureBoxHomeMain.Size = new Size(921, 459);
+            pictureBoxHomeMain.Size = new Size(900, 462);
             pictureBoxHomeMain.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBoxHomeMain.TabIndex = 8;
             pictureBoxHomeMain.TabStop = false;
@@ -273,7 +274,7 @@
             labelDescribe.Anchor = AnchorStyles.None;
             labelDescribe.AutoSize = true;
             labelDescribe.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDescribe.Location = new Point(197, 543);
+            labelDescribe.Location = new Point(186, 544);
             labelDescribe.Name = "labelDescribe";
             labelDescribe.Size = new Size(727, 31);
             labelDescribe.TabIndex = 9;

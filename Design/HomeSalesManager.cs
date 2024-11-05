@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeHeadOfSales : Form
+    public partial class HomeSalesManager : Form
     {
-        public HomeHeadOfSales()
+        private Login fLogin;
+        public HomeSalesManager(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;
         }
 
         private void buttonContractApproval_Click(object sender, EventArgs e)
@@ -31,5 +33,10 @@ namespace Design
         {
 
         }
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

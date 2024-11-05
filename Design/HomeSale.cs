@@ -12,9 +12,11 @@ namespace Design
 {
     public partial class HomeSale : Form
     {
-        public HomeSale()
+        private Login fLogin;
+        public HomeSale(Login fLogin)
         {
             InitializeComponent();
+            this.fLogin = fLogin;
         }
 
         private void buttonCreateContract_Click(object sender, EventArgs e)
@@ -45,6 +47,12 @@ namespace Design
         private void buttonContractTracking_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fLogin.Show();
         }
     }
 }

@@ -138,6 +138,7 @@
             buttonLogout.TabIndex = 11;
             buttonLogout.Text = "ĐĂNG XUẤT";
             buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Click += buttonLogout_Click;
             // 
             // pictureBoxSecurity
             // 
