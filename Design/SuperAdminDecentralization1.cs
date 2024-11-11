@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class SuperAdminDecentralization1 : Form
     {
-        public HomeAccountantManager()
+        public SuperAdminDecentralization1()
         {
             InitializeComponent();
         }

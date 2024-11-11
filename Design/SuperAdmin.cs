@@ -17,6 +17,11 @@ namespace Design
     public partial class SuperAdmin : Form
     {
         private Login fLogin;
+
+        public SuperAdmin()
+        {
+            InitializeComponent();
+        }
         public SuperAdmin(Login fLogin)
         {
             InitializeComponent();
@@ -31,7 +36,7 @@ namespace Design
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            loadForm(new SAListUser());
+            loadForm(new SuperAdminListUser());
         }
 
 
@@ -70,7 +75,7 @@ namespace Design
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadForm(new SAContractTracking());
+            loadForm(new SuperAdminContractTracking());
         }
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)

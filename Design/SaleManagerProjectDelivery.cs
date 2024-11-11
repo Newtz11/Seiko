@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class SaleManagerProjectDelivery : Form
     {
-        public HomeAccountantManager()
+        public SaleManagerProjectDelivery()
         {
             InitializeComponent();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

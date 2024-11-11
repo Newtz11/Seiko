@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class AccountantManagerContractTracking : Form
     {
-        public HomeAccountantManager()
+        public AccountantManagerContractTracking()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class AccountantManagerUserInfo : Form
     {
-        public HomeAccountantManager()
+        public AccountantManagerUserInfo()
         {
             InitializeComponent();
+        }
+
+        private void pictureBoxLogoAccountant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

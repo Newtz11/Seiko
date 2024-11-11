@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class SuperAdminPerformanceReport : Form
     {
-        public HomeAccountantManager()
+        public SuperAdminPerformanceReport()
         {
             InitializeComponent();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSearch_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
