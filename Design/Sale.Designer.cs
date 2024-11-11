@@ -61,9 +61,10 @@
             groupBoxFeature.Controls.Add(buttonHome);
             groupBoxFeature.Controls.Add(buttonInfoUser);
             groupBoxFeature.Controls.Add(pictureBoxLogoSale);
+            groupBoxFeature.Dock = DockStyle.Left;
             groupBoxFeature.Location = new Point(0, 0);
             groupBoxFeature.Name = "groupBoxFeature";
-            groupBoxFeature.Size = new Size(216, 986);
+            groupBoxFeature.Size = new Size(216, 953);
             groupBoxFeature.TabIndex = 7;
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
@@ -236,11 +237,11 @@
             // 
             // mainpanel
             // 
-            mainpanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            mainpanel.Location = new Point(211, 0);
-            mainpanel.Margin = new Padding(2);
+            mainpanel.Dock = DockStyle.Right;
+            mainpanel.Location = new Point(216, 0);
+            mainpanel.Margin = new Padding(0);
             mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(1266, 951);
+            mainpanel.Size = new Size(1266, 953);
             mainpanel.TabIndex = 8;
             // 
             // Sale

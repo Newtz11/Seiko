@@ -56,7 +56,7 @@
             panel1.Controls.Add(labelCommission);
             panel1.Controls.Add(pictureBoxIconContractTracking);
             panel1.Location = new Point(14, 8);
-            panel1.Margin = new Padding(2);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1174, 545);
             panel1.TabIndex = 0;
@@ -70,10 +70,10 @@
             panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(textBoxSearch);
-            panel2.Location = new Point(33, 157);
-            panel2.Margin = new Padding(2);
+            panel2.Location = new Point(30, 122);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1077, 372);
+            panel2.Size = new Size(1077, 407);
             panel2.TabIndex = 28;
             // 
             // button3
@@ -111,7 +111,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColMaNhanVien, ColTenNhanVien, ColChucVu, ColPhongBan, ColTongSoHoaHong });
             dataGridView1.Location = new Point(28, 143);
-            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.Size = new Size(868, 0);
@@ -181,7 +181,7 @@
             labelCommission.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCommission.AutoSize = true;
             labelCommission.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCommission.Location = new Point(122, 92);
+            labelCommission.Location = new Point(103, 76);
             labelCommission.Name = "labelCommission";
             labelCommission.Size = new Size(163, 25);
             labelCommission.TabIndex = 27;
@@ -191,7 +191,7 @@
             // 
             pictureBoxIconContractTracking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBoxIconContractTracking.Image = (Image)resources.GetObject("pictureBoxIconContractTracking.Image");
-            pictureBoxIconContractTracking.Location = new Point(16, 17);
+            pictureBoxIconContractTracking.Location = new Point(30, 38);
             pictureBoxIconContractTracking.Name = "pictureBoxIconContractTracking";
             pictureBoxIconContractTracking.Size = new Size(100, 100);
             pictureBoxIconContractTracking.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -206,7 +206,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AccountantCommission";
             Text = "Tính hoa hồng";
             panel1.ResumeLayout(false);

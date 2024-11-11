@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuperAdmin));
             groupBoxFeature = new GroupBox();
-            mainPanel = new Panel();
             buttonHome = new Button();
             labelSuperAdmin = new Label();
             buttonUserList = new Button();
@@ -44,6 +43,7 @@
             buttonProjectSchedule = new Button();
             buttonInformation = new Button();
             pictureBoxSuperAdmin = new PictureBox();
+            mainPanel = new Panel();
             groupBoxFeature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSuperAdmin).BeginInit();
@@ -73,14 +73,6 @@
             groupBoxFeature.TabIndex = 6;
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
-            // 
-            // mainPanel
-            // 
-            mainPanel.Dock = DockStyle.Right;
-            mainPanel.Location = new Point(216, 0);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1266, 953);
-            mainPanel.TabIndex = 7;
             // 
             // buttonHome
             // 
@@ -156,6 +148,7 @@
             buttonFinacialReports.TabIndex = 8;
             buttonFinacialReports.Text = "BÁO CÁO TÀI CHÍNH";
             buttonFinacialReports.UseVisualStyleBackColor = false;
+            buttonFinacialReports.Click += buttonFinacialReports_Click;
             // 
             // buttonRole
             // 
@@ -168,6 +161,7 @@
             buttonRole.TabIndex = 10;
             buttonRole.Text = "PHÂN QUYỀN ";
             buttonRole.UseVisualStyleBackColor = false;
+            buttonRole.Click += buttonRole_Click;
             // 
             // buttonCreateAccount
             // 
@@ -193,6 +187,7 @@
             buttonContractTracking.TabIndex = 5;
             buttonContractTracking.Text = "THEO DÕI HỢP ĐỒNG";
             buttonContractTracking.UseVisualStyleBackColor = false;
+            buttonContractTracking.Click += buttonContractTracking_Click;
             // 
             // buttonPerformanceReport
             // 
@@ -217,6 +212,7 @@
             buttonProjectSchedule.TabIndex = 6;
             buttonProjectSchedule.Text = "TIẾN ĐỘ DỰ ÁN ";
             buttonProjectSchedule.UseVisualStyleBackColor = false;
+            buttonProjectSchedule.Click += buttonProjectSchedule_Click;
             // 
             // buttonInformation
             // 
@@ -230,6 +226,7 @@
             buttonInformation.TabIndex = 4;
             buttonInformation.Text = "THÔNG TIN CÁ NHÂN";
             buttonInformation.UseVisualStyleBackColor = false;
+            buttonInformation.Click += buttonInformation_Click;
             // 
             // pictureBoxSuperAdmin
             // 
@@ -240,6 +237,14 @@
             pictureBoxSuperAdmin.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBoxSuperAdmin.TabIndex = 2;
             pictureBoxSuperAdmin.TabStop = false;
+            // 
+            // mainPanel
+            // 
+            mainPanel.Dock = DockStyle.Right;
+            mainPanel.Location = new Point(216, 0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(1266, 953);
+            mainPanel.TabIndex = 7;
             // 
             // SuperAdmin
             // 

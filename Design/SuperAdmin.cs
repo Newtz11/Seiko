@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
+
 namespace Design
 {
     public partial class SuperAdmin : Form
@@ -29,7 +33,6 @@ namespace Design
         {
             loadForm(new SAListUser());
         }
-
 
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -62,12 +65,12 @@ namespace Design
 
         private void buttonInformation_Click(object sender, EventArgs e)
         {
-
+            loadForm(new SaleUserInfo());
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-
+            loadForm(new SAContractTracking());
         }
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)
@@ -89,5 +92,7 @@ namespace Design
         {
 
         }
+
+        
     }
 }
