@@ -69,7 +69,7 @@ namespace Design
                 }
                 else if (role == "CEO")
                 {
-                    HomeDirector0 fHomeDirector0 = new HomeDirector0();
+                    HomeDirector fHomeDirector0 = new HomeDirector();
                     this.Hide();
                     fHomeDirector0.Show();
                 }
@@ -81,13 +81,13 @@ namespace Design
                 }
                 else if (role == "Accountant")
                 {
-                    HomeAccountant fHomeAccountant = new HomeAccountant();
+                    Accountant fHomeAccountant = new Accountant();
                     this.Hide();
                     fHomeAccountant.Show();
                 }
                 else if (role == "Sale Manager")
                 {
-                    HomeHeadOfSales fHomeSaleManager = new HomeHeadOfSales();
+                    SalesManager fHomeSaleManager = new SalesManager();
                     this.Hide();
                     fHomeSaleManager.Show();
                 }

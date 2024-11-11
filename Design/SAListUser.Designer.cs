@@ -46,8 +46,7 @@
             // pictureBoxIconListUser
             // 
             pictureBoxIconListUser.Image = (Image)resources.GetObject("pictureBoxIconListUser.Image");
-            pictureBoxIconListUser.Location = new Point(118, 35);
-            pictureBoxIconListUser.Margin = new Padding(5);
+            pictureBoxIconListUser.Location = new Point(73, 12);
             pictureBoxIconListUser.Name = "pictureBoxIconListUser";
             pictureBoxIconListUser.Size = new Size(100, 100);
             pictureBoxIconListUser.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -58,10 +57,9 @@
             // 
             labelListUser.AutoSize = true;
             labelListUser.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListUser.Location = new Point(253, 95);
-            labelListUser.Margin = new Padding(5, 0, 5, 0);
+            labelListUser.Location = new Point(179, 67);
             labelListUser.Name = "labelListUser";
-            labelListUser.Size = new Size(388, 40);
+            labelListUser.Size = new Size(243, 25);
             labelListUser.TabIndex = 13;
             labelListUser.Text = "DANH SÁCH NGƯỜI DÙNG";
             // 
@@ -72,11 +70,9 @@
             groupBoxListUser.Controls.Add(buttonSearch);
             groupBoxListUser.Controls.Add(textBoxSearch);
             groupBoxListUser.Controls.Add(dataGridViewListUser);
-            groupBoxListUser.Location = new Point(118, 162);
-            groupBoxListUser.Margin = new Padding(5);
+            groupBoxListUser.Location = new Point(73, 128);
             groupBoxListUser.Name = "groupBoxListUser";
-            groupBoxListUser.Padding = new Padding(5);
-            groupBoxListUser.Size = new Size(845, 1070);
+            groupBoxListUser.Size = new Size(776, 506);
             groupBoxListUser.TabIndex = 15;
             groupBoxListUser.TabStop = false;
             // 
@@ -87,10 +83,9 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(596, 42);
-            buttonSearch.Margin = new Padding(5);
+            buttonSearch.Location = new Point(623, 26);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(172, 53);
+            buttonSearch.Size = new Size(106, 33);
             buttonSearch.TabIndex = 17;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
@@ -98,11 +93,10 @@
             // textBoxSearch
             // 
             textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.Location = new Point(101, 46);
-            textBoxSearch.Margin = new Padding(5);
+            textBoxSearch.Location = new Point(62, 29);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Tìm kiếm người dùng trong danh sách ";
-            textBoxSearch.Size = new Size(511, 44);
+            textBoxSearch.Size = new Size(532, 30);
             textBoxSearch.TabIndex = 16;
             // 
             // dataGridViewListUser
@@ -112,11 +106,10 @@
             dataGridViewListUser.BackgroundColor = Color.Silver;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { soThuTu, tenNguoiDung, phongBan });
-            dataGridViewListUser.Location = new Point(73, 112);
-            dataGridViewListUser.Margin = new Padding(5);
+            dataGridViewListUser.Location = new Point(45, 70);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersWidth = 51;
-            dataGridViewListUser.Size = new Size(696, 923);
+            dataGridViewListUser.Size = new Size(684, 414);
             dataGridViewListUser.TabIndex = 15;
             // 
             // soThuTu
@@ -139,17 +132,16 @@
             // 
             // SAListUser
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            ClientSize = new Size(1531, 1525);
+            ClientSize = new Size(942, 689);
             Controls.Add(groupBoxListUser);
             Controls.Add(labelListUser);
             Controls.Add(pictureBoxIconListUser);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5);
             Name = "SAListUser";
             Text = "Danh sách người dùng";
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconListUser).EndInit();
