@@ -29,7 +29,7 @@ namespace Design
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            SAListUser fSAListUser = new SAListUser();
+            SuperAdminListUser fSAListUser = new SuperAdminListUser();
             this.Hide();
             fSAListUser.Show();
         }

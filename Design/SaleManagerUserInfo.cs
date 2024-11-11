@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class HomeAccountantManager : Form
+    public partial class SaleManagerUserInfo : Form
     {
-        public HomeAccountantManager()
+        public SaleManagerUserInfo()
         {
             InitializeComponent();
         }

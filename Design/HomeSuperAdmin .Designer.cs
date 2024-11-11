@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeSuperAdmin));
-            labelHome = new Label();
             pictureBoxHomeMain = new PictureBox();
             pictureBoxSubHome = new PictureBox();
+            labelHome = new Label();
             pictureBoxIconHome = new PictureBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHomeMain).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSubHome).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconHome).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // labelHome
-            // 
-            labelHome.AutoSize = true;
-            labelHome.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelHome.Location = new Point(558, 324);
-            labelHome.Name = "labelHome";
-            labelHome.Size = new Size(123, 25);
-            labelHome.TabIndex = 12;
-            labelHome.Text = " TRANG CHỦ";
             // 
             // pictureBoxHomeMain
             // 
@@ -70,15 +62,34 @@
             pictureBoxSubHome.TabIndex = 10;
             pictureBoxSubHome.TabStop = false;
             // 
+            // labelHome
+            // 
+            labelHome.AutoSize = true;
+            labelHome.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelHome.Location = new Point(107, 54);
+            labelHome.Name = "labelHome";
+            labelHome.Size = new Size(123, 25);
+            labelHome.TabIndex = 18;
+            labelHome.Text = " TRANG CHỦ";
+            // 
             // pictureBoxIconHome
             // 
             pictureBoxIconHome.Image = Properties.Resources.Home;
-            pictureBoxIconHome.Location = new Point(447, 282);
+            pictureBoxIconHome.Location = new Point(12, 12);
             pictureBoxIconHome.Name = "pictureBoxIconHome";
             pictureBoxIconHome.Size = new Size(72, 67);
             pictureBoxIconHome.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxIconHome.TabIndex = 11;
+            pictureBoxIconHome.TabIndex = 17;
             pictureBoxIconHome.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.HomeMain;
+            pictureBox1.Location = new Point(12, 127);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1138, 483);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
             // 
             // HomeSuperAdmin
             // 
@@ -88,8 +99,9 @@
             BackColor = Color.White;
             ClientSize = new Size(1266, 951);
             Controls.Add(labelHome);
-            Controls.Add(pictureBoxSubHome);
             Controls.Add(pictureBoxIconHome);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBoxSubHome);
             Controls.Add(pictureBoxHomeMain);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -100,14 +112,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxHomeMain).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSubHome).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconHome).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private PictureBox pictureBoxIconHome;
         private PictureBox pictureBoxSubHome;
         private PictureBox pictureBoxHomeMain;
         private Label labelHome;
+        private PictureBox pictureBoxIconHome;
+        private PictureBox pictureBox1;
     }
 }

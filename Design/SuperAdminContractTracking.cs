@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Design
+{
+    public partial class SuperAdminContractTracking : Form
+    {
+        public SuperAdminContractTracking()
+        {
+            InitializeComponent();
+        }
+
+        private void labelContractTracking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewContractTracking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+}

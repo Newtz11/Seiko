@@ -39,7 +39,7 @@ namespace Design
         }
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new GDUserInfo());
+            loadform(new AccountantUserInfo());
 
         }
 
@@ -48,9 +48,9 @@ namespace Design
             loadform(new AccountantPaymentHistory());
         }
 
-        private void buttonCreateContract_Click(object sender, EventArgs e)
+        private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new AccountantCreateContract());
+            loadform(new AccountantContractTracking());
         }
 
         private void buttonCommissionCalculation_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace Design
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            loadform(new GDLogOut());
+            loadform(new DirectorLogOut());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
