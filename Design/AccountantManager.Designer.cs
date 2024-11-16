@@ -30,13 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountantManager));
             groupBoxFeature = new GroupBox();
+            buttonFinancialReport = new Button();
             buttonHome = new Button();
             buttonContractTracking = new Button();
-            buttonPaymentSchedule = new Button();
             buttonContractHistory = new Button();
             buttonLogout = new Button();
             pictureBoxSecurity = new PictureBox();
-            buttonPaymentHistory = new Button();
             buttonInfoUser = new Button();
             pictureBoxLogoHeadOfAccounting = new PictureBox();
             panel1 = new Panel();
@@ -48,13 +47,12 @@
             // groupBoxFeature
             // 
             groupBoxFeature.BackColor = Color.Gainsboro;
+            groupBoxFeature.Controls.Add(buttonFinancialReport);
             groupBoxFeature.Controls.Add(buttonHome);
             groupBoxFeature.Controls.Add(buttonContractTracking);
-            groupBoxFeature.Controls.Add(buttonPaymentSchedule);
             groupBoxFeature.Controls.Add(buttonContractHistory);
             groupBoxFeature.Controls.Add(buttonLogout);
             groupBoxFeature.Controls.Add(pictureBoxSecurity);
-            groupBoxFeature.Controls.Add(buttonPaymentHistory);
             groupBoxFeature.Controls.Add(buttonInfoUser);
             groupBoxFeature.Controls.Add(pictureBoxLogoHeadOfAccounting);
             groupBoxFeature.Dock = DockStyle.Left;
@@ -65,6 +63,19 @@
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
             // 
+            // buttonFinancialReport
+            // 
+            buttonFinancialReport.BackColor = Color.Silver;
+            buttonFinancialReport.FlatStyle = FlatStyle.Popup;
+            buttonFinancialReport.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonFinancialReport.Location = new Point(6, 474);
+            buttonFinancialReport.Name = "buttonFinancialReport";
+            buttonFinancialReport.Size = new Size(200, 48);
+            buttonFinancialReport.TabIndex = 4;
+            buttonFinancialReport.Text = "BÁO CÁO TÀI CHÍNH";
+            buttonFinancialReport.UseVisualStyleBackColor = false;
+            buttonFinancialReport.Click += buttonFinancialReport_Click;
+            // 
             // buttonHome
             // 
             buttonHome.BackColor = Color.Silver;
@@ -73,10 +84,10 @@
             buttonHome.FlatAppearance.MouseOverBackColor = Color.White;
             buttonHome.FlatStyle = FlatStyle.Flat;
             buttonHome.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonHome.Location = new Point(6, 133);
+            buttonHome.Location = new Point(6, 150);
             buttonHome.Name = "buttonHome";
             buttonHome.Size = new Size(200, 48);
-            buttonHome.TabIndex = 19;
+            buttonHome.TabIndex = 1;
             buttonHome.Text = " TRANG CHỦ";
             buttonHome.UseVisualStyleBackColor = false;
             buttonHome.Click += buttonHome_Click;
@@ -86,48 +97,36 @@
             buttonContractTracking.BackColor = Color.Silver;
             buttonContractTracking.FlatStyle = FlatStyle.Popup;
             buttonContractTracking.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractTracking.Location = new Point(6, 307);
+            buttonContractTracking.Location = new Point(6, 366);
             buttonContractTracking.Name = "buttonContractTracking";
             buttonContractTracking.Size = new Size(200, 48);
-            buttonContractTracking.TabIndex = 18;
-            buttonContractTracking.Text = "THEO DÕI HỢP ĐỒNG";
+            buttonContractTracking.TabIndex = 3;
+            buttonContractTracking.Text = "DANH SÁCH HỢP ĐỒNG";
             buttonContractTracking.UseVisualStyleBackColor = false;
             buttonContractTracking.Click += buttonContractTracking_Click;
-            // 
-            // buttonPaymentSchedule
-            // 
-            buttonPaymentSchedule.BackColor = Color.Silver;
-            buttonPaymentSchedule.FlatStyle = FlatStyle.Popup;
-            buttonPaymentSchedule.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPaymentSchedule.ForeColor = SystemColors.ControlText;
-            buttonPaymentSchedule.Location = new Point(6, 406);
-            buttonPaymentSchedule.Name = "buttonPaymentSchedule";
-            buttonPaymentSchedule.Size = new Size(200, 48);
-            buttonPaymentSchedule.TabIndex = 17;
-            buttonPaymentSchedule.Text = "TIẾN ĐỘ THANH TOÁN";
-            buttonPaymentSchedule.UseVisualStyleBackColor = false;
             // 
             // buttonContractHistory
             // 
             buttonContractHistory.BackColor = Color.Silver;
             buttonContractHistory.FlatStyle = FlatStyle.Popup;
             buttonContractHistory.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractHistory.Location = new Point(6, 608);
+            buttonContractHistory.Location = new Point(6, 582);
             buttonContractHistory.Name = "buttonContractHistory";
             buttonContractHistory.Size = new Size(200, 48);
-            buttonContractHistory.TabIndex = 15;
+            buttonContractHistory.TabIndex = 5;
             buttonContractHistory.Text = "LỊCH SỬ HỢP ĐỒNG";
             buttonContractHistory.UseVisualStyleBackColor = false;
+            buttonContractHistory.Click += buttonContractHistory_Click;
             // 
             // buttonLogout
             // 
             buttonLogout.BackColor = Color.Silver;
             buttonLogout.FlatStyle = FlatStyle.Popup;
             buttonLogout.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLogout.Location = new Point(6, 854);
+            buttonLogout.Location = new Point(6, 832);
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Size = new Size(200, 48);
-            buttonLogout.TabIndex = 11;
+            buttonLogout.TabIndex = 6;
             buttonLogout.Text = "ĐĂNG XUẤT";
             buttonLogout.UseVisualStyleBackColor = false;
             buttonLogout.Click += buttonLogout_Click;
@@ -135,24 +134,12 @@
             // pictureBoxSecurity
             // 
             pictureBoxSecurity.Image = (Image)resources.GetObject("pictureBoxSecurity.Image");
-            pictureBoxSecurity.Location = new Point(88, 800);
+            pictureBoxSecurity.Location = new Point(94, 712);
             pictureBoxSecurity.Name = "pictureBoxSecurity";
             pictureBoxSecurity.Size = new Size(30, 33);
             pictureBoxSecurity.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBoxSecurity.TabIndex = 6;
             pictureBoxSecurity.TabStop = false;
-            // 
-            // buttonPaymentHistory
-            // 
-            buttonPaymentHistory.BackColor = Color.Silver;
-            buttonPaymentHistory.FlatStyle = FlatStyle.Popup;
-            buttonPaymentHistory.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPaymentHistory.Location = new Point(6, 507);
-            buttonPaymentHistory.Name = "buttonPaymentHistory";
-            buttonPaymentHistory.Size = new Size(200, 48);
-            buttonPaymentHistory.TabIndex = 6;
-            buttonPaymentHistory.Text = "LỊCH SỬ THANH TOÁN";
-            buttonPaymentHistory.UseVisualStyleBackColor = false;
             // 
             // buttonInfoUser
             // 
@@ -160,10 +147,10 @@
             buttonInfoUser.FlatStyle = FlatStyle.Popup;
             buttonInfoUser.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInfoUser.ForeColor = SystemColors.ControlText;
-            buttonInfoUser.Location = new Point(6, 215);
+            buttonInfoUser.Location = new Point(6, 258);
             buttonInfoUser.Name = "buttonInfoUser";
             buttonInfoUser.Size = new Size(200, 48);
-            buttonInfoUser.TabIndex = 4;
+            buttonInfoUser.TabIndex = 2;
             buttonInfoUser.Text = "THÔNG TIN CÁ NHÂN";
             buttonInfoUser.UseVisualStyleBackColor = false;
             buttonInfoUser.Click += buttonInfoUser_Click;
@@ -171,16 +158,16 @@
             // pictureBoxLogoHeadOfAccounting
             // 
             pictureBoxLogoHeadOfAccounting.Image = (Image)resources.GetObject("pictureBoxLogoHeadOfAccounting.Image");
-            pictureBoxLogoHeadOfAccounting.Location = new Point(0, 0);
+            pictureBoxLogoHeadOfAccounting.Location = new Point(1, 0);
             pictureBoxLogoHeadOfAccounting.Name = "pictureBoxLogoHeadOfAccounting";
-            pictureBoxLogoHeadOfAccounting.Size = new Size(227, 106);
-            pictureBoxLogoHeadOfAccounting.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxLogoHeadOfAccounting.Size = new Size(215, 94);
+            pictureBoxLogoHeadOfAccounting.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogoHeadOfAccounting.TabIndex = 2;
             pictureBoxLogoHeadOfAccounting.TabStop = false;
             // 
             // panel1
             // 
-            panel1.Dock = DockStyle.Right;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Location = new Point(216, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
@@ -198,7 +185,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AccountantManager";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Trang chủ";
+            Text = "Seiko";
             Load += AccountantManager_Load;
             groupBoxFeature.ResumeLayout(false);
             groupBoxFeature.PerformLayout();
@@ -210,15 +197,14 @@
         #endregion
 
         private GroupBox groupBoxFeature;
-        private Button buttonPaymentSchedule;
         private Button buttonContractHistory;
         private Button buttonLogout;
         private PictureBox pictureBoxSecurity;
-        private Button buttonPaymentHistory;
         private Button buttonInfoUser;
         private PictureBox pictureBoxLogoHeadOfAccounting;
         private Button buttonContractTracking;
         private Panel panel1;
         private Button buttonHome;
+        private Button buttonFinancialReport;
     }
 }

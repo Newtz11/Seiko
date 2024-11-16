@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,37 @@ namespace Design
         public Director()
         {
             InitializeComponent();
+            ApplyRoundedCorners(buttonHome);
+            ApplyRoundedCorners(buttonInfoUser);
+            ApplyRoundedCorners(buttonContractTracking);
+            ApplyRoundedCorners(buttonProjectProgress);
+            ApplyRoundedCorners(buttonPerformanceReport);
+            ApplyRoundedCorners(buttonFinacialReports);
+            ApplyRoundedCorners(buttonContractHistory);
+            ApplyRoundedCorners(buttonLogout);
+        }
+
+        // Hàm để tạo vùng hình chữ nhật có góc bo tròn
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect, // Tọa độ x của góc trên bên trái
+            int nTopRect,  // Tọa độ y của góc trên bên trái
+            int nRightRect, // Tọa độ x của góc dưới bên phải
+            int nBottomRect, // Tọa độ y của góc dưới bên phải
+            int nWidthEllipse, // Bán kính bo tròn theo chiều ngang
+            int nHeightEllipse // Bán kính bo tròn theo chiều dọc
+        );
+
+        // Hàm áp dụng bo góc cho nút
+        private void ApplyRoundedCorners(Button button)
+        {
+            // Loại bỏ viền mặc định của nút
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+
+            // Tạo vùng hình chữ nhật có góc bo tròn
+            IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
+            button.Region = Region.FromHrgn(hRgn);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -27,10 +59,6 @@ namespace Design
 
         }
 
-        private void HomeDirector0_Load(object sender, EventArgs e)
-        {
-            loadform(new HomeDirector());
-        }
         public void loadform(object Form)
         {
             if (this.mainpanel.Controls.Count > 0)
@@ -45,42 +73,48 @@ namespace Design
 
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorUserInfo());
+            loadform(new PersonalInformation());
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorContractTracking());
+            loadform(new ContractTracking());
         }
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)
         {
-            loadform(new ProjectSchedule());
+            loadform(new ProjectProgress());
         }
 
         private void buttonPerformanceReport_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorPerformanceReport());
+            loadform(new PerformanceReport());
         }
 
         private void buttonFinacialReports_Click(object sender, EventArgs e)
         {
-            loadform(new GDFinancialReport());
+            loadform(new FinancialReport());
         }
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorContractHistory());
+            loadform(new ContractHistory());
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorLogOut());
+            LogOut logOut = new LogOut();
+            logOut.Show();
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            loadform(new HomeDirector());
+            loadform(new Home());
+        }
+
+        private void Director_Load(object sender, EventArgs e)
+        {
+            loadform(new Home());
         }
     }
 }
