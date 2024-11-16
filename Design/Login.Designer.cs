@@ -134,6 +134,7 @@
             linkLabelForgotPassword.TabIndex = 9;
             linkLabelForgotPassword.TabStop = true;
             linkLabelForgotPassword.Text = "Quên mật khẩu?";
+            linkLabelForgotPassword.LinkClicked += linkLabelForgotPassword_LinkClicked;
             // 
             // buttonLogin
             // 

@@ -66,11 +66,9 @@
             groupBoxChangePassword.Controls.Add(buttonHidePassword1);
             groupBoxChangePassword.Controls.Add(textBoxChangePassword);
             groupBoxChangePassword.Controls.Add(labelPassword);
-            groupBoxChangePassword.Location = new Point(-156, 221);
-            groupBoxChangePassword.Margin = new Padding(5);
+            groupBoxChangePassword.Location = new Point(-96, 138);
             groupBoxChangePassword.Name = "groupBoxChangePassword";
-            groupBoxChangePassword.Padding = new Padding(5);
-            groupBoxChangePassword.Size = new Size(949, 664);
+            groupBoxChangePassword.Size = new Size(584, 415);
             groupBoxChangePassword.TabIndex = 0;
             groupBoxChangePassword.TabStop = false;
             groupBoxChangePassword.Text = "groupBox1";
@@ -79,40 +77,36 @@
             // buttonShowPassword3
             // 
             buttonShowPassword3.Image = Properties.Resources.show__1_;
-            buttonShowPassword3.Location = new Point(868, 443);
-            buttonShowPassword3.Margin = new Padding(5);
+            buttonShowPassword3.Location = new Point(534, 277);
             buttonShowPassword3.Name = "buttonShowPassword3";
-            buttonShowPassword3.Size = new Size(52, 48);
+            buttonShowPassword3.Size = new Size(32, 30);
             buttonShowPassword3.TabIndex = 25;
             buttonShowPassword3.UseVisualStyleBackColor = true;
             // 
             // buttonShowPassword2
             // 
             buttonShowPassword2.Image = Properties.Resources.show__1_;
-            buttonShowPassword2.Location = new Point(868, 274);
-            buttonShowPassword2.Margin = new Padding(5);
+            buttonShowPassword2.Location = new Point(534, 171);
             buttonShowPassword2.Name = "buttonShowPassword2";
-            buttonShowPassword2.Size = new Size(52, 48);
+            buttonShowPassword2.Size = new Size(32, 30);
             buttonShowPassword2.TabIndex = 24;
             buttonShowPassword2.UseVisualStyleBackColor = true;
             // 
             // buttonHidePassword3
             // 
             buttonHidePassword3.Image = Properties.Resources.hide__1_;
-            buttonHidePassword3.Location = new Point(866, 443);
-            buttonHidePassword3.Margin = new Padding(5);
+            buttonHidePassword3.Location = new Point(533, 277);
             buttonHidePassword3.Name = "buttonHidePassword3";
-            buttonHidePassword3.Size = new Size(54, 48);
+            buttonHidePassword3.Size = new Size(33, 30);
             buttonHidePassword3.TabIndex = 23;
             buttonHidePassword3.UseVisualStyleBackColor = true;
             // 
             // buttonHidePassword2
             // 
             buttonHidePassword2.Image = Properties.Resources.hide__1_;
-            buttonHidePassword2.Location = new Point(866, 274);
-            buttonHidePassword2.Margin = new Padding(5);
+            buttonHidePassword2.Location = new Point(533, 171);
             buttonHidePassword2.Name = "buttonHidePassword2";
-            buttonHidePassword2.Size = new Size(54, 48);
+            buttonHidePassword2.Size = new Size(33, 30);
             buttonHidePassword2.TabIndex = 22;
             buttonHidePassword2.UseVisualStyleBackColor = true;
             // 
@@ -123,13 +117,13 @@
             buttonBack.FlatStyle = FlatStyle.Popup;
             buttonBack.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBack.ForeColor = Color.White;
-            buttonBack.Location = new Point(782, 603);
-            buttonBack.Margin = new Padding(5);
+            buttonBack.Location = new Point(481, 377);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(138, 42);
+            buttonBack.Size = new Size(85, 26);
             buttonBack.TabIndex = 21;
             buttonBack.Text = "Quay lại";
             buttonBack.UseVisualStyleBackColor = false;
+            buttonBack.Click += buttonBack_Click;
             // 
             // buttonSavePassword
             // 
@@ -138,10 +132,9 @@
             buttonSavePassword.FlatStyle = FlatStyle.Popup;
             buttonSavePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSavePassword.ForeColor = Color.White;
-            buttonSavePassword.Location = new Point(421, 523);
-            buttonSavePassword.Margin = new Padding(5);
+            buttonSavePassword.Location = new Point(259, 327);
             buttonSavePassword.Name = "buttonSavePassword";
-            buttonSavePassword.Size = new Size(240, 66);
+            buttonSavePassword.Size = new Size(148, 41);
             buttonSavePassword.TabIndex = 20;
             buttonSavePassword.Text = "LƯU MẬT KHẨU";
             buttonSavePassword.UseVisualStyleBackColor = false;
@@ -150,22 +143,20 @@
             // 
             textBoxConfirmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxConfirmPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxConfirmPassword.Location = new Point(176, 443);
-            textBoxConfirmPassword.Margin = new Padding(5);
+            textBoxConfirmPassword.Location = new Point(108, 277);
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             textBoxConfirmPassword.PlaceholderText = "Xác nhận mật khẩu mới (phải trùng với mật khẩu mới )";
             textBoxConfirmPassword.ReadOnly = true;
-            textBoxConfirmPassword.Size = new Size(742, 44);
-            textBoxConfirmPassword.TabIndex = 19;
+            textBoxConfirmPassword.Size = new Size(458, 30);
+            textBoxConfirmPassword.TabIndex = 3;
             // 
             // labelConfirmPassword
             // 
             labelConfirmPassword.AutoSize = true;
             labelConfirmPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelConfirmPassword.Location = new Point(176, 376);
-            labelConfirmPassword.Margin = new Padding(5, 0, 5, 0);
+            labelConfirmPassword.Location = new Point(108, 235);
             labelConfirmPassword.Name = "labelConfirmPassword";
-            labelConfirmPassword.Size = new Size(305, 45);
+            labelConfirmPassword.Size = new Size(194, 28);
             labelConfirmPassword.TabIndex = 18;
             labelConfirmPassword.Text = "Xác nhận mật khẩu";
             // 
@@ -173,31 +164,28 @@
             // 
             textBoxNewPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxNewPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNewPassword.Location = new Point(176, 274);
-            textBoxNewPassword.Margin = new Padding(5);
+            textBoxNewPassword.Location = new Point(108, 171);
             textBoxNewPassword.Name = "textBoxNewPassword";
             textBoxNewPassword.PlaceholderText = "Nhập mật khẩu mới";
-            textBoxNewPassword.Size = new Size(742, 44);
-            textBoxNewPassword.TabIndex = 17;
+            textBoxNewPassword.Size = new Size(458, 30);
+            textBoxNewPassword.TabIndex = 2;
             // 
             // labelNewPassword
             // 
             labelNewPassword.AutoSize = true;
             labelNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelNewPassword.Location = new Point(176, 208);
-            labelNewPassword.Margin = new Padding(5, 0, 5, 0);
+            labelNewPassword.Location = new Point(108, 130);
             labelNewPassword.Name = "labelNewPassword";
-            labelNewPassword.Size = new Size(229, 45);
+            labelNewPassword.Size = new Size(145, 28);
             labelNewPassword.TabIndex = 16;
             labelNewPassword.Text = "Mật khẩu mới";
             // 
             // buttonShowPassword1
             // 
             buttonShowPassword1.Image = Properties.Resources.show__1_;
-            buttonShowPassword1.Location = new Point(868, 117);
-            buttonShowPassword1.Margin = new Padding(5);
+            buttonShowPassword1.Location = new Point(534, 73);
             buttonShowPassword1.Name = "buttonShowPassword1";
-            buttonShowPassword1.Size = new Size(52, 48);
+            buttonShowPassword1.Size = new Size(32, 30);
             buttonShowPassword1.TabIndex = 15;
             buttonShowPassword1.UseVisualStyleBackColor = true;
             buttonShowPassword1.Click += buttonShowPassword1_Click;
@@ -205,10 +193,9 @@
             // buttonHidePassword1
             // 
             buttonHidePassword1.Image = Properties.Resources.hide__1_;
-            buttonHidePassword1.Location = new Point(866, 117);
-            buttonHidePassword1.Margin = new Padding(5);
+            buttonHidePassword1.Location = new Point(533, 73);
             buttonHidePassword1.Name = "buttonHidePassword1";
-            buttonHidePassword1.Size = new Size(54, 48);
+            buttonHidePassword1.Size = new Size(33, 30);
             buttonHidePassword1.TabIndex = 14;
             buttonHidePassword1.UseVisualStyleBackColor = true;
             // 
@@ -216,22 +203,20 @@
             // 
             textBoxChangePassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxChangePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxChangePassword.Location = new Point(176, 117);
-            textBoxChangePassword.Margin = new Padding(5);
+            textBoxChangePassword.Location = new Point(108, 73);
             textBoxChangePassword.Name = "textBoxChangePassword";
             textBoxChangePassword.PlaceholderText = "Nhập mật khẩu hiện tại";
-            textBoxChangePassword.Size = new Size(742, 44);
-            textBoxChangePassword.TabIndex = 7;
+            textBoxChangePassword.Size = new Size(458, 30);
+            textBoxChangePassword.TabIndex = 1;
             textBoxChangePassword.TextChanged += textBoxChangePassword_TextChanged;
             // 
             // labelPassword
             // 
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPassword.Location = new Point(176, 53);
-            labelPassword.Margin = new Padding(5, 0, 5, 0);
+            labelPassword.Location = new Point(108, 33);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(162, 45);
+            labelPassword.Size = new Size(102, 28);
             labelPassword.TabIndex = 5;
             labelPassword.Text = "Mật khẩu";
             labelPassword.Click += labelNewPassword_Click;
@@ -239,8 +224,7 @@
             // pictureBoxLogo0
             // 
             pictureBoxLogo0.Image = Properties.Resources.logo0;
-            pictureBoxLogo0.Location = new Point(356, 19);
-            pictureBoxLogo0.Margin = new Padding(5);
+            pictureBoxLogo0.Location = new Point(219, 12);
             pictureBoxLogo0.Name = "pictureBoxLogo0";
             pictureBoxLogo0.Size = new Size(43, 43);
             pictureBoxLogo0.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -251,25 +235,24 @@
             // 
             labelChangePassword.AutoSize = true;
             labelChangePassword.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelChangePassword.Location = new Point(213, 110);
-            labelChangePassword.Margin = new Padding(5, 0, 5, 0);
+            labelChangePassword.Location = new Point(131, 69);
             labelChangePassword.Name = "labelChangePassword";
-            labelChangePassword.Size = new Size(385, 65);
+            labelChangePassword.Size = new Size(242, 41);
             labelChangePassword.TabIndex = 5;
             labelChangePassword.Text = "ĐỔI MẬT KHẨU";
             // 
             // ChangePassword
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(783, 885);
+            ClientSize = new Size(482, 553);
             Controls.Add(labelChangePassword);
             Controls.Add(pictureBoxLogo0);
             Controls.Add(groupBoxChangePassword);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5);
             Name = "ChangePassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Đổi mật khẩu";
             groupBoxChangePassword.ResumeLayout(false);
             groupBoxChangePassword.PerformLayout();

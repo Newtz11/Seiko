@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,16 @@ namespace Design
         public SuperAdmin()
         {
             InitializeComponent();
+            ApplyRoundedCorners(buttonHome);
+            ApplyRoundedCorners(buttonInformation);
+            ApplyRoundedCorners(buttonUserList);
+            ApplyRoundedCorners(buttonContractTracking);
+            ApplyRoundedCorners(buttonProjectProgress);
+            ApplyRoundedCorners(buttonPerformanceReport);
+            ApplyRoundedCorners(buttonFinacialReport);
+            ApplyRoundedCorners(buttonRole);
+            ApplyRoundedCorners(buttonContractHistory);
+            ApplyRoundedCorners(buttonLogout);
         }
         public SuperAdmin(Login fLogin)
         {
@@ -28,27 +39,39 @@ namespace Design
             this.fLogin = fLogin;
         }
 
-        private void buttonCreateAccount_Click(object sender, EventArgs e)
-        {
-            loadForm(new SuperAdminCreateAccount());
+        // Hàm để tạo vùng hình chữ nhật có góc bo tròn
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect, // Tọa độ x của góc trên bên trái
+            int nTopRect,  // Tọa độ y của góc trên bên trái
+            int nRightRect, // Tọa độ x của góc dưới bên phải
+            int nBottomRect, // Tọa độ y của góc dưới bên phải
+            int nWidthEllipse, // Bán kính bo tròn theo chiều ngang
+            int nHeightEllipse // Bán kính bo tròn theo chiều dọc
+        );
 
+        // Hàm áp dụng bo góc cho nút
+        private void ApplyRoundedCorners(Button button)
+        {
+            // Loại bỏ viền mặc định của nút
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+
+            // Tạo vùng hình chữ nhật có góc bo tròn
+            IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
+            button.Region = Region.FromHrgn(hRgn);
         }
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            loadForm(new SuperAdminListUser());
+            loadForm(new ListUser());
         }
 
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
-            fLogin.Show();
-        }
-
-        private void HomeSuperAdmin_Load(object sender, EventArgs e)
-        {
-            loadForm(new HomeSuperAdmin());
+            LogOut logOut = new LogOut();
+            logOut.Show();
         }
 
         public void loadForm(object Form)
@@ -65,39 +88,47 @@ namespace Design
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            loadForm(new HomeSuperAdmin());
+            loadForm(new Home());
         }
 
         private void buttonInformation_Click(object sender, EventArgs e)
         {
-            loadForm(new SaleUserInfo());
+            loadForm(new PersonalInformation());
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadForm(new SuperAdminContractTracking());
-        }
-
-        private void buttonProjectSchedule_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonPerformanceReport_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonFinacialReports_Click(object sender, EventArgs e)
-        {
-
+            loadForm(new ContractTracking());
         }
 
         private void buttonRole_Click(object sender, EventArgs e)
         {
-
+            loadForm(new SuperAdminDecentralization());
         }
 
-        
+        private void buttonFinacialReport_Click(object sender, EventArgs e)
+        {
+            loadForm(new FinancialReport());
+        }
+
+        private void buttonProjectProgress_Click(object sender, EventArgs e)
+        {
+            loadForm(new ProjectProgress());
+        }
+
+        private void buttonPerformanceReport_Click(object sender, EventArgs e)
+        {
+            loadForm(new PerformanceReport());
+        }
+
+        private void buttonContractHistory_Click(object sender, EventArgs e)
+        {
+            loadForm(new ContractHistory());
+        }
+
+        private void SuperAdmin_Load(object sender, EventArgs e)
+        {
+            loadForm(new Home());
+        }
     }
 }

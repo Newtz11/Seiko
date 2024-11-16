@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,28 +16,50 @@ namespace Design
         public Sale()
         {
             InitializeComponent();
-            SetButtonEvents();
+            ApplyRoundedCorners(buttonInfoUser);
+            ApplyRoundedCorners(buttonHome);
+            ApplyRoundedCorners(buttonLogout);
+            ApplyRoundedCorners(buttonInfoUser);
+            ApplyRoundedCorners(buttonProjectProgress);
+            ApplyRoundedCorners(buttonContractHistory);
+            ApplyRoundedCorners(buttonCommission);
+            ApplyRoundedCorners(buttonContractTracking);
         }
+        // Hàm để tạo vùng hình chữ nhật có góc bo tròn
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect, // Tọa độ x của góc trên bên trái
+            int nTopRect,  // Tọa độ y của góc trên bên trái
+            int nRightRect, // Tọa độ x của góc dưới bên phải
+            int nBottomRect, // Tọa độ y của góc dưới bên phải
+            int nWidthEllipse, // Bán kính bo tròn theo chiều ngang
+            int nHeightEllipse // Bán kính bo tròn theo chiều dọc
+        );
 
+        // Hàm áp dụng bo góc cho nút
+        private void ApplyRoundedCorners(Button button)
+        {
+            // Loại bỏ viền mặc định của nút
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+
+            // Tạo vùng hình chữ nhật có góc bo tròn
+            IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
+            button.Region = Region.FromHrgn(hRgn);
+        }
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new SaleCreateContract());
+            loadform(new CreateContract());
         }
 
-        private void HomeSale_Load(object sender, EventArgs e)
-        {
-            loadform(new HomeSale());
-        }
-
-        
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            loadform(new HomeSale());
+            loadform(new Home());
         }
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new SaleContractHistory());
+            loadform(new ContractHistory());
         }
         public void loadform(object Form)
         {
@@ -52,83 +75,38 @@ namespace Design
 
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorUserInfo());
+            loadform(new PersonalInformation());
         }
 
         private void buttonContractTracking_Click_1(object sender, EventArgs e)
         {
-            loadform(new SaleContractTracking());
+            loadform(new ContractTracking());
         }
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)
         {
-            loadform(new ProjectSchedule());
+            loadform(new ProjectProgress());
         }
 
         private void buttonCommission_Click(object sender, EventArgs e)
         {
-            loadform(new SaleCommission());
+            loadform(new SaleCommissionView());
         }
 
         private void buttonPerformanceReport_Click(object sender, EventArgs e)
         {
-            loadform(new SuperAdminPerformanceReport());
+            loadform(new PerformanceReport());
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorLogOut());
+            LogOut logOut = new LogOut();
+            logOut.Show();
         }
-        private void SetButtonEvents()
+
+        private void Sale_Load(object sender, EventArgs e)
         {
-            // Duyệt qua các nút và thêm sự kiện cho mỗi nút
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is Button button)
-                {
-                    button.BackColor = Color.Gray; // Màu nền mặc định là xám
-                    button.Click += Button_Click; // Thêm sự kiện Click
-                    button.MouseEnter += Button_MouseEnter; // Thêm sự kiện MouseEnter
-                    button.MouseLeave += Button_MouseLeave; // Thêm sự kiện MouseLeave
-                }
-            }
+            loadform(new Home());
         }
-
-        // Xử lý sự kiện Click: thay đổi màu khi nhấn và giữ nguyên màu đã chọn
-        private void Button_Click(object sender, EventArgs e)
-        {
-            Button clickedButton = sender as Button;
-
-            // Đặt lại màu của nút đã chọn trước đó thành xám
-            if (selectedButton != null && selectedButton != clickedButton)
-            {
-                selectedButton.BackColor = Color.Gray;
-            }
-
-            // Cập nhật nút đã chọn mới và đổi màu sang trắng
-            selectedButton = clickedButton;
-            selectedButton.BackColor = Color.White;
-        }
-
-        // Xử lý sự kiện MouseEnter: chỉ thay đổi màu nếu nút chưa được chọn
-        private void Button_MouseEnter(object sender, EventArgs e)
-        {
-            Button hoveredButton = sender as Button;
-            if (hoveredButton != selectedButton)
-            {
-                hoveredButton.BackColor = Color.LightGray;
-            }
-        }
-
-        // Xử lý sự kiện MouseLeave: trả lại màu xám nếu nút chưa được chọn
-        private void Button_MouseLeave(object sender, EventArgs e)
-        {
-            Button hoveredButton = sender as Button;
-            if (hoveredButton != selectedButton)
-            {
-                hoveredButton.BackColor = Color.Gray;
-            }
-        }
-        private Button selectedButton;
     }
 }

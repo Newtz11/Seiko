@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,17 +16,18 @@ namespace Design
         public Accountant()
         {
             InitializeComponent();
-
+            ApplyRoundedCorners(buttonHome);
+            ApplyRoundedCorners(buttonInfoUser);
+            ApplyRoundedCorners(buttonContractTracking);
+            ApplyRoundedCorners(buttonCommissionCalculation);
+            ApplyRoundedCorners(buttonContractHistory);
+            ApplyRoundedCorners(buttonLogout);
         }
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new AccountantContractHistory());
+            loadform(new ContractHistory());
         }
 
-        private void HomeAccountant_Load(object sender, EventArgs e)
-        {
-            loadform(new HomeAccoutant());
-        }
         public void loadform(object Form)
         {
             if (this.panel1.Controls.Count > 0)
@@ -39,28 +41,25 @@ namespace Design
         }
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new AccountantUserInfo());
+            loadform(new PersonalInformation());
 
         }
 
-        private void buttonPaymentHistory_Click(object sender, EventArgs e)
-        {
-            loadform(new AccountantPaymentHistory());
-        }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new AccountantContractTracking());
+            loadform(new ContractTracking());
         }
 
         private void buttonCommissionCalculation_Click(object sender, EventArgs e)
         {
-            loadform(new AccountantCommission());
+            loadform(new AccountantPaymentCommission());
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            loadform(new DirectorLogOut());
+            LogOut logOut = new LogOut();
+            logOut.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -68,11 +67,38 @@ namespace Design
 
         }
 
-        
+
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            loadform(new HomeAccoutant());
+            loadform(new Home());
+        }
+        // Hàm để tạo vùng hình chữ nhật có góc bo tròn
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect, // Tọa độ x của góc trên bên trái
+            int nTopRect,  // Tọa độ y của góc trên bên trái
+            int nRightRect, // Tọa độ x của góc dưới bên phải
+            int nBottomRect, // Tọa độ y của góc dưới bên phải
+            int nWidthEllipse, // Bán kính bo tròn theo chiều ngang
+            int nHeightEllipse // Bán kính bo tròn theo chiều dọc
+        );
+
+        // Hàm áp dụng bo góc cho nút
+        private void ApplyRoundedCorners(Button button)
+        {
+            // Loại bỏ viền mặc định của nút
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+
+            // Tạo vùng hình chữ nhật có góc bo tròn
+            IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
+            button.Region = Region.FromHrgn(hRgn);
+        }
+
+        private void Accountant_Load(object sender, EventArgs e)
+        {
+            loadform(new Home());
         }
     }
 }

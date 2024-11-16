@@ -30,11 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleManager));
             groupBoxFeature = new GroupBox();
-            buttonProjectAssignment = new Button();
             buttonPerformanceReport = new Button();
             buttonContractHistory = new Button();
-            buttonProjectSchedule = new Button();
-            buttonContractApproval = new Button();
+            buttonProjectProgress = new Button();
             buttonLogout = new Button();
             pictureBoxSecurity = new PictureBox();
             buttonContractTracking = new Button();
@@ -50,11 +48,9 @@
             // groupBoxFeature
             // 
             groupBoxFeature.BackColor = Color.Gainsboro;
-            groupBoxFeature.Controls.Add(buttonProjectAssignment);
             groupBoxFeature.Controls.Add(buttonPerformanceReport);
             groupBoxFeature.Controls.Add(buttonContractHistory);
-            groupBoxFeature.Controls.Add(buttonProjectSchedule);
-            groupBoxFeature.Controls.Add(buttonContractApproval);
+            groupBoxFeature.Controls.Add(buttonProjectProgress);
             groupBoxFeature.Controls.Add(buttonLogout);
             groupBoxFeature.Controls.Add(pictureBoxSecurity);
             groupBoxFeature.Controls.Add(buttonContractTracking);
@@ -68,22 +64,6 @@
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
             // 
-            // buttonProjectAssignment
-            // 
-            buttonProjectAssignment.BackColor = Color.Silver;
-            buttonProjectAssignment.FlatAppearance.BorderColor = Color.Black;
-            buttonProjectAssignment.FlatAppearance.MouseDownBackColor = Color.White;
-            buttonProjectAssignment.FlatAppearance.MouseOverBackColor = Color.White;
-            buttonProjectAssignment.FlatStyle = FlatStyle.Flat;
-            buttonProjectAssignment.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonProjectAssignment.Location = new Point(6, 457);
-            buttonProjectAssignment.Name = "buttonProjectAssignment";
-            buttonProjectAssignment.Size = new Size(200, 48);
-            buttonProjectAssignment.TabIndex = 17;
-            buttonProjectAssignment.Text = "GIAO DỰ ÁN";
-            buttonProjectAssignment.UseVisualStyleBackColor = false;
-            buttonProjectAssignment.Click += buttonProjectAssignment_Click;
-            // 
             // buttonPerformanceReport
             // 
             buttonPerformanceReport.BackColor = Color.Silver;
@@ -92,7 +72,7 @@
             buttonPerformanceReport.FlatAppearance.MouseOverBackColor = Color.White;
             buttonPerformanceReport.FlatStyle = FlatStyle.Flat;
             buttonPerformanceReport.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPerformanceReport.Location = new Point(6, 630);
+            buttonPerformanceReport.Location = new Point(6, 582);
             buttonPerformanceReport.Name = "buttonPerformanceReport";
             buttonPerformanceReport.Size = new Size(200, 48);
             buttonPerformanceReport.TabIndex = 13;
@@ -108,7 +88,7 @@
             buttonContractHistory.FlatAppearance.MouseOverBackColor = Color.White;
             buttonContractHistory.FlatStyle = FlatStyle.Flat;
             buttonContractHistory.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractHistory.Location = new Point(6, 718);
+            buttonContractHistory.Location = new Point(6, 690);
             buttonContractHistory.Name = "buttonContractHistory";
             buttonContractHistory.Size = new Size(200, 48);
             buttonContractHistory.TabIndex = 15;
@@ -116,38 +96,21 @@
             buttonContractHistory.UseVisualStyleBackColor = false;
             buttonContractHistory.Click += buttonContractHistory_Click;
             // 
-            // buttonProjectSchedule
+            // buttonProjectProgress
             // 
-            buttonProjectSchedule.BackColor = Color.Silver;
-            buttonProjectSchedule.FlatAppearance.BorderColor = Color.Black;
-            buttonProjectSchedule.FlatAppearance.MouseDownBackColor = Color.White;
-            buttonProjectSchedule.FlatAppearance.MouseOverBackColor = Color.White;
-            buttonProjectSchedule.FlatStyle = FlatStyle.Flat;
-            buttonProjectSchedule.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonProjectSchedule.Location = new Point(6, 542);
-            buttonProjectSchedule.Name = "buttonProjectSchedule";
-            buttonProjectSchedule.Size = new Size(200, 48);
-            buttonProjectSchedule.TabIndex = 14;
-            buttonProjectSchedule.Text = "TIẾN ĐỘ DỰ ÁN";
-            buttonProjectSchedule.UseVisualStyleBackColor = false;
-            buttonProjectSchedule.Click += buttonProjectSchedule_Click;
-            // 
-            // buttonContractApproval
-            // 
-            buttonContractApproval.BackColor = Color.Silver;
-            buttonContractApproval.FlatAppearance.BorderColor = Color.Black;
-            buttonContractApproval.FlatAppearance.MouseDownBackColor = Color.White;
-            buttonContractApproval.FlatAppearance.MouseOverBackColor = Color.White;
-            buttonContractApproval.FlatStyle = FlatStyle.Flat;
-            buttonContractApproval.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractApproval.ForeColor = SystemColors.ControlText;
-            buttonContractApproval.Location = new Point(6, 374);
-            buttonContractApproval.Name = "buttonContractApproval";
-            buttonContractApproval.Size = new Size(200, 48);
-            buttonContractApproval.TabIndex = 12;
-            buttonContractApproval.Text = "PHÊ DUYỆT HỢP ĐỒNG";
-            buttonContractApproval.UseVisualStyleBackColor = false;
-            buttonContractApproval.Click += buttonContractApproval_Click;
+            buttonProjectProgress.BackColor = Color.Silver;
+            buttonProjectProgress.FlatAppearance.BorderColor = Color.Black;
+            buttonProjectProgress.FlatAppearance.MouseDownBackColor = Color.White;
+            buttonProjectProgress.FlatAppearance.MouseOverBackColor = Color.White;
+            buttonProjectProgress.FlatStyle = FlatStyle.Flat;
+            buttonProjectProgress.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonProjectProgress.Location = new Point(6, 474);
+            buttonProjectProgress.Name = "buttonProjectProgress";
+            buttonProjectProgress.Size = new Size(200, 48);
+            buttonProjectProgress.TabIndex = 14;
+            buttonProjectProgress.Text = "TIẾN ĐỘ CÔNG VIỆC";
+            buttonProjectProgress.UseVisualStyleBackColor = false;
+            buttonProjectProgress.Click += buttonProjectProgress_Click;
             // 
             // buttonLogout
             // 
@@ -168,7 +131,7 @@
             // pictureBoxSecurity
             // 
             pictureBoxSecurity.Image = (Image)resources.GetObject("pictureBoxSecurity.Image");
-            pictureBoxSecurity.Location = new Point(91, 826);
+            pictureBoxSecurity.Location = new Point(94, 803);
             pictureBoxSecurity.Name = "pictureBoxSecurity";
             pictureBoxSecurity.Size = new Size(30, 33);
             pictureBoxSecurity.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -183,11 +146,11 @@
             buttonContractTracking.FlatAppearance.MouseOverBackColor = Color.White;
             buttonContractTracking.FlatStyle = FlatStyle.Flat;
             buttonContractTracking.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractTracking.Location = new Point(6, 288);
+            buttonContractTracking.Location = new Point(6, 366);
             buttonContractTracking.Name = "buttonContractTracking";
             buttonContractTracking.Size = new Size(200, 48);
             buttonContractTracking.TabIndex = 5;
-            buttonContractTracking.Text = "THEO DÕI HỢP ĐỒNG";
+            buttonContractTracking.Text = "DANH SÁCH HỢP ĐỒNG";
             buttonContractTracking.UseVisualStyleBackColor = false;
             buttonContractTracking.Click += buttonContractTracking_Click;
             // 
@@ -199,7 +162,7 @@
             buttonHome.FlatAppearance.MouseOverBackColor = Color.White;
             buttonHome.FlatStyle = FlatStyle.Flat;
             buttonHome.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonHome.Location = new Point(6, 125);
+            buttonHome.Location = new Point(6, 150);
             buttonHome.Name = "buttonHome";
             buttonHome.Size = new Size(200, 48);
             buttonHome.TabIndex = 3;
@@ -216,7 +179,7 @@
             buttonInfoUser.FlatStyle = FlatStyle.Flat;
             buttonInfoUser.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInfoUser.ForeColor = SystemColors.ControlText;
-            buttonInfoUser.Location = new Point(6, 202);
+            buttonInfoUser.Location = new Point(6, 258);
             buttonInfoUser.Name = "buttonInfoUser";
             buttonInfoUser.Size = new Size(200, 48);
             buttonInfoUser.TabIndex = 4;
@@ -236,7 +199,7 @@
             // 
             // mainPanel
             // 
-            mainPanel.Dock = DockStyle.Right;
+            mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             mainPanel.Location = new Point(216, 0);
             mainPanel.Margin = new Padding(2);
             mainPanel.Name = "mainPanel";
@@ -255,7 +218,7 @@
             Name = "SaleManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seiko";
-            Load += HomeSalesManager_Load;
+            Load += SalesManager_Load;
             groupBoxFeature.ResumeLayout(false);
             groupBoxFeature.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSecurity).EndInit();
@@ -268,15 +231,13 @@
         private GroupBox groupBoxFeature;
         private Button buttonContractHistory;
         private Button buttonPerformanceReport;
-        private Button buttonProjectSchedule;
-        private Button buttonContractApproval;
+        private Button buttonProjectProgress;
         private Button buttonLogout;
         private PictureBox pictureBoxSecurity;
         private Button buttonContractTracking;
         private Button buttonHome;
         private Button buttonInfoUser;
         private PictureBox pictureBoxLogoHeadOfSales;
-        private Button buttonProjectAssignment;
         private Panel mainPanel;
     }
 }

@@ -119,5 +119,11 @@ namespace Design
             buttonShowPassword.Show();
             textBoxPassword.UseSystemPasswordChar = true;
         }
+
+        private void linkLabelForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            forgotPassword.Show();
+        }
     }
 }

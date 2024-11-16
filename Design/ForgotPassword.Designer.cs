@@ -46,8 +46,7 @@
             // pictureBoxLogo0
             // 
             pictureBoxLogo0.Image = Properties.Resources.logo0;
-            pictureBoxLogo0.Location = new Point(362, 19);
-            pictureBoxLogo0.Margin = new Padding(5, 5, 5, 5);
+            pictureBoxLogo0.Location = new Point(223, 12);
             pictureBoxLogo0.Name = "pictureBoxLogo0";
             pictureBoxLogo0.Size = new Size(43, 43);
             pictureBoxLogo0.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -58,10 +57,9 @@
             // 
             labelForgotPassword.AutoSize = true;
             labelForgotPassword.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelForgotPassword.Location = new Point(174, 115);
-            labelForgotPassword.Margin = new Padding(5, 0, 5, 0);
+            labelForgotPassword.Location = new Point(107, 72);
             labelForgotPassword.Name = "labelForgotPassword";
-            labelForgotPassword.Size = new Size(434, 65);
+            labelForgotPassword.Size = new Size(272, 41);
             labelForgotPassword.TabIndex = 5;
             labelForgotPassword.Text = "QUÊN MẬT KHẨU";
             labelForgotPassword.Click += labelCreatePassword_Click;
@@ -75,11 +73,9 @@
             groupBoxForgotPassword.Controls.Add(textBoxEmail);
             groupBoxForgotPassword.Controls.Add(labelOTP);
             groupBoxForgotPassword.Controls.Add(labelEmail);
-            groupBoxForgotPassword.Location = new Point(-138, 205);
-            groupBoxForgotPassword.Margin = new Padding(5, 5, 5, 5);
+            groupBoxForgotPassword.Location = new Point(-85, 128);
             groupBoxForgotPassword.Name = "groupBoxForgotPassword";
-            groupBoxForgotPassword.Padding = new Padding(5, 5, 5, 5);
-            groupBoxForgotPassword.Size = new Size(923, 518);
+            groupBoxForgotPassword.Size = new Size(568, 324);
             groupBoxForgotPassword.TabIndex = 6;
             groupBoxForgotPassword.TabStop = false;
             groupBoxForgotPassword.Text = "groupBox1";
@@ -91,10 +87,9 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(704, 294);
-            button1.Margin = new Padding(5, 5, 5, 5);
+            button1.Location = new Point(433, 184);
             button1.Name = "button1";
-            button1.Size = new Size(198, 48);
+            button1.Size = new Size(122, 30);
             button1.TabIndex = 14;
             button1.Text = "Gửi OTP";
             button1.UseVisualStyleBackColor = false;
@@ -106,13 +101,13 @@
             buttonBack.FlatStyle = FlatStyle.Popup;
             buttonBack.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBack.ForeColor = Color.White;
-            buttonBack.Location = new Point(775, 467);
-            buttonBack.Margin = new Padding(5, 5, 5, 5);
+            buttonBack.Location = new Point(477, 292);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(138, 42);
+            buttonBack.Size = new Size(85, 26);
             buttonBack.TabIndex = 13;
             buttonBack.Text = "Quay lại";
             buttonBack.UseVisualStyleBackColor = false;
+            buttonBack.Click += buttonBack_Click;
             // 
             // buttonSavePassword
             // 
@@ -121,10 +116,9 @@
             buttonSavePassword.FlatStyle = FlatStyle.Popup;
             buttonSavePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSavePassword.ForeColor = Color.White;
-            buttonSavePassword.Location = new Point(418, 411);
-            buttonSavePassword.Margin = new Padding(5, 5, 5, 5);
+            buttonSavePassword.Location = new Point(257, 257);
             buttonSavePassword.Name = "buttonSavePassword";
-            buttonSavePassword.Size = new Size(240, 66);
+            buttonSavePassword.Size = new Size(148, 41);
             buttonSavePassword.TabIndex = 12;
             buttonSavePassword.Text = "XÁC THỰC";
             buttonSavePassword.UseVisualStyleBackColor = false;
@@ -133,32 +127,29 @@
             // 
             textBoxOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxOTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxOTP.Location = new Point(158, 294);
-            textBoxOTP.Margin = new Padding(5, 5, 5, 5);
+            textBoxOTP.Location = new Point(97, 184);
             textBoxOTP.Name = "textBoxOTP";
             textBoxOTP.PlaceholderText = "Nhập mã OTP mà bạn nhận được";
-            textBoxOTP.Size = new Size(518, 44);
+            textBoxOTP.Size = new Size(320, 30);
             textBoxOTP.TabIndex = 8;
             // 
             // textBoxEmail
             // 
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxEmail.Location = new Point(158, 134);
-            textBoxEmail.Margin = new Padding(5, 5, 5, 5);
+            textBoxEmail.Location = new Point(97, 84);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Email: ( ví dụ: abc@gmail.com )";
-            textBoxEmail.Size = new Size(742, 44);
+            textBoxEmail.Size = new Size(458, 30);
             textBoxEmail.TabIndex = 7;
             // 
             // labelOTP
             // 
             labelOTP.AutoSize = true;
             labelOTP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOTP.Location = new Point(176, 218);
-            labelOTP.Margin = new Padding(5, 0, 5, 0);
+            labelOTP.Location = new Point(108, 136);
             labelOTP.Name = "labelOTP";
-            labelOTP.Size = new Size(227, 45);
+            labelOTP.Size = new Size(142, 28);
             labelOTP.TabIndex = 6;
             labelOTP.Text = "Nhập mã OTP";
             // 
@@ -166,25 +157,24 @@
             // 
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEmail.Location = new Point(176, 67);
-            labelEmail.Margin = new Padding(5, 0, 5, 0);
+            labelEmail.Location = new Point(108, 42);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(101, 45);
+            labelEmail.Size = new Size(64, 28);
             labelEmail.TabIndex = 5;
             labelEmail.Text = "Email";
             // 
             // ForgotPassword
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(783, 725);
+            ClientSize = new Size(482, 453);
             Controls.Add(groupBoxForgotPassword);
             Controls.Add(labelForgotPassword);
             Controls.Add(pictureBoxLogo0);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5, 5, 5, 5);
             Name = "ForgotPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Quên mật khẩu";
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo0).EndInit();
             groupBoxForgotPassword.ResumeLayout(false);
