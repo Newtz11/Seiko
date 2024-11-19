@@ -49,10 +49,10 @@ namespace Design
 
         private void SaleCommissionView_Load(object sender, EventArgs e)
         {
-            dataGridViewCommissionView.Rows.Add("HD001","Quay Video","01234","Nguyen Van A","10000000");
-            dataGridViewCommissionView.Rows.Add("HD002", "Chụp Video", "01234", "Nguyen Van A", "10000000");
-            dataGridViewCommissionView.Rows.Add("HD003", "Quay Video", "01234", "Nguyen Van A", "10000000");
-            dataGridViewCommissionView.Rows.Add("HD004", "Chụp Video", "01234", "Nguyen Van A", "10000000");
+            dataGridViewCommissionView.Rows.Add("HD001","Quay Video","01234","Nguyen Van A","15/9/2024", "5","10000000");
+            dataGridViewCommissionView.Rows.Add("HD002", "Chụp Video", "01234", "Nguyen Van A", "15/10/2024", "5", "10000000");
+            dataGridViewCommissionView.Rows.Add("HD003", "Quay Video", "01234", "Nguyen Van A", "15/11/2024", "5", "10000000");
+            dataGridViewCommissionView.Rows.Add("HD004", "Chụp Video", "01234", "Nguyen Van A", "15/12/2024", "5", "10000000");
 
             dataGridViewTongHoaHong.Rows.Add("40000000");
         }

@@ -93,11 +93,6 @@ namespace Design
             loadform(new SaleCommissionView());
         }
 
-        private void buttonPerformanceReport_Click(object sender, EventArgs e)
-        {
-            loadform(new PerformanceReport());
-        }
-
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             LogOut logOut = new LogOut();

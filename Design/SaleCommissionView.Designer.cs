@@ -29,28 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleCommissionView));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             pictureBoxIconContractTracking = new PictureBox();
             labelContractTracking = new Label();
             groupBoxCommissionView = new GroupBox();
-            dataGridViewTongHoaHong = new DataGridView();
-            TongSoHoaHong = new DataGridViewTextBoxColumn();
-            buttonSearch = new Button();
-            textBoxSearch = new TextBox();
             dataGridViewCommissionView = new DataGridView();
             maHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             MaNhanVien = new DataGridViewTextBoxColumn();
             TenNhanVien = new DataGridViewTextBoxColumn();
-            HoaHong = new DataGridViewTextBoxColumn();
+            NgayThanhToan = new DataGridViewTextBoxColumn();
+            MucHoaHong = new DataGridViewTextBoxColumn();
+            TienHoaHong = new DataGridViewTextBoxColumn();
+            dataGridViewTongHoaHong = new DataGridView();
+            TongSoHoaHong = new DataGridViewTextBoxColumn();
+            buttonSearch = new Button();
+            textBoxSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxCommissionView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTongHoaHong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCommissionView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTongHoaHong).BeginInit();
             SuspendLayout();
             // 
             // pictureBoxIconContractTracking
@@ -81,42 +83,143 @@
             groupBoxCommissionView.Controls.Add(dataGridViewTongHoaHong);
             groupBoxCommissionView.Controls.Add(buttonSearch);
             groupBoxCommissionView.Controls.Add(textBoxSearch);
-            groupBoxCommissionView.Location = new Point(102, 165);
+            groupBoxCommissionView.Location = new Point(21, 165);
             groupBoxCommissionView.Margin = new Padding(2);
             groupBoxCommissionView.Name = "groupBoxCommissionView";
             groupBoxCommissionView.Padding = new Padding(2);
-            groupBoxCommissionView.Size = new Size(1064, 743);
+            groupBoxCommissionView.Size = new Size(1223, 743);
             groupBoxCommissionView.TabIndex = 17;
             groupBoxCommissionView.TabStop = false;
             // 
+            // dataGridViewCommissionView
+            // 
+            dataGridViewCommissionView.AllowUserToAddRows = false;
+            dataGridViewCommissionView.AllowUserToDeleteRows = false;
+            dataGridViewCommissionView.AllowUserToOrderColumns = true;
+            dataGridViewCommissionView.AllowUserToResizeRows = false;
+            dataGridViewCommissionView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCommissionView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCommissionView.BackgroundColor = Color.White;
+            dataGridViewCommissionView.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCommissionView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCommissionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCommissionView.ColumnHeadersHeight = 60;
+            dataGridViewCommissionView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCommissionView.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, MaNhanVien, TenNhanVien, NgayThanhToan, MucHoaHong, TienHoaHong });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewCommissionView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCommissionView.GridColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCommissionView.Location = new Point(40, 98);
+            dataGridViewCommissionView.Name = "dataGridViewCommissionView";
+            dataGridViewCommissionView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewCommissionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCommissionView.RowHeadersVisible = false;
+            dataGridViewCommissionView.RowHeadersWidth = 51;
+            dataGridViewCommissionView.RowTemplate.Height = 35;
+            dataGridViewCommissionView.ScrollBars = ScrollBars.Vertical;
+            dataGridViewCommissionView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCommissionView.Size = new Size(1134, 511);
+            dataGridViewCommissionView.TabIndex = 3;
+            // 
+            // maHopDong
+            // 
+            maHopDong.FillWeight = 116.0638F;
+            maHopDong.HeaderText = "Mã hợp dồng";
+            maHopDong.MinimumWidth = 30;
+            maHopDong.Name = "maHopDong";
+            maHopDong.Resizable = DataGridViewTriState.False;
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.FillWeight = 112.188828F;
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            TenHopDong.Resizable = DataGridViewTriState.False;
+            // 
+            // MaNhanVien
+            // 
+            MaNhanVien.FillWeight = 99.04235F;
+            MaNhanVien.HeaderText = "Mã nhân viên";
+            MaNhanVien.MinimumWidth = 6;
+            MaNhanVien.Name = "MaNhanVien";
+            // 
+            // TenNhanVien
+            // 
+            TenNhanVien.FillWeight = 99.04235F;
+            TenNhanVien.HeaderText = "Tên nhân viên";
+            TenNhanVien.MinimumWidth = 6;
+            TenNhanVien.Name = "TenNhanVien";
+            // 
+            // NgayThanhToan
+            // 
+            NgayThanhToan.FillWeight = 99.04235F;
+            NgayThanhToan.HeaderText = "Ngày thanh toán";
+            NgayThanhToan.MinimumWidth = 6;
+            NgayThanhToan.Name = "NgayThanhToan";
+            // 
+            // MucHoaHong
+            // 
+            MucHoaHong.FillWeight = 99.04235F;
+            MucHoaHong.HeaderText = "Hoa hồng (%)";
+            MucHoaHong.MinimumWidth = 6;
+            MucHoaHong.Name = "MucHoaHong";
+            // 
+            // TienHoaHong
+            // 
+            TienHoaHong.FillWeight = 99.04235F;
+            TienHoaHong.HeaderText = "Tiền hoa hồng";
+            TienHoaHong.MinimumWidth = 6;
+            TienHoaHong.Name = "TienHoaHong";
+            // 
             // dataGridViewTongHoaHong
             // 
-            dataGridViewTongHoaHong.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridViewTongHoaHong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewTongHoaHong.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewTongHoaHong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewTongHoaHong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTongHoaHong.Columns.AddRange(new DataGridViewColumn[] { TongSoHoaHong });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dataGridViewTongHoaHong.DefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewTongHoaHong.Location = new Point(715, 631);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridViewTongHoaHong.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTongHoaHong.Location = new Point(874, 648);
             dataGridViewTongHoaHong.Name = "dataGridViewTongHoaHong";
             dataGridViewTongHoaHong.RowHeadersVisible = false;
             dataGridViewTongHoaHong.RowHeadersWidth = 51;
             dataGridViewTongHoaHong.ScrollBars = ScrollBars.None;
             dataGridViewTongHoaHong.Size = new Size(300, 65);
-            dataGridViewTongHoaHong.TabIndex = 20;
+            dataGridViewTongHoaHong.TabIndex = 4;
             // 
             // TongSoHoaHong
             // 
@@ -132,106 +235,23 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(885, 39);
+            buttonSearch.Location = new Point(1044, 39);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(130, 30);
-            buttonSearch.TabIndex = 18;
+            buttonSearch.TabIndex = 2;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
             buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.Location = new Point(40, 40);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Tìm kiếm";
-            textBoxSearch.Size = new Size(819, 30);
-            textBoxSearch.TabIndex = 17;
-            // 
-            // dataGridViewCommissionView
-            // 
-            dataGridViewCommissionView.AllowUserToAddRows = false;
-            dataGridViewCommissionView.AllowUserToDeleteRows = false;
-            dataGridViewCommissionView.AllowUserToOrderColumns = true;
-            dataGridViewCommissionView.AllowUserToResizeRows = false;
-            dataGridViewCommissionView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCommissionView.BackgroundColor = Color.White;
-            dataGridViewCommissionView.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCommissionView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = Color.DarkGray;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridViewCommissionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCommissionView.ColumnHeadersHeight = 60;
-            dataGridViewCommissionView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCommissionView.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, MaNhanVien, TenNhanVien, HoaHong });
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = SystemColors.Window;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            dataGridViewCommissionView.DefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCommissionView.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCommissionView.Location = new Point(40, 98);
-            dataGridViewCommissionView.Name = "dataGridViewCommissionView";
-            dataGridViewCommissionView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Control;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dataGridViewCommissionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewCommissionView.RowHeadersVisible = false;
-            dataGridViewCommissionView.RowHeadersWidth = 51;
-            dataGridViewCommissionView.RowTemplate.Height = 35;
-            dataGridViewCommissionView.ScrollBars = ScrollBars.Vertical;
-            dataGridViewCommissionView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCommissionView.Size = new Size(975, 511);
-            dataGridViewCommissionView.TabIndex = 21;
-            // 
-            // maHopDong
-            // 
-            maHopDong.FillWeight = 110.190605F;
-            maHopDong.HeaderText = "Mã hợp dồng";
-            maHopDong.MinimumWidth = 6;
-            maHopDong.Name = "maHopDong";
-            maHopDong.Resizable = DataGridViewTriState.False;
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.FillWeight = 113.27359F;
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            TenHopDong.Resizable = DataGridViewTriState.False;
-            // 
-            // MaNhanVien
-            // 
-            MaNhanVien.HeaderText = "Mã nhân viên";
-            MaNhanVien.MinimumWidth = 6;
-            MaNhanVien.Name = "MaNhanVien";
-            // 
-            // TenNhanVien
-            // 
-            TenNhanVien.HeaderText = "Tên Nhân Viên";
-            TenNhanVien.MinimumWidth = 6;
-            TenNhanVien.Name = "TenNhanVien";
-            // 
-            // HoaHong
-            // 
-            HoaHong.HeaderText = "Hoa Hồng";
-            HoaHong.MinimumWidth = 6;
-            HoaHong.Name = "HoaHong";
+            textBoxSearch.Size = new Size(978, 30);
+            textBoxSearch.TabIndex = 1;
             // 
             // SaleCommissionView
             // 
@@ -250,8 +270,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             groupBoxCommissionView.ResumeLayout(false);
             groupBoxCommissionView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTongHoaHong).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCommissionView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTongHoaHong).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -269,6 +289,8 @@
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn MaNhanVien;
         private DataGridViewTextBoxColumn TenNhanVien;
-        private DataGridViewTextBoxColumn HoaHong;
+        private DataGridViewTextBoxColumn NgayThanhToan;
+        private DataGridViewTextBoxColumn MucHoaHong;
+        private DataGridViewTextBoxColumn TienHoaHong;
     }
 }

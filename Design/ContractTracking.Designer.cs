@@ -47,13 +47,13 @@
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             dataGridViewContractTracking = new DataGridView();
-            maHopDong = new DataGridViewTextBoxColumn();
+            MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
-            tenCongTy = new DataGridViewTextBoxColumn();
+            TenCongTyCaNhan = new DataGridViewTextBoxColumn();
             NguoiLienHe = new DataGridViewTextBoxColumn();
             NgayBatDau = new DataGridViewTextBoxColumn();
-            ngayHetHang = new DataGridViewTextBoxColumn();
-            giaTriHopDong = new DataGridViewTextBoxColumn();
+            NgayHetHan = new DataGridViewTextBoxColumn();
+            GiaTriHopDong = new DataGridViewTextBoxColumn();
             AccountSale = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
@@ -83,7 +83,7 @@
             // 
             // groupBoxListUser
             // 
-            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
             groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
@@ -127,6 +127,7 @@
             // 
             // buttonXoa
             // 
+            buttonXoa.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonXoa.BackColor = Color.Crimson;
             buttonXoa.FlatAppearance.BorderSize = 2;
             buttonXoa.FlatStyle = FlatStyle.Popup;
@@ -141,6 +142,7 @@
             // 
             // buttonThem
             // 
+            buttonThem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonThem.BackColor = Color.FromArgb(0, 192, 0);
             buttonThem.FlatAppearance.BorderSize = 2;
             buttonThem.FlatStyle = FlatStyle.Popup;
@@ -201,6 +203,7 @@
             // 
             // buttonSearch
             // 
+            buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonSearch.BackColor = Color.DodgerBlue;
             buttonSearch.FlatAppearance.BorderSize = 2;
             buttonSearch.FlatStyle = FlatStyle.Popup;
@@ -216,7 +219,7 @@
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.Location = new Point(33, 94);
             textBoxSearch.Name = "textBoxSearch";
@@ -230,7 +233,8 @@
             dataGridViewContractTracking.AllowUserToDeleteRows = false;
             dataGridViewContractTracking.AllowUserToOrderColumns = true;
             dataGridViewContractTracking.AllowUserToResizeRows = false;
-            dataGridViewContractTracking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewContractTracking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewContractTracking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewContractTracking.BackgroundColor = Color.White;
             dataGridViewContractTracking.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewContractTracking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -244,7 +248,7 @@
             dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractTracking.ColumnHeadersHeight = 60;
             dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, tenCongTy, NguoiLienHe, NgayBatDau, ngayHetHang, giaTriHopDong, AccountSale, TinhTrang });
+            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, AccountSale, TinhTrang });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -274,86 +278,59 @@
             dataGridViewContractTracking.TabIndex = 8;
             dataGridViewContractTracking.CellContentClick += dataGridViewContractTracking_CellContentClick;
             // 
-            // maHopDong
+            // MaHopDong
             // 
-            maHopDong.FillWeight = 110.190605F;
-            maHopDong.HeaderText = "Mã hợp dồng";
-            maHopDong.MinimumWidth = 6;
-            maHopDong.Name = "maHopDong";
-            maHopDong.Resizable = DataGridViewTriState.False;
-            maHopDong.Width = 131;
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
             // 
             // TenHopDong
             // 
-            TenHopDong.FillWeight = 113.27359F;
             TenHopDong.HeaderText = "Tên hợp đồng";
             TenHopDong.MinimumWidth = 6;
             TenHopDong.Name = "TenHopDong";
-            TenHopDong.Resizable = DataGridViewTriState.False;
-            TenHopDong.Width = 134;
             // 
-            // tenCongTy
+            // TenCongTyCaNhan
             // 
-            tenCongTy.FillWeight = 140.829F;
-            tenCongTy.HeaderText = "Tên Công ty/Cá nhân";
-            tenCongTy.MinimumWidth = 6;
-            tenCongTy.Name = "tenCongTy";
-            tenCongTy.Resizable = DataGridViewTriState.False;
-            tenCongTy.Width = 184;
+            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
+            TenCongTyCaNhan.MinimumWidth = 6;
+            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
             // 
             // NguoiLienHe
             // 
-            NguoiLienHe.FillWeight = 92.85412F;
             NguoiLienHe.HeaderText = "Người liên hệ";
             NguoiLienHe.MinimumWidth = 6;
             NguoiLienHe.Name = "NguoiLienHe";
-            NguoiLienHe.Resizable = DataGridViewTriState.False;
-            NguoiLienHe.Width = 132;
             // 
             // NgayBatDau
             // 
-            NgayBatDau.FillWeight = 87.81649F;
             NgayBatDau.HeaderText = "Ngày bắt đầu";
             NgayBatDau.MinimumWidth = 6;
             NgayBatDau.Name = "NgayBatDau";
-            NgayBatDau.Resizable = DataGridViewTriState.False;
-            NgayBatDau.Width = 132;
             // 
-            // ngayHetHang
+            // NgayHetHan
             // 
-            ngayHetHang.FillWeight = 86.0413361F;
-            ngayHetHang.HeaderText = "Ngày hết hạn";
-            ngayHetHang.MinimumWidth = 6;
-            ngayHetHang.Name = "ngayHetHang";
-            ngayHetHang.Resizable = DataGridViewTriState.False;
-            ngayHetHang.Width = 132;
+            NgayHetHan.HeaderText = "Ngày hết hạn";
+            NgayHetHan.MinimumWidth = 6;
+            NgayHetHan.Name = "NgayHetHan";
             // 
-            // giaTriHopDong
+            // GiaTriHopDong
             // 
-            giaTriHopDong.FillWeight = 96.2567F;
-            giaTriHopDong.HeaderText = "Giá trị hợp đồng";
-            giaTriHopDong.MinimumWidth = 6;
-            giaTriHopDong.Name = "giaTriHopDong";
-            giaTriHopDong.Resizable = DataGridViewTriState.False;
-            giaTriHopDong.Width = 152;
+            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
+            GiaTriHopDong.MinimumWidth = 6;
+            GiaTriHopDong.Name = "GiaTriHopDong";
             // 
             // AccountSale
             // 
-            AccountSale.FillWeight = 114.6868F;
             AccountSale.HeaderText = "Account/Sale";
             AccountSale.MinimumWidth = 6;
             AccountSale.Name = "AccountSale";
-            AccountSale.Resizable = DataGridViewTriState.False;
-            AccountSale.Width = 131;
             // 
             // TinhTrang
             // 
-            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TinhTrang.FillWeight = 58.0513535F;
             TinhTrang.HeaderText = "Tình trạng";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
-            TinhTrang.Resizable = DataGridViewTriState.False;
             // 
             // ContractTracking
             // 
@@ -394,13 +371,13 @@
         private Button buttonXoa;
         private ComboBox comboBoxTinhTrang;
         private ComboBox comboBoxSale;
-        private DataGridViewTextBoxColumn maHopDong;
+        private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
-        private DataGridViewTextBoxColumn tenCongTy;
+        private DataGridViewTextBoxColumn TenCongTyCaNhan;
         private DataGridViewTextBoxColumn NguoiLienHe;
         private DataGridViewTextBoxColumn NgayBatDau;
-        private DataGridViewTextBoxColumn ngayHetHang;
-        private DataGridViewTextBoxColumn giaTriHopDong;
+        private DataGridViewTextBoxColumn NgayHetHan;
+        private DataGridViewTextBoxColumn GiaTriHopDong;
         private DataGridViewTextBoxColumn AccountSale;
         private DataGridViewTextBoxColumn TinhTrang;
     }

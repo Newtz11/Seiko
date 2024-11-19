@@ -29,24 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractHistory));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pictureBoxIconContractTracking = new PictureBox();
             labelContractHistory = new Label();
             textBoxSearch = new TextBox();
             buttonSearch = new Button();
-            groupBox1 = new GroupBox();
+            groupBoxContractHistory = new GroupBox();
             dataGridViewContractHistory = new DataGridView();
-            maHopDong = new DataGridViewTextBoxColumn();
-            TenHopDong = new DataGridViewTextBoxColumn();
-            tenCongTy = new DataGridViewTextBoxColumn();
-            NguoiLienHe = new DataGridViewTextBoxColumn();
-            NgayBatDau = new DataGridViewTextBoxColumn();
-            ngayHetHang = new DataGridViewTextBoxColumn();
-            giaTriHopDong = new DataGridViewTextBoxColumn();
-            AccountSale = new DataGridViewTextBoxColumn();
-            TinhTrang = new DataGridViewTextBoxColumn();
             comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             labelNgayKetThuc = new Label();
@@ -55,8 +46,17 @@
             dateTimePickerStart = new DateTimePicker();
             button1 = new Button();
             labelContractList = new Label();
+            MaHopDong = new DataGridViewTextBoxColumn();
+            TenHopDong = new DataGridViewTextBoxColumn();
+            TenCongTyCaNhan = new DataGridViewTextBoxColumn();
+            NguoiLienHe = new DataGridViewTextBoxColumn();
+            NgayBatDau = new DataGridViewTextBoxColumn();
+            NgayHetHan = new DataGridViewTextBoxColumn();
+            GiaTriHopDong = new DataGridViewTextBoxColumn();
+            AccountSale = new DataGridViewTextBoxColumn();
+            TinhTrang = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
-            groupBox1.SuspendLayout();
+            groupBoxContractHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractHistory).BeginInit();
             SuspendLayout();
             // 
@@ -82,12 +82,12 @@
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.Location = new Point(34, 89);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Tìm kiếm";
-            textBoxSearch.Size = new Size(1033, 30);
+            textBoxSearch.Size = new Size(1110, 30);
             textBoxSearch.TabIndex = 1;
             // 
             // buttonSearch
@@ -97,35 +97,35 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(2233, 39);
+            buttonSearch.Location = new Point(2310, 39);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(130, 30);
             buttonSearch.TabIndex = 18;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // groupBoxContractHistory
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            groupBox1.BackColor = Color.LightGray;
-            groupBox1.Controls.Add(dataGridViewContractHistory);
-            groupBox1.Controls.Add(comboBoxSale);
-            groupBox1.Controls.Add(comboBoxTinhTrang);
-            groupBox1.Controls.Add(labelNgayKetThuc);
-            groupBox1.Controls.Add(dateTimePickerEnd);
-            groupBox1.Controls.Add(labelNgayBatDau);
-            groupBox1.Controls.Add(dateTimePickerStart);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(labelContractList);
-            groupBox1.Controls.Add(buttonSearch);
-            groupBox1.Controls.Add(textBoxSearch);
-            groupBox1.Location = new Point(50, 143);
-            groupBox1.Margin = new Padding(2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(1300, 799);
-            groupBox1.TabIndex = 18;
-            groupBox1.TabStop = false;
+            groupBoxContractHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxContractHistory.BackColor = Color.LightGray;
+            groupBoxContractHistory.Controls.Add(dataGridViewContractHistory);
+            groupBoxContractHistory.Controls.Add(comboBoxSale);
+            groupBoxContractHistory.Controls.Add(comboBoxTinhTrang);
+            groupBoxContractHistory.Controls.Add(labelNgayKetThuc);
+            groupBoxContractHistory.Controls.Add(dateTimePickerEnd);
+            groupBoxContractHistory.Controls.Add(labelNgayBatDau);
+            groupBoxContractHistory.Controls.Add(dateTimePickerStart);
+            groupBoxContractHistory.Controls.Add(button1);
+            groupBoxContractHistory.Controls.Add(labelContractList);
+            groupBoxContractHistory.Controls.Add(buttonSearch);
+            groupBoxContractHistory.Controls.Add(textBoxSearch);
+            groupBoxContractHistory.Location = new Point(12, 143);
+            groupBoxContractHistory.Margin = new Padding(2);
+            groupBoxContractHistory.Name = "groupBoxContractHistory";
+            groupBoxContractHistory.Padding = new Padding(2);
+            groupBoxContractHistory.Size = new Size(1377, 799);
+            groupBoxContractHistory.TabIndex = 18;
+            groupBoxContractHistory.TabStop = false;
             // 
             // dataGridViewContractHistory
             // 
@@ -133,130 +133,49 @@
             dataGridViewContractHistory.AllowUserToDeleteRows = false;
             dataGridViewContractHistory.AllowUserToOrderColumns = true;
             dataGridViewContractHistory.AllowUserToResizeRows = false;
-            dataGridViewContractHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridViewContractHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewContractHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewContractHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewContractHistory.BackgroundColor = Color.White;
             dataGridViewContractHistory.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewContractHistory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.DarkGray;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridViewContractHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewContractHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractHistory.ColumnHeadersHeight = 60;
             dataGridViewContractHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewContractHistory.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, tenCongTy, NguoiLienHe, NgayBatDau, ngayHetHang, giaTriHopDong, AccountSale, TinhTrang });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridViewContractHistory.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewContractHistory.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, AccountSale, TinhTrang });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewContractHistory.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewContractHistory.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractHistory.Location = new Point(25, 259);
             dataGridViewContractHistory.Name = "dataGridViewContractHistory";
             dataGridViewContractHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridViewContractHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewContractHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewContractHistory.RowHeadersVisible = false;
             dataGridViewContractHistory.RowHeadersWidth = 51;
             dataGridViewContractHistory.RowTemplate.Height = 35;
             dataGridViewContractHistory.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewContractHistory.Size = new Size(1260, 499);
+            dataGridViewContractHistory.Size = new Size(1337, 499);
             dataGridViewContractHistory.TabIndex = 7;
-            // 
-            // maHopDong
-            // 
-            maHopDong.FillWeight = 110.190605F;
-            maHopDong.HeaderText = "Mã hợp dồng";
-            maHopDong.MinimumWidth = 6;
-            maHopDong.Name = "maHopDong";
-            maHopDong.Resizable = DataGridViewTriState.False;
-            maHopDong.Width = 131;
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.FillWeight = 113.27359F;
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            TenHopDong.Resizable = DataGridViewTriState.False;
-            TenHopDong.Width = 134;
-            // 
-            // tenCongTy
-            // 
-            tenCongTy.FillWeight = 140.829F;
-            tenCongTy.HeaderText = "Tên Công ty/Cá nhân";
-            tenCongTy.MinimumWidth = 6;
-            tenCongTy.Name = "tenCongTy";
-            tenCongTy.Resizable = DataGridViewTriState.False;
-            tenCongTy.Width = 184;
-            // 
-            // NguoiLienHe
-            // 
-            NguoiLienHe.FillWeight = 92.85412F;
-            NguoiLienHe.HeaderText = "Người liên hệ";
-            NguoiLienHe.MinimumWidth = 6;
-            NguoiLienHe.Name = "NguoiLienHe";
-            NguoiLienHe.Resizable = DataGridViewTriState.False;
-            NguoiLienHe.Width = 132;
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.FillWeight = 87.81649F;
-            NgayBatDau.HeaderText = "Ngày bắt đầu";
-            NgayBatDau.MinimumWidth = 6;
-            NgayBatDau.Name = "NgayBatDau";
-            NgayBatDau.Resizable = DataGridViewTriState.False;
-            NgayBatDau.Width = 132;
-            // 
-            // ngayHetHang
-            // 
-            ngayHetHang.FillWeight = 86.0413361F;
-            ngayHetHang.HeaderText = "Ngày hết hạn";
-            ngayHetHang.MinimumWidth = 6;
-            ngayHetHang.Name = "ngayHetHang";
-            ngayHetHang.Resizable = DataGridViewTriState.False;
-            ngayHetHang.Width = 132;
-            // 
-            // giaTriHopDong
-            // 
-            giaTriHopDong.FillWeight = 96.2567F;
-            giaTriHopDong.HeaderText = "Giá trị hợp đồng";
-            giaTriHopDong.MinimumWidth = 6;
-            giaTriHopDong.Name = "giaTriHopDong";
-            giaTriHopDong.Resizable = DataGridViewTriState.False;
-            giaTriHopDong.Width = 152;
-            // 
-            // AccountSale
-            // 
-            AccountSale.FillWeight = 114.6868F;
-            AccountSale.HeaderText = "Account/Sale";
-            AccountSale.MinimumWidth = 6;
-            AccountSale.Name = "AccountSale";
-            AccountSale.Resizable = DataGridViewTriState.False;
-            AccountSale.Width = 131;
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TinhTrang.FillWeight = 58.0513535F;
-            TinhTrang.HeaderText = "Tình trạng";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
-            TinhTrang.Resizable = DataGridViewTriState.False;
             // 
             // comboBoxSale
             // 
@@ -317,12 +236,13 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.BackColor = Color.DodgerBlue;
             button1.FlatAppearance.BorderSize = 2;
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1109, 89);
+            button1.Location = new Point(1186, 89);
             button1.Name = "button1";
             button1.Size = new Size(130, 30);
             button1.TabIndex = 2;
@@ -340,12 +260,66 @@
             labelContractList.TabIndex = 20;
             labelContractList.Text = "LỊCH SỬ HỢP ĐỒNG";
             // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // TenCongTyCaNhan
+            // 
+            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
+            TenCongTyCaNhan.MinimumWidth = 6;
+            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
+            // 
+            // NguoiLienHe
+            // 
+            NguoiLienHe.HeaderText = "Người liên hệ";
+            NguoiLienHe.MinimumWidth = 6;
+            NguoiLienHe.Name = "NguoiLienHe";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            // 
+            // NgayHetHan
+            // 
+            NgayHetHan.HeaderText = "Ngày hết hạn";
+            NgayHetHan.MinimumWidth = 6;
+            NgayHetHan.Name = "NgayHetHan";
+            // 
+            // GiaTriHopDong
+            // 
+            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
+            GiaTriHopDong.MinimumWidth = 6;
+            GiaTriHopDong.Name = "GiaTriHopDong";
+            // 
+            // AccountSale
+            // 
+            AccountSale.HeaderText = "Account/Sale";
+            AccountSale.MinimumWidth = 6;
+            AccountSale.Name = "AccountSale";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
+            // 
             // ContractHistory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1400, 953);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxContractHistory);
             Controls.Add(labelContractHistory);
             Controls.Add(pictureBoxIconContractTracking);
             FormBorderStyle = FormBorderStyle.None;
@@ -355,8 +329,8 @@
             Text = "Lịch sử hợp đồng";
             Load += ContractHistory_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupBoxContractHistory.ResumeLayout(false);
+            groupBoxContractHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractHistory).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -367,7 +341,7 @@
         private Label labelContractHistory;
         private TextBox textBoxSearch;
         private Button buttonSearch;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxContractHistory;
         private Label labelContractList;
         private Button button1;
         private ComboBox comboBoxSale;
@@ -377,13 +351,13 @@
         private Label labelNgayBatDau;
         private DateTimePicker dateTimePickerStart;
         private DataGridView dataGridViewContractHistory;
-        private DataGridViewTextBoxColumn maHopDong;
+        private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
-        private DataGridViewTextBoxColumn tenCongTy;
+        private DataGridViewTextBoxColumn TenCongTyCaNhan;
         private DataGridViewTextBoxColumn NguoiLienHe;
         private DataGridViewTextBoxColumn NgayBatDau;
-        private DataGridViewTextBoxColumn ngayHetHang;
-        private DataGridViewTextBoxColumn giaTriHopDong;
+        private DataGridViewTextBoxColumn NgayHetHan;
+        private DataGridViewTextBoxColumn GiaTriHopDong;
         private DataGridViewTextBoxColumn AccountSale;
         private DataGridViewTextBoxColumn TinhTrang;
     }

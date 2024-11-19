@@ -32,34 +32,39 @@
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxTaoHopDong = new GroupBox();
+            textBoxEmail = new TextBox();
+            labelEmail = new Label();
+            textBoxSDT = new TextBox();
+            labelSDT = new Label();
+            textBoxDiaChi = new TextBox();
+            labelDiaChi = new Label();
+            textBoxTenNguoiLienHe = new TextBox();
+            labelTenNguoiLienHe = new Label();
+            labelThongTinNguoiLienHe = new Label();
+            comboBoxHinhThucTT = new ComboBox();
+            labelHinhThucThanhToan = new Label();
+            textBoxMaNhanVien = new TextBox();
+            labelMaNhanVien = new Label();
+            textBoxTenNhanVien = new TextBox();
+            labelTenNhanVien = new Label();
+            labelThongTinNhanVien = new Label();
+            richTextBoxNoiDung = new RichTextBox();
+            labelNoiDungHopDong = new Label();
+            textBoxGiaTri = new TextBox();
+            labelGiaTri = new Label();
+            dateTimePickerEnd = new DateTimePicker();
+            dateTimePickerStart = new DateTimePicker();
+            labelNgayKetThuc = new Label();
+            labelNgayBatDau = new Label();
+            textBox2 = new TextBox();
+            labelTenNguoiDaiDien = new Label();
+            textBoxTenHopDong = new TextBox();
+            labelTenHopDong = new Label();
+            textBoxMaHopDong = new TextBox();
+            labelMaHopDong = new Label();
+            labelThongTinHopDong = new Label();
             buttonQuayLai = new Button();
             buttonTao = new Button();
-            textBoxTenSale = new TextBox();
-            textBoxTinhTrang = new TextBox();
-            label10 = new Label();
-            label13 = new Label();
-            textBoxDaThanhToan = new TextBox();
-            textBoxGiaTriHopDong = new TextBox();
-            textBoxNgayHetHan = new TextBox();
-            textBoxNgayBatDau = new TextBox();
-            textBoxNoiDungHopDong = new TextBox();
-            textBoxDiaChiNguoiLienHe = new TextBox();
-            textBoxSDT = new TextBox();
-            textBoxEmail = new TextBox();
-            textBoxTenHopDong = new TextBox();
-            textBoxTenKhachHang = new TextBox();
-            textBoxMaHopDong = new TextBox();
-            label12 = new Label();
-            label11 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxTaoHopDong.SuspendLayout();
             SuspendLayout();
@@ -69,7 +74,7 @@
             labelContractTracking.Anchor = AnchorStyles.Top;
             labelContractTracking.AutoSize = true;
             labelContractTracking.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelContractTracking.Location = new Point(604, 115);
+            labelContractTracking.Location = new Point(583, 115);
             labelContractTracking.Name = "labelContractTracking";
             labelContractTracking.Size = new Size(153, 25);
             labelContractTracking.TabIndex = 46;
@@ -79,7 +84,7 @@
             // 
             pictureBoxIconContractTracking.Anchor = AnchorStyles.Top;
             pictureBoxIconContractTracking.Image = (Image)resources.GetObject("pictureBoxIconContractTracking.Image");
-            pictureBoxIconContractTracking.Location = new Point(633, 12);
+            pictureBoxIconContractTracking.Location = new Point(612, 12);
             pictureBoxIconContractTracking.Name = "pictureBoxIconContractTracking";
             pictureBoxIconContractTracking.Size = new Size(100, 100);
             pictureBoxIconContractTracking.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -90,323 +95,394 @@
             // 
             groupBoxTaoHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxTaoHopDong.BackColor = Color.LightGray;
+            groupBoxTaoHopDong.Controls.Add(textBoxEmail);
+            groupBoxTaoHopDong.Controls.Add(labelEmail);
+            groupBoxTaoHopDong.Controls.Add(textBoxSDT);
+            groupBoxTaoHopDong.Controls.Add(labelSDT);
+            groupBoxTaoHopDong.Controls.Add(textBoxDiaChi);
+            groupBoxTaoHopDong.Controls.Add(labelDiaChi);
+            groupBoxTaoHopDong.Controls.Add(textBoxTenNguoiLienHe);
+            groupBoxTaoHopDong.Controls.Add(labelTenNguoiLienHe);
+            groupBoxTaoHopDong.Controls.Add(labelThongTinNguoiLienHe);
+            groupBoxTaoHopDong.Controls.Add(comboBoxHinhThucTT);
+            groupBoxTaoHopDong.Controls.Add(labelHinhThucThanhToan);
+            groupBoxTaoHopDong.Controls.Add(textBoxMaNhanVien);
+            groupBoxTaoHopDong.Controls.Add(labelMaNhanVien);
+            groupBoxTaoHopDong.Controls.Add(textBoxTenNhanVien);
+            groupBoxTaoHopDong.Controls.Add(labelTenNhanVien);
+            groupBoxTaoHopDong.Controls.Add(labelThongTinNhanVien);
+            groupBoxTaoHopDong.Controls.Add(richTextBoxNoiDung);
+            groupBoxTaoHopDong.Controls.Add(labelNoiDungHopDong);
+            groupBoxTaoHopDong.Controls.Add(textBoxGiaTri);
+            groupBoxTaoHopDong.Controls.Add(labelGiaTri);
+            groupBoxTaoHopDong.Controls.Add(dateTimePickerEnd);
+            groupBoxTaoHopDong.Controls.Add(dateTimePickerStart);
+            groupBoxTaoHopDong.Controls.Add(labelNgayKetThuc);
+            groupBoxTaoHopDong.Controls.Add(labelNgayBatDau);
+            groupBoxTaoHopDong.Controls.Add(textBox2);
+            groupBoxTaoHopDong.Controls.Add(labelTenNguoiDaiDien);
+            groupBoxTaoHopDong.Controls.Add(textBoxTenHopDong);
+            groupBoxTaoHopDong.Controls.Add(labelTenHopDong);
+            groupBoxTaoHopDong.Controls.Add(textBoxMaHopDong);
+            groupBoxTaoHopDong.Controls.Add(labelMaHopDong);
+            groupBoxTaoHopDong.Controls.Add(labelThongTinHopDong);
             groupBoxTaoHopDong.Controls.Add(buttonQuayLai);
             groupBoxTaoHopDong.Controls.Add(buttonTao);
-            groupBoxTaoHopDong.Controls.Add(textBoxTenSale);
-            groupBoxTaoHopDong.Controls.Add(textBoxTinhTrang);
-            groupBoxTaoHopDong.Controls.Add(label10);
-            groupBoxTaoHopDong.Controls.Add(label13);
-            groupBoxTaoHopDong.Controls.Add(textBoxDaThanhToan);
-            groupBoxTaoHopDong.Controls.Add(textBoxGiaTriHopDong);
-            groupBoxTaoHopDong.Controls.Add(textBoxNgayHetHan);
-            groupBoxTaoHopDong.Controls.Add(textBoxNgayBatDau);
-            groupBoxTaoHopDong.Controls.Add(textBoxNoiDungHopDong);
-            groupBoxTaoHopDong.Controls.Add(textBoxDiaChiNguoiLienHe);
-            groupBoxTaoHopDong.Controls.Add(textBoxSDT);
-            groupBoxTaoHopDong.Controls.Add(textBoxEmail);
-            groupBoxTaoHopDong.Controls.Add(textBoxTenHopDong);
-            groupBoxTaoHopDong.Controls.Add(textBoxTenKhachHang);
-            groupBoxTaoHopDong.Controls.Add(textBoxMaHopDong);
-            groupBoxTaoHopDong.Controls.Add(label12);
-            groupBoxTaoHopDong.Controls.Add(label11);
-            groupBoxTaoHopDong.Controls.Add(label9);
-            groupBoxTaoHopDong.Controls.Add(label8);
-            groupBoxTaoHopDong.Controls.Add(label7);
-            groupBoxTaoHopDong.Controls.Add(label5);
-            groupBoxTaoHopDong.Controls.Add(label4);
-            groupBoxTaoHopDong.Controls.Add(label3);
-            groupBoxTaoHopDong.Controls.Add(label2);
-            groupBoxTaoHopDong.Controls.Add(label1);
-            groupBoxTaoHopDong.Controls.Add(label6);
-            groupBoxTaoHopDong.Location = new Point(24, 143);
+            groupBoxTaoHopDong.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            groupBoxTaoHopDong.Location = new Point(24, 145);
             groupBoxTaoHopDong.Name = "groupBoxTaoHopDong";
-            groupBoxTaoHopDong.Size = new Size(1300, 750);
+            groupBoxTaoHopDong.Size = new Size(1250, 638);
             groupBoxTaoHopDong.TabIndex = 47;
             groupBoxTaoHopDong.TabStop = false;
             // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxEmail.BorderStyle = BorderStyle.None;
+            textBoxEmail.Location = new Point(906, 205);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(306, 23);
+            textBoxEmail.TabIndex = 12;
+            // 
+            // labelEmail
+            // 
+            labelEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelEmail.AutoSize = true;
+            labelEmail.BackColor = Color.LightGray;
+            labelEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelEmail.Location = new Point(750, 203);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(58, 25);
+            labelEmail.TabIndex = 118;
+            labelEmail.Text = "Email:";
+            // 
+            // textBoxSDT
+            // 
+            textBoxSDT.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxSDT.BorderStyle = BorderStyle.None;
+            textBoxSDT.Location = new Point(906, 160);
+            textBoxSDT.Name = "textBoxSDT";
+            textBoxSDT.Size = new Size(306, 23);
+            textBoxSDT.TabIndex = 11;
+            // 
+            // labelSDT
+            // 
+            labelSDT.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelSDT.AutoSize = true;
+            labelSDT.BackColor = Color.LightGray;
+            labelSDT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelSDT.Location = new Point(750, 160);
+            labelSDT.Name = "labelSDT";
+            labelSDT.Size = new Size(121, 25);
+            labelSDT.TabIndex = 116;
+            labelSDT.Text = "Số điện thoại:";
+            // 
+            // textBoxDiaChi
+            // 
+            textBoxDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxDiaChi.BorderStyle = BorderStyle.None;
+            textBoxDiaChi.Location = new Point(906, 114);
+            textBoxDiaChi.Name = "textBoxDiaChi";
+            textBoxDiaChi.Size = new Size(306, 23);
+            textBoxDiaChi.TabIndex = 10;
+            // 
+            // labelDiaChi
+            // 
+            labelDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelDiaChi.AutoSize = true;
+            labelDiaChi.BackColor = Color.LightGray;
+            labelDiaChi.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelDiaChi.Location = new Point(750, 112);
+            labelDiaChi.Name = "labelDiaChi";
+            labelDiaChi.Size = new Size(69, 25);
+            labelDiaChi.TabIndex = 114;
+            labelDiaChi.Text = "Địa chỉ:";
+            // 
+            // textBoxTenNguoiLienHe
+            // 
+            textBoxTenNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxTenNguoiLienHe.BorderStyle = BorderStyle.None;
+            textBoxTenNguoiLienHe.Location = new Point(907, 70);
+            textBoxTenNguoiLienHe.Name = "textBoxTenNguoiLienHe";
+            textBoxTenNguoiLienHe.Size = new Size(306, 23);
+            textBoxTenNguoiLienHe.TabIndex = 9;
+            // 
+            // labelTenNguoiLienHe
+            // 
+            labelTenNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelTenNguoiLienHe.AutoSize = true;
+            labelTenNguoiLienHe.BackColor = Color.LightGray;
+            labelTenNguoiLienHe.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelTenNguoiLienHe.Location = new Point(751, 68);
+            labelTenNguoiLienHe.Name = "labelTenNguoiLienHe";
+            labelTenNguoiLienHe.Size = new Size(150, 25);
+            labelTenNguoiLienHe.TabIndex = 112;
+            labelTenNguoiLienHe.Text = "Tên người liên hệ:";
+            // 
+            // labelThongTinNguoiLienHe
+            // 
+            labelThongTinNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelThongTinNguoiLienHe.AutoSize = true;
+            labelThongTinNguoiLienHe.BackColor = Color.LightGray;
+            labelThongTinNguoiLienHe.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelThongTinNguoiLienHe.Location = new Point(722, 23);
+            labelThongTinNguoiLienHe.Name = "labelThongTinNguoiLienHe";
+            labelThongTinNguoiLienHe.Size = new Size(217, 25);
+            labelThongTinNguoiLienHe.TabIndex = 111;
+            labelThongTinNguoiLienHe.Text = "Thông tin người liên hệ:";
+            // 
+            // comboBoxHinhThucTT
+            // 
+            comboBoxHinhThucTT.FormattingEnabled = true;
+            comboBoxHinhThucTT.Items.AddRange(new object[] { "100%", "30%-30%-40%", "30%-70%", "40%-30%-30%", "40%-60%", "50%-50%" });
+            comboBoxHinhThucTT.Location = new Point(372, 474);
+            comboBoxHinhThucTT.Name = "comboBoxHinhThucTT";
+            comboBoxHinhThucTT.Size = new Size(306, 31);
+            comboBoxHinhThucTT.TabIndex = 8;
+            // 
+            // labelHinhThucThanhToan
+            // 
+            labelHinhThucThanhToan.AutoSize = true;
+            labelHinhThucThanhToan.BackColor = Color.LightGray;
+            labelHinhThucThanhToan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelHinhThucThanhToan.Location = new Point(55, 474);
+            labelHinhThucThanhToan.Name = "labelHinhThucThanhToan";
+            labelHinhThucThanhToan.Size = new Size(184, 25);
+            labelHinhThucThanhToan.TabIndex = 109;
+            labelHinhThucThanhToan.Text = "Hình thức thanh toán:";
+            // 
+            // textBoxMaNhanVien
+            // 
+            textBoxMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxMaNhanVien.BorderStyle = BorderStyle.None;
+            textBoxMaNhanVien.Location = new Point(905, 358);
+            textBoxMaNhanVien.Name = "textBoxMaNhanVien";
+            textBoxMaNhanVien.Size = new Size(306, 23);
+            textBoxMaNhanVien.TabIndex = 14;
+            // 
+            // labelMaNhanVien
+            // 
+            labelMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelMaNhanVien.AutoSize = true;
+            labelMaNhanVien.BackColor = Color.LightGray;
+            labelMaNhanVien.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelMaNhanVien.Location = new Point(749, 356);
+            labelMaNhanVien.Name = "labelMaNhanVien";
+            labelMaNhanVien.Size = new Size(122, 25);
+            labelMaNhanVien.TabIndex = 98;
+            labelMaNhanVien.Text = "Mã nhân viên:";
+            // 
+            // textBoxTenNhanVien
+            // 
+            textBoxTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxTenNhanVien.BorderStyle = BorderStyle.None;
+            textBoxTenNhanVien.Location = new Point(905, 403);
+            textBoxTenNhanVien.Name = "textBoxTenNhanVien";
+            textBoxTenNhanVien.Size = new Size(306, 23);
+            textBoxTenNhanVien.TabIndex = 13;
+            // 
+            // labelTenNhanVien
+            // 
+            labelTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelTenNhanVien.AutoSize = true;
+            labelTenNhanVien.BackColor = Color.LightGray;
+            labelTenNhanVien.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelTenNhanVien.Location = new Point(748, 401);
+            labelTenNhanVien.Name = "labelTenNhanVien";
+            labelTenNhanVien.Size = new Size(120, 25);
+            labelTenNhanVien.TabIndex = 96;
+            labelTenNhanVien.Text = "Account/Sale:";
+            // 
+            // labelThongTinNhanVien
+            // 
+            labelThongTinNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelThongTinNhanVien.AutoSize = true;
+            labelThongTinNhanVien.BackColor = Color.LightGray;
+            labelThongTinNhanVien.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelThongTinNhanVien.Location = new Point(720, 308);
+            labelThongTinNhanVien.Name = "labelThongTinNhanVien";
+            labelThongTinNhanVien.Size = new Size(219, 25);
+            labelThongTinNhanVien.TabIndex = 95;
+            labelThongTinNhanVien.Text = "Thông tin Account/Sale:";
+            // 
+            // richTextBoxNoiDung
+            // 
+            richTextBoxNoiDung.BorderStyle = BorderStyle.None;
+            richTextBoxNoiDung.Location = new Point(372, 356);
+            richTextBoxNoiDung.Name = "richTextBoxNoiDung";
+            richTextBoxNoiDung.Size = new Size(306, 100);
+            richTextBoxNoiDung.TabIndex = 7;
+            richTextBoxNoiDung.Text = "";
+            // 
+            // labelNoiDungHopDong
+            // 
+            labelNoiDungHopDong.AutoSize = true;
+            labelNoiDungHopDong.BackColor = Color.LightGray;
+            labelNoiDungHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelNoiDungHopDong.Location = new Point(55, 356);
+            labelNoiDungHopDong.Name = "labelNoiDungHopDong";
+            labelNoiDungHopDong.Size = new Size(176, 25);
+            labelNoiDungHopDong.TabIndex = 79;
+            labelNoiDungHopDong.Text = "Nội dung hợp đồng:";
+            // 
+            // textBoxGiaTri
+            // 
+            textBoxGiaTri.BorderStyle = BorderStyle.None;
+            textBoxGiaTri.Location = new Point(372, 308);
+            textBoxGiaTri.Name = "textBoxGiaTri";
+            textBoxGiaTri.Size = new Size(306, 23);
+            textBoxGiaTri.TabIndex = 6;
+            // 
+            // labelGiaTri
+            // 
+            labelGiaTri.AutoSize = true;
+            labelGiaTri.BackColor = Color.LightGray;
+            labelGiaTri.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelGiaTri.Location = new Point(55, 308);
+            labelGiaTri.Name = "labelGiaTri";
+            labelGiaTri.Size = new Size(147, 25);
+            labelGiaTri.TabIndex = 77;
+            labelGiaTri.Text = "Giá trị hợp đồng:";
+            // 
+            // dateTimePickerEnd
+            // 
+            dateTimePickerEnd.Location = new Point(372, 257);
+            dateTimePickerEnd.Name = "dateTimePickerEnd";
+            dateTimePickerEnd.Size = new Size(306, 30);
+            dateTimePickerEnd.TabIndex = 5;
+            // 
+            // dateTimePickerStart
+            // 
+            dateTimePickerStart.Location = new Point(372, 202);
+            dateTimePickerStart.Name = "dateTimePickerStart";
+            dateTimePickerStart.Size = new Size(306, 30);
+            dateTimePickerStart.TabIndex = 4;
+            // 
+            // labelNgayKetThuc
+            // 
+            labelNgayKetThuc.AutoSize = true;
+            labelNgayKetThuc.BackColor = Color.LightGray;
+            labelNgayKetThuc.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelNgayKetThuc.Location = new Point(56, 262);
+            labelNgayKetThuc.Name = "labelNgayKetThuc";
+            labelNgayKetThuc.Size = new Size(126, 25);
+            labelNgayKetThuc.TabIndex = 74;
+            labelNgayKetThuc.Text = "Ngày kết thúc:";
+            // 
+            // labelNgayBatDau
+            // 
+            labelNgayBatDau.AutoSize = true;
+            labelNgayBatDau.BackColor = Color.LightGray;
+            labelNgayBatDau.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelNgayBatDau.Location = new Point(55, 207);
+            labelNgayBatDau.Name = "labelNgayBatDau";
+            labelNgayBatDau.Size = new Size(124, 25);
+            labelNgayBatDau.TabIndex = 73;
+            labelNgayBatDau.Text = "Ngày bắt đầu:";
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Location = new Point(372, 158);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(306, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // labelTenNguoiDaiDien
+            // 
+            labelTenNguoiDaiDien.AutoSize = true;
+            labelTenNguoiDaiDien.BackColor = Color.LightGray;
+            labelTenNguoiDaiDien.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelTenNguoiDaiDien.Location = new Point(55, 156);
+            labelTenNguoiDaiDien.Name = "labelTenNguoiDaiDien";
+            labelTenNguoiDaiDien.Size = new Size(311, 25);
+            labelTenNguoiDaiDien.TabIndex = 72;
+            labelTenNguoiDaiDien.Text = "Tên người đại diện (Công ty/Cá nhân):";
+            // 
+            // textBoxTenHopDong
+            // 
+            textBoxTenHopDong.BorderStyle = BorderStyle.None;
+            textBoxTenHopDong.Location = new Point(372, 112);
+            textBoxTenHopDong.Name = "textBoxTenHopDong";
+            textBoxTenHopDong.Size = new Size(306, 23);
+            textBoxTenHopDong.TabIndex = 2;
+            // 
+            // labelTenHopDong
+            // 
+            labelTenHopDong.AutoSize = true;
+            labelTenHopDong.BackColor = Color.LightGray;
+            labelTenHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelTenHopDong.Location = new Point(55, 110);
+            labelTenHopDong.Name = "labelTenHopDong";
+            labelTenHopDong.Size = new Size(127, 25);
+            labelTenHopDong.TabIndex = 70;
+            labelTenHopDong.Text = "Tên hợp đồng:";
+            // 
+            // textBoxMaHopDong
+            // 
+            textBoxMaHopDong.BorderStyle = BorderStyle.None;
+            textBoxMaHopDong.Location = new Point(372, 68);
+            textBoxMaHopDong.Name = "textBoxMaHopDong";
+            textBoxMaHopDong.Size = new Size(306, 23);
+            textBoxMaHopDong.TabIndex = 1;
+            // 
+            // labelMaHopDong
+            // 
+            labelMaHopDong.AutoSize = true;
+            labelMaHopDong.BackColor = Color.LightGray;
+            labelMaHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelMaHopDong.Location = new Point(55, 66);
+            labelMaHopDong.Name = "labelMaHopDong";
+            labelMaHopDong.Size = new Size(126, 25);
+            labelMaHopDong.TabIndex = 68;
+            labelMaHopDong.Text = "Mã hợp đồng:";
+            // 
+            // labelThongTinHopDong
+            // 
+            labelThongTinHopDong.AutoSize = true;
+            labelThongTinHopDong.BackColor = Color.LightGray;
+            labelThongTinHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelThongTinHopDong.Location = new Point(27, 23);
+            labelThongTinHopDong.Name = "labelThongTinHopDong";
+            labelThongTinHopDong.Size = new Size(187, 25);
+            labelThongTinHopDong.TabIndex = 66;
+            labelThongTinHopDong.Text = "Thông tin hợp đồng:";
+            // 
             // buttonQuayLai
             // 
-            buttonQuayLai.Anchor = AnchorStyles.Right;
+            buttonQuayLai.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonQuayLai.BackColor = Color.Crimson;
             buttonQuayLai.FlatAppearance.BorderSize = 2;
             buttonQuayLai.FlatStyle = FlatStyle.Popup;
             buttonQuayLai.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonQuayLai.ForeColor = Color.White;
-            buttonQuayLai.Location = new Point(1158, 687);
+            buttonQuayLai.Location = new Point(1105, 570);
             buttonQuayLai.Name = "buttonQuayLai";
-            buttonQuayLai.Size = new Size(106, 33);
+            buttonQuayLai.Size = new Size(106, 50);
             buttonQuayLai.TabIndex = 15;
             buttonQuayLai.Text = "Quay Lại ";
             buttonQuayLai.UseVisualStyleBackColor = false;
             // 
             // buttonTao
             // 
-            buttonTao.Anchor = AnchorStyles.Right;
+            buttonTao.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonTao.BackColor = Color.FromArgb(0, 192, 0);
             buttonTao.FlatAppearance.BorderSize = 2;
             buttonTao.FlatStyle = FlatStyle.Popup;
             buttonTao.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonTao.ForeColor = Color.White;
-            buttonTao.Location = new Point(974, 687);
+            buttonTao.Location = new Point(937, 570);
             buttonTao.Name = "buttonTao";
-            buttonTao.Size = new Size(140, 33);
+            buttonTao.Size = new Size(140, 50);
             buttonTao.TabIndex = 14;
             buttonTao.Text = "Tạo Hợp Đồng";
             buttonTao.UseVisualStyleBackColor = false;
-            // 
-            // textBoxTenSale
-            // 
-            textBoxTenSale.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTenSale.Location = new Point(510, 558);
-            textBoxTenSale.Name = "textBoxTenSale";
-            textBoxTenSale.Size = new Size(754, 27);
-            textBoxTenSale.TabIndex = 12;
-            // 
-            // textBoxTinhTrang
-            // 
-            textBoxTinhTrang.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTinhTrang.Location = new Point(510, 606);
-            textBoxTinhTrang.Name = "textBoxTinhTrang";
-            textBoxTinhTrang.Size = new Size(754, 27);
-            textBoxTinhTrang.TabIndex = 13;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.LightGray;
-            label10.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label10.Location = new Point(25, 605);
-            label10.Name = "label10";
-            label10.Size = new Size(109, 25);
-            label10.TabIndex = 88;
-            label10.Text = "Tình Trạng:";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.LightGray;
-            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label13.Location = new Point(24, 557);
-            label13.Name = "label13";
-            label13.Size = new Size(131, 25);
-            label13.TabIndex = 87;
-            label13.Text = "Account/Sale:";
-            // 
-            // textBoxDaThanhToan
-            // 
-            textBoxDaThanhToan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDaThanhToan.Location = new Point(510, 513);
-            textBoxDaThanhToan.Name = "textBoxDaThanhToan";
-            textBoxDaThanhToan.Size = new Size(754, 27);
-            textBoxDaThanhToan.TabIndex = 11;
-            // 
-            // textBoxGiaTriHopDong
-            // 
-            textBoxGiaTriHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxGiaTriHopDong.Location = new Point(510, 470);
-            textBoxGiaTriHopDong.Name = "textBoxGiaTriHopDong";
-            textBoxGiaTriHopDong.Size = new Size(754, 27);
-            textBoxGiaTriHopDong.TabIndex = 10;
-            // 
-            // textBoxNgayHetHan
-            // 
-            textBoxNgayHetHan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNgayHetHan.Location = new Point(510, 417);
-            textBoxNgayHetHan.Name = "textBoxNgayHetHan";
-            textBoxNgayHetHan.Size = new Size(754, 27);
-            textBoxNgayHetHan.TabIndex = 9;
-            // 
-            // textBoxNgayBatDau
-            // 
-            textBoxNgayBatDau.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNgayBatDau.Location = new Point(510, 369);
-            textBoxNgayBatDau.Name = "textBoxNgayBatDau";
-            textBoxNgayBatDau.Size = new Size(754, 27);
-            textBoxNgayBatDau.TabIndex = 8;
-            // 
-            // textBoxNoiDungHopDong
-            // 
-            textBoxNoiDungHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNoiDungHopDong.Location = new Point(510, 322);
-            textBoxNoiDungHopDong.Name = "textBoxNoiDungHopDong";
-            textBoxNoiDungHopDong.Size = new Size(754, 27);
-            textBoxNoiDungHopDong.TabIndex = 7;
-            // 
-            // textBoxDiaChiNguoiLienHe
-            // 
-            textBoxDiaChiNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDiaChiNguoiLienHe.Location = new Point(510, 272);
-            textBoxDiaChiNguoiLienHe.Name = "textBoxDiaChiNguoiLienHe";
-            textBoxDiaChiNguoiLienHe.Size = new Size(754, 27);
-            textBoxDiaChiNguoiLienHe.TabIndex = 6;
-            // 
-            // textBoxSDT
-            // 
-            textBoxSDT.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxSDT.Location = new Point(510, 224);
-            textBoxSDT.Name = "textBoxSDT";
-            textBoxSDT.Size = new Size(754, 27);
-            textBoxSDT.TabIndex = 5;
-            // 
-            // textBoxEmail
-            // 
-            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxEmail.Location = new Point(510, 174);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(754, 27);
-            textBoxEmail.TabIndex = 4;
-            // 
-            // textBoxTenHopDong
-            // 
-            textBoxTenHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTenHopDong.Location = new Point(510, 85);
-            textBoxTenHopDong.Name = "textBoxTenHopDong";
-            textBoxTenHopDong.Size = new Size(754, 27);
-            textBoxTenHopDong.TabIndex = 2;
-            // 
-            // textBoxTenKhachHang
-            // 
-            textBoxTenKhachHang.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTenKhachHang.Location = new Point(510, 134);
-            textBoxTenKhachHang.Name = "textBoxTenKhachHang";
-            textBoxTenKhachHang.Size = new Size(754, 27);
-            textBoxTenKhachHang.TabIndex = 3;
-            // 
-            // textBoxMaHopDong
-            // 
-            textBoxMaHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxMaHopDong.Location = new Point(510, 36);
-            textBoxMaHopDong.Name = "textBoxMaHopDong";
-            textBoxMaHopDong.Size = new Size(754, 27);
-            textBoxMaHopDong.TabIndex = 1;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.LightGray;
-            label12.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label12.Location = new Point(25, 513);
-            label12.Name = "label12";
-            label12.Size = new Size(139, 25);
-            label12.TabIndex = 75;
-            label12.Text = "Đã thanh toán:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.LightGray;
-            label11.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label11.Location = new Point(25, 469);
-            label11.Name = "label11";
-            label11.Size = new Size(159, 25);
-            label11.TabIndex = 74;
-            label11.Text = "Giá Trị hợp đồng:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.LightGray;
-            label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label9.Location = new Point(25, 416);
-            label9.Name = "label9";
-            label9.Size = new Size(136, 25);
-            label9.TabIndex = 73;
-            label9.Text = "Ngày đáo hạn:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.LightGray;
-            label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label8.Location = new Point(25, 369);
-            label8.Name = "label8";
-            label8.Size = new Size(132, 25);
-            label8.TabIndex = 72;
-            label8.Text = "Ngày bắt đầu:";
-            label8.Click += label8_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.LightGray;
-            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label7.Location = new Point(25, 321);
-            label7.Name = "label7";
-            label7.Size = new Size(183, 25);
-            label7.TabIndex = 71;
-            label7.Text = "Nội dung hợp đồng:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.LightGray;
-            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label5.Location = new Point(25, 271);
-            label5.Name = "label5";
-            label5.Size = new Size(192, 25);
-            label5.TabIndex = 70;
-            label5.Text = "Địa chỉ người liên hệ:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.LightGray;
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label4.Location = new Point(25, 223);
-            label4.Name = "label4";
-            label4.Size = new Size(135, 25);
-            label4.TabIndex = 69;
-            label4.Text = "Số Điện Thoại:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.LightGray;
-            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(24, 176);
-            label3.Name = "label3";
-            label3.Size = new Size(63, 25);
-            label3.TabIndex = 68;
-            label3.Text = "Email:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.LightGray;
-            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(21, 133);
-            label2.Name = "label2";
-            label2.Size = new Size(459, 25);
-            label2.TabIndex = 67;
-            label2.Text = "Tên khách hàng (công ty của người liên hệ đại diện):";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.LightGray;
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 84);
-            label1.Name = "label1";
-            label1.Size = new Size(134, 25);
-            label1.TabIndex = 66;
-            label1.Text = "Tên hợp đồng:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.LightGray;
-            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(25, 36);
-            label6.Name = "label6";
-            label6.Size = new Size(131, 25);
-            label6.TabIndex = 65;
-            label6.Text = "Mã hợp đồng:";
             // 
             // CreateContract
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 903);
+            ClientSize = new Size(1302, 803);
             Controls.Add(groupBoxTaoHopDong);
             Controls.Add(labelContractTracking);
             Controls.Add(pictureBoxIconContractTracking);
@@ -427,33 +503,38 @@
         private Label labelContractTracking;
         private PictureBox pictureBoxIconContractTracking;
         private GroupBox groupBoxTaoHopDong;
-        private Label label12;
-        private Label label11;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private Label label6;
-        private TextBox textBoxMaHopDong;
-        private TextBox textBoxDaThanhToan;
-        private TextBox textBoxGiaTriHopDong;
-        private TextBox textBoxNgayHetHan;
-        private TextBox textBoxNgayBatDau;
-        private TextBox textBoxNoiDungHopDong;
-        private TextBox textBoxDiaChiNguoiLienHe;
-        private TextBox textBoxSDT;
-        private TextBox textBoxEmail;
-        private TextBox textBoxTenHopDong;
-        private TextBox textBoxTenKhachHang;
-        private TextBox textBoxTenSale;
-        private TextBox textBoxTinhTrang;
-        private Label label10;
-        private Label label13;
         private Button buttonTao;
         private Button buttonQuayLai;
+        private Label labelThongTinHopDong;
+        private Label labelNgayKetThuc;
+        private Label labelNgayBatDau;
+        private TextBox textBox2;
+        private Label labelTenNguoiDaiDien;
+        private TextBox textBoxTenHopDong;
+        private Label labelTenHopDong;
+        private TextBox textBoxMaHopDong;
+        private Label labelMaHopDong;
+        private RichTextBox richTextBoxNoiDung;
+        private Label labelNoiDungHopDong;
+        private TextBox textBoxGiaTri;
+        private Label labelGiaTri;
+        private DateTimePicker dateTimePickerEnd;
+        private DateTimePicker dateTimePickerStart;
+        private TextBox textBoxMaNhanVien;
+        private Label labelMaNhanVien;
+        private TextBox textBoxTenNhanVien;
+        private Label labelTenNhanVien;
+        private Label labelThongTinNhanVien;
+        private ComboBox comboBoxHinhThucTT;
+        private Label labelHinhThucThanhToan;
+        private TextBox textBoxEmail;
+        private Label labelEmail;
+        private TextBox textBoxSDT;
+        private Label labelSDT;
+        private TextBox textBoxDiaChi;
+        private Label labelDiaChi;
+        private TextBox textBoxTenNguoiLienHe;
+        private Label labelTenNguoiLienHe;
+        private Label labelThongTinNguoiLienHe;
     }
 }

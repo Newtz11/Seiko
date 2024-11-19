@@ -11,14 +11,15 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class AccountantPaymentCommission : Form
+    public partial class PaymentProgress : Form
     {
-        public AccountantPaymentCommission()
+        public PaymentProgress()
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);
             ApplyRoundedCorners(buttonSua);
-            ApplyRoundedCorners(buttonLuu);
+            ApplyRoundedCorners(buttonThem);
+            ApplyRoundedCorners(buttonXoa);
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -46,9 +47,8 @@ namespace Design
 
         private void AccountantPaymentCommission_Load(object sender, EventArgs e)
         {
-            dataGridViewPaymentCommission.Rows.Add("01234", "Nguyen Van A", "Nhân viên Sale", "Sale", "40000000");
-            dataGridViewPaymentCommission.Rows.Add("01235", "Nguyen Van B", "Nhân viên Sale", "Sale", "30000000");
-            dataGridViewPaymentCommission.Rows.Add("01236", "Nguyen Van C", "Nhân viên Sale", "Sale", "50000000");
+            dataGridViewPaymentProgress.Rows.Add("HD001", "Quay video", "Giai đoạn 1", "12/9/2022", "40","40000000","Đã thanh toán","15/9/2022","Thanh toán giai đoạn 1");
+            dataGridViewPaymentProgress.Rows.Add("HD001", "Quay video", "Giai đoạn 2", "12/11/2022", "60", "60000000", "Chờ thanh toán", "", "");
         }
     }
 }

@@ -129,7 +129,7 @@
             buttonLuu = new Button();
             SoThuTu = new DataGridViewTextBoxColumn();
             TenNguoiDung = new DataGridViewTextBoxColumn();
-            PhongBan = new DataGridViewTextBoxColumn();
+            ChucVu = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             groupBox1.SuspendLayout();
@@ -1349,7 +1349,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenNguoiDung, PhongBan });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenNguoiDung, ChucVu });
             dataGridView2.Location = new Point(21, 75);
             dataGridView2.Margin = new Padding(2);
             dataGridView2.Name = "dataGridView2";
@@ -1409,12 +1409,12 @@
             TenNguoiDung.Name = "TenNguoiDung";
             TenNguoiDung.Width = 200;
             // 
-            // PhongBan
+            // ChucVu
             // 
-            PhongBan.HeaderText = "Phòng ban";
-            PhongBan.MinimumWidth = 10;
-            PhongBan.Name = "PhongBan";
-            PhongBan.Width = 200;
+            ChucVu.HeaderText = "Chức vụ";
+            ChucVu.MinimumWidth = 10;
+            ChucVu.Name = "ChucVu";
+            ChucVu.Width = 200;
             // 
             // SuperAdminDecentralization
             // 
@@ -1546,6 +1546,6 @@
         private Button buttonLuu;
         private DataGridViewTextBoxColumn SoThuTu;
         private DataGridViewTextBoxColumn TenNguoiDung;
-        private DataGridViewTextBoxColumn PhongBan;
+        private DataGridViewTextBoxColumn ChucVu;
     }
 }

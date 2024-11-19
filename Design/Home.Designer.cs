@@ -90,6 +90,7 @@
             labelDescribe.Size = new Size(721, 31);
             labelDescribe.TabIndex = 9;
             labelDescribe.Text = "Quản lý hợp đồng hiệu quả - Nền tảng cho sự phát triển bền vững\r\n";
+            labelDescribe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Home
             // 
