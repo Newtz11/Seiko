@@ -29,23 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractDetail));
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxEmail = new GroupBox();
+            comboBoxHinhThucTT = new ComboBox();
+            labelHinhThucTT = new Label();
             buttonQuayLai = new Button();
             dataGridViewThongTinThanhToan = new DataGridView();
+            GiaiDoan = new DataGridViewTextBoxColumn();
+            NgayThanhToan = new DataGridViewTextBoxColumn();
+            PhanTramThanhToan = new DataGridViewTextBoxColumn();
+            GiaTriThanhToan = new DataGridViewTextBoxColumn();
+            TrangThai = new DataGridViewTextBoxColumn();
+            GhiChu = new DataGridViewTextBoxColumn();
             buttonXoaThanhToan = new Button();
             buttonThemThanhToan = new Button();
             labelThongTinThanhToan = new Label();
             dataGridViewThongTinSale = new DataGridView();
+            MaNhanVien = new DataGridViewTextBoxColumn();
+            TenNhanVien = new DataGridViewTextBoxColumn();
+            HoaHong = new DataGridViewTextBoxColumn();
+            TinhTrang = new DataGridViewTextBoxColumn();
             buttonXoaSale = new Button();
             buttonThemSale = new Button();
             labelThongTinSale = new Label();
@@ -79,18 +91,6 @@
             labelMaHopDong = new Label();
             buttonSua = new Button();
             buttonLuu = new Button();
-            GiaiDoan = new DataGridViewTextBoxColumn();
-            NgayThanhToan = new DataGridViewTextBoxColumn();
-            PhanTramThanhToan = new DataGridViewTextBoxColumn();
-            GiaTriThanhToan = new DataGridViewTextBoxColumn();
-            TrangThai = new DataGridViewTextBoxColumn();
-            GhiChu = new DataGridViewTextBoxColumn();
-            MaNhanVien = new DataGridViewTextBoxColumn();
-            TenNhanVien = new DataGridViewTextBoxColumn();
-            HoaHong = new DataGridViewTextBoxColumn();
-            TinhTrang = new DataGridViewTextBoxColumn();
-            comboBoxHinhThucTT = new ComboBox();
-            labelHinhThucTT = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxEmail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThongTinThanhToan).BeginInit();
@@ -162,20 +162,39 @@
             groupBoxEmail.Controls.Add(labelTenHopDong);
             groupBoxEmail.Controls.Add(textBoxMaHopDong);
             groupBoxEmail.Controls.Add(labelMaHopDong);
-            groupBoxEmail.Location = new Point(13, 171);
+            groupBoxEmail.Location = new Point(13, 164);
             groupBoxEmail.Name = "groupBoxEmail";
-            groupBoxEmail.Size = new Size(1450, 872);
+            groupBoxEmail.Size = new Size(1450, 827);
             groupBoxEmail.TabIndex = 17;
             groupBoxEmail.TabStop = false;
             // 
+            // comboBoxHinhThucTT
+            // 
+            comboBoxHinhThucTT.FormattingEnabled = true;
+            comboBoxHinhThucTT.Items.AddRange(new object[] { "100%", "30%-30%-40%", "30%-70%", "40%-30%-30%", "40%-60%", "50%-50%" });
+            comboBoxHinhThucTT.Location = new Point(357, 476);
+            comboBoxHinhThucTT.Name = "comboBoxHinhThucTT";
+            comboBoxHinhThucTT.Size = new Size(310, 28);
+            comboBoxHinhThucTT.TabIndex = 9;
+            // 
+            // labelHinhThucTT
+            // 
+            labelHinhThucTT.AutoSize = true;
+            labelHinhThucTT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelHinhThucTT.Location = new Point(37, 475);
+            labelHinhThucTT.Name = "labelHinhThucTT";
+            labelHinhThucTT.Size = new Size(184, 25);
+            labelHinhThucTT.TabIndex = 86;
+            labelHinhThucTT.Text = "Hình thức thanh toán:";
+            // 
             // buttonQuayLai
             // 
-            buttonQuayLai.Anchor = AnchorStyles.Right;
+            buttonQuayLai.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonQuayLai.BackColor = Color.Crimson;
             buttonQuayLai.FlatStyle = FlatStyle.Popup;
             buttonQuayLai.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonQuayLai.ForeColor = Color.White;
-            buttonQuayLai.Location = new Point(1268, 778);
+            buttonQuayLai.Location = new Point(1268, 776);
             buttonQuayLai.Name = "buttonQuayLai";
             buttonQuayLai.Size = new Size(157, 41);
             buttonQuayLai.TabIndex = 22;
@@ -190,50 +209,99 @@
             dataGridViewThongTinThanhToan.AllowUserToOrderColumns = true;
             dataGridViewThongTinThanhToan.AllowUserToResizeColumns = false;
             dataGridViewThongTinThanhToan.AllowUserToResizeRows = false;
+            dataGridViewThongTinThanhToan.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewThongTinThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewThongTinThanhToan.BackgroundColor = Color.White;
             dataGridViewThongTinThanhToan.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewThongTinThanhToan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = Color.DarkGray;
-            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle17.ForeColor = Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dataGridViewThongTinThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewThongTinThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewThongTinThanhToan.ColumnHeadersHeight = 50;
             dataGridViewThongTinThanhToan.Columns.AddRange(new DataGridViewColumn[] { GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan, TrangThai, GhiChu });
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle18.ForeColor = Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle18.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dataGridViewThongTinThanhToan.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewThongTinThanhToan.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewThongTinThanhToan.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewThongTinThanhToan.Location = new Point(68, 679);
+            dataGridViewThongTinThanhToan.Location = new Point(68, 671);
             dataGridViewThongTinThanhToan.Name = "dataGridViewThongTinThanhToan";
             dataGridViewThongTinThanhToan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = SystemColors.Control;
-            dataGridViewCellStyle19.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dataGridViewThongTinThanhToan.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewThongTinThanhToan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewThongTinThanhToan.RowHeadersVisible = false;
             dataGridViewThongTinThanhToan.RowHeadersWidth = 50;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewThongTinThanhToan.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewThongTinThanhToan.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewThongTinThanhToan.RowTemplate.Height = 35;
             dataGridViewThongTinThanhToan.ScrollBars = ScrollBars.None;
             dataGridViewThongTinThanhToan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewThongTinThanhToan.Size = new Size(1071, 140);
+            dataGridViewThongTinThanhToan.Size = new Size(1071, 146);
             dataGridViewThongTinThanhToan.TabIndex = 19;
             dataGridViewThongTinThanhToan.CellClick += dataGridViewThongTinThanhToan_CellClick;
+            // 
+            // GiaiDoan
+            // 
+            GiaiDoan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GiaiDoan.FillWeight = 40.5557823F;
+            GiaiDoan.HeaderText = "Giai đoạn";
+            GiaiDoan.MinimumWidth = 6;
+            GiaiDoan.Name = "GiaiDoan";
+            // 
+            // NgayThanhToan
+            // 
+            NgayThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NgayThanhToan.FillWeight = 54.107605F;
+            NgayThanhToan.HeaderText = "Ngày thanh toán";
+            NgayThanhToan.MinimumWidth = 6;
+            NgayThanhToan.Name = "NgayThanhToan";
+            // 
+            // PhanTramThanhToan
+            // 
+            PhanTramThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PhanTramThanhToan.FillWeight = 64.5158F;
+            PhanTramThanhToan.HeaderText = "Phần trăm thanh toán(%)";
+            PhanTramThanhToan.MinimumWidth = 6;
+            PhanTramThanhToan.Name = "PhanTramThanhToan";
+            // 
+            // GiaTriThanhToan
+            // 
+            GiaTriThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GiaTriThanhToan.FillWeight = 53.35127F;
+            GiaTriThanhToan.HeaderText = "Giá trị thanh toán";
+            GiaTriThanhToan.MinimumWidth = 6;
+            GiaTriThanhToan.Name = "GiaTriThanhToan";
+            // 
+            // TrangThai
+            // 
+            TrangThai.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TrangThai.FillWeight = 51.12987F;
+            TrangThai.HeaderText = "Trạng thái";
+            TrangThai.MinimumWidth = 6;
+            TrangThai.Name = "TrangThai";
+            // 
+            // GhiChu
+            // 
+            GhiChu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GhiChu.FillWeight = 55.0491943F;
+            GhiChu.HeaderText = "Ghi chú";
+            GhiChu.MinimumWidth = 6;
+            GhiChu.Name = "GhiChu";
             // 
             // buttonXoaThanhToan
             // 
@@ -241,7 +309,7 @@
             buttonXoaThanhToan.FlatStyle = FlatStyle.Popup;
             buttonXoaThanhToan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonXoaThanhToan.ForeColor = Color.White;
-            buttonXoaThanhToan.Location = new Point(252, 621);
+            buttonXoaThanhToan.Location = new Point(259, 613);
             buttonXoaThanhToan.Name = "buttonXoaThanhToan";
             buttonXoaThanhToan.Size = new Size(157, 41);
             buttonXoaThanhToan.TabIndex = 18;
@@ -254,7 +322,7 @@
             buttonThemThanhToan.FlatStyle = FlatStyle.Popup;
             buttonThemThanhToan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonThemThanhToan.ForeColor = Color.White;
-            buttonThemThanhToan.Location = new Point(68, 621);
+            buttonThemThanhToan.Location = new Point(68, 613);
             buttonThemThanhToan.Name = "buttonThemThanhToan";
             buttonThemThanhToan.Size = new Size(157, 41);
             buttonThemThanhToan.TabIndex = 17;
@@ -265,7 +333,7 @@
             // 
             labelThongTinThanhToan.AutoSize = true;
             labelThongTinThanhToan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelThongTinThanhToan.Location = new Point(6, 577);
+            labelThongTinThanhToan.Location = new Point(6, 569);
             labelThongTinThanhToan.Name = "labelThongTinThanhToan";
             labelThongTinThanhToan.Size = new Size(219, 28);
             labelThongTinThanhToan.TabIndex = 83;
@@ -283,46 +351,78 @@
             dataGridViewThongTinSale.BackgroundColor = Color.White;
             dataGridViewThongTinSale.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewThongTinSale.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = Color.DarkGray;
-            dataGridViewCellStyle21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle21.ForeColor = Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dataGridViewThongTinSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewThongTinSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewThongTinSale.ColumnHeadersHeight = 50;
             dataGridViewThongTinSale.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, HoaHong, TinhTrang });
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = SystemColors.Window;
-            dataGridViewCellStyle22.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle22.ForeColor = Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle22.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.False;
-            dataGridViewThongTinSale.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridViewThongTinSale.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewThongTinSale.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinSale.Location = new Point(725, 354);
             dataGridViewThongTinSale.Name = "dataGridViewThongTinSale";
             dataGridViewThongTinSale.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = SystemColors.Control;
-            dataGridViewCellStyle23.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle23.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.True;
-            dataGridViewThongTinSale.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewThongTinSale.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewThongTinSale.RowHeadersVisible = false;
             dataGridViewThongTinSale.RowHeadersWidth = 50;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewThongTinSale.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewThongTinSale.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewThongTinSale.RowTemplate.Height = 35;
             dataGridViewThongTinSale.ScrollBars = ScrollBars.None;
             dataGridViewThongTinSale.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewThongTinSale.Size = new Size(700, 150);
             dataGridViewThongTinSale.TabIndex = 16;
             dataGridViewThongTinSale.CellClick += dataGridViewThongTinSale_CellClick;
+            // 
+            // MaNhanVien
+            // 
+            MaNhanVien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            MaNhanVien.FillWeight = 29.5753975F;
+            MaNhanVien.HeaderText = "Mã nhân viên";
+            MaNhanVien.MinimumWidth = 6;
+            MaNhanVien.Name = "MaNhanVien";
+            // 
+            // TenNhanVien
+            // 
+            TenNhanVien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TenNhanVien.FillWeight = 31.7405033F;
+            TenNhanVien.HeaderText = "Tên nhân viên";
+            TenNhanVien.MinimumWidth = 6;
+            TenNhanVien.Name = "TenNhanVien";
+            // 
+            // HoaHong
+            // 
+            HoaHong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            HoaHong.FillWeight = 21.8402538F;
+            HoaHong.HeaderText = "Hoa hồng (%)";
+            HoaHong.MinimumWidth = 6;
+            HoaHong.Name = "HoaHong";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TinhTrang.FillWeight = 35.5533333F;
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
             // 
             // buttonXoaSale
             // 
@@ -664,111 +764,12 @@
             buttonLuu.Text = "Lưu";
             buttonLuu.UseVisualStyleBackColor = false;
             // 
-            // GiaiDoan
-            // 
-            GiaiDoan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            GiaiDoan.FillWeight = 40.5557823F;
-            GiaiDoan.HeaderText = "Giai đoạn";
-            GiaiDoan.MinimumWidth = 6;
-            GiaiDoan.Name = "GiaiDoan";
-            // 
-            // NgayThanhToan
-            // 
-            NgayThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            NgayThanhToan.FillWeight = 54.107605F;
-            NgayThanhToan.HeaderText = "Ngày thanh toán";
-            NgayThanhToan.MinimumWidth = 6;
-            NgayThanhToan.Name = "NgayThanhToan";
-            // 
-            // PhanTramThanhToan
-            // 
-            PhanTramThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PhanTramThanhToan.FillWeight = 64.5158F;
-            PhanTramThanhToan.HeaderText = "Phần trăm thanh toán(%)";
-            PhanTramThanhToan.MinimumWidth = 6;
-            PhanTramThanhToan.Name = "PhanTramThanhToan";
-            // 
-            // GiaTriThanhToan
-            // 
-            GiaTriThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            GiaTriThanhToan.FillWeight = 53.35127F;
-            GiaTriThanhToan.HeaderText = "Giá trị thanh toán";
-            GiaTriThanhToan.MinimumWidth = 6;
-            GiaTriThanhToan.Name = "GiaTriThanhToan";
-            // 
-            // TrangThai
-            // 
-            TrangThai.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TrangThai.FillWeight = 51.12987F;
-            TrangThai.HeaderText = "Trạng thái";
-            TrangThai.MinimumWidth = 6;
-            TrangThai.Name = "TrangThai";
-            // 
-            // GhiChu
-            // 
-            GhiChu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            GhiChu.FillWeight = 55.0491943F;
-            GhiChu.HeaderText = "Ghi chú";
-            GhiChu.MinimumWidth = 6;
-            GhiChu.Name = "GhiChu";
-            // 
-            // MaNhanVien
-            // 
-            MaNhanVien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            MaNhanVien.FillWeight = 29.5753975F;
-            MaNhanVien.HeaderText = "Mã nhân viên";
-            MaNhanVien.MinimumWidth = 6;
-            MaNhanVien.Name = "MaNhanVien";
-            // 
-            // TenNhanVien
-            // 
-            TenNhanVien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TenNhanVien.FillWeight = 31.7405033F;
-            TenNhanVien.HeaderText = "Tên nhân viên";
-            TenNhanVien.MinimumWidth = 6;
-            TenNhanVien.Name = "TenNhanVien";
-            // 
-            // HoaHong
-            // 
-            HoaHong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            HoaHong.FillWeight = 21.8402538F;
-            HoaHong.HeaderText = "Hoa hồng (%)";
-            HoaHong.MinimumWidth = 6;
-            HoaHong.Name = "HoaHong";
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TinhTrang.FillWeight = 35.5533333F;
-            TinhTrang.HeaderText = "Tình trạng";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
-            // 
-            // comboBoxHinhThucTT
-            // 
-            comboBoxHinhThucTT.FormattingEnabled = true;
-            comboBoxHinhThucTT.Items.AddRange(new object[] { "100%", "30%-30%-40%", "30%-70%", "40%-30%-30%", "40%-60%", "50%-50%" });
-            comboBoxHinhThucTT.Location = new Point(357, 476);
-            comboBoxHinhThucTT.Name = "comboBoxHinhThucTT";
-            comboBoxHinhThucTT.Size = new Size(310, 28);
-            comboBoxHinhThucTT.TabIndex = 9;
-            // 
-            // labelHinhThucTT
-            // 
-            labelHinhThucTT.AutoSize = true;
-            labelHinhThucTT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelHinhThucTT.Location = new Point(37, 475);
-            labelHinhThucTT.Name = "labelHinhThucTT";
-            labelHinhThucTT.Size = new Size(184, 25);
-            labelHinhThucTT.TabIndex = 86;
-            labelHinhThucTT.Text = "Hình thức thanh toán:";
-            // 
             // ContractDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1482, 1055);
+            ClientSize = new Size(1482, 1003);
             Controls.Add(buttonLuu);
             Controls.Add(groupBoxEmail);
             Controls.Add(labelContractTracking);

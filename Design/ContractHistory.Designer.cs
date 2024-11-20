@@ -38,14 +38,6 @@
             buttonSearch = new Button();
             groupBoxContractHistory = new GroupBox();
             dataGridViewContractHistory = new DataGridView();
-            comboBoxSale = new ComboBox();
-            comboBoxTinhTrang = new ComboBox();
-            labelNgayKetThuc = new Label();
-            dateTimePickerEnd = new DateTimePicker();
-            labelNgayBatDau = new Label();
-            dateTimePickerStart = new DateTimePicker();
-            button1 = new Button();
-            labelContractList = new Label();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             TenCongTyCaNhan = new DataGridViewTextBoxColumn();
@@ -55,6 +47,13 @@
             GiaTriHopDong = new DataGridViewTextBoxColumn();
             AccountSale = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
+            comboBoxSale = new ComboBox();
+            labelNgayKetThuc = new Label();
+            dateTimePickerEnd = new DateTimePicker();
+            labelNgayBatDau = new Label();
+            dateTimePickerStart = new DateTimePicker();
+            button1 = new Button();
+            labelContractList = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxContractHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractHistory).BeginInit();
@@ -110,7 +109,6 @@
             groupBoxContractHistory.BackColor = Color.LightGray;
             groupBoxContractHistory.Controls.Add(dataGridViewContractHistory);
             groupBoxContractHistory.Controls.Add(comboBoxSale);
-            groupBoxContractHistory.Controls.Add(comboBoxTinhTrang);
             groupBoxContractHistory.Controls.Add(labelNgayKetThuc);
             groupBoxContractHistory.Controls.Add(dateTimePickerEnd);
             groupBoxContractHistory.Controls.Add(labelNgayBatDau);
@@ -158,7 +156,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewContractHistory.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewContractHistory.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewContractHistory.Location = new Point(25, 259);
+            dataGridViewContractHistory.Location = new Point(25, 200);
             dataGridViewContractHistory.Name = "dataGridViewContractHistory";
             dataGridViewContractHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -174,31 +172,72 @@
             dataGridViewContractHistory.RowTemplate.Height = 35;
             dataGridViewContractHistory.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewContractHistory.Size = new Size(1337, 499);
+            dataGridViewContractHistory.Size = new Size(1337, 578);
             dataGridViewContractHistory.TabIndex = 7;
+            // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // TenCongTyCaNhan
+            // 
+            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
+            TenCongTyCaNhan.MinimumWidth = 6;
+            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
+            // 
+            // NguoiLienHe
+            // 
+            NguoiLienHe.HeaderText = "Người liên hệ";
+            NguoiLienHe.MinimumWidth = 6;
+            NguoiLienHe.Name = "NguoiLienHe";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            // 
+            // NgayHetHan
+            // 
+            NgayHetHan.HeaderText = "Ngày hết hạn";
+            NgayHetHan.MinimumWidth = 6;
+            NgayHetHan.Name = "NgayHetHan";
+            // 
+            // GiaTriHopDong
+            // 
+            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
+            GiaTriHopDong.MinimumWidth = 6;
+            GiaTriHopDong.Name = "GiaTriHopDong";
+            // 
+            // AccountSale
+            // 
+            AccountSale.HeaderText = "Account/Sale";
+            AccountSale.MinimumWidth = 6;
+            AccountSale.Name = "AccountSale";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
             // 
             // comboBoxSale
             // 
             comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxSale.Location = new Point(233, 201);
+            comboBoxSale.Location = new Point(911, 143);
             comboBoxSale.Name = "comboBoxSale";
             comboBoxSale.Size = new Size(197, 31);
             comboBoxSale.TabIndex = 6;
             comboBoxSale.Text = "Nhân viên phụ trách";
-            // 
-            // comboBoxTinhTrang
-            // 
-            comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxTinhTrang.FormattingEnabled = true;
-            comboBoxTinhTrang.ItemHeight = 23;
-            comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxTinhTrang.Location = new Point(25, 201);
-            comboBoxTinhTrang.Name = "comboBoxTinhTrang";
-            comboBoxTinhTrang.Size = new Size(159, 31);
-            comboBoxTinhTrang.TabIndex = 5;
-            comboBoxTinhTrang.Text = "Tình trạng";
             // 
             // labelNgayKetThuc
             // 
@@ -260,60 +299,6 @@
             labelContractList.TabIndex = 20;
             labelContractList.Text = "LỊCH SỬ HỢP ĐỒNG";
             // 
-            // MaHopDong
-            // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // TenCongTyCaNhan
-            // 
-            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
-            TenCongTyCaNhan.MinimumWidth = 6;
-            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
-            // 
-            // NguoiLienHe
-            // 
-            NguoiLienHe.HeaderText = "Người liên hệ";
-            NguoiLienHe.MinimumWidth = 6;
-            NguoiLienHe.Name = "NguoiLienHe";
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.HeaderText = "Ngày bắt đầu";
-            NgayBatDau.MinimumWidth = 6;
-            NgayBatDau.Name = "NgayBatDau";
-            // 
-            // NgayHetHan
-            // 
-            NgayHetHan.HeaderText = "Ngày hết hạn";
-            NgayHetHan.MinimumWidth = 6;
-            NgayHetHan.Name = "NgayHetHan";
-            // 
-            // GiaTriHopDong
-            // 
-            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
-            GiaTriHopDong.MinimumWidth = 6;
-            GiaTriHopDong.Name = "GiaTriHopDong";
-            // 
-            // AccountSale
-            // 
-            AccountSale.HeaderText = "Account/Sale";
-            AccountSale.MinimumWidth = 6;
-            AccountSale.Name = "AccountSale";
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.HeaderText = "Tình trạng";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
-            // 
             // ContractHistory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -345,7 +330,6 @@
         private Label labelContractList;
         private Button button1;
         private ComboBox comboBoxSale;
-        private ComboBox comboBoxTinhTrang;
         private Label labelNgayKetThuc;
         private DateTimePicker dateTimePickerEnd;
         private Label labelNgayBatDau;

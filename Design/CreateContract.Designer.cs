@@ -32,6 +32,11 @@
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxTaoHopDong = new GroupBox();
+            textBoxTenSale = new TextBox();
+            textBoxMaNhanVien = new TextBox();
+            label2 = new Label();
+            labelMaNhanVien = new Label();
+            labelThongTinSale = new Label();
             textBoxEmail = new TextBox();
             labelEmail = new Label();
             textBoxSDT = new TextBox();
@@ -88,6 +93,11 @@
             // 
             groupBoxTaoHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxTaoHopDong.BackColor = Color.LightGray;
+            groupBoxTaoHopDong.Controls.Add(textBoxTenSale);
+            groupBoxTaoHopDong.Controls.Add(textBoxMaNhanVien);
+            groupBoxTaoHopDong.Controls.Add(label2);
+            groupBoxTaoHopDong.Controls.Add(labelMaNhanVien);
+            groupBoxTaoHopDong.Controls.Add(labelThongTinSale);
             groupBoxTaoHopDong.Controls.Add(textBoxEmail);
             groupBoxTaoHopDong.Controls.Add(labelEmail);
             groupBoxTaoHopDong.Controls.Add(textBoxSDT);
@@ -120,6 +130,60 @@
             groupBoxTaoHopDong.Size = new Size(1250, 545);
             groupBoxTaoHopDong.TabIndex = 47;
             groupBoxTaoHopDong.TabStop = false;
+            // 
+            // textBoxTenSale
+            // 
+            textBoxTenSale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxTenSale.BorderStyle = BorderStyle.None;
+            textBoxTenSale.Location = new Point(906, 358);
+            textBoxTenSale.Name = "textBoxTenSale";
+            textBoxTenSale.Size = new Size(306, 23);
+            textBoxTenSale.TabIndex = 14;
+            // 
+            // textBoxMaNhanVien
+            // 
+            textBoxMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxMaNhanVien.BorderStyle = BorderStyle.None;
+            textBoxMaNhanVien.Location = new Point(906, 310);
+            textBoxMaNhanVien.Name = "textBoxMaNhanVien";
+            textBoxMaNhanVien.Size = new Size(306, 23);
+            textBoxMaNhanVien.TabIndex = 13;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.LightGray;
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            label2.Location = new Point(750, 356);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 25);
+            label2.TabIndex = 121;
+            label2.Text = "Account/Sale:";
+            // 
+            // labelMaNhanVien
+            // 
+            labelMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelMaNhanVien.AutoSize = true;
+            labelMaNhanVien.BackColor = Color.LightGray;
+            labelMaNhanVien.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            labelMaNhanVien.Location = new Point(750, 308);
+            labelMaNhanVien.Name = "labelMaNhanVien";
+            labelMaNhanVien.Size = new Size(122, 25);
+            labelMaNhanVien.TabIndex = 120;
+            labelMaNhanVien.Text = "Mã nhân viên:";
+            // 
+            // labelThongTinSale
+            // 
+            labelThongTinSale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelThongTinSale.AutoSize = true;
+            labelThongTinSale.BackColor = Color.LightGray;
+            labelThongTinSale.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelThongTinSale.Location = new Point(722, 261);
+            labelThongTinSale.Name = "labelThongTinSale";
+            labelThongTinSale.Size = new Size(219, 25);
+            labelThongTinSale.TabIndex = 119;
+            labelThongTinSale.Text = "Thông tin Account/Sale:";
             // 
             // textBoxEmail
             // 
@@ -371,9 +435,10 @@
             buttonQuayLai.Location = new Point(1106, 478);
             buttonQuayLai.Name = "buttonQuayLai";
             buttonQuayLai.Size = new Size(106, 50);
-            buttonQuayLai.TabIndex = 15;
+            buttonQuayLai.TabIndex = 16;
             buttonQuayLai.Text = "Quay Lại ";
             buttonQuayLai.UseVisualStyleBackColor = false;
+            buttonQuayLai.Click += buttonQuayLai_Click;
             // 
             // buttonTao
             // 
@@ -386,7 +451,7 @@
             buttonTao.Location = new Point(938, 478);
             buttonTao.Name = "buttonTao";
             buttonTao.Size = new Size(140, 50);
-            buttonTao.TabIndex = 14;
+            buttonTao.TabIndex = 15;
             buttonTao.Text = "Tạo Hợp Đồng";
             buttonTao.UseVisualStyleBackColor = false;
             // 
@@ -441,5 +506,10 @@
         private TextBox textBoxTenNguoiLienHe;
         private Label labelTenNguoiLienHe;
         private Label labelThongTinNguoiLienHe;
+        private TextBox textBoxTenSale;
+        private TextBox textBoxMaNhanVien;
+        private Label label2;
+        private Label labelMaNhanVien;
+        private Label labelThongTinSale;
     }
 }
