@@ -242,10 +242,10 @@
             // 
             textBoxPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxPhoneNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPhoneNumber.Location = new Point(532, 585);
+            textBoxPhoneNumber.Location = new Point(541, 585);
             textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             textBoxPhoneNumber.PlaceholderText = "Nhập số điện thoại";
-            textBoxPhoneNumber.Size = new Size(424, 30);
+            textBoxPhoneNumber.Size = new Size(415, 30);
             textBoxPhoneNumber.TabIndex = 11;
             // 
             // labelPhoneNumber
@@ -400,7 +400,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CreateAccount";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Seiko";
+            Text = " ";
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconCreateAccount).EndInit();
             groupBoxEmail.ResumeLayout(false);
             groupBoxEmail.PerformLayout();
