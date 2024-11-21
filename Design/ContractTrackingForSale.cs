@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ContractTracking : Form
+    public partial class ContractTrackingForSale : Form
     {
-        public ContractTracking()
+        public ContractTrackingForSale()
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);

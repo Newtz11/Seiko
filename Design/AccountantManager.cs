@@ -65,7 +65,7 @@ namespace Design
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadForm(new ContractTracking());
+            loadForm(new ContractTrackingForAccountant());
         }
 
         private void buttonFinancialReport_Click(object sender, EventArgs e)

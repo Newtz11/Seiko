@@ -58,8 +58,6 @@
             labelTenNguoiDaiDien = new Label();
             textBoxTenHopDong = new TextBox();
             labelTenHopDong = new Label();
-            textBoxMaHopDong = new TextBox();
-            labelMaHopDong = new Label();
             labelThongTinHopDong = new Label();
             buttonQuayLai = new Button();
             buttonTao = new Button();
@@ -119,8 +117,6 @@
             groupBoxTaoHopDong.Controls.Add(labelTenNguoiDaiDien);
             groupBoxTaoHopDong.Controls.Add(textBoxTenHopDong);
             groupBoxTaoHopDong.Controls.Add(labelTenHopDong);
-            groupBoxTaoHopDong.Controls.Add(textBoxMaHopDong);
-            groupBoxTaoHopDong.Controls.Add(labelMaHopDong);
             groupBoxTaoHopDong.Controls.Add(labelThongTinHopDong);
             groupBoxTaoHopDong.Controls.Add(buttonQuayLai);
             groupBoxTaoHopDong.Controls.Add(buttonTao);
@@ -284,7 +280,7 @@
             // richTextBoxNoiDung
             // 
             richTextBoxNoiDung.BorderStyle = BorderStyle.None;
-            richTextBoxNoiDung.Location = new Point(372, 356);
+            richTextBoxNoiDung.Location = new Point(369, 312);
             richTextBoxNoiDung.Name = "richTextBoxNoiDung";
             richTextBoxNoiDung.Size = new Size(306, 100);
             richTextBoxNoiDung.TabIndex = 7;
@@ -295,7 +291,7 @@
             labelNoiDungHopDong.AutoSize = true;
             labelNoiDungHopDong.BackColor = Color.LightGray;
             labelNoiDungHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNoiDungHopDong.Location = new Point(55, 356);
+            labelNoiDungHopDong.Location = new Point(52, 312);
             labelNoiDungHopDong.Name = "labelNoiDungHopDong";
             labelNoiDungHopDong.Size = new Size(176, 25);
             labelNoiDungHopDong.TabIndex = 79;
@@ -304,7 +300,7 @@
             // textBoxGiaTri
             // 
             textBoxGiaTri.BorderStyle = BorderStyle.None;
-            textBoxGiaTri.Location = new Point(372, 308);
+            textBoxGiaTri.Location = new Point(369, 264);
             textBoxGiaTri.Name = "textBoxGiaTri";
             textBoxGiaTri.Size = new Size(306, 23);
             textBoxGiaTri.TabIndex = 6;
@@ -314,7 +310,7 @@
             labelGiaTri.AutoSize = true;
             labelGiaTri.BackColor = Color.LightGray;
             labelGiaTri.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelGiaTri.Location = new Point(55, 308);
+            labelGiaTri.Location = new Point(52, 264);
             labelGiaTri.Name = "labelGiaTri";
             labelGiaTri.Size = new Size(147, 25);
             labelGiaTri.TabIndex = 77;
@@ -322,14 +318,14 @@
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(372, 257);
+            dateTimePickerEnd.Location = new Point(369, 213);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.Size = new Size(306, 30);
             dateTimePickerEnd.TabIndex = 5;
             // 
             // dateTimePickerStart
             // 
-            dateTimePickerStart.Location = new Point(372, 202);
+            dateTimePickerStart.Location = new Point(369, 158);
             dateTimePickerStart.Name = "dateTimePickerStart";
             dateTimePickerStart.Size = new Size(306, 30);
             dateTimePickerStart.TabIndex = 4;
@@ -339,7 +335,7 @@
             labelNgayKetThuc.AutoSize = true;
             labelNgayKetThuc.BackColor = Color.LightGray;
             labelNgayKetThuc.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayKetThuc.Location = new Point(56, 262);
+            labelNgayKetThuc.Location = new Point(53, 218);
             labelNgayKetThuc.Name = "labelNgayKetThuc";
             labelNgayKetThuc.Size = new Size(126, 25);
             labelNgayKetThuc.TabIndex = 74;
@@ -350,7 +346,7 @@
             labelNgayBatDau.AutoSize = true;
             labelNgayBatDau.BackColor = Color.LightGray;
             labelNgayBatDau.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayBatDau.Location = new Point(55, 207);
+            labelNgayBatDau.Location = new Point(52, 163);
             labelNgayBatDau.Name = "labelNgayBatDau";
             labelNgayBatDau.Size = new Size(124, 25);
             labelNgayBatDau.TabIndex = 73;
@@ -359,7 +355,7 @@
             // textBox2
             // 
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(372, 158);
+            textBox2.Location = new Point(369, 114);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(306, 23);
             textBox2.TabIndex = 3;
@@ -369,7 +365,7 @@
             labelTenNguoiDaiDien.AutoSize = true;
             labelTenNguoiDaiDien.BackColor = Color.LightGray;
             labelTenNguoiDaiDien.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelTenNguoiDaiDien.Location = new Point(55, 156);
+            labelTenNguoiDaiDien.Location = new Point(52, 112);
             labelTenNguoiDaiDien.Name = "labelTenNguoiDaiDien";
             labelTenNguoiDaiDien.Size = new Size(311, 25);
             labelTenNguoiDaiDien.TabIndex = 72;
@@ -378,7 +374,7 @@
             // textBoxTenHopDong
             // 
             textBoxTenHopDong.BorderStyle = BorderStyle.None;
-            textBoxTenHopDong.Location = new Point(372, 112);
+            textBoxTenHopDong.Location = new Point(369, 68);
             textBoxTenHopDong.Name = "textBoxTenHopDong";
             textBoxTenHopDong.Size = new Size(306, 23);
             textBoxTenHopDong.TabIndex = 2;
@@ -388,30 +384,11 @@
             labelTenHopDong.AutoSize = true;
             labelTenHopDong.BackColor = Color.LightGray;
             labelTenHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelTenHopDong.Location = new Point(55, 110);
+            labelTenHopDong.Location = new Point(52, 66);
             labelTenHopDong.Name = "labelTenHopDong";
             labelTenHopDong.Size = new Size(127, 25);
             labelTenHopDong.TabIndex = 70;
             labelTenHopDong.Text = "Tên hợp đồng:";
-            // 
-            // textBoxMaHopDong
-            // 
-            textBoxMaHopDong.BorderStyle = BorderStyle.None;
-            textBoxMaHopDong.Location = new Point(372, 68);
-            textBoxMaHopDong.Name = "textBoxMaHopDong";
-            textBoxMaHopDong.Size = new Size(306, 23);
-            textBoxMaHopDong.TabIndex = 1;
-            // 
-            // labelMaHopDong
-            // 
-            labelMaHopDong.AutoSize = true;
-            labelMaHopDong.BackColor = Color.LightGray;
-            labelMaHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelMaHopDong.Location = new Point(55, 66);
-            labelMaHopDong.Name = "labelMaHopDong";
-            labelMaHopDong.Size = new Size(126, 25);
-            labelMaHopDong.TabIndex = 68;
-            labelMaHopDong.Text = "Mã hợp đồng:";
             // 
             // labelThongTinHopDong
             // 
@@ -489,8 +466,6 @@
         private Label labelTenNguoiDaiDien;
         private TextBox textBoxTenHopDong;
         private Label labelTenHopDong;
-        private TextBox textBoxMaHopDong;
-        private Label labelMaHopDong;
         private RichTextBox richTextBoxNoiDung;
         private Label labelNoiDungHopDong;
         private TextBox textBoxGiaTri;

@@ -17,11 +17,12 @@ CREATE TABLE NGUOIDUNG
   NgaySinh DATE NOT NULL,	
   MatKhau VARCHAR(20) NOT NULL DEFAULT '12345',
   Mail NVARCHAR(50) NOT NULL,
-  VaiTro NVARCHAR(20) NOT NULL,
+  VaiTro NVARCHAR(20) NOT NULL, 
   SDT NVARCHAR(10) NOT NULL, 
   PhongBan NVARCHAR(20) NOT NULL,
   NgayVaoLam DATE NOT NULL DEFAULT GETDATE(),
   DiaChi NVARCHAR(50) NOT NULL,
+  TinhTrangHoatDong BIT NOT NULL DEFAULT 1, --1 Đang hoạt động, 0 Ngưng hoạt động
   PRIMARY KEY (MaNV)
 )
 go
@@ -83,7 +84,7 @@ select * from NGUOIDUNG
 
 CREATE TABLE HOPDONG
 (
-  MaHD NVARCHAR(5) DEFAULT dbo.taoMaHD() UNIQUE,
+  MaHD NVARCHAR(5) DEFAULT dbo.taoMaHD(),
   MaNV NVARCHAR(5) NOT NULL, --ma nhan vien tao hop dong
   TenHopDong NVARCHAR(50) NOT NULL,
   TenNguoiDaiDien NVARCHAR(50) NOT NULL,
@@ -91,7 +92,7 @@ CREATE TABLE HOPDONG
   NgayKetThuc DATE NOT NULL, -- ngay ket thuc phai sau ngay bat dau
   GiaTriHD INT NOT NULL,
   MucHoaHong INT NOT NULL DEFAULT 5, --Mặc định ban đầu 5% (Không cho phép người tạo hđ thay đổi- chỉ trưởng Sale được thay đổi)
-  ChiaGiaiDoan INT NOT NULL, --Chia theo thời gian thực hiện
+  ChiaGiaiDoan VARCHAR(20) NOT NULL DEFAULT '100%', --Chia theo thời gian ('100%', '30%-30%-40%','30%-70%','40%-30%-30%','40%-60%','50%-50%')
   DaThanhToan INT NOT NULL DEFAULT 0, --Trừ số tiền ghi nhận thanh toán
   NoiDungHD NVARCHAR(100) NOT NULL,
   TinhTrangHD NVARCHAR(20) NOT NULL DEFAULT N'Chưa thực hiện', --Chưa thực hiện, đang thực hiện, chờ nghiệm thu, đã xong
@@ -99,123 +100,83 @@ CREATE TABLE HOPDONG
   DiaChi NVARCHAR(50) NOT NULL, --của người liên hệ
   SDT NVARCHAR(10) NOT NULL, --của người liên hệ
   Mail NVARCHAR(50) NOT NULL, --của người liên hệ
-  PRIMARY KEY (MaHD, MaNV),
+  TienDoHD INT NOT NULL, --Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
+  PRIMARY KEY (MaHD),
   FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV)
 )
 
 ---Thêm dữ liệu Hợp Đồng---
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00001', 'Quay 50 video','Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, 2, 0, 'Quay video về abc','Chưa thực hiện', 'Đại sứ Milo', '1 NHT Quận 7', '0936681910', 'abc@gmail.com')
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00003', 'Chụp 5 hình', 'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, 'Chụp hình về abc', 'Đang thực hiện', 'Valhein', '1 NHT Quận 7', '0936681911', 'def@gmail.com')
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00002', 'Quay 10 video', 'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, 'Quay video về abc', 'Đang thực hiện', 'Đại sứ Omo', '1 NHT Quận 7', '0936681912', 'jkl@gmail.com')
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00005', 'Chụp 10 hình', 'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, 'Chụp hình về abc', 'Chờ nghiệm thu', 'Đại sứ Asus', '1 NHT Quận 7', '0936681913', 'abcd@gmail.com')
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00004', 'Quay 5 video', 'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, 'Quay video về abc', 'Đã xong', 'Đại sứ Grab', '1 NHT Quận 7', '0936681914', 'abcf@gmail.com')
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail)
-values ('00002', 'Chụp 15 hình', 'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, 'Chụp hình về abc', 'Chưa thực hiện', 'Đại sứ Foody', '1 NHT Quận 7', '0936681915', 'abce@gmail.com')
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00001', 'Quay 50 video','Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, '100%', 0, 'Quay video về abc','Chưa thực hiện', 'Đại sứ Milo', '1 NHT Quận 7', '0936681910', 'abc@gmail.com', 4)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00003', 'Chụp 5 hình', 'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, 'Chụp hình về abc', 'Đang thực hiện', 'Valhein', '1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00002', 'Quay 10 video', 'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, 'Quay video về abc', 'Đang thực hiện', 'Đại sứ Omo', '1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00005', 'Chụp 10 hình', 'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, 'Chụp hình về abc', 'Chờ nghiệm thu', 'Đại sứ Asus', '1 NHT Quận 7', '0936681913', 'abcd@gmail.com', 4)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00004', 'Quay 5 video', 'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, 'Quay video về abc', 'Đã xong', 'Đại sứ Grab', '1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00002', 'Chụp 15 hình', 'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, 'Chụp hình về abc', 'Chưa thực hiện', 'Đại sứ Foody', '1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00002', 'Chụp 15 hình', 'Công ty Foody','2024-12-29', 6523, 'Chụp hình về abc', 'Đại sứ Foody', '1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
 
 select * from HOPDONG
 
 
 CREATE TABLE GIAIDOANTHANHTOAN
 (
-  MaTienDoTT NVARCHAR(10) DEFAULT dbo.taoMaTienDoTT(),
+  MaGiaiDoanThanhToan NVARCHAR(10) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
   TenHopDong NVARCHAR(50) NOT NULL,
-  GiaiDoan INT NOT NULL,
-  NgayThanhToan DATE NOT NULL,
+  NgayThanhToan DATE NOT NULL, --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
   PhanTramThanhToan INT NOT NULL,
   GiaTriThanhToan INT NOT NULL,
-  TrangThaiThanhToan BIT NOT NULL, -- 1 Đã thanh toán, 0 Chờ thanh toán
-  NgayNhanThanhToan DATE NULL,
-  GhiChu NVARCHAR(100) NULL,
-  PRIMARY KEY (MaTienDoTT, MaHD),
-  FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD)
-  FOREIGN KEY (MaThanhToan) REFERENCES HOPDONG(MaHD)
-)
-select * from TienDoThanhToan 
-
-
-
-CREATE TABLE THANHTOAN
-(
-  MaThanhToan NVARCHAR(5) DEFAULT dbo.taoMaThanhToan(),
-  TienThanhToan INT NOT NULL,
-  NgayThanhToan DATE NOT NULL DEFAULT GETDATE(),
-  PhuongThuc BIT NOT NULL, --0 neu thanh toan bang tien mat, 1 neu chuyen khoan,
-  PRIMARY KEY (MaThanhToan)
+  TrangThaiThanhToan BIT NOT NULL DEFAULT 0, -- 1 Đã thanh toán, 0 Chờ thanh toán
+  NgayNhanThanhToan DATE,
+  GhiChu NVARCHAR(100),
+  NhanVienQuanLy NVARCHAR(5), --Người quản lý thanh toán (kế toán)
+  PRIMARY KEY (MaGiaiDoanThanhToan, MaHD),
+  FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD),
+  FOREIGN KEY (NhanVienQuanLy) REFERENCES NGUOIDUNG(MaNV)
 )
 
----Thêm dữ liệu Thanh Toán---
-insert into THANHTOAN(TienThanhToan, PhuongThuc)
-values (564, 0)
 
-insert into THANHTOAN(TienThanhToan, PhuongThuc)
-values (8000, 1)
-
-insert into THANHTOAN(TienThanhToan, PhuongThuc)
-values (8143, 1)
-
-select * from THANHTOAN
-
-
+insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001','Quay 50 video', '2024-11-24', 60, 1000, '2024-11-26', 'Thanh toán giai đoạn 1 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001','Quay 50 video', '2024-11-26', 40, 768, '2024-11-28', 'Thanh toán giai đoạn 2 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002','Chụp 5 hình', '2024-11-24', 50, 500, '2024-11-26', 'Thanh toán giai đoạn 1 HD002')
+select * from GIAIDOANTHANHTOAN 
 
 
 CREATE TABLE TIENDOHOPDONG
 (
-  MaGiaiDoan NVARCHAR(5) DEFAULT dbo.taoMaGiaiDoan(),
+  MaTienDoHopDong NVARCHAR(5) DEFAULT dbo.taoMaTienDoHopDong(),
   NgayBatDau DATE NOT NULL,
-  NgayKetThuc DATE NOT NULL,
+  NgayKetThuc DATE NOT NULL, --NGÀY KẾT THÚC HỢP ĐỒNG
   MaHD NVARCHAR(5) NOT NULL,
-  MaNV NVARCHAR(5) NOT NULL,
-  NVThucHienCV NVARCHAR(5),
-  KhoiLuongCongViec INT NOT NULL,
-  TongKhoiLuongCongViec INT NOT NULL,
-  PRIMARY KEY (MaGiaiDoan),
-  FOREIGN KEY (MaHD, MaNV) REFERENCES HOPDONG(MaHD,MaNV),
+  MaNV NVARCHAR(5) NOT NULL, --Người tạo HĐ
+  NVThucHienCV NVARCHAR(50), --TÊN Người thực hiện CV trong HĐ
+  NoiDungCV NVARCHAR(50) NOT NULL,
+  KhoiLuongCV INT NOT NULL DEFAULT 0, --Số lượng công việc đã hoàn thành
+  TongKhoiLuongCV INT NOT NULL DEFAULT 0, --Tổng số lượng công việc phải hoàn thành (sẽ sửa chung với lúc thêm tên người thực hiện công việc)
+  PRIMARY KEY (MaTienDoHopDong),
+  FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD),
 )
 
 ---Thêm dữ liệu giai đoạn hợp đồng
-insert into GIAIDOANHOPDONG(TinhTrangTT, PhanTramHD, NgayBatDau, NgayKetThuc, MaHD, MaThanhToan, MaNV)
-values(1, 50, '2024-01-02', '2024-04-02', '00003', '00002', '00005')
-insert into GIAIDOANHOPDONG(TinhTrangTT, PhanTramHD, NgayBatDau, NgayKetThuc, MaHD, MaThanhToan, MaNV)
-values(1, 50, '2024-04-03', '2024-05-06', '00003', '00002', '00005')
-insert into GIAIDOANHOPDONG(TinhTrangTT, PhanTramHD, NgayBatDau, NgayKetThuc, MaHD, MaThanhToan, MaNV)
-values(0, 40, '2023-11-21', '2024-02-21', '00001', '00000', '00003')
+insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
+values('2024-01-02', '2024-04-02', 'HD001', '00002', '00005', 'Quay 2 video')
+insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
+values('2024-01-02', '2024-04-02', 'HD001', '00002', '00006', 'Quay 18 video')
+insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
+values('2024-03-12', '2024-05-15', 'HD002', '00004', '00007', 'Chụp 3 hình')
 
-select * from GIAIDOANHOPDONG
+select * from TIENDOHOPDONG
 
-CREATE TABLE TIENDODUAN
-(
-  MaTienDo NVARCHAR(5) DEFAULT dbo.taoMaTienDo(),
-  MucTienDo INT NOT NULL,
-  NDCongViec NVARCHAR(50) NOT NULL,
-  MaHD NVARCHAR(5) NOT NULL,
-  MaNV NVARCHAR(5) NOT NULL,
-  PRIMARY KEY (MaTienDo),
-  FOREIGN KEY (MaHD, MaNV) REFERENCES HOPDONG(MaHD, MaNV)
-)
-
----Thêm dữ liệu tiến độ dự án---
-insert into TIENDODUAN(MucTienDo, NDCongViec, MaHD, MaNV)
-values(50, 'Quay video 10 công thức nấu ăn', '00001', '00003')
-
-insert into TIENDODUAN(MucTienDo, NDCongViec, MaHD, MaNV)
-values(40, 'Quay video 10 công thức pha Milo', '00000', '00001')
-
-insert into TIENDODUAN(MucTienDo, NDCongViec, MaHD, MaNV)
-values(30, 'Quay video công thức đặt Grab', '00004', '00004')
-
-insert into TIENDODUAN(MucTienDo, NDCongViec, MaHD, MaNV)
-values(50, 'Quay video công thức đặt Foody', '00005', '00002')
-
-insert into TIENDODUAN(MucTienDo, NDCongViec, MaHD, MaNV)
-values(70, 'Quay video cách sử dụng Omo', '00002', '00002')
-
-select * from TIENDODUAN
 
 
 
@@ -271,8 +232,8 @@ BEGIN
 END
 GO
 
--- Tạo mã tiến độ thanh toán --
-CREATE FUNCTION taoMaTienDoTT()
+-- Tạo mã giai đoạn thanh toán --
+CREATE FUNCTION taoMaGiaiDoanThanhToan()
 RETURNS NVARCHAR(5)
 AS
 BEGIN
@@ -280,8 +241,8 @@ BEGIN
     DECLARE @maxNumericPart INT
 
     -- Lấy phần số lớn nhất hiện tại trong MaTienDoTT
-    SELECT @maxNumericPart = MAX(CAST(MaTienDoTT AS INT))
-    FROM TienDoThanhToan
+    SELECT @maxNumericPart = MAX(CAST(MaGiaiDoanThanhToan AS INT))
+    FROM GIAIDOANTHANHTOAN
 
     -- Nếu chưa có mã tiến độ nào, bắt đầu từ 00001
     IF @maxNumericPart IS NULL
@@ -294,48 +255,13 @@ BEGIN
 END
 GO
 
-
-
-
-CREATE FUNCTION taoMaThanhToan()
-RETURNS NVARCHAR(5)
-AS
-BEGIN
-    DECLARE @newMaThanhToan NVARCHAR(5);
-    select @newMaThanhToan = max(MaThanhToan) from THANHTOAN
-    IF @newMaThanhToan IS NULL
-        SET @newMaThanhToan = '00000'; 
-	ELSE
-		SET @newMaThanhToan = RIGHT('00000' +CAST((CAST(@newMaThanhToan AS INT) + 1) AS NVARCHAR),5);
-	RETURN @newMaThanhToan
-END
-go
-
-
-
-
-
-CREATE FUNCTION taoMaGiaiDoan()
-RETURNS NVARCHAR(5)
-AS
-BEGIN
-    DECLARE @newMaGiaiDoan NVARCHAR(5);
-    select @newMaGiaiDoan = max(MaGiaiDoan) from GIAIDOANHOPDONG
-    IF @newMaGiaiDoan IS NULL
-        SET @newMaGiaiDoan = '00000'; 
-	IF (CAST(@newMaGiaiDoan AS INT) > -1)
-		SET @newMaGiaiDoan = RIGHT('00000' +CAST((CAST(@newMaGiaiDoan AS INT) + 1) AS NVARCHAR),5);
-	RETURN @newMaGiaiDoan
-END
-go
-
-
-CREATE FUNCTION taoMaTienDo()
+-- Tạo mã tiến độ hợp đồng --
+CREATE FUNCTION taoMaTienDoHopDong()
 RETURNS NVARCHAR(5)
 AS
 BEGIN
     DECLARE @newMaTienDo NVARCHAR(5);
-    select @newMaTienDo = max(MaTienDo) from TIENDODUAN
+    select @newMaTienDo = max(MaTienDoHopDong) from TIENDOHOPDONG
     IF @newMaTienDo IS NULL
         SET @newMaTienDo = '00000'; 
 	IF (CAST(@newMaTienDo AS INT) > -1)
@@ -343,13 +269,6 @@ BEGIN
 	RETURN @newMaTienDo
 END
 go
-
-
-
-
-
-
-
 
 
 

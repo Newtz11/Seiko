@@ -98,7 +98,7 @@ namespace Design
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadForm(new ContractTracking());
+            loadForm(new ContractTrackingForSale());
         }
 
         private void buttonRole_Click(object sender, EventArgs e)
