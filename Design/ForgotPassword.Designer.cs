@@ -32,7 +32,7 @@
             pictureBoxLogo0 = new PictureBox();
             labelForgotPassword = new Label();
             groupBoxForgotPassword = new GroupBox();
-            button1 = new Button();
+            buttonSendOTP = new Button();
             buttonBack = new Button();
             buttonSavePassword = new Button();
             textBoxOTP = new TextBox();
@@ -66,7 +66,7 @@
             // 
             // groupBoxForgotPassword
             // 
-            groupBoxForgotPassword.Controls.Add(button1);
+            groupBoxForgotPassword.Controls.Add(buttonSendOTP);
             groupBoxForgotPassword.Controls.Add(buttonBack);
             groupBoxForgotPassword.Controls.Add(buttonSavePassword);
             groupBoxForgotPassword.Controls.Add(textBoxOTP);
@@ -80,19 +80,19 @@
             groupBoxForgotPassword.TabStop = false;
             groupBoxForgotPassword.Text = "groupBox1";
             // 
-            // button1
+            // buttonSendOTP
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.DodgerBlue;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(433, 184);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 30);
-            button1.TabIndex = 14;
-            button1.Text = "Gửi OTP";
-            button1.UseVisualStyleBackColor = false;
+            buttonSendOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSendOTP.BackColor = Color.DodgerBlue;
+            buttonSendOTP.FlatStyle = FlatStyle.Popup;
+            buttonSendOTP.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSendOTP.ForeColor = Color.White;
+            buttonSendOTP.Location = new Point(433, 184);
+            buttonSendOTP.Name = "buttonSendOTP";
+            buttonSendOTP.Size = new Size(122, 30);
+            buttonSendOTP.TabIndex = 14;
+            buttonSendOTP.Text = "Gửi OTP";
+            buttonSendOTP.UseVisualStyleBackColor = false;
             // 
             // buttonBack
             // 
@@ -194,6 +194,6 @@
         private TextBox textBoxEmail;
         private Button buttonSavePassword;
         private Button buttonBack;
-        private Button button1;
+        private Button buttonSendOTP;
     }
 }

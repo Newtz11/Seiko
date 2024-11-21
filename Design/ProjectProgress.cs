@@ -50,9 +50,9 @@ namespace Design
 
         private void ProjectProgress_Load(object sender, EventArgs e)
         {
-            dataGridViewListUser.Rows.Add("1","HD001", "Quay video", "Quay 50 video", "20-10-2020", "20-11-2023", "Nguyen Van B", "Đang thực hiện");
-            dataGridViewListUser.Rows.Add("2","HD002", "Chụp ảnh", "Chụp 100 ảnh", "20-10-2020", "20-11-2023", "Nguyen Van B", "Chưa thực hiện");
-            dataGridViewListUser.Rows.Add("3","HD003", "Quay video", "Quay 50 video", "20-10-2020", "20-11-2023", "Nguyen Van B", "Đã xong");
+            dataGridViewListUser.Rows.Add("HD001", "Quay video", "Quay 50 video", "20-10-2020", "20-11-2023","25", "Nguyen Van B", "Đang thực hiện");
+            dataGridViewListUser.Rows.Add("HD002", "Chụp ảnh", "Chụp 100 ảnh", "20-10-2020", "20-11-2023","50", "Nguyen Van B", "Chưa thực hiện");
+            dataGridViewListUser.Rows.Add("HD003", "Quay video", "Quay 50 video", "20-10-2020", "20-11-2023", "100","Nguyen Van B", "Đã xong");
         }
 
         private void label1_Click(object sender, EventArgs e)

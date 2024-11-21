@@ -50,5 +50,10 @@ namespace Design
         {
 
         }
+
+        private void buttonQuayLai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

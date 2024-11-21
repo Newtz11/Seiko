@@ -43,12 +43,12 @@
             buttonSua = new Button();
             comboBox1 = new ComboBox();
             dataGridViewListUser = new DataGridView();
-            STT = new DataGridViewTextBoxColumn();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             NoiDungCongViec = new DataGridViewTextBoxColumn();
             NgayBatDau = new DataGridViewTextBoxColumn();
             NgayKetThuc = new DataGridViewTextBoxColumn();
+            TienDoHoanThanh = new DataGridViewTextBoxColumn();
             NguoiThucHien = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
             comboBoxTinhTrang = new ComboBox();
@@ -84,7 +84,7 @@
             // 
             // groupBoxListUser
             // 
-            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
             groupBoxListUser.Controls.Add(dateTimePicker2);
             groupBoxListUser.Controls.Add(label2);
@@ -101,7 +101,7 @@
             groupBoxListUser.Controls.Add(labelProjectProgress);
             groupBoxListUser.Location = new Point(12, 133);
             groupBoxListUser.Name = "groupBoxListUser";
-            groupBoxListUser.Size = new Size(1280, 808);
+            groupBoxListUser.Size = new Size(1298, 808);
             groupBoxListUser.TabIndex = 50;
             groupBoxListUser.TabStop = false;
             // 
@@ -115,12 +115,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             label2.Location = new Point(46, 178);
             label2.Name = "label2";
-            label2.Size = new Size(109, 20);
+            label2.Size = new Size(103, 20);
             label2.TabIndex = 34;
-            label2.Text = "Ngày Kết thúc";
+            label2.Text = "Ngày kết thúc:";
             // 
             // dateTimePicker1
             // 
@@ -134,12 +134,12 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.LightGray;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             label1.Location = new Point(46, 142);
             label1.Name = "label1";
-            label1.Size = new Size(106, 20);
+            label1.Size = new Size(102, 20);
             label1.TabIndex = 32;
-            label1.Text = "Ngày Bắt Đầu";
+            label1.Text = "Ngày bắt đầu:";
             label1.Click += label1_Click;
             // 
             // buttonSua
@@ -149,7 +149,7 @@
             buttonSua.FlatStyle = FlatStyle.Popup;
             buttonSua.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSua.ForeColor = Color.White;
-            buttonSua.Location = new Point(1052, 178);
+            buttonSua.Location = new Point(1067, 178);
             buttonSua.Name = "buttonSua";
             buttonSua.Size = new Size(74, 30);
             buttonSua.TabIndex = 31;
@@ -158,10 +158,10 @@
             // 
             // comboBox1
             // 
+            comboBox1.Anchor = AnchorStyles.Top;
             comboBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBox1.Location = new Point(689, 175);
+            comboBox1.Location = new Point(698, 175);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(164, 31);
             comboBox1.TabIndex = 30;
@@ -173,9 +173,10 @@
             dataGridViewListUser.AllowUserToDeleteRows = false;
             dataGridViewListUser.AllowUserToOrderColumns = true;
             dataGridViewListUser.AllowUserToResizeRows = false;
+            dataGridViewListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewListUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewListUser.BackgroundColor = Color.White;
-            dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.DarkGray;
@@ -186,17 +187,17 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { STT, MaHopDong, TenHopDong, NoiDungCongViec, NgayBatDau, NgayKetThuc, NguoiThucHien, TinhTrang });
+            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, NgayBatDau, NgayKetThuc, TienDoHoanThanh, NguoiThucHien, TinhTrang });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewListUser.GridColor = Color.Black;
-            dataGridViewListUser.Location = new Point(46, 228);
+            dataGridViewListUser.Location = new Point(15, 231);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -215,36 +216,29 @@
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewListUser.Size = new Size(1187, 550);
+            dataGridViewListUser.Size = new Size(1270, 550);
             dataGridViewListUser.TabIndex = 29;
             dataGridViewListUser.CellContentClick += dataGridViewListUser_CellContentClick;
-            // 
-            // STT
-            // 
-            STT.FillWeight = 333.2837F;
-            STT.HeaderText = "STT";
-            STT.MinimumWidth = 50;
-            STT.Name = "STT";
             // 
             // MaHopDong
             // 
             MaHopDong.FillWeight = 41.4224167F;
             MaHopDong.HeaderText = "Mã Hợp Đồng";
-            MaHopDong.MinimumWidth = 150;
+            MaHopDong.MinimumWidth = 130;
             MaHopDong.Name = "MaHopDong";
             // 
             // TenHopDong
             // 
             TenHopDong.FillWeight = 41.4224167F;
             TenHopDong.HeaderText = "Tên Hợp Đồng";
-            TenHopDong.MinimumWidth = 150;
+            TenHopDong.MinimumWidth = 140;
             TenHopDong.Name = "TenHopDong";
             // 
             // NoiDungCongViec
             // 
             NoiDungCongViec.FillWeight = 218.181778F;
             NoiDungCongViec.HeaderText = "Nội Dung Công Việc ";
-            NoiDungCongViec.MinimumWidth = 250;
+            NoiDungCongViec.MinimumWidth = 150;
             NoiDungCongViec.Name = "NoiDungCongViec";
             // 
             // NgayBatDau
@@ -261,6 +255,12 @@
             NgayKetThuc.MinimumWidth = 150;
             NgayKetThuc.Name = "NgayKetThuc";
             // 
+            // TienDoHoanThanh
+            // 
+            TienDoHoanThanh.HeaderText = "Tiến độ hoàn thành (%)";
+            TienDoHoanThanh.MinimumWidth = 180;
+            TienDoHoanThanh.Name = "TienDoHoanThanh";
+            // 
             // NguoiThucHien
             // 
             NguoiThucHien.FillWeight = 41.4224167F;
@@ -270,17 +270,20 @@
             // 
             // TinhTrang
             // 
+            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             TinhTrang.FillWeight = 41.4224167F;
             TinhTrang.HeaderText = "Tình Trạng";
             TinhTrang.MinimumWidth = 150;
             TinhTrang.Name = "TinhTrang";
+            TinhTrang.Width = 150;
             // 
             // comboBoxTinhTrang
             // 
+            comboBoxTinhTrang.Anchor = AnchorStyles.Top;
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxTinhTrang.Location = new Point(500, 175);
+            comboBoxTinhTrang.Location = new Point(509, 175);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             comboBoxTinhTrang.Size = new Size(161, 31);
             comboBoxTinhTrang.TabIndex = 4;
@@ -293,7 +296,7 @@
             buttonXoa.FlatStyle = FlatStyle.Popup;
             buttonXoa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonXoa.ForeColor = Color.White;
-            buttonXoa.Location = new Point(1149, 176);
+            buttonXoa.Location = new Point(1167, 176);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(84, 32);
             buttonXoa.TabIndex = 20;
@@ -307,7 +310,7 @@
             buttonTaoTaiKhoan.FlatStyle = FlatStyle.Popup;
             buttonTaoTaiKhoan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTaoTaiKhoan.ForeColor = Color.White;
-            buttonTaoTaiKhoan.Location = new Point(911, 178);
+            buttonTaoTaiKhoan.Location = new Point(920, 178);
             buttonTaoTaiKhoan.Name = "buttonTaoTaiKhoan";
             buttonTaoTaiKhoan.Size = new Size(117, 30);
             buttonTaoTaiKhoan.TabIndex = 19;
@@ -316,11 +319,12 @@
             // 
             // buttonSearch
             // 
+            buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonSearch.BackColor = Color.DodgerBlue;
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(1127, 86);
+            buttonSearch.Location = new Point(1145, 86);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(106, 33);
             buttonSearch.TabIndex = 17;
@@ -329,11 +333,12 @@
             // 
             // textBoxSearch
             // 
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.Location = new Point(46, 88);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Nhập từ khóa tìm kiếm (Mã hợp đồng, tên hợp đồng, người thực hiện, nội dung thực hiện, ...)";
-            textBoxSearch.Size = new Size(1035, 30);
+            textBoxSearch.Size = new Size(1053, 30);
             textBoxSearch.TabIndex = 1;
             // 
             // labelProjectProgress
@@ -350,7 +355,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1320, 953);
+            ClientSize = new Size(1330, 953);
             Controls.Add(groupBoxListUser);
             Controls.Add(labelTienDoCongViec);
             Controls.Add(pictureBoxIconContractTracking);
@@ -385,12 +390,12 @@
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Label label2;
-        private DataGridViewTextBoxColumn STT;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn NoiDungCongViec;
         private DataGridViewTextBoxColumn NgayBatDau;
         private DataGridViewTextBoxColumn NgayKetThuc;
+        private DataGridViewTextBoxColumn TienDoHoanThanh;
         private DataGridViewTextBoxColumn NguoiThucHien;
         private DataGridViewTextBoxColumn TinhTrang;
     }

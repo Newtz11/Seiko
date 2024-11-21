@@ -19,7 +19,7 @@ namespace Design
             ApplyRoundedCorners(buttonHome);
             ApplyRoundedCorners(buttonInfoUser);
             ApplyRoundedCorners(buttonContractTracking);
-            ApplyRoundedCorners(buttonCommissionCalculation);
+            ApplyRoundedCorners(buttonTienDoThanhToan);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
         }
@@ -49,11 +49,6 @@ namespace Design
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
             loadform(new ContractTracking());
-        }
-
-        private void buttonCommissionCalculation_Click(object sender, EventArgs e)
-        {
-            loadform(new AccountantPaymentCommission());
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -99,6 +94,11 @@ namespace Design
         private void Accountant_Load(object sender, EventArgs e)
         {
             loadform(new Home());
+        }
+
+        private void buttonTienDoThanhToan_Click(object sender, EventArgs e)
+        {
+            loadform(new PaymentProgress());
         }
     }
 }

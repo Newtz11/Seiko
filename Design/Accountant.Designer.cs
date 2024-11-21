@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accountant));
             groupBoxFeature = new GroupBox();
+            buttonTienDoThanhToan = new Button();
             mainpanel = new Panel();
-            buttonCommissionCalculation = new Button();
             buttonContractHistory = new Button();
             buttonLogout = new Button();
             pictureBoxSecurity = new PictureBox();
@@ -48,8 +48,8 @@
             // groupBoxFeature
             // 
             groupBoxFeature.BackColor = Color.Gainsboro;
+            groupBoxFeature.Controls.Add(buttonTienDoThanhToan);
             groupBoxFeature.Controls.Add(mainpanel);
-            groupBoxFeature.Controls.Add(buttonCommissionCalculation);
             groupBoxFeature.Controls.Add(buttonContractHistory);
             groupBoxFeature.Controls.Add(buttonLogout);
             groupBoxFeature.Controls.Add(pictureBoxSecurity);
@@ -59,10 +59,26 @@
             groupBoxFeature.Controls.Add(pictureBoxLogoAccountant);
             groupBoxFeature.Location = new Point(0, 0);
             groupBoxFeature.Name = "groupBoxFeature";
-            groupBoxFeature.Size = new Size(216, 986);
+            groupBoxFeature.Size = new Size(216, 953);
             groupBoxFeature.TabIndex = 8;
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
+            // 
+            // buttonTienDoThanhToan
+            // 
+            buttonTienDoThanhToan.BackColor = Color.Silver;
+            buttonTienDoThanhToan.FlatAppearance.BorderColor = Color.Black;
+            buttonTienDoThanhToan.FlatAppearance.MouseDownBackColor = Color.White;
+            buttonTienDoThanhToan.FlatAppearance.MouseOverBackColor = Color.White;
+            buttonTienDoThanhToan.FlatStyle = FlatStyle.Flat;
+            buttonTienDoThanhToan.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonTienDoThanhToan.Location = new Point(6, 464);
+            buttonTienDoThanhToan.Name = "buttonTienDoThanhToan";
+            buttonTienDoThanhToan.Size = new Size(200, 48);
+            buttonTienDoThanhToan.TabIndex = 19;
+            buttonTienDoThanhToan.Text = "TIẾN ĐỘ THANH TOÁN";
+            buttonTienDoThanhToan.UseVisualStyleBackColor = false;
+            buttonTienDoThanhToan.Click += buttonTienDoThanhToan_Click;
             // 
             // mainpanel
             // 
@@ -72,23 +88,6 @@
             mainpanel.Size = new Size(1546, 1099);
             mainpanel.TabIndex = 18;
             // 
-            // buttonCommissionCalculation
-            // 
-            buttonCommissionCalculation.BackColor = Color.Silver;
-            buttonCommissionCalculation.FlatAppearance.BorderColor = Color.Black;
-            buttonCommissionCalculation.FlatAppearance.MouseDownBackColor = Color.White;
-            buttonCommissionCalculation.FlatAppearance.MouseOverBackColor = Color.White;
-            buttonCommissionCalculation.FlatStyle = FlatStyle.Flat;
-            buttonCommissionCalculation.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonCommissionCalculation.ForeColor = SystemColors.ControlText;
-            buttonCommissionCalculation.Location = new Point(6, 460);
-            buttonCommissionCalculation.Name = "buttonCommissionCalculation";
-            buttonCommissionCalculation.Size = new Size(200, 48);
-            buttonCommissionCalculation.TabIndex = 4;
-            buttonCommissionCalculation.Text = "TÍNH HOA HỒNG";
-            buttonCommissionCalculation.UseVisualStyleBackColor = false;
-            buttonCommissionCalculation.Click += buttonCommissionCalculation_Click;
-            // 
             // buttonContractHistory
             // 
             buttonContractHistory.BackColor = Color.Silver;
@@ -97,7 +96,7 @@
             buttonContractHistory.FlatAppearance.MouseOverBackColor = Color.White;
             buttonContractHistory.FlatStyle = FlatStyle.Flat;
             buttonContractHistory.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractHistory.Location = new Point(6, 568);
+            buttonContractHistory.Location = new Point(6, 576);
             buttonContractHistory.Name = "buttonContractHistory";
             buttonContractHistory.Size = new Size(200, 48);
             buttonContractHistory.TabIndex = 5;
@@ -230,8 +229,8 @@
         private Button buttonHome;
         private Button buttonInfoUser;
         private PictureBox pictureBoxLogoAccountant;
-        private Button buttonCommissionCalculation;
         private Panel mainpanel;
         private Panel panel1;
+        private Button buttonTienDoThanhToan;
     }
 }

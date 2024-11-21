@@ -113,6 +113,7 @@
             groupBoxEmail.Controls.Add(textBoxFullName);
             groupBoxEmail.Controls.Add(textBoxUserName);
             groupBoxEmail.Controls.Add(labelFullName);
+            groupBoxEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             groupBoxEmail.Location = new Point(13, 155);
             groupBoxEmail.Name = "groupBoxEmail";
             groupBoxEmail.Size = new Size(1007, 750);
@@ -127,7 +128,7 @@
             buttonHuyBo.FlatStyle = FlatStyle.Popup;
             buttonHuyBo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonHuyBo.ForeColor = Color.White;
-            buttonHuyBo.Location = new Point(756, 667);
+            buttonHuyBo.Location = new Point(756, 678);
             buttonHuyBo.Name = "buttonHuyBo";
             buttonHuyBo.Size = new Size(200, 50);
             buttonHuyBo.TabIndex = 37;
@@ -252,7 +253,7 @@
             labelPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelPhoneNumber.AutoSize = true;
             labelPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPhoneNumber.Location = new Point(541, 542);
+            labelPhoneNumber.Location = new Point(532, 542);
             labelPhoneNumber.Name = "labelPhoneNumber";
             labelPhoneNumber.Size = new Size(138, 28);
             labelPhoneNumber.TabIndex = 25;
@@ -297,7 +298,7 @@
             buttonTaoTaiKhoan.FlatStyle = FlatStyle.Popup;
             buttonTaoTaiKhoan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTaoTaiKhoan.ForeColor = Color.White;
-            buttonTaoTaiKhoan.Location = new Point(387, 667);
+            buttonTaoTaiKhoan.Location = new Point(385, 678);
             buttonTaoTaiKhoan.Name = "buttonTaoTaiKhoan";
             buttonTaoTaiKhoan.Size = new Size(200, 50);
             buttonTaoTaiKhoan.TabIndex = 12;
@@ -352,7 +353,7 @@
             // 
             labelUserName.AutoSize = true;
             labelUserName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelUserName.Location = new Point(48, 166);
+            labelUserName.Location = new Point(48, 60);
             labelUserName.Name = "labelUserName";
             labelUserName.Size = new Size(152, 28);
             labelUserName.TabIndex = 14;
@@ -361,26 +362,26 @@
             // textBoxFullName
             // 
             textBoxFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFullName.Location = new Point(48, 104);
+            textBoxFullName.Location = new Point(48, 217);
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.PlaceholderText = "Nhập họ và tên";
             textBoxFullName.Size = new Size(415, 30);
-            textBoxFullName.TabIndex = 1;
+            textBoxFullName.TabIndex = 2;
             // 
             // textBoxUserName
             // 
             textBoxUserName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxUserName.Location = new Point(48, 217);
+            textBoxUserName.Location = new Point(48, 103);
             textBoxUserName.Name = "textBoxUserName";
             textBoxUserName.PlaceholderText = "Nhập tên đăng nhập";
             textBoxUserName.Size = new Size(415, 30);
-            textBoxUserName.TabIndex = 2;
+            textBoxUserName.TabIndex = 1;
             // 
             // labelFullName
             // 
             labelFullName.AutoSize = true;
             labelFullName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelFullName.Location = new Point(48, 60);
+            labelFullName.Location = new Point(48, 166);
             labelFullName.Name = "labelFullName";
             labelFullName.Size = new Size(220, 28);
             labelFullName.TabIndex = 11;
@@ -399,7 +400,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CreateAccount";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Seiko";
+            Text = " ";
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconCreateAccount).EndInit();
             groupBoxEmail.ResumeLayout(false);
             groupBoxEmail.PerformLayout();
