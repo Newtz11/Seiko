@@ -63,12 +63,7 @@ namespace Design
 
         private void ContractTracking_Load(object sender, EventArgs e)
         {
-            dataGridViewContractTracking.Rows.Add("HD001","HELLO","CTY NESTLE","Nguyen Van A","20-10-2020","20-11-2023","100000000","Nguyen Van B","Đang thực hiện");
-            dataGridViewContractTracking.Rows.Add("HD002", "HELLO", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đang thực hiện");
-            dataGridViewContractTracking.Rows.Add("HD003", "HELLO", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đang thực hiện");
-            dataGridViewContractTracking.Rows.Add("HD004", "HELLO", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đang thực hiện");
-            dataGridViewContractTracking.Rows.Add("HD005", "HELLO", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đang thực hiện");
-            dataGridViewContractTracking.Rows.Add("HD006", "HELLO", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đang thực hiện");
+
         }
     }
 }

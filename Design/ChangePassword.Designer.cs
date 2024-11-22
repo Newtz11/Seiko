@@ -82,6 +82,7 @@
             buttonShowPassword3.Size = new Size(32, 30);
             buttonShowPassword3.TabIndex = 25;
             buttonShowPassword3.UseVisualStyleBackColor = true;
+            buttonShowPassword3.Click += buttonShowPassword3_Click;
             // 
             // buttonShowPassword2
             // 
@@ -91,6 +92,7 @@
             buttonShowPassword2.Size = new Size(32, 30);
             buttonShowPassword2.TabIndex = 24;
             buttonShowPassword2.UseVisualStyleBackColor = true;
+            buttonShowPassword2.Click += buttonShowPassword2_Click;
             // 
             // buttonHidePassword3
             // 
@@ -100,6 +102,7 @@
             buttonHidePassword3.Size = new Size(33, 30);
             buttonHidePassword3.TabIndex = 23;
             buttonHidePassword3.UseVisualStyleBackColor = true;
+            buttonHidePassword3.Click += buttonHidePassword3_Click;
             // 
             // buttonHidePassword2
             // 
@@ -109,6 +112,7 @@
             buttonHidePassword2.Size = new Size(33, 30);
             buttonHidePassword2.TabIndex = 22;
             buttonHidePassword2.UseVisualStyleBackColor = true;
+            buttonHidePassword2.Click += buttonHidePassword2_Click;
             // 
             // buttonBack
             // 
@@ -146,7 +150,6 @@
             textBoxConfirmPassword.Location = new Point(108, 277);
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             textBoxConfirmPassword.PlaceholderText = "Xác nhận mật khẩu mới (phải trùng với mật khẩu mới )";
-            textBoxConfirmPassword.ReadOnly = true;
             textBoxConfirmPassword.Size = new Size(458, 30);
             textBoxConfirmPassword.TabIndex = 3;
             // 
@@ -198,6 +201,7 @@
             buttonHidePassword1.Size = new Size(33, 30);
             buttonHidePassword1.TabIndex = 14;
             buttonHidePassword1.UseVisualStyleBackColor = true;
+            buttonHidePassword1.Click += buttonHidePassword1_Click;
             // 
             // textBoxChangePassword
             // 
@@ -254,6 +258,7 @@
             Name = "ChangePassword";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đổi mật khẩu";
+            Load += ChangePassword_Load;
             groupBoxChangePassword.ResumeLayout(false);
             groupBoxChangePassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo0).EndInit();

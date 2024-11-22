@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountDetail));
             pictureBox4 = new PictureBox();
             label9 = new Label();
             groupBoxAccountDetail = new GroupBox();
+            comboBoxTrangThai = new ComboBox();
             comboBoxChucVu = new ComboBox();
             comboBoxPhongBan = new ComboBox();
             buttonQuayLai = new Button();
@@ -55,7 +57,6 @@
             textBoxMaNhanVien = new TextBox();
             labelMaNhanVien = new Label();
             label7 = new Label();
-            textBoxTrangThai = new TextBox();
             labelTrangThai = new Label();
             textBoxMatKhau = new TextBox();
             textBoxTenDangNhap = new TextBox();
@@ -63,9 +64,27 @@
             label6 = new Label();
             label5 = new Label();
             pictureBoxAnhDaiDien = new PictureBox();
+            errorProviderTenDangNhap = new ErrorProvider(components);
+            errorProviderMatKhau = new ErrorProvider(components);
+            errorProviderTrangThai = new ErrorProvider(components);
+            errorProviderTenNhanVien = new ErrorProvider(components);
+            errorProviderSDT = new ErrorProvider(components);
+            errorProviderPhongBan = new ErrorProvider(components);
+            errorProviderChucVu = new ErrorProvider(components);
+            errorProviderDiaChi = new ErrorProvider(components);
+            errorProviderEmail = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             groupBoxAccountDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAnhDaiDien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenDangNhap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderMatKhau).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTrangThai).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPhongBan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderChucVu).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).BeginInit();
             SuspendLayout();
             // 
             // pictureBox4
@@ -94,6 +113,7 @@
             // 
             groupBoxAccountDetail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxAccountDetail.BackColor = Color.LightGray;
+            groupBoxAccountDetail.Controls.Add(comboBoxTrangThai);
             groupBoxAccountDetail.Controls.Add(comboBoxChucVu);
             groupBoxAccountDetail.Controls.Add(comboBoxPhongBan);
             groupBoxAccountDetail.Controls.Add(buttonQuayLai);
@@ -117,7 +137,6 @@
             groupBoxAccountDetail.Controls.Add(textBoxMaNhanVien);
             groupBoxAccountDetail.Controls.Add(labelMaNhanVien);
             groupBoxAccountDetail.Controls.Add(label7);
-            groupBoxAccountDetail.Controls.Add(textBoxTrangThai);
             groupBoxAccountDetail.Controls.Add(labelTrangThai);
             groupBoxAccountDetail.Controls.Add(textBoxMatKhau);
             groupBoxAccountDetail.Controls.Add(textBoxTenDangNhap);
@@ -130,6 +149,16 @@
             groupBoxAccountDetail.Size = new Size(850, 740);
             groupBoxAccountDetail.TabIndex = 59;
             groupBoxAccountDetail.TabStop = false;
+            // 
+            // comboBoxTrangThai
+            // 
+            comboBoxTrangThai.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            comboBoxTrangThai.FormattingEnabled = true;
+            comboBoxTrangThai.Items.AddRange(new object[] { "Đang hoạt động", "Ngưng hoạt động" });
+            comboBoxTrangThai.Location = new Point(403, 147);
+            comboBoxTrangThai.Name = "comboBoxTrangThai";
+            comboBoxTrangThai.Size = new Size(207, 31);
+            comboBoxTrangThai.TabIndex = 3;
             // 
             // comboBoxChucVu
             // 
@@ -193,6 +222,7 @@
             buttonLuu.TabIndex = 14;
             buttonLuu.Text = "LƯU";
             buttonLuu.UseVisualStyleBackColor = false;
+            buttonLuu.Click += buttonLuu_Click;
             // 
             // radioButtonNu
             // 
@@ -255,7 +285,6 @@
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.Location = new Point(250, 638);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.PasswordChar = '*';
             textBoxEmail.Size = new Size(261, 30);
             textBoxEmail.TabIndex = 13;
             // 
@@ -277,7 +306,6 @@
             textBoxDiaChi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxDiaChi.Location = new Point(250, 586);
             textBoxDiaChi.Name = "textBoxDiaChi";
-            textBoxDiaChi.PasswordChar = '*';
             textBoxDiaChi.Size = new Size(261, 30);
             textBoxDiaChi.TabIndex = 12;
             // 
@@ -297,9 +325,8 @@
             textBoxSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSDT.BorderStyle = BorderStyle.FixedSingle;
             textBoxSDT.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSDT.Location = new Point(251, 438);
+            textBoxSDT.Location = new Point(252, 438);
             textBoxSDT.Name = "textBoxSDT";
-            textBoxSDT.PasswordChar = '*';
             textBoxSDT.Size = new Size(260, 30);
             textBoxSDT.TabIndex = 9;
             // 
@@ -343,7 +370,6 @@
             textBoxTenNhanVien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxTenNhanVien.Location = new Point(251, 289);
             textBoxTenNhanVien.Name = "textBoxTenNhanVien";
-            textBoxTenNhanVien.PasswordChar = '*';
             textBoxTenNhanVien.Size = new Size(260, 30);
             textBoxTenNhanVien.TabIndex = 5;
             // 
@@ -365,7 +391,6 @@
             textBoxMaNhanVien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxMaNhanVien.Location = new Point(252, 239);
             textBoxMaNhanVien.Name = "textBoxMaNhanVien";
-            textBoxMaNhanVien.PasswordChar = '*';
             textBoxMaNhanVien.Size = new Size(260, 30);
             textBoxMaNhanVien.TabIndex = 4;
             // 
@@ -390,17 +415,6 @@
             label7.Size = new Size(172, 25);
             label7.TabIndex = 83;
             label7.Text = "Thông tin cá nhân:";
-            // 
-            // textBoxTrangThai
-            // 
-            textBoxTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTrangThai.BorderStyle = BorderStyle.FixedSingle;
-            textBoxTrangThai.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxTrangThai.Location = new Point(403, 150);
-            textBoxTrangThai.Name = "textBoxTrangThai";
-            textBoxTrangThai.PasswordChar = '*';
-            textBoxTrangThai.Size = new Size(207, 30);
-            textBoxTrangThai.TabIndex = 3;
             // 
             // labelTrangThai
             // 
@@ -477,6 +491,42 @@
             pictureBoxAnhDaiDien.TabIndex = 72;
             pictureBoxAnhDaiDien.TabStop = false;
             // 
+            // errorProviderTenDangNhap
+            // 
+            errorProviderTenDangNhap.ContainerControl = this;
+            // 
+            // errorProviderMatKhau
+            // 
+            errorProviderMatKhau.ContainerControl = this;
+            // 
+            // errorProviderTrangThai
+            // 
+            errorProviderTrangThai.ContainerControl = this;
+            // 
+            // errorProviderTenNhanVien
+            // 
+            errorProviderTenNhanVien.ContainerControl = this;
+            // 
+            // errorProviderSDT
+            // 
+            errorProviderSDT.ContainerControl = this;
+            // 
+            // errorProviderPhongBan
+            // 
+            errorProviderPhongBan.ContainerControl = this;
+            // 
+            // errorProviderChucVu
+            // 
+            errorProviderChucVu.ContainerControl = this;
+            // 
+            // errorProviderDiaChi
+            // 
+            errorProviderDiaChi.ContainerControl = this;
+            // 
+            // errorProviderEmail
+            // 
+            errorProviderEmail.ContainerControl = this;
+            // 
             // AccountDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -494,6 +544,15 @@
             groupBoxAccountDetail.ResumeLayout(false);
             groupBoxAccountDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAnhDaiDien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenDangNhap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderMatKhau).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTrangThai).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPhongBan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderChucVu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -509,7 +568,6 @@
         private Label label4;
         private Label label6;
         private Label label5;
-        private TextBox textBoxTrangThai;
         private Label labelTrangThai;
         private TextBox textBoxMaNhanVien;
         private Label labelMaNhanVien;
@@ -534,5 +592,15 @@
         private ComboBox comboBoxChucVu;
         private ComboBox comboBoxPhongBan;
         private Button buttonQuayLai;
+        private ComboBox comboBoxTrangThai;
+        private ErrorProvider errorProviderTenDangNhap;
+        private ErrorProvider errorProviderMatKhau;
+        private ErrorProvider errorProviderTrangThai;
+        private ErrorProvider errorProviderTenNhanVien;
+        private ErrorProvider errorProviderSDT;
+        private ErrorProvider errorProviderPhongBan;
+        private ErrorProvider errorProviderChucVu;
+        private ErrorProvider errorProviderDiaChi;
+        private ErrorProvider errorProviderEmail;
     }
 }

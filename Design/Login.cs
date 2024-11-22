@@ -83,7 +83,7 @@ namespace Design
                 string role = NguoiDungBLL.getVaiTro(loginAccount);
                 if (role == "Admin")
                 {
-                    SuperAdmin fSuperAdmin = new SuperAdmin(this);
+                    SuperAdmin fSuperAdmin = new SuperAdmin();
                     this.Hide();
                     fSuperAdmin.Show();
                 }

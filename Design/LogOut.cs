@@ -45,10 +45,7 @@ namespace Design
 
         private void buttonConfirm_Click(object sender, EventArgs e) 
         {
-            Login login = new Login();
-            login.Show();
-
-            this.Close();
+            Application.Restart();
         }
 
         private void buttonComeBack_Click(object sender, EventArgs e)
