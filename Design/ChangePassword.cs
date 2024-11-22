@@ -116,5 +116,11 @@ namespace Design
             buttonShowPassword3.Show();
             textBoxConfirmPassword.UseSystemPasswordChar = true;
         }
+
+        private void buttonSavePassword_Click(object sender, EventArgs e)
+        {
+            /* Validate điền mật khẩu */
+            // Kiểm tra điền mật khẩu mới
+        }
     }
 }

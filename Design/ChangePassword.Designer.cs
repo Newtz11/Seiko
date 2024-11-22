@@ -142,6 +142,7 @@
             buttonSavePassword.TabIndex = 20;
             buttonSavePassword.Text = "LƯU MẬT KHẨU";
             buttonSavePassword.UseVisualStyleBackColor = false;
+            buttonSavePassword.Click += buttonSavePassword_Click;
             // 
             // textBoxConfirmPassword
             // 
