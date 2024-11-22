@@ -51,8 +51,8 @@ namespace DAO
 
         public DataTable searchUser()
         {
-            string query = "select MaNV as #, HoTen as [Tên Người Dùng], PhongBan as [Phòng Ban]" +
-                " from NGUOIDUNG";
+            string query = "select TenDangNhap as [Tên Đăng Nhập], mail as [Email], HoTen as [Tên người dùng]," +
+                "MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }

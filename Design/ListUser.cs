@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,6 +72,26 @@ namespace Design
 
         private void ListUser_Load(object sender, EventArgs e)
         {
+            DataTable dt = NguoiDungBLL.searchUser();
+            int counter = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                if (counter == 0) { 
+                    counter++;
+                    continue;
+                }
+                string tenDangNhap = row["Tên Đăng Nhập"].ToString();
+                string mail = row["Email"].ToString();
+                string tenNguoiDung = row["Tên người dùng"].ToString();
+                string maNguoiDung = row["Mã người dùng"].ToString();
+                string phongBan = row["Phòng ban"].ToString();
+                string vaiTro = row["Chức vụ"].ToString();
+                bool trangThai = (bool)row["Tình trạng"];
+                string tinhTrang = trangThai ? "Đang hoạt động" : "Ngưng hoạt động";
+                dataGridViewListUser.Rows.Add(counter,tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
+                counter++;
+            }
+
             
         }
     }
