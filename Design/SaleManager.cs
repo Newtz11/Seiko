@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace Design
 {
     public partial class SaleManager : Form
     {
-        public SaleManager()
+        private NguoiDung user;
+        public SaleManager(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonHome);
@@ -23,6 +25,7 @@ namespace Design
             ApplyRoundedCorners(buttonProjectProgress);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonContractTracking);
+            this.user = user;
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
         [DllImport("gdi32.dll")]
@@ -70,7 +73,7 @@ namespace Design
 
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new PersonalInformation());
+            loadform(new PersonalInformation(user));
         }
 
         private void buttonPerformanceReport_Click(object sender, EventArgs e)

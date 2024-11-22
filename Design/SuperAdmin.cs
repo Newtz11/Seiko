@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,8 @@ namespace Design
 {
     public partial class SuperAdmin : Form
     {
-        private Login fLogin;
-
-        public SuperAdmin()
+        private NguoiDung user;
+        public SuperAdmin(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonHome);
@@ -32,11 +32,7 @@ namespace Design
             ApplyRoundedCorners(buttonRole);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
-        }
-        public SuperAdmin(Login fLogin)
-        {
-            InitializeComponent();
-            this.fLogin = fLogin;
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -64,7 +60,7 @@ namespace Design
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            loadForm(new ListUser());
+            loadForm(new ListUser(user));
         }
 
 
@@ -93,7 +89,7 @@ namespace Design
 
         private void buttonInformation_Click(object sender, EventArgs e)
         {
-            loadForm(new PersonalInformation());
+            loadForm(new PersonalInformation(user));
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)

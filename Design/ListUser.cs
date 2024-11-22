@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,12 +15,14 @@ namespace Design
 {
     public partial class ListUser : Form
     {
-        public ListUser()
+        private NguoiDung user;
+        public ListUser(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);
             ApplyRoundedCorners(buttonTaoTaiKhoan);
             ApplyRoundedCorners(buttonXoa);
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -67,10 +71,7 @@ namespace Design
 
         private void ListUser_Load(object sender, EventArgs e)
         {
-            //dataGridViewListUser.Rows.Add(1, "nv001", "nv001@gmail.com", "Nguyen van C", "NV001", "Sale", "Nhân viên Sale", "Đang hoạt động");
-            //dataGridViewListUser.Rows.Add(1, "nv001", "nv001@gmail.com", "Nguyen van C", "NV001", "Sale", "Nhân viên Sale", "Đang hoạt động");
-            dataGridViewListUser.Rows.Add(1, "nv001", "nv001@gmail.com", "Nguyen van C", "NV001", "Sale", "Nhân viên Sale", "Đang hoạt động");
-            dataGridViewListUser.Rows.Add(1, "nv001", "nv001@gmail.com", "Nguyen van C", "NV001", "Sale", "Nhân viên Sale", "Đang hoạt động");
+            
         }
     }
 }

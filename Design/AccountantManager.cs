@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,8 @@ namespace Design
 {
     public partial class AccountantManager : Form
     {
-        private Login fLogin;
-        public AccountantManager()
+        private NguoiDung user;
+        public AccountantManager(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonHome);
@@ -23,12 +24,9 @@ namespace Design
             ApplyRoundedCorners(buttonFinancialReport);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
+            this.user = user;
         }
-        public AccountantManager(Login fLogin)
-        {
-            InitializeComponent();
-            this.fLogin = fLogin;
-        }
+        
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -60,7 +58,7 @@ namespace Design
 
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadForm(new PersonalInformation());
+            loadForm(new PersonalInformation(user));
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)

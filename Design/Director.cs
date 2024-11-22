@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace Design
 {
     public partial class Director : Form
     {
-        public Director()
+        private NguoiDung user;
+        public Director(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonHome);
@@ -24,6 +26,7 @@ namespace Design
             ApplyRoundedCorners(buttonFinacialReports);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -73,7 +76,7 @@ namespace Design
 
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new PersonalInformation());
+            loadform(new PersonalInformation(user));
         }
 
         private void buttonContractTracking_Click(object sender, EventArgs e)

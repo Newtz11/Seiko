@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace Design
 {
     public partial class Accountant : Form
     {
-        public Accountant()
+        private NguoiDung user;
+        public Accountant(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonHome);
@@ -22,6 +24,7 @@ namespace Design
             ApplyRoundedCorners(buttonTienDoThanhToan);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
+            this.user = user;   
         }
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
@@ -41,7 +44,7 @@ namespace Design
         }
         private void buttonInfoUser_Click(object sender, EventArgs e)
         {
-            loadform(new PersonalInformation());
+            loadform(new PersonalInformation(user));
 
         }
 

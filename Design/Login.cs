@@ -78,42 +78,43 @@ namespace Design
             string matKhau = textBoxPassword.Text.ToString();
             NguoiDung loginAccount = new NguoiDung(taiKhoan, matKhau);
             bool login = NguoiDungBLL.checkTaiKhoan(loginAccount);
-            if (login)
+            NguoiDung user = NguoiDungBLL.getUser(loginAccount);
+            if (login && user.tinhTrangHoatDong)
             {
-                string role = NguoiDungBLL.getVaiTro(loginAccount);
+                string role = user.vaiTro;
                 if (role == "Admin")
                 {
-                    SuperAdmin fSuperAdmin = new SuperAdmin();
+                    SuperAdmin fSuperAdmin = new SuperAdmin(user);
                     this.Hide();
                     fSuperAdmin.Show();
                 }
                 else if (role == "CEO")
                 {
-                    Director fHomeDirector0 = new Director();
+                    Director fHomeDirector0 = new Director(user);
                     this.Hide();
                     fHomeDirector0.Show();
                 }
                 else if (role == "Sale")
                 {
-                    Sale fSale = new Sale();
+                    Sale fSale = new Sale(user);
                     this.Hide();
                     fSale.Show();
                 }
                 else if (role == "Accountant")
                 {
-                    Accountant fHomeAccountant = new Accountant();
+                    Accountant fHomeAccountant = new Accountant(user);
                     this.Hide();
                     fHomeAccountant.Show();
                 }
                 else if (role == "Sale Manager")
                 {
-                    SaleManager fHomeSaleManager = new SaleManager();
+                    SaleManager fHomeSaleManager = new SaleManager(user);
                     this.Hide();
                     fHomeSaleManager.Show();
                 }
                 else if (role == "Accountant Manager")
                 {
-                    AccountantManager fHomeAccountantManager = new AccountantManager(this);
+                    AccountantManager fHomeAccountantManager = new AccountantManager(user);
                     this.Hide();
                     fHomeAccountantManager.Show();
                 }

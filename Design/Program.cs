@@ -5,7 +5,6 @@ namespace Design
 {
     internal static class Program
     {
-
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -16,7 +15,7 @@ namespace Design
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new ChangePassword());
+            Application.Run(new Login());
         }
     }
 }
