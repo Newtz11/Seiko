@@ -43,20 +43,21 @@
             buttonSua = new Button();
             comboBox1 = new ComboBox();
             dataGridViewListUser = new DataGridView();
-            MaHopDong = new DataGridViewTextBoxColumn();
-            TenHopDong = new DataGridViewTextBoxColumn();
-            NoiDungCongViec = new DataGridViewTextBoxColumn();
-            NgayBatDau = new DataGridViewTextBoxColumn();
-            NgayKetThuc = new DataGridViewTextBoxColumn();
-            TienDoHoanThanh = new DataGridViewTextBoxColumn();
-            NguoiThucHien = new DataGridViewTextBoxColumn();
-            TinhTrang = new DataGridViewTextBoxColumn();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
             buttonTaoTaiKhoan = new Button();
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             labelProjectProgress = new Label();
+            MaHopDong = new DataGridViewTextBoxColumn();
+            TenHopDong = new DataGridViewTextBoxColumn();
+            NoiDungCongViec = new DataGridViewTextBoxColumn();
+            KhoiLuongYeuCau = new DataGridViewTextBoxColumn();
+            NgayBatDau = new DataGridViewTextBoxColumn();
+            NgayKetThuc = new DataGridViewTextBoxColumn();
+            TienDo = new DataGridViewTextBoxColumn();
+            NguoiThucHien = new DataGridViewTextBoxColumn();
+            TinhTrang = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).BeginInit();
@@ -184,10 +185,10 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, NgayBatDau, NgayKetThuc, TienDoHoanThanh, NguoiThucHien, TinhTrang });
+            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, KhoiLuongYeuCau, NgayBatDau, NgayKetThuc, TienDo, NguoiThucHien, TinhTrang });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -219,63 +220,6 @@
             dataGridViewListUser.Size = new Size(1270, 550);
             dataGridViewListUser.TabIndex = 29;
             dataGridViewListUser.CellContentClick += dataGridViewListUser_CellContentClick;
-            // 
-            // MaHopDong
-            // 
-            MaHopDong.FillWeight = 41.4224167F;
-            MaHopDong.HeaderText = "Mã Hợp Đồng";
-            MaHopDong.MinimumWidth = 130;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.FillWeight = 41.4224167F;
-            TenHopDong.HeaderText = "Tên Hợp Đồng";
-            TenHopDong.MinimumWidth = 140;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // NoiDungCongViec
-            // 
-            NoiDungCongViec.FillWeight = 218.181778F;
-            NoiDungCongViec.HeaderText = "Nội Dung Công Việc ";
-            NoiDungCongViec.MinimumWidth = 150;
-            NoiDungCongViec.Name = "NoiDungCongViec";
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.FillWeight = 41.4224167F;
-            NgayBatDau.HeaderText = "Ngày Bắt Đầu ";
-            NgayBatDau.MinimumWidth = 150;
-            NgayBatDau.Name = "NgayBatDau";
-            // 
-            // NgayKetThuc
-            // 
-            NgayKetThuc.FillWeight = 41.4224167F;
-            NgayKetThuc.HeaderText = "Ngày Kết Thúc ";
-            NgayKetThuc.MinimumWidth = 150;
-            NgayKetThuc.Name = "NgayKetThuc";
-            // 
-            // TienDoHoanThanh
-            // 
-            TienDoHoanThanh.HeaderText = "Tiến độ hoàn thành (%)";
-            TienDoHoanThanh.MinimumWidth = 180;
-            TienDoHoanThanh.Name = "TienDoHoanThanh";
-            // 
-            // NguoiThucHien
-            // 
-            NguoiThucHien.FillWeight = 41.4224167F;
-            NguoiThucHien.HeaderText = "Người Thực Hiện";
-            NguoiThucHien.MinimumWidth = 150;
-            NguoiThucHien.Name = "NguoiThucHien";
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            TinhTrang.FillWeight = 41.4224167F;
-            TinhTrang.HeaderText = "Tình Trạng";
-            TinhTrang.MinimumWidth = 150;
-            TinhTrang.Name = "TinhTrang";
-            TinhTrang.Width = 150;
             // 
             // comboBoxTinhTrang
             // 
@@ -351,6 +295,60 @@
             labelProjectProgress.TabIndex = 13;
             labelProjectProgress.Text = "TIẾN ĐỘ CÔNG VIỆC";
             // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // NoiDungCongViec
+            // 
+            NoiDungCongViec.HeaderText = "Nội dung công việc";
+            NoiDungCongViec.MinimumWidth = 6;
+            NoiDungCongViec.Name = "NoiDungCongViec";
+            // 
+            // KhoiLuongYeuCau
+            // 
+            KhoiLuongYeuCau.HeaderText = "Khối lượng yêu cầu";
+            KhoiLuongYeuCau.MinimumWidth = 6;
+            KhoiLuongYeuCau.Name = "KhoiLuongYeuCau";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            // 
+            // NgayKetThuc
+            // 
+            NgayKetThuc.HeaderText = "Ngày kết thúc";
+            NgayKetThuc.MinimumWidth = 6;
+            NgayKetThuc.Name = "NgayKetThuc";
+            // 
+            // TienDo
+            // 
+            TienDo.HeaderText = "Tiến Độ";
+            TienDo.MinimumWidth = 6;
+            TienDo.Name = "TienDo";
+            // 
+            // NguoiThucHien
+            // 
+            NguoiThucHien.HeaderText = "Người thực hiện";
+            NguoiThucHien.MinimumWidth = 6;
+            NguoiThucHien.Name = "NguoiThucHien";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
+            // 
             // ProjectProgress
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -393,9 +391,10 @@
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn NoiDungCongViec;
+        private DataGridViewTextBoxColumn KhoiLuongYeuCau;
         private DataGridViewTextBoxColumn NgayBatDau;
         private DataGridViewTextBoxColumn NgayKetThuc;
-        private DataGridViewTextBoxColumn TienDoHoanThanh;
+        private DataGridViewTextBoxColumn TienDo;
         private DataGridViewTextBoxColumn NguoiThucHien;
         private DataGridViewTextBoxColumn TinhTrang;
     }

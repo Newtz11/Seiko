@@ -55,7 +55,41 @@ namespace Design
 
         private void buttonShowPassword1_Click(object sender, EventArgs e)
         {
+            buttonShowPassword1.Hide();
+            buttonHidePassword1.Show();
+            textBoxChangePassword.UseSystemPasswordChar = false;
+        }
+        private void buttonHidePassword1_Click(object sender, EventArgs e)
+        {
+            buttonHidePassword1.Hide();
+            buttonShowPassword1.Show();
+            textBoxChangePassword.UseSystemPasswordChar = true;
+        }
 
+        private void buttonShowPassword2_Click(object sender, EventArgs e)
+        {
+            buttonShowPassword2.Hide();
+            buttonHidePassword2.Show();
+            textBoxNewPassword.UseSystemPasswordChar = false;
+        }
+        private void buttonHidePassword2_Click(object sender, EventArgs e)
+        {
+            buttonHidePassword2.Hide();
+            buttonShowPassword2.Show();
+            textBoxNewPassword.UseSystemPasswordChar = true;
+        }
+
+        private void buttonShowPassword3_Click(object sender, EventArgs e)
+        {
+            buttonShowPassword3.Hide();
+            buttonHidePassword3.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = false;
+        }
+        private void buttonHidePassword3_Click(object sender, EventArgs e)
+        {
+            buttonHidePassword3.Hide();
+            buttonShowPassword3.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = true;
         }
 
         private void textBoxChangePassword_TextChanged(object sender, EventArgs e)
@@ -66,6 +100,21 @@ namespace Design
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ChangePassword_Load(object sender, EventArgs e)
+        {
+            buttonHidePassword1.Hide();
+            buttonShowPassword1.Show();
+            textBoxChangePassword.UseSystemPasswordChar = true;
+
+            buttonHidePassword2.Hide();
+            buttonShowPassword2.Show();
+            textBoxNewPassword.UseSystemPasswordChar = true;
+
+            buttonHidePassword3.Hide();
+            buttonShowPassword3.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = true;
         }
     }
 }

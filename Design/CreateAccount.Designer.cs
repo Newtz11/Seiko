@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAccount));
             pictureBoxIconCreateAccount = new PictureBox();
             labelCreateAccount = new Label();
@@ -57,8 +58,22 @@
             textBoxFullName = new TextBox();
             textBoxUserName = new TextBox();
             labelFullName = new Label();
+            errorProviderTenDangNhap = new ErrorProvider(components);
+            errorProviderHoTenNguoiDung = new ErrorProvider(components);
+            errorProviderDiaChi = new ErrorProvider(components);
+            errorProviderPhongBan = new ErrorProvider(components);
+            errorProviderChucVu = new ErrorProvider(components);
+            errorProviderEmail = new ErrorProvider(components);
+            errorProviderSDT = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconCreateAccount).BeginInit();
             groupBoxEmail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenDangNhap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderHoTenNguoiDung).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPhongBan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderChucVu).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).BeginInit();
             SuspendLayout();
             // 
             // pictureBoxIconCreateAccount
@@ -387,6 +402,34 @@
             labelFullName.TabIndex = 11;
             labelFullName.Text = "Họ và tên người dùng";
             // 
+            // errorProviderTenDangNhap
+            // 
+            errorProviderTenDangNhap.ContainerControl = this;
+            // 
+            // errorProviderHoTenNguoiDung
+            // 
+            errorProviderHoTenNguoiDung.ContainerControl = this;
+            // 
+            // errorProviderDiaChi
+            // 
+            errorProviderDiaChi.ContainerControl = this;
+            // 
+            // errorProviderPhongBan
+            // 
+            errorProviderPhongBan.ContainerControl = this;
+            // 
+            // errorProviderChucVu
+            // 
+            errorProviderChucVu.ContainerControl = this;
+            // 
+            // errorProviderEmail
+            // 
+            errorProviderEmail.ContainerControl = this;
+            // 
+            // errorProviderSDT
+            // 
+            errorProviderSDT.ContainerControl = this;
+            // 
             // CreateAccount
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -404,6 +447,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconCreateAccount).EndInit();
             groupBoxEmail.ResumeLayout(false);
             groupBoxEmail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenDangNhap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderHoTenNguoiDung).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPhongBan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderChucVu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -437,5 +487,12 @@
         private TextBox textBoxDiaChi;
         private Label labelDiaChi;
         private Button buttonHuyBo;
+        private ErrorProvider errorProviderTenDangNhap;
+        private ErrorProvider errorProviderHoTenNguoiDung;
+        private ErrorProvider errorProviderDiaChi;
+        private ErrorProvider errorProviderPhongBan;
+        private ErrorProvider errorProviderChucVu;
+        private ErrorProvider errorProviderEmail;
+        private ErrorProvider errorProviderSDT;
     }
 }

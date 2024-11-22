@@ -1,6 +1,6 @@
 ﻿namespace Design
 {
-    partial class ContractTracking
+    partial class ContractTrackingForAccountant
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractTracking));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            pictureBoxIconContractTracking = new PictureBox();
-            labelContractTracking = new Label();
-            groupBoxListUser = new GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractTrackingForAccountant));
             comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
@@ -47,6 +44,12 @@
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             dataGridViewContractTracking = new DataGridView();
+            groupBoxListUser = new GroupBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            labelContractTracking = new Label();
+            pictureBoxIconContractTracking = new PictureBox();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             TenCongTyCaNhan = new DataGridViewTextBoxColumn();
@@ -54,54 +57,12 @@
             NgayBatDau = new DataGridViewTextBoxColumn();
             NgayHetHan = new DataGridViewTextBoxColumn();
             GiaTriHopDong = new DataGridViewTextBoxColumn();
-            AccountSale = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
-            groupBoxListUser.SuspendLayout();
+            PhuTrachThanhToan = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).BeginInit();
+            groupBoxListUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBoxIconContractTracking
-            // 
-            pictureBoxIconContractTracking.Image = (Image)resources.GetObject("pictureBoxIconContractTracking.Image");
-            pictureBoxIconContractTracking.Location = new Point(12, 12);
-            pictureBoxIconContractTracking.Name = "pictureBoxIconContractTracking";
-            pictureBoxIconContractTracking.Size = new Size(100, 100);
-            pictureBoxIconContractTracking.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxIconContractTracking.TabIndex = 13;
-            pictureBoxIconContractTracking.TabStop = false;
-            // 
-            // labelContractTracking
-            // 
-            labelContractTracking.AutoSize = true;
-            labelContractTracking.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelContractTracking.Location = new Point(118, 54);
-            labelContractTracking.Name = "labelContractTracking";
-            labelContractTracking.Size = new Size(222, 25);
-            labelContractTracking.TabIndex = 14;
-            labelContractTracking.Text = "DANH SÁCH HỢP ĐỒNG";
-            // 
-            // groupBoxListUser
-            // 
-            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBoxListUser.BackColor = Color.LightGray;
-            groupBoxListUser.Controls.Add(comboBoxSale);
-            groupBoxListUser.Controls.Add(comboBoxTinhTrang);
-            groupBoxListUser.Controls.Add(buttonXoa);
-            groupBoxListUser.Controls.Add(buttonThem);
-            groupBoxListUser.Controls.Add(labelNgayKetThuc);
-            groupBoxListUser.Controls.Add(dateTimePickerEnd);
-            groupBoxListUser.Controls.Add(labelNgayBatDau);
-            groupBoxListUser.Controls.Add(dateTimePickerStart);
-            groupBoxListUser.Controls.Add(labelContractList);
-            groupBoxListUser.Controls.Add(buttonSearch);
-            groupBoxListUser.Controls.Add(textBoxSearch);
-            groupBoxListUser.Controls.Add(dataGridViewContractTracking);
-            groupBoxListUser.Location = new Point(12, 139);
-            groupBoxListUser.Name = "groupBoxListUser";
-            groupBoxListUser.Size = new Size(1300, 802);
-            groupBoxListUser.TabIndex = 16;
-            groupBoxListUser.TabStop = false;
             // 
             // comboBoxSale
             // 
@@ -111,7 +72,7 @@
             comboBoxSale.Location = new Point(232, 201);
             comboBoxSale.Name = "comboBoxSale";
             comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 5;
+            comboBoxSale.TabIndex = 6;
             comboBoxSale.Text = "Nhân viên phụ trách";
             // 
             // comboBoxTinhTrang
@@ -122,7 +83,7 @@
             comboBoxTinhTrang.Location = new Point(33, 201);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             comboBoxTinhTrang.Size = new Size(159, 31);
-            comboBoxTinhTrang.TabIndex = 4;
+            comboBoxTinhTrang.TabIndex = 5;
             comboBoxTinhTrang.Text = "Tình trạng";
             // 
             // buttonXoa
@@ -133,7 +94,7 @@
             buttonXoa.FlatStyle = FlatStyle.Popup;
             buttonXoa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonXoa.ForeColor = Color.White;
-            buttonXoa.Location = new Point(1151, 203);
+            buttonXoa.Location = new Point(2251, 203);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(106, 33);
             buttonXoa.TabIndex = 7;
@@ -148,13 +109,12 @@
             buttonThem.FlatStyle = FlatStyle.Popup;
             buttonThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonThem.ForeColor = Color.White;
-            buttonThem.Location = new Point(1015, 203);
+            buttonThem.Location = new Point(2115, 203);
             buttonThem.Name = "buttonThem";
             buttonThem.Size = new Size(106, 33);
             buttonThem.TabIndex = 6;
             buttonThem.Text = "Thêm mới";
             buttonThem.UseVisualStyleBackColor = false;
-            buttonThem.Click += buttonThem_Click;
             // 
             // labelNgayKetThuc
             // 
@@ -171,7 +131,7 @@
             dateTimePickerEnd.Location = new Point(603, 148);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.Size = new Size(264, 27);
-            dateTimePickerEnd.TabIndex = 3;
+            dateTimePickerEnd.TabIndex = 4;
             // 
             // labelNgayBatDau
             // 
@@ -188,7 +148,7 @@
             dateTimePickerStart.Location = new Point(163, 146);
             dateTimePickerStart.Name = "dateTimePickerStart";
             dateTimePickerStart.Size = new Size(266, 27);
-            dateTimePickerStart.TabIndex = 18;
+            dateTimePickerStart.TabIndex = 3;
             // 
             // labelContractList
             // 
@@ -209,13 +169,12 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(1127, 94);
+            buttonSearch.Location = new Point(2227, 94);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(130, 30);
             buttonSearch.TabIndex = 2;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
-            buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxSearch
             // 
@@ -244,11 +203,11 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractTracking.ColumnHeadersHeight = 60;
             dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, AccountSale, TinhTrang });
+            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrang, PhuTrachThanhToan });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -276,7 +235,96 @@
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
-            dataGridViewContractTracking.CellContentClick += dataGridViewContractTracking_CellContentClick;
+            // 
+            // groupBoxListUser
+            // 
+            groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxListUser.BackColor = Color.LightGray;
+            groupBoxListUser.Controls.Add(button1);
+            groupBoxListUser.Controls.Add(button2);
+            groupBoxListUser.Controls.Add(button3);
+            groupBoxListUser.Controls.Add(comboBoxSale);
+            groupBoxListUser.Controls.Add(comboBoxTinhTrang);
+            groupBoxListUser.Controls.Add(buttonXoa);
+            groupBoxListUser.Controls.Add(buttonThem);
+            groupBoxListUser.Controls.Add(labelNgayKetThuc);
+            groupBoxListUser.Controls.Add(dateTimePickerEnd);
+            groupBoxListUser.Controls.Add(labelNgayBatDau);
+            groupBoxListUser.Controls.Add(dateTimePickerStart);
+            groupBoxListUser.Controls.Add(labelContractList);
+            groupBoxListUser.Controls.Add(buttonSearch);
+            groupBoxListUser.Controls.Add(textBoxSearch);
+            groupBoxListUser.Controls.Add(dataGridViewContractTracking);
+            groupBoxListUser.Location = new Point(12, 139);
+            groupBoxListUser.Name = "groupBoxListUser";
+            groupBoxListUser.Size = new Size(1300, 802);
+            groupBoxListUser.TabIndex = 19;
+            groupBoxListUser.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.BackColor = Color.Crimson;
+            button1.FlatAppearance.BorderSize = 2;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1144, 202);
+            button1.Name = "button1";
+            button1.Size = new Size(106, 33);
+            button1.TabIndex = 8;
+            button1.Text = "Xóa";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.FromArgb(0, 192, 0);
+            button2.FlatAppearance.BorderSize = 2;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(1008, 202);
+            button2.Name = "button2";
+            button2.Size = new Size(106, 33);
+            button2.TabIndex = 7;
+            button2.Text = "Thêm mới";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = Color.DodgerBlue;
+            button3.FlatAppearance.BorderSize = 2;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(1120, 93);
+            button3.Name = "button3";
+            button3.Size = new Size(130, 30);
+            button3.TabIndex = 2;
+            button3.Text = "Tìm kiếm";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // labelContractTracking
+            // 
+            labelContractTracking.AutoSize = true;
+            labelContractTracking.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelContractTracking.Location = new Point(118, 54);
+            labelContractTracking.Name = "labelContractTracking";
+            labelContractTracking.Size = new Size(222, 25);
+            labelContractTracking.TabIndex = 18;
+            labelContractTracking.Text = "DANH SÁCH HỢP ĐỒNG";
+            // 
+            // pictureBoxIconContractTracking
+            // 
+            pictureBoxIconContractTracking.Image = (Image)resources.GetObject("pictureBoxIconContractTracking.Image");
+            pictureBoxIconContractTracking.Location = new Point(12, 12);
+            pictureBoxIconContractTracking.Name = "pictureBoxIconContractTracking";
+            pictureBoxIconContractTracking.Size = new Size(100, 100);
+            pictureBoxIconContractTracking.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxIconContractTracking.TabIndex = 17;
+            pictureBoxIconContractTracking.TabStop = false;
             // 
             // MaHopDong
             // 
@@ -320,57 +368,56 @@
             GiaTriHopDong.MinimumWidth = 6;
             GiaTriHopDong.Name = "GiaTriHopDong";
             // 
-            // AccountSale
-            // 
-            AccountSale.HeaderText = "Account/Sale";
-            AccountSale.MinimumWidth = 6;
-            AccountSale.Name = "AccountSale";
-            // 
             // TinhTrang
             // 
-            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.HeaderText = "Tình trạng thanh toán";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
             // 
-            // ContractTracking
+            // PhuTrachThanhToan
+            // 
+            PhuTrachThanhToan.HeaderText = "Phụ trách thanh toán";
+            PhuTrachThanhToan.MinimumWidth = 6;
+            PhuTrachThanhToan.Name = "PhuTrachThanhToan";
+            // 
+            // ContractTrackingForAccountant
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
-            BackColor = Color.White;
             ClientSize = new Size(1320, 953);
             Controls.Add(groupBoxListUser);
             Controls.Add(labelContractTracking);
             Controls.Add(pictureBoxIconContractTracking);
             FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "ContractTracking";
-            Text = "Theo dõi hợp đồng";
-            Load += ContractTracking_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
+            Name = "ContractTrackingForAccountant";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).EndInit();
             groupBoxListUser.ResumeLayout(false);
             groupBoxListUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private PictureBox pictureBoxIconContractTracking;
-        private Label labelContractTracking;
-        private GroupBox groupBoxListUser;
-        private Button buttonSearch;
-        private TextBox textBoxSearch;
-        private DataGridView dataGridViewContractTracking;
-        private Label labelContractList;
+        private ComboBox comboBoxSale;
+        private ComboBox comboBoxTinhTrang;
+        private Button buttonXoa;
         private Button buttonThem;
         private Label labelNgayKetThuc;
         private DateTimePicker dateTimePickerEnd;
         private Label labelNgayBatDau;
         private DateTimePicker dateTimePickerStart;
-        private Button buttonXoa;
-        private ComboBox comboBoxTinhTrang;
-        private ComboBox comboBoxSale;
+        private Label labelContractList;
+        private Button buttonSearch;
+        private TextBox textBoxSearch;
+        private DataGridView dataGridViewContractTracking;
+        private GroupBox groupBoxListUser;
+        private Label labelContractTracking;
+        private PictureBox pictureBoxIconContractTracking;
+        private Button button1;
+        private Button button2;
+        private Button button3;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn TenCongTyCaNhan;
@@ -378,7 +425,7 @@
         private DataGridViewTextBoxColumn NgayBatDau;
         private DataGridViewTextBoxColumn NgayHetHan;
         private DataGridViewTextBoxColumn GiaTriHopDong;
-        private DataGridViewTextBoxColumn AccountSale;
         private DataGridViewTextBoxColumn TinhTrang;
+        private DataGridViewTextBoxColumn PhuTrachThanhToan;
     }
 }

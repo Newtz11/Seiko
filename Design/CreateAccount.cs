@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,7 +46,108 @@ namespace Design
 
         private void buttonTaoTaiKhoan_Click(object sender, EventArgs e)
         {
+            /* Validation check điền đủ thông tin chưa */
+            // Kiểm tra điền tên đăng nhập
+            if (string.IsNullOrEmpty(textBoxUserName.Text.Trim()))
+            {
+                errorProviderTenDangNhap.SetError(textBoxUserName, "Chưa điền Tên đăng nhập");
+                return;
+            }
+            else
+            {
+                errorProviderTenDangNhap.SetError(textBoxUserName, string.Empty);
+            }
+            // Kiểm tra điền họ tên người dùng
+            if (string.IsNullOrEmpty(textBoxFullName.Text.Trim()))
+            {
+                errorProviderHoTenNguoiDung.SetError(textBoxFullName, "Chưa điền họ tên người dùng");
+                return;
+            }
+            else
+            {
+                errorProviderHoTenNguoiDung.SetError(textBoxFullName, string.Empty);
+            }
+            // Kiểm tra điền địa chỉ
+            if (string.IsNullOrEmpty(textBoxDiaChi.Text.Trim()))
+            {
+                errorProviderDiaChi.SetError(textBoxDiaChi, "Chưa điền địa chỉ");
+                return;
+            }
+            else
+            {
+                errorProviderDiaChi.SetError(textBoxDiaChi, string.Empty);
+            }
+            // Kiểm tra chọn phòng ban
+            if (comboBoxPhongBan.SelectedIndex == -1)
+            {
+                errorProviderPhongBan.SetError(comboBoxPhongBan, "Chưa chọn phòng ban");
+                return;
+            }
+            else
+            {
+                errorProviderPhongBan.SetError(comboBoxPhongBan, string.Empty);
+            }
+            // Kiểm tra chọn chức vụ 
+            if (comboBoxChucVu.SelectedIndex == -1)
+            {
+                errorProviderChucVu.SetError(comboBoxChucVu, "Chưa chọn chức vụ");
+                return;
+            }
+            else
+            {
+                errorProviderChucVu.SetError(comboBoxChucVu, string.Empty);
+            }
+            // Kiểm tra điền Email
+            if (string.IsNullOrEmpty(textBoxEmail.Text.Trim()))
+            {
+                errorProviderEmail.SetError(textBoxEmail, "Chưa điền Email");
+                return;
+            }
+            else
+            {
+                string email = textBoxEmail.Text.Trim();
 
+                // Kiểm tra xem email có kết thúc bằng @gmail.com không
+                if (!email.EndsWith("@gmail.com"))
+                {
+                    MessageBox.Show("Email không hợp lệ!.",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                errorProviderEmail.SetError(textBoxEmail, string.Empty);
+            }
+            // Kiểm tra điền SDT
+            if (string.IsNullOrEmpty(textBoxPhoneNumber.Text.Trim()))
+            {
+                errorProviderSDT.SetError(textBoxPhoneNumber, "Chưa điền Số điện thoại");
+                return;
+            }
+            else
+            {
+                string phoneNumber = textBoxPhoneNumber.Text.Trim();
+                string patternSDT = @"^\d{10}$"; // Biểu thức kiểm tra số điện thoại phải là 10 chữ số
+
+                if (!Regex.IsMatch(phoneNumber, patternSDT))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ!",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                errorProviderSDT.SetError(textBoxPhoneNumber, string.Empty);
+            }
+            // Kiểm tra RadioButton Giới Tính
+            if (!radioButtonNam.Checked && !radioButtonNu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            MessageBox.Show("Tạo tài khoản thành công!");
         }
 
         private void labelCreateAccount_Click(object sender, EventArgs e)

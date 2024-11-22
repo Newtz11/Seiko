@@ -5,10 +5,12 @@ namespace DAO
 {
     public class DataProvider
     {
-        //private string connectString = @"Data Source=MING\SQLEXPRESS;Initial Catalog=QuanLiHopDong;Integrated Security=True";
-        //private string connectString = @"Data Source=LAPTOP-OHHI582R;Initial Catalog=QuanLiHopDong;Integrated Security=True";
+        
+      
+
         private string connectString = @"Data Source=35.197.135.105;Initial Catalog=QuanLiHopDong;Persist Security Info=True;
                                 User ID=sqlserver;Password=DGBlx1211";
+
         private static DataProvider instance;
 
         public static DataProvider Instance
