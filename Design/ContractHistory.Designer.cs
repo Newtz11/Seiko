@@ -142,7 +142,7 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewContractHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractHistory.ColumnHeadersHeight = 60;
             dataGridViewContractHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -169,6 +169,7 @@
             dataGridViewContractHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewContractHistory.RowHeadersVisible = false;
             dataGridViewContractHistory.RowHeadersWidth = 51;
+            dataGridViewContractHistory.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewContractHistory.RowTemplate.Height = 35;
             dataGridViewContractHistory.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

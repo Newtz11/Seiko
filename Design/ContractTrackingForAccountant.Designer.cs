@@ -57,7 +57,7 @@
             NgayBatDau = new DataGridViewTextBoxColumn();
             NgayHetHan = new DataGridViewTextBoxColumn();
             GiaTriHopDong = new DataGridViewTextBoxColumn();
-            TinhTrang = new DataGridViewTextBoxColumn();
+            TinhTrangThanhToan = new DataGridViewTextBoxColumn();
             PhuTrachThanhToan = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
@@ -207,7 +207,7 @@
             dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractTracking.ColumnHeadersHeight = 60;
             dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrang, PhuTrachThanhToan });
+            dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrangThanhToan, PhuTrachThanhToan });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -230,6 +230,7 @@
             dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewContractTracking.RowHeadersVisible = false;
             dataGridViewContractTracking.RowHeadersWidth = 51;
+            dataGridViewContractTracking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewContractTracking.RowTemplate.Height = 35;
             dataGridViewContractTracking.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -368,11 +369,11 @@
             GiaTriHopDong.MinimumWidth = 6;
             GiaTriHopDong.Name = "GiaTriHopDong";
             // 
-            // TinhTrang
+            // TinhTrangThanhToan
             // 
-            TinhTrang.HeaderText = "Tình trạng thanh toán";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
+            TinhTrangThanhToan.HeaderText = "Tình trạng thanh toán";
+            TinhTrangThanhToan.MinimumWidth = 6;
+            TinhTrangThanhToan.Name = "TinhTrangThanhToan";
             // 
             // PhuTrachThanhToan
             // 
@@ -425,7 +426,7 @@
         private DataGridViewTextBoxColumn NgayBatDau;
         private DataGridViewTextBoxColumn NgayHetHan;
         private DataGridViewTextBoxColumn GiaTriHopDong;
-        private DataGridViewTextBoxColumn TinhTrang;
+        private DataGridViewTextBoxColumn TinhTrangThanhToan;
         private DataGridViewTextBoxColumn PhuTrachThanhToan;
     }
 }

@@ -269,7 +269,6 @@
             dataGridViewListUser.AllowUserToAddRows = false;
             dataGridViewListUser.AllowUserToDeleteRows = false;
             dataGridViewListUser.AllowUserToOrderColumns = true;
-            dataGridViewListUser.AllowUserToResizeColumns = false;
             dataGridViewListUser.AllowUserToResizeRows = false;
             dataGridViewListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -285,6 +284,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 80;
+            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NgayThanhToan, SoTien, LoaiHinhThanhToan, NoiDungThanhToan });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -308,6 +308,7 @@
             dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
+            dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;

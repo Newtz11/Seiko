@@ -135,6 +135,7 @@
             dataGridViewCommissionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCommissionView.RowHeadersVisible = false;
             dataGridViewCommissionView.RowHeadersWidth = 51;
+            dataGridViewCommissionView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCommissionView.RowTemplate.Height = 35;
             dataGridViewCommissionView.ScrollBars = ScrollBars.Vertical;
             dataGridViewCommissionView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -194,6 +195,8 @@
             // 
             // dataGridViewTongHoaHong
             // 
+            dataGridViewTongHoaHong.AllowUserToResizeColumns = false;
+            dataGridViewTongHoaHong.AllowUserToResizeRows = false;
             dataGridViewTongHoaHong.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
@@ -203,7 +206,8 @@
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dataGridViewTongHoaHong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewTongHoaHong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTongHoaHong.ColumnHeadersHeight = 29;
+            dataGridViewTongHoaHong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewTongHoaHong.Columns.AddRange(new DataGridViewColumn[] { TongSoHoaHong });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = SystemColors.Window;
@@ -217,8 +221,9 @@
             dataGridViewTongHoaHong.Name = "dataGridViewTongHoaHong";
             dataGridViewTongHoaHong.RowHeadersVisible = false;
             dataGridViewTongHoaHong.RowHeadersWidth = 51;
+            dataGridViewTongHoaHong.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewTongHoaHong.ScrollBars = ScrollBars.None;
-            dataGridViewTongHoaHong.Size = new Size(300, 65);
+            dataGridViewTongHoaHong.Size = new Size(300, 60);
             dataGridViewTongHoaHong.TabIndex = 4;
             // 
             // TongSoHoaHong

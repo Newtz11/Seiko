@@ -271,12 +271,12 @@
             dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewContractTracking.RowHeadersVisible = false;
             dataGridViewContractTracking.RowHeadersWidth = 51;
+            dataGridViewContractTracking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewContractTracking.RowTemplate.Height = 35;
             dataGridViewContractTracking.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
-            dataGridViewContractTracking.CellContentClick += dataGridViewContractTracking_CellContentClick;
             // 
             // MaHopDong
             // 

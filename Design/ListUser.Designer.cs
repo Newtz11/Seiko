@@ -37,9 +37,9 @@
             labelListUser = new Label();
             groupBoxListUser = new GroupBox();
             dataGridViewListUser = new DataGridView();
-            STT = new DataGridViewTextBoxColumn();
+            SoThuTu = new DataGridViewTextBoxColumn();
             TenDangNhap = new DataGridViewTextBoxColumn();
-            email = new DataGridViewTextBoxColumn();
+            mail = new DataGridViewTextBoxColumn();
             TenNguoiDung = new DataGridViewTextBoxColumn();
             MaNguoiDung = new DataGridViewTextBoxColumn();
             PhongBan = new DataGridViewTextBoxColumn();
@@ -102,7 +102,6 @@
             dataGridViewListUser.AllowUserToAddRows = false;
             dataGridViewListUser.AllowUserToDeleteRows = false;
             dataGridViewListUser.AllowUserToOrderColumns = true;
-            dataGridViewListUser.AllowUserToResizeColumns = false;
             dataGridViewListUser.AllowUserToResizeRows = false;
             dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewListUser.BackgroundColor = Color.White;
@@ -117,11 +116,14 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { STT, TenDangNhap, email, TenNguoiDung, MaNguoiDung, PhongBan, ChucVu, TinhTrang });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenDangNhap, mail, TenNguoiDung, MaNguoiDung, PhongBan, ChucVu, TinhTrang });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font(".VnArial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
+
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+
             dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
@@ -130,7 +132,7 @@
             dataGridViewListUser.Location = new Point(46, 232);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font(".VnArial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
@@ -140,8 +142,11 @@
             dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
+            dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font(".VnArial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+
             dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
@@ -149,13 +154,12 @@
             dataGridViewListUser.Size = new Size(1200, 550);
             dataGridViewListUser.TabIndex = 29;
             dataGridViewListUser.CellClick += dataGridViewListUser_CellClick;
-            dataGridViewListUser.CellContentClick += dataGridViewListUser_CellContentClick;
             // 
-            // STT
+            // SoThuTu
             // 
-            STT.HeaderText = "STT";
-            STT.MinimumWidth = 6;
-            STT.Name = "STT";
+            SoThuTu.HeaderText = "STT";
+            SoThuTu.MinimumWidth = 6;
+            SoThuTu.Name = "SoThuTu";
             // 
             // TenDangNhap
             // 
@@ -163,11 +167,11 @@
             TenDangNhap.MinimumWidth = 6;
             TenDangNhap.Name = "TenDangNhap";
             // 
-            // email
+            // mail
             // 
-            email.HeaderText = "Email";
-            email.MinimumWidth = 6;
-            email.Name = "email";
+            mail.HeaderText = "Email";
+            mail.MinimumWidth = 6;
+            mail.Name = "mail";
             // 
             // TenNguoiDung
             // 
@@ -195,7 +199,7 @@
             // 
             // TinhTrang
             // 
-            TinhTrang.HeaderText = "Tình Trạng";
+            TinhTrang.HeaderText = "Tình trạng";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
             // 
@@ -329,9 +333,9 @@
         private ComboBox comboBoxPhongBan;
         private ComboBox comboBoxTinhTrang;
         private DataGridView dataGridViewListUser;
-        private DataGridViewTextBoxColumn STT;
+        private DataGridViewTextBoxColumn SoThuTu;
         private DataGridViewTextBoxColumn TenDangNhap;
-        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn mail;
         private DataGridViewTextBoxColumn TenNguoiDung;
         private DataGridViewTextBoxColumn MaNguoiDung;
         private DataGridViewTextBoxColumn PhongBan;

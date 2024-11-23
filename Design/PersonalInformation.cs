@@ -54,16 +54,6 @@ namespace Design
 
         }
 
-        private void dataGridViewThongTinCaNhan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridViewThongTinCaNhan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        }
-
-        private void dataGridViewThongTinCongViec_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridViewThongTinCongViec.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        }
-
         private void PersonalInformation_Load(object sender, EventArgs e)
         {
             
