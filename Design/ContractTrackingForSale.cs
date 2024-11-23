@@ -44,11 +44,6 @@ namespace Design
             button.Region = Region.FromHrgn(hRgn);
         }
 
-        private void dataGridViewContractTracking_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-        }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {

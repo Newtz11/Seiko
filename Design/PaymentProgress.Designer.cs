@@ -208,7 +208,6 @@
             dataGridViewPaymentProgress.AllowUserToAddRows = false;
             dataGridViewPaymentProgress.AllowUserToDeleteRows = false;
             dataGridViewPaymentProgress.AllowUserToOrderColumns = true;
-            dataGridViewPaymentProgress.AllowUserToResizeColumns = false;
             dataGridViewPaymentProgress.AllowUserToResizeRows = false;
             dataGridViewPaymentProgress.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewPaymentProgress.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -224,6 +223,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewPaymentProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPaymentProgress.ColumnHeadersHeight = 50;
+            dataGridViewPaymentProgress.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPaymentProgress.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan, PhanTramTT, GiaTriThanhToan, TrangThai, NgayNhanThanhToan, GhiChu });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -247,6 +247,7 @@
             dataGridViewPaymentProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewPaymentProgress.RowHeadersVisible = false;
             dataGridViewPaymentProgress.RowHeadersWidth = 51;
+            dataGridViewPaymentProgress.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewPaymentProgress.RowsDefaultCellStyle = dataGridViewCellStyle4;

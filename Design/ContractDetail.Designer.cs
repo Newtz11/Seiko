@@ -207,7 +207,6 @@
             dataGridViewThongTinThanhToan.AllowUserToAddRows = false;
             dataGridViewThongTinThanhToan.AllowUserToDeleteRows = false;
             dataGridViewThongTinThanhToan.AllowUserToOrderColumns = true;
-            dataGridViewThongTinThanhToan.AllowUserToResizeColumns = false;
             dataGridViewThongTinThanhToan.AllowUserToResizeRows = false;
             dataGridViewThongTinThanhToan.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewThongTinThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -223,6 +222,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewThongTinThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewThongTinThanhToan.ColumnHeadersHeight = 50;
+            dataGridViewThongTinThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewThongTinThanhToan.Columns.AddRange(new DataGridViewColumn[] { GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan, TrangThai, GhiChu });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -246,6 +246,7 @@
             dataGridViewThongTinThanhToan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewThongTinThanhToan.RowHeadersVisible = false;
             dataGridViewThongTinThanhToan.RowHeadersWidth = 50;
+            dataGridViewThongTinThanhToan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewThongTinThanhToan.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewThongTinThanhToan.RowTemplate.Height = 35;
@@ -344,7 +345,6 @@
             dataGridViewThongTinSale.AllowUserToAddRows = false;
             dataGridViewThongTinSale.AllowUserToDeleteRows = false;
             dataGridViewThongTinSale.AllowUserToOrderColumns = true;
-            dataGridViewThongTinSale.AllowUserToResizeColumns = false;
             dataGridViewThongTinSale.AllowUserToResizeRows = false;
             dataGridViewThongTinSale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dataGridViewThongTinSale.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -360,6 +360,7 @@
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             dataGridViewThongTinSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewThongTinSale.ColumnHeadersHeight = 50;
+            dataGridViewThongTinSale.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewThongTinSale.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, HoaHong, TinhTrang });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
@@ -383,6 +384,7 @@
             dataGridViewThongTinSale.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewThongTinSale.RowHeadersVisible = false;
             dataGridViewThongTinSale.RowHeadersWidth = 50;
+            dataGridViewThongTinSale.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewThongTinSale.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewThongTinSale.RowTemplate.Height = 35;

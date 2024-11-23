@@ -123,17 +123,17 @@
             buttonChucVuNguoiDung = new Button();
             buttonDanhSachNguoiDung = new Button();
             groupBox1 = new GroupBox();
-            dataGridView2 = new DataGridView();
-            buttonSearch = new Button();
-            textBox1 = new TextBox();
-            buttonLuu = new Button();
+            dataGridViewDanhSachNguoiDung = new DataGridView();
             SoThuTu = new DataGridViewTextBoxColumn();
             TenNguoiDung = new DataGridViewTextBoxColumn();
             ChucVu = new DataGridViewTextBoxColumn();
+            buttonSearch = new Button();
+            textBox1 = new TextBox();
+            buttonLuu = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDanhSachNguoiDung).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1327,7 +1327,7 @@
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             groupBox1.BackColor = Color.LightGray;
-            groupBox1.Controls.Add(dataGridView2);
+            groupBox1.Controls.Add(dataGridViewDanhSachNguoiDung);
             groupBox1.Controls.Add(buttonSearch);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(16, 221);
@@ -1336,10 +1336,12 @@
             groupBox1.TabIndex = 54;
             groupBox1.TabStop = false;
             // 
-            // dataGridView2
+            // dataGridViewDanhSachNguoiDung
             // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView2.BackgroundColor = SystemColors.ButtonHighlight;
+            dataGridViewDanhSachNguoiDung.AllowUserToOrderColumns = true;
+            dataGridViewDanhSachNguoiDung.AllowUserToResizeRows = false;
+            dataGridViewDanhSachNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewDanhSachNguoiDung.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
@@ -1347,15 +1349,38 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenNguoiDung, ChucVu });
-            dataGridView2.Location = new Point(21, 75);
-            dataGridView2.Margin = new Padding(2);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(513, 390);
-            dataGridView2.TabIndex = 3;
+            dataGridViewDanhSachNguoiDung.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewDanhSachNguoiDung.ColumnHeadersHeight = 29;
+            dataGridViewDanhSachNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewDanhSachNguoiDung.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenNguoiDung, ChucVu });
+            dataGridViewDanhSachNguoiDung.Location = new Point(21, 75);
+            dataGridViewDanhSachNguoiDung.Margin = new Padding(2);
+            dataGridViewDanhSachNguoiDung.Name = "dataGridViewDanhSachNguoiDung";
+            dataGridViewDanhSachNguoiDung.RowHeadersWidth = 82;
+            dataGridViewDanhSachNguoiDung.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewDanhSachNguoiDung.Size = new Size(513, 390);
+            dataGridViewDanhSachNguoiDung.TabIndex = 3;
+            // 
+            // SoThuTu
+            // 
+            SoThuTu.HeaderText = "STT";
+            SoThuTu.MinimumWidth = 10;
+            SoThuTu.Name = "SoThuTu";
+            SoThuTu.Width = 50;
+            // 
+            // TenNguoiDung
+            // 
+            TenNguoiDung.HeaderText = "Tên người dùng";
+            TenNguoiDung.MinimumWidth = 10;
+            TenNguoiDung.Name = "TenNguoiDung";
+            TenNguoiDung.Width = 200;
+            // 
+            // ChucVu
+            // 
+            ChucVu.HeaderText = "Chức vụ";
+            ChucVu.MinimumWidth = 10;
+            ChucVu.Name = "ChucVu";
+            ChucVu.Width = 200;
             // 
             // buttonSearch
             // 
@@ -1395,27 +1420,6 @@
             buttonLuu.Text = "LƯU";
             buttonLuu.UseVisualStyleBackColor = false;
             // 
-            // SoThuTu
-            // 
-            SoThuTu.HeaderText = "STT";
-            SoThuTu.MinimumWidth = 10;
-            SoThuTu.Name = "SoThuTu";
-            SoThuTu.Width = 50;
-            // 
-            // TenNguoiDung
-            // 
-            TenNguoiDung.HeaderText = "Tên người dùng";
-            TenNguoiDung.MinimumWidth = 10;
-            TenNguoiDung.Name = "TenNguoiDung";
-            TenNguoiDung.Width = 200;
-            // 
-            // ChucVu
-            // 
-            ChucVu.HeaderText = "Chức vụ";
-            ChucVu.MinimumWidth = 10;
-            ChucVu.Name = "ChucVu";
-            ChucVu.Width = 200;
-            // 
             // SuperAdminDecentralization
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1441,7 +1445,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDanhSachNguoiDung).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1486,7 +1490,7 @@
         private Button buttonChucVuNguoiDung;
         private Button buttonDanhSachNguoiDung;
         private GroupBox groupBox1;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridViewDanhSachNguoiDung;
         private Button buttonSearch;
         private TextBox textBox1;
         private Label label1;

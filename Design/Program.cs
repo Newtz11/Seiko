@@ -16,7 +16,7 @@ namespace Design
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new ChangePassword());
+            Application.Run(new Login());
         }
     }
 }

@@ -43,12 +43,6 @@
             buttonSua = new Button();
             comboBox1 = new ComboBox();
             dataGridViewListUser = new DataGridView();
-            comboBoxTinhTrang = new ComboBox();
-            buttonXoa = new Button();
-            buttonTaoTaiKhoan = new Button();
-            buttonSearch = new Button();
-            textBoxSearch = new TextBox();
-            labelProjectProgress = new Label();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             NoiDungCongViec = new DataGridViewTextBoxColumn();
@@ -58,6 +52,12 @@
             TienDo = new DataGridViewTextBoxColumn();
             NguoiThucHien = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
+            comboBoxTinhTrang = new ComboBox();
+            buttonXoa = new Button();
+            buttonTaoTaiKhoan = new Button();
+            buttonSearch = new Button();
+            textBoxSearch = new TextBox();
+            labelProjectProgress = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).BeginInit();
@@ -176,7 +176,6 @@
             dataGridViewListUser.AllowUserToResizeRows = false;
             dataGridViewListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewListUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewListUser.BackgroundColor = Color.White;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -188,6 +187,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
+            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, KhoiLuongYeuCau, NgayBatDau, NgayKetThuc, TienDo, NguoiThucHien, TinhTrang });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -211,6 +211,7 @@
             dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
+            dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
@@ -219,7 +220,60 @@
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewListUser.Size = new Size(1270, 550);
             dataGridViewListUser.TabIndex = 29;
-            dataGridViewListUser.CellContentClick += dataGridViewListUser_CellContentClick;
+            // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // NoiDungCongViec
+            // 
+            NoiDungCongViec.HeaderText = "Nội dung công việc";
+            NoiDungCongViec.MinimumWidth = 6;
+            NoiDungCongViec.Name = "NoiDungCongViec";
+            // 
+            // KhoiLuongYeuCau
+            // 
+            KhoiLuongYeuCau.HeaderText = "Khối lượng yêu cầu";
+            KhoiLuongYeuCau.MinimumWidth = 6;
+            KhoiLuongYeuCau.Name = "KhoiLuongYeuCau";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            // 
+            // NgayKetThuc
+            // 
+            NgayKetThuc.HeaderText = "Ngày kết thúc";
+            NgayKetThuc.MinimumWidth = 6;
+            NgayKetThuc.Name = "NgayKetThuc";
+            // 
+            // TienDo
+            // 
+            TienDo.HeaderText = "Tiến Độ";
+            TienDo.MinimumWidth = 6;
+            TienDo.Name = "TienDo";
+            // 
+            // NguoiThucHien
+            // 
+            NguoiThucHien.HeaderText = "Người thực hiện";
+            NguoiThucHien.MinimumWidth = 6;
+            NguoiThucHien.Name = "NguoiThucHien";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
             // 
             // comboBoxTinhTrang
             // 
@@ -294,60 +348,6 @@
             labelProjectProgress.Size = new Size(284, 38);
             labelProjectProgress.TabIndex = 13;
             labelProjectProgress.Text = "TIẾN ĐỘ CÔNG VIỆC";
-            // 
-            // MaHopDong
-            // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // NoiDungCongViec
-            // 
-            NoiDungCongViec.HeaderText = "Nội dung công việc";
-            NoiDungCongViec.MinimumWidth = 6;
-            NoiDungCongViec.Name = "NoiDungCongViec";
-            // 
-            // KhoiLuongYeuCau
-            // 
-            KhoiLuongYeuCau.HeaderText = "Khối lượng yêu cầu";
-            KhoiLuongYeuCau.MinimumWidth = 6;
-            KhoiLuongYeuCau.Name = "KhoiLuongYeuCau";
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.HeaderText = "Ngày bắt đầu";
-            NgayBatDau.MinimumWidth = 6;
-            NgayBatDau.Name = "NgayBatDau";
-            // 
-            // NgayKetThuc
-            // 
-            NgayKetThuc.HeaderText = "Ngày kết thúc";
-            NgayKetThuc.MinimumWidth = 6;
-            NgayKetThuc.Name = "NgayKetThuc";
-            // 
-            // TienDo
-            // 
-            TienDo.HeaderText = "Tiến Độ";
-            TienDo.MinimumWidth = 6;
-            TienDo.Name = "TienDo";
-            // 
-            // NguoiThucHien
-            // 
-            NguoiThucHien.HeaderText = "Người thực hiện";
-            NguoiThucHien.MinimumWidth = 6;
-            NguoiThucHien.Name = "NguoiThucHien";
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.HeaderText = "Tình trạng";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
             // 
             // ProjectProgress
             // 

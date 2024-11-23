@@ -260,7 +260,6 @@
             // 
             dataGridViewThongTinCaNhan.AllowUserToAddRows = false;
             dataGridViewThongTinCaNhan.AllowUserToDeleteRows = false;
-            dataGridViewThongTinCaNhan.AllowUserToOrderColumns = true;
             dataGridViewThongTinCaNhan.AllowUserToResizeColumns = false;
             dataGridViewThongTinCaNhan.AllowUserToResizeRows = false;
             dataGridViewThongTinCaNhan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -277,6 +276,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewThongTinCaNhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewThongTinCaNhan.ColumnHeadersHeight = 50;
+            dataGridViewThongTinCaNhan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewThongTinCaNhan.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, HoTen, NgaySinh, GioiTinh, SDT, DiaChi, email });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -290,7 +290,7 @@
             dataGridViewThongTinCaNhan.Location = new Point(154, 478);
             dataGridViewThongTinCaNhan.Name = "dataGridViewThongTinCaNhan";
             dataGridViewThongTinCaNhan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
@@ -300,12 +300,12 @@
             dataGridViewThongTinCaNhan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewThongTinCaNhan.RowHeadersVisible = false;
             dataGridViewThongTinCaNhan.RowHeadersWidth = 51;
+            dataGridViewThongTinCaNhan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewThongTinCaNhan.RowTemplate.Height = 35;
             dataGridViewThongTinCaNhan.ScrollBars = ScrollBars.None;
             dataGridViewThongTinCaNhan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewThongTinCaNhan.Size = new Size(809, 88);
             dataGridViewThongTinCaNhan.TabIndex = 4;
-            dataGridViewThongTinCaNhan.CellClick += dataGridViewThongTinCaNhan_CellClick;
             // 
             // MaNhanVien
             // 
@@ -361,7 +361,6 @@
             // 
             dataGridViewThongTinCongViec.AllowUserToAddRows = false;
             dataGridViewThongTinCongViec.AllowUserToDeleteRows = false;
-            dataGridViewThongTinCongViec.AllowUserToOrderColumns = true;
             dataGridViewThongTinCongViec.AllowUserToResizeColumns = false;
             dataGridViewThongTinCongViec.AllowUserToResizeRows = false;
             dataGridViewThongTinCongViec.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -378,6 +377,7 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dataGridViewThongTinCongViec.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewThongTinCongViec.ColumnHeadersHeight = 50;
+            dataGridViewThongTinCongViec.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewThongTinCongViec.Columns.AddRange(new DataGridViewColumn[] { ChucVu, PhongBan, NgayVaoLam, TrangThai });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = SystemColors.Window;
@@ -391,7 +391,7 @@
             dataGridViewThongTinCongViec.Location = new Point(154, 669);
             dataGridViewThongTinCongViec.Name = "dataGridViewThongTinCongViec";
             dataGridViewThongTinCongViec.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = SystemColors.Control;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
@@ -401,12 +401,12 @@
             dataGridViewThongTinCongViec.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewThongTinCongViec.RowHeadersVisible = false;
             dataGridViewThongTinCongViec.RowHeadersWidth = 51;
+            dataGridViewThongTinCongViec.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewThongTinCongViec.RowTemplate.Height = 35;
             dataGridViewThongTinCongViec.ScrollBars = ScrollBars.None;
             dataGridViewThongTinCongViec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewThongTinCongViec.Size = new Size(809, 81);
             dataGridViewThongTinCongViec.TabIndex = 5;
-            dataGridViewThongTinCongViec.CellClick += dataGridViewThongTinCongViec_CellClick;
             // 
             // ChucVu
             // 

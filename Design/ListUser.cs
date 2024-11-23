@@ -44,10 +44,6 @@ namespace Design
             button.Region = Region.FromHrgn(hRgn);
         }
 
-        private void dataGridViewListUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
