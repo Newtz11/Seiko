@@ -80,44 +80,55 @@ namespace Design
             bool login = NguoiDungBLL.checkTaiKhoan(loginAccount);
             if (login)
             {
-                string role = NguoiDungBLL.getVaiTro(loginAccount);
-                if (role == "Admin")
+                NguoiDung user = NguoiDungBLL.getUser(loginAccount);
+                if (user.tinhTrangHoatDong)
                 {
-                    SuperAdmin fSuperAdmin = new SuperAdmin();
-                    this.Hide();
-                    fSuperAdmin.Show();
+                    string role = user.vaiTro;
+                    if (role == "Admin")
+                    {
+                        SuperAdmin fSuperAdmin = new SuperAdmin(user);
+                        this.Hide();
+                        fSuperAdmin.Show();
+                    }
+                    else if (role == "CEO")
+                    {
+                        Director fHomeDirector0 = new Director(user);
+                        this.Hide();
+                        fHomeDirector0.Show();
+                    }
+                    else if (role == "Sale")
+                    {
+                        Sale fSale = new Sale(user);
+                        this.Hide();
+                        fSale.Show();
+                    }
+                    else if (role == "Accountant")
+                    {
+                        Accountant fHomeAccountant = new Accountant(user);
+                        this.Hide();
+                        fHomeAccountant.Show();
+                    }
+                    else if (role == "Sale Manager")
+                    {
+                        SaleManager fHomeSaleManager = new SaleManager(user);
+                        this.Hide();
+                        fHomeSaleManager.Show();
+                    }
+                    else if (role == "Accountant Manager")
+                    {
+                        AccountantManager fHomeAccountantManager = new AccountantManager(user);
+                        this.Hide();
+                        fHomeAccountantManager.Show();
+                    }
                 }
-                else if (role == "CEO")
+                else
                 {
-                    Director fHomeDirector0 = new Director();
-                    this.Hide();
-                    fHomeDirector0.Show();
-                }
-                else if (role == "Sale")
-                {
-                    Sale fSale = new Sale();
-                    this.Hide();
-                    fSale.Show();
-                }
-                else if (role == "Accountant")
-                {
-                    Accountant fHomeAccountant = new Accountant();
-                    this.Hide();
-                    fHomeAccountant.Show();
-                }
-                else if (role == "Sale Manager")
-                {
-                    SaleManager fHomeSaleManager = new SaleManager();
-                    this.Hide();
-                    fHomeSaleManager.Show();
-                }
-                else if (role == "Accountant Manager")
-                {
-                    AccountantManager fHomeAccountantManager = new AccountantManager(this);
-                    this.Hide();
-                    fHomeAccountantManager.Show();
+                    MessageBox.Show("Tài khoản đã ngưng hoạt động");
+                    textBoxLoginName.Text = "";
+                    textBoxPassword.Text = "";
                 }
             }
+                
             else
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đăng nhập sai. Vui lòng thử lại!");

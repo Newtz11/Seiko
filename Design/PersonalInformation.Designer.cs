@@ -263,7 +263,6 @@
             dataGridViewThongTinCaNhan.AllowUserToResizeColumns = false;
             dataGridViewThongTinCaNhan.AllowUserToResizeRows = false;
             dataGridViewThongTinCaNhan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewThongTinCaNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewThongTinCaNhan.BackgroundColor = Color.White;
             dataGridViewThongTinCaNhan.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewThongTinCaNhan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -289,6 +288,7 @@
             dataGridViewThongTinCaNhan.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinCaNhan.Location = new Point(154, 478);
             dataGridViewThongTinCaNhan.Name = "dataGridViewThongTinCaNhan";
+            dataGridViewThongTinCaNhan.ReadOnly = true;
             dataGridViewThongTinCaNhan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -313,6 +313,7 @@
             MaNhanVien.HeaderText = "Mã nhân viên";
             MaNhanVien.MinimumWidth = 6;
             MaNhanVien.Name = "MaNhanVien";
+            MaNhanVien.ReadOnly = true;
             MaNhanVien.Width = 132;
             // 
             // HoTen
@@ -321,6 +322,7 @@
             HoTen.HeaderText = "Họ và tên";
             HoTen.MinimumWidth = 6;
             HoTen.Name = "HoTen";
+            HoTen.ReadOnly = true;
             // 
             // NgaySinh
             // 
@@ -328,6 +330,7 @@
             NgaySinh.HeaderText = "Ngày sinh";
             NgaySinh.MinimumWidth = 6;
             NgaySinh.Name = "NgaySinh";
+            NgaySinh.ReadOnly = true;
             // 
             // GioiTinh
             // 
@@ -335,6 +338,7 @@
             GioiTinh.HeaderText = "Giới tính";
             GioiTinh.MinimumWidth = 6;
             GioiTinh.Name = "GioiTinh";
+            GioiTinh.ReadOnly = true;
             // 
             // SDT
             // 
@@ -342,6 +346,7 @@
             SDT.HeaderText = "Số điện thoại";
             SDT.MinimumWidth = 6;
             SDT.Name = "SDT";
+            SDT.ReadOnly = true;
             // 
             // DiaChi
             // 
@@ -349,6 +354,7 @@
             DiaChi.HeaderText = "Địa chỉ";
             DiaChi.MinimumWidth = 6;
             DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
             // 
             // email
             // 
@@ -356,6 +362,7 @@
             email.HeaderText = "Email";
             email.MinimumWidth = 6;
             email.Name = "email";
+            email.ReadOnly = true;
             // 
             // dataGridViewThongTinCongViec
             // 
@@ -364,7 +371,6 @@
             dataGridViewThongTinCongViec.AllowUserToResizeColumns = false;
             dataGridViewThongTinCongViec.AllowUserToResizeRows = false;
             dataGridViewThongTinCongViec.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewThongTinCongViec.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewThongTinCongViec.BackgroundColor = Color.White;
             dataGridViewThongTinCongViec.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewThongTinCongViec.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -390,6 +396,7 @@
             dataGridViewThongTinCongViec.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinCongViec.Location = new Point(154, 669);
             dataGridViewThongTinCongViec.Name = "dataGridViewThongTinCongViec";
+            dataGridViewThongTinCongViec.ReadOnly = true;
             dataGridViewThongTinCongViec.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = SystemColors.Control;
@@ -414,6 +421,7 @@
             ChucVu.HeaderText = "Chức vụ";
             ChucVu.MinimumWidth = 6;
             ChucVu.Name = "ChucVu";
+            ChucVu.ReadOnly = true;
             // 
             // PhongBan
             // 
@@ -421,6 +429,7 @@
             PhongBan.HeaderText = "Phòng Ban";
             PhongBan.MinimumWidth = 6;
             PhongBan.Name = "PhongBan";
+            PhongBan.ReadOnly = true;
             // 
             // NgayVaoLam
             // 
@@ -428,6 +437,7 @@
             NgayVaoLam.HeaderText = "Ngày vào làm";
             NgayVaoLam.MinimumWidth = 6;
             NgayVaoLam.Name = "NgayVaoLam";
+            NgayVaoLam.ReadOnly = true;
             // 
             // TrangThai
             // 
@@ -435,6 +445,7 @@
             TrangThai.HeaderText = "Trạng thái";
             TrangThai.MinimumWidth = 6;
             TrangThai.Name = "TrangThai";
+            TrangThai.ReadOnly = true;
             // 
             // PersonalInformation
             // 

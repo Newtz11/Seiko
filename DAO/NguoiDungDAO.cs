@@ -21,17 +21,26 @@ namespace DAO
         private NguoiDungDAO() { }
         public bool checkTaiKhoanDangNhap(NguoiDung taiKhoan)
         {
-            string query = "select * from NGUOIDUNG where MaNV = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt.Rows.Count>0;
         }
 
         public string getVaiTro(NguoiDung taiKhoan) 
         {
-            string query = "select VaiTro from NGUOIDUNG where MaNV = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            string query = "select VaiTro from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt.Rows[0]["VaiTro"].ToString();
         }
+
+        public DataTable getUser(NguoiDung taiKhoan)
+        {
+            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+
         public DataTable searchName(string name)
         {
             string query = "select MaNV as #, HoTen as [Tên Người Dùng], PhongBan as [Phòng Ban]" +
@@ -42,8 +51,8 @@ namespace DAO
 
         public DataTable searchUser()
         {
-            string query = "select MaNV as #, HoTen as [Tên Người Dùng], PhongBan as [Phòng Ban]" +
-                " from NGUOIDUNG";
+            string query = "select TenDangNhap as [Tên Đăng Nhập], mail as [Email], HoTen as [Tên người dùng]," +
+                "MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
