@@ -44,12 +44,6 @@
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             dataGridViewContractTracking = new DataGridView();
-            groupBoxListUser = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            labelContractTracking = new Label();
-            pictureBoxIconContractTracking = new PictureBox();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             TenCongTyCaNhan = new DataGridViewTextBoxColumn();
@@ -59,6 +53,12 @@
             GiaTriHopDong = new DataGridViewTextBoxColumn();
             TinhTrangHopDong = new DataGridViewTextBoxColumn();
             PhuTrachThanhToan = new DataGridViewTextBoxColumn();
+            groupBoxListUser = new GroupBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            labelContractTracking = new Label();
+            pictureBoxIconContractTracking = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
@@ -237,6 +237,60 @@
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
             // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // TenCongTyCaNhan
+            // 
+            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
+            TenCongTyCaNhan.MinimumWidth = 6;
+            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
+            // 
+            // NguoiLienHe
+            // 
+            NguoiLienHe.HeaderText = "Người liên hệ";
+            NguoiLienHe.MinimumWidth = 6;
+            NguoiLienHe.Name = "NguoiLienHe";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            // 
+            // NgayHetHan
+            // 
+            NgayHetHan.HeaderText = "Ngày hết hạn";
+            NgayHetHan.MinimumWidth = 6;
+            NgayHetHan.Name = "NgayHetHan";
+            // 
+            // GiaTriHopDong
+            // 
+            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
+            GiaTriHopDong.MinimumWidth = 6;
+            GiaTriHopDong.Name = "GiaTriHopDong";
+            // 
+            // TinhTrangHopDong
+            // 
+            TinhTrangHopDong.HeaderText = "Tình trạng hợp đồng";
+            TinhTrangHopDong.MinimumWidth = 6;
+            TinhTrangHopDong.Name = "TinhTrangHopDong";
+            // 
+            // PhuTrachThanhToan
+            // 
+            PhuTrachThanhToan.HeaderText = "Phụ trách thanh toán";
+            PhuTrachThanhToan.MinimumWidth = 6;
+            PhuTrachThanhToan.Name = "PhuTrachThanhToan";
+            // 
             // groupBoxListUser
             // 
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -291,6 +345,7 @@
             button2.TabIndex = 7;
             button2.Text = "Thêm mới";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -326,60 +381,6 @@
             pictureBoxIconContractTracking.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBoxIconContractTracking.TabIndex = 17;
             pictureBoxIconContractTracking.TabStop = false;
-            // 
-            // MaHopDong
-            // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // TenCongTyCaNhan
-            // 
-            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
-            TenCongTyCaNhan.MinimumWidth = 6;
-            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
-            // 
-            // NguoiLienHe
-            // 
-            NguoiLienHe.HeaderText = "Người liên hệ";
-            NguoiLienHe.MinimumWidth = 6;
-            NguoiLienHe.Name = "NguoiLienHe";
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.HeaderText = "Ngày bắt đầu";
-            NgayBatDau.MinimumWidth = 6;
-            NgayBatDau.Name = "NgayBatDau";
-            // 
-            // NgayHetHan
-            // 
-            NgayHetHan.HeaderText = "Ngày hết hạn";
-            NgayHetHan.MinimumWidth = 6;
-            NgayHetHan.Name = "NgayHetHan";
-            // 
-            // GiaTriHopDong
-            // 
-            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
-            GiaTriHopDong.MinimumWidth = 6;
-            GiaTriHopDong.Name = "GiaTriHopDong";
-            // 
-            // TinhTrangHopDong
-            // 
-            TinhTrangHopDong.HeaderText = "Tình trạng hợp đồng";
-            TinhTrangHopDong.MinimumWidth = 6;
-            TinhTrangHopDong.Name = "TinhTrangHopDong";
-            // 
-            // PhuTrachThanhToan
-            // 
-            PhuTrachThanhToan.HeaderText = "Phụ trách thanh toán";
-            PhuTrachThanhToan.MinimumWidth = 6;
-            PhuTrachThanhToan.Name = "PhuTrachThanhToan";
             // 
             // ContractTrackingForAccountant
             // 

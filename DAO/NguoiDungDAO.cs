@@ -49,7 +49,7 @@ namespace DAO
             return dt;
         }
 
-        public DataTable searchUser()
+        public DataTable loadUser()
         {
             string query = "select TenDangNhap as [Tên Đăng Nhập], mail as [Email], HoTen as [Tên người dùng]," +
                 "MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG";

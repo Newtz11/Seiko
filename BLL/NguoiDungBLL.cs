@@ -52,9 +52,9 @@ namespace BLL
         }
 
 
-        public static DataTable searchUser()
+        public static DataTable loadUser()
         {
-            return NguoiDungDAO.Instance.searchUser();
+            return NguoiDungDAO.Instance.loadUser();
         }
     }
 }

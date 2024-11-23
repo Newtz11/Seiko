@@ -68,7 +68,7 @@ namespace Design
 
         private void ListUser_Load(object sender, EventArgs e)
         {
-            DataTable dt = NguoiDungBLL.searchUser();
+            DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
             foreach (DataRow row in dt.Rows)
             {
