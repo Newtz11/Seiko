@@ -47,7 +47,7 @@ namespace DAO
             return rowsAffected;
         }
 
-        public DataTable ExecuteProc(string procName, Dictionary<string, SqlDbType> parameters)
+        public DataTable executeProc(string procName, List<SqlParameter> parameters)
         {
             DataTable data = new DataTable();
             using (SqlConnection conn = new SqlConnection(connectString))
@@ -56,9 +56,9 @@ namespace DAO
                 SqlCommand command = new SqlCommand(procName, conn);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (KeyValuePair<string, SqlDbType> param in parameters)
+                foreach (SqlParameter param in parameters)
                 {
-                    command.Parameters.Add(new SqlParameter(param.Key, param.Value));
+                    command.Parameters.Add(param);
                 }
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
