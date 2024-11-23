@@ -29,51 +29,51 @@ go
 
 ---Thêm dữ liệu Super Admin---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Admin','nguyenvana',0,'1967-02-01','admin@gmail.com','Admin','0912332222','IT','quan 7')
+values	(N'Admin','nguyenvana',0,'1967-02-01','admin@gmail.com','Admin','0912332222','IT','quan 7')
 
 ---Thêm dữ liệu nhân viên Sale---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Sale num0', 'nguyenvanb', 0,'1970-10-22','sale0@gmail.com','Sale','0912332212','Sale','quan 7')
+values	(N'Sale num0', 'nguyenvanb', 0,'1970-10-22','sale0@gmail.com','Sale','0912332212','Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Sale num1', 'nguyenvanc', 0,'1971-04-22','sale1@gmail.com','Sale','0912332213','Sale','quan 7')
+values	(N'Sale num1', 'nguyenvanc', 0,'1971-04-22','sale1@gmail.com','Sale','0912332213','Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Sale num2', 'nguyenvand', 1,'1980-01-18','sale2@gmail.com','Sale','0912339213','Sale','quan 7')
+values (N'Sale num2', 'nguyenvand', 1,'1980-01-18','sale2@gmail.com','Sale','0912339213','Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Sale num3','nguyenvane', 1,'2000-11-02','sale3@gmail.com','Sale','0912339523','Sale','quan 7')
+values (N'Sale num3','nguyenvane', 1,'2000-11-02','sale3@gmail.com','Sale','0912339523','Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Sale num4', 'nguyenvanf', 1,'1990-09-05','sale4@gmail.com','Sale','0912394323','Sale','quan 7')
+values (N'Sale num4', 'nguyenvanf', 1,'1990-09-05','sale4@gmail.com','Sale','0912394323','Sale','quan 7')
 
 ---Thêm dữ liệu nhân viên Kế toán---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Kế toán num0', 'tranvana', 1, '1992-04-04', 'ketoan0@gmail.com', 'Accountant', '0284851679', 'Accountant', 'quan7')
+values (N'Kế toán num0', 'tranvana', 1, '1992-04-04', 'ketoan0@gmail.com', 'Accountant', '0284851679', 'Accountant', 'quan7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Kế toán num1', 'tranvanb', 1,'1991-05-29', 'ketoan1@gmail.com', 'Accountant', '0284482679', 'Accountant', 'quan7')
+values (N'Kế toán num1', 'tranvanb', 1,'1991-05-29', 'ketoan1@gmail.com', 'Accountant', '0284482679', 'Accountant', 'quan7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Kế toán num2', 'tranvanc', 0, '1992-06-24', 'ketoan2@gmail.com', 'Accountant', '0734851139', 'Accountant', 'quan7')
+values (N'Kế toán num2', 'tranvanc', 0, '1992-06-24', 'ketoan2@gmail.com', 'Accountant', '0734851139', 'Accountant', 'quan7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Kế toán num3', 'tranvand', 1,'1999-05-23', 'ketoan3@gmail.com', 'Accountant', '0284838651', 'Accountant', 'quan7')
+values (N'Kế toán num3', 'tranvand', 1,'1999-05-23', 'ketoan3@gmail.com', 'Accountant', '0284838651', 'Accountant', 'quan7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values ('Kế toán num4', 'tranvane', 0,'1991-09-20', 'ketoan4@gmail.com', 'Accountant', '0327451679', 'Accountant', 'quan7')
+values (N'Kế toán num4', 'tranvane', 0,'1991-09-20', 'ketoan4@gmail.com', 'Accountant', '0327451679', 'Accountant', 'quan7')
 
 ---Thêm dữ liệu Trưởng phòng Sale---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Trưởng Sale num0', 'trannguyenvana', 0,'1970-06-23','salemanager0@gmail.com','Sale Manager','0912332212','Sale','quan 7')
+values	(N'Trưởng Sale num0', 'trannguyenvana', 0,'1970-06-23','salemanager0@gmail.com','Sale Manager','0912332212','Sale','quan 7')
 
 ---Thêm dữ liệu Trưởng phòng Kế toán---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Kế toán trưởng num0', 'trannguyenvanb', 1,'1980-05-21','ketoantruong0@gmail.com','Accountant Manager','0921092212','Accountant','quan 7')
+values	(N'Kế toán trưởng num0', 'trannguyenvanb', 1,'1980-05-21','ketoantruong0@gmail.com','Accountant Manager','0921092212','Accountant','quan 7')
 
 ---Thêm dữ liệu Giám đốc---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	('Giám đốc num0','trannguyenvanc', 0,'1972-11-20','giamdoc0@gmail.com','CEO','0936681910','CEO','quan 7')
+values	(N'Giám đốc num0','trannguyenvanc', 0,'1972-11-20','giamdoc0@gmail.com','CEO','0936681910','CEO','quan 7')
 
 
 
@@ -107,20 +107,20 @@ CREATE TABLE HOPDONG
 
 ---Thêm dữ liệu Hợp Đồng---
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00001', 'Quay 50 video','Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, '100%', 0, 'Quay video về abc','Chưa thực hiện', 'Đại sứ Milo', '1 NHT Quận 7', '0936681910', 'abc@gmail.com', 4)
+values ('00001', N'Quay 50 video',N'Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, '100%', 0, N'Quay video về abc',N'Chưa thực hiện', N'Đại sứ Milo', N'1 NHT Quận 7', '0936681910', 'abc@gmail.com', 4)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00003', 'Chụp 5 hình', 'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, 'Chụp hình về abc', 'Đang thực hiện', 'Valhein', '1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
+values ('00003', N'Chụp 5 hình', N'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, N'Chụp hình về abc', N'Đang thực hiện', N'Valhein', N'1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', 'Quay 10 video', 'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, 'Quay video về abc', 'Đang thực hiện', 'Đại sứ Omo', '1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
+values ('00002', N'Quay 10 video', N'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, N'Quay video về abc', N'Đang thực hiện', N'Đại sứ Omo', N'1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00005', 'Chụp 10 hình', 'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, 'Chụp hình về abc', 'Chờ nghiệm thu', 'Đại sứ Asus', '1 NHT Quận 7', '0936681913', 'abcd@gmail.com', 4)
+values ('00005', N'Chụp 10 hình', N'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, N'Chụp hình về abc', N'Chờ nghiệm thu', N'Đại sứ Asus', N'1 NHT Quận 7', '0936681913', 'abcd@gmail.com', 4)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00004', 'Quay 5 video', 'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, 'Quay video về abc', 'Đã xong', 'Đại sứ Grab', '1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
+values ('00004', N'Quay 5 video', N'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, N'Quay video về abc', N'Đã xong', N'Đại sứ Grab', N'1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', 'Chụp 15 hình', 'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, 'Chụp hình về abc', 'Chưa thực hiện', 'Đại sứ Foody', '1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+values ('00002', N'Chụp 15 hình', N'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, N'Chụp hình về abc', N'Chưa thực hiện', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
 
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', 'Chụp 15 hình', 'Công ty Foody','2024-12-29', 6523, 'Chụp hình về abc', 'Đại sứ Foody', '1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-12-29', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
 
 select * from HOPDONG
 
@@ -144,11 +144,11 @@ CREATE TABLE GIAIDOANTHANHTOAN
 
 
 insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001','Quay 50 video', '2024-11-24', 60, 1000, '2024-11-26', 'Thanh toán giai đoạn 1 HD001')
+values('HD001',N'Quay 50 video', '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
 insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001','Quay 50 video', '2024-11-26', 40, 768, '2024-11-28', 'Thanh toán giai đoạn 2 HD001')
+values('HD001',N'Quay 50 video', '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
 insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD002','Chụp 5 hình', '2024-11-24', 50, 500, '2024-11-26', 'Thanh toán giai đoạn 1 HD002')
+values('HD002',N'Chụp 5 hình', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
 select * from GIAIDOANTHANHTOAN 
 
 
@@ -169,11 +169,11 @@ CREATE TABLE TIENDOHOPDONG
 
 ---Thêm dữ liệu giai đoạn hợp đồng
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', '00005', 'Quay 2 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', '00005', N'Quay 2 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', '00006', 'Quay 18 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', '00006', N'Quay 18 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-03-12', '2024-05-15', 'HD002', '00004', '00007', 'Chụp 3 hình')
+values('2024-03-12', '2024-05-15', 'HD002', '00004', '00007', N'Chụp 3 hình')
 
 select * from TIENDOHOPDONG
 
