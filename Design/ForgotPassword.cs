@@ -4,10 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
+
 
 namespace Design
 {
@@ -16,7 +21,7 @@ namespace Design
         public ForgotPassword()
         {
             InitializeComponent();
-            ApplyRoundedCorners(buttonSavePassword);
+            ApplyRoundedCorners(buttonConfirmOTP);
             ApplyRoundedCorners(buttonSendOTP);
             ApplyRoundedCorners(buttonBack);
         }
@@ -53,5 +58,58 @@ namespace Design
         {
             this.Close();
         }
+
+        string verificationCode;
+        private void buttonSendOTP_Click(object sender, EventArgs e)
+        {
+            timerVCode.Stop();
+            string to, from, pass;
+            to = textBoxEmail.Text.ToString();
+            from = "seikoapplication@gmail.com";
+            verificationCode = $"{DateTime.Now.Second}{DateTime.Now.Millisecond}";
+            pass = "kxff xduw vtgt xecl";
+            MailMessage mess = new MailMessage();
+            mess.To.Add(to);
+            mess.From = new MailAddress(from);
+            mess.Subject = "Seiko - Reset Password Verified Code";
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.EnableSsl = true;
+            smtp.Port = 587;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential(from, pass);
+            try
+            {
+                mess.Body = "Your Reset Password Verification Code is: " + verificationCode;
+                smtp.Send(mess);
+                MessageBox.Show("Verified Code sent successful");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
+
+        private void timerVCode_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonConfirmOTP_Click(object sender, EventArgs e)
+        {
+            if (verificationCode.Equals(textBoxOTP.Text.ToString())) 
+            {
+                CreatePassword fCreatePassword = new CreatePassword();
+                this.Close();
+                fCreatePassword.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wrong verified code please try again!");
+            }
+        }
+
+        
     }
 }
