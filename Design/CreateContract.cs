@@ -55,5 +55,20 @@ namespace Design
         {
             this.Close();
         }
+
+        private void buttonTao_Click(object sender, EventArgs e)
+        {
+            /* Validation check điền đủ thông tin chưa */
+            // Kiểm tra điền tên hợp đồng
+            if (string.IsNullOrEmpty(textBoxTenHopDong.Text.Trim()))
+            {
+                errorProviderTenHopDong.SetError(textBoxTenHopDong, "Chưa điền Tên hợp đồng");
+                return;
+            }
+            else
+            {
+                errorProviderTenHopDong.SetError(textBoxTenHopDong, string.Empty);
+            }
+        }
     }
 }

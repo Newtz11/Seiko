@@ -38,6 +38,13 @@
             buttonSearch = new Button();
             groupBoxContractHistory = new GroupBox();
             dataGridViewContractHistory = new DataGridView();
+            comboBoxSale = new ComboBox();
+            labelNgayKetThuc = new Label();
+            dateTimePickerEnd = new DateTimePicker();
+            labelNgayBatDau = new Label();
+            dateTimePickerStart = new DateTimePicker();
+            button1 = new Button();
+            labelContractList = new Label();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             TenCongTyCaNhan = new DataGridViewTextBoxColumn();
@@ -47,13 +54,6 @@
             GiaTriHopDong = new DataGridViewTextBoxColumn();
             AccountSale = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
-            comboBoxSale = new ComboBox();
-            labelNgayKetThuc = new Label();
-            dateTimePickerEnd = new DateTimePicker();
-            labelNgayBatDau = new Label();
-            dateTimePickerStart = new DateTimePicker();
-            button1 = new Button();
-            labelContractList = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxContractHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractHistory).BeginInit();
@@ -142,7 +142,7 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewContractHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractHistory.ColumnHeadersHeight = 60;
             dataGridViewContractHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -175,60 +175,6 @@
             dataGridViewContractHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractHistory.Size = new Size(1337, 578);
             dataGridViewContractHistory.TabIndex = 7;
-            // 
-            // MaHopDong
-            // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // TenCongTyCaNhan
-            // 
-            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
-            TenCongTyCaNhan.MinimumWidth = 6;
-            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
-            // 
-            // NguoiLienHe
-            // 
-            NguoiLienHe.HeaderText = "Người liên hệ";
-            NguoiLienHe.MinimumWidth = 6;
-            NguoiLienHe.Name = "NguoiLienHe";
-            // 
-            // NgayBatDau
-            // 
-            NgayBatDau.HeaderText = "Ngày bắt đầu";
-            NgayBatDau.MinimumWidth = 6;
-            NgayBatDau.Name = "NgayBatDau";
-            // 
-            // NgayHetHan
-            // 
-            NgayHetHan.HeaderText = "Ngày hết hạn";
-            NgayHetHan.MinimumWidth = 6;
-            NgayHetHan.Name = "NgayHetHan";
-            // 
-            // GiaTriHopDong
-            // 
-            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
-            GiaTriHopDong.MinimumWidth = 6;
-            GiaTriHopDong.Name = "GiaTriHopDong";
-            // 
-            // AccountSale
-            // 
-            AccountSale.HeaderText = "Account/Sale";
-            AccountSale.MinimumWidth = 6;
-            AccountSale.Name = "AccountSale";
-            // 
-            // TinhTrang
-            // 
-            TinhTrang.HeaderText = "Tình trạng";
-            TinhTrang.MinimumWidth = 6;
-            TinhTrang.Name = "TinhTrang";
             // 
             // comboBoxSale
             // 
@@ -299,6 +245,74 @@
             labelContractList.Size = new Size(284, 38);
             labelContractList.TabIndex = 20;
             labelContractList.Text = "LỊCH SỬ HỢP ĐỒNG";
+            // 
+            // MaHopDong
+            // 
+            MaHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            MaHopDong.Width = 131;
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // TenCongTyCaNhan
+            // 
+            TenCongTyCaNhan.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
+            TenCongTyCaNhan.MinimumWidth = 6;
+            TenCongTyCaNhan.Name = "TenCongTyCaNhan";
+            TenCongTyCaNhan.Width = 184;
+            // 
+            // NguoiLienHe
+            // 
+            NguoiLienHe.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NguoiLienHe.HeaderText = "Người liên hệ";
+            NguoiLienHe.MinimumWidth = 6;
+            NguoiLienHe.Name = "NguoiLienHe";
+            // 
+            // NgayBatDau
+            // 
+            NgayBatDau.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            NgayBatDau.HeaderText = "Ngày bắt đầu";
+            NgayBatDau.MinimumWidth = 6;
+            NgayBatDau.Name = "NgayBatDau";
+            NgayBatDau.Width = 132;
+            // 
+            // NgayHetHan
+            // 
+            NgayHetHan.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            NgayHetHan.HeaderText = "Ngày hết hạn";
+            NgayHetHan.MinimumWidth = 6;
+            NgayHetHan.Name = "NgayHetHan";
+            NgayHetHan.Width = 132;
+            // 
+            // GiaTriHopDong
+            // 
+            GiaTriHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
+            GiaTriHopDong.MinimumWidth = 6;
+            GiaTriHopDong.Name = "GiaTriHopDong";
+            GiaTriHopDong.Width = 152;
+            // 
+            // AccountSale
+            // 
+            AccountSale.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AccountSale.HeaderText = "Account/Sale";
+            AccountSale.MinimumWidth = 6;
+            AccountSale.Name = "AccountSale";
+            // 
+            // TinhTrang
+            // 
+            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TinhTrang.HeaderText = "Tình trạng";
+            TinhTrang.MinimumWidth = 6;
+            TinhTrang.Name = "TinhTrang";
             // 
             // ContractHistory
             // 

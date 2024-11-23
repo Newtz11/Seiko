@@ -100,6 +100,7 @@
             textBoxPassword.TabIndex = 6;
             textBoxPassword.UseSystemPasswordChar = true;
             textBoxPassword.TextChanged += textBox1_TextChanged;
+            textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
             // buttonHidePassword
             // 

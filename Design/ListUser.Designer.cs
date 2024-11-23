@@ -104,6 +104,7 @@
             dataGridViewListUser.AllowUserToOrderColumns = true;
             dataGridViewListUser.AllowUserToResizeRows = false;
             dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewListUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridViewListUser.BackgroundColor = Color.White;
             dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -113,40 +114,35 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenDangNhap, mail, TenNguoiDung, MaNguoiDung, PhongBan, ChucVu, TinhTrang });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-
             dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewListUser.Location = new Point(46, 232);
+            dataGridViewListUser.Location = new Point(39, 213);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font(".VnArial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
             dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-
             dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
@@ -154,51 +150,61 @@
             dataGridViewListUser.Size = new Size(1200, 550);
             dataGridViewListUser.TabIndex = 29;
             dataGridViewListUser.CellClick += dataGridViewListUser_CellClick;
+            dataGridViewListUser.CellContentClick += dataGridViewListUser_CellContentClick;
             // 
             // SoThuTu
             // 
+            SoThuTu.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             SoThuTu.HeaderText = "STT";
             SoThuTu.MinimumWidth = 6;
             SoThuTu.Name = "SoThuTu";
+            SoThuTu.Width = 64;
             // 
             // TenDangNhap
             // 
+            TenDangNhap.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TenDangNhap.HeaderText = "Tên đăng nhập";
             TenDangNhap.MinimumWidth = 6;
             TenDangNhap.Name = "TenDangNhap";
             // 
             // mail
             // 
+            mail.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             mail.HeaderText = "Email";
             mail.MinimumWidth = 6;
             mail.Name = "mail";
             // 
             // TenNguoiDung
             // 
+            TenNguoiDung.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TenNguoiDung.HeaderText = "Tên người dùng";
             TenNguoiDung.MinimumWidth = 6;
             TenNguoiDung.Name = "TenNguoiDung";
             // 
             // MaNguoiDung
             // 
+            MaNguoiDung.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             MaNguoiDung.HeaderText = "Mã người dùng";
             MaNguoiDung.MinimumWidth = 6;
             MaNguoiDung.Name = "MaNguoiDung";
             // 
             // PhongBan
             // 
+            PhongBan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             PhongBan.HeaderText = "Phòng ban";
             PhongBan.MinimumWidth = 6;
             PhongBan.Name = "PhongBan";
             // 
             // ChucVu
             // 
+            ChucVu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ChucVu.HeaderText = "Chức vụ";
             ChucVu.MinimumWidth = 6;
             ChucVu.Name = "ChucVu";
             // 
             // TinhTrang
             // 
+            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TinhTrang.HeaderText = "Tình trạng";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";

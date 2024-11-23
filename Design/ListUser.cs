@@ -72,7 +72,8 @@ namespace Design
             int counter = 0;
             foreach (DataRow row in dt.Rows)
             {
-                if (counter == 0) { 
+                if (counter == 0)
+                {
                     counter++;
                     continue;
                 }
@@ -84,10 +85,15 @@ namespace Design
                 string vaiTro = row["Chức vụ"].ToString();
                 bool trangThai = (bool)row["Tình trạng"];
                 string tinhTrang = trangThai ? "Đang hoạt động" : "Ngưng hoạt động";
-                dataGridViewListUser.Rows.Add(counter,tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
+                dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                 counter++;
             }
 
+
+        }
+
+        private void dataGridViewListUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             
         }
     }

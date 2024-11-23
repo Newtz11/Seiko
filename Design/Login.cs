@@ -128,7 +128,7 @@ namespace Design
                     textBoxPassword.Text = "";
                 }
             }
-                
+
             else
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đăng nhập sai. Vui lòng thử lại!");
@@ -155,6 +155,14 @@ namespace Design
         {
             ForgotPassword forgotPassword = new ForgotPassword();
             forgotPassword.Show();
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonLogin_Click(sender, e);
+            }
         }
     }
 }
