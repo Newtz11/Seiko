@@ -55,7 +55,7 @@
             dateTimePickerStart = new DateTimePicker();
             labelNgayKetThuc = new Label();
             labelNgayBatDau = new Label();
-            textBox2 = new TextBox();
+            textBoxTenNguoiDaiDien = new TextBox();
             labelTenNguoiDaiDien = new Label();
             textBoxTenHopDong = new TextBox();
             labelTenHopDong = new Label();
@@ -72,6 +72,7 @@
             errorProviderEmail = new ErrorProvider(components);
             errorProviderMaNhanVien = new ErrorProvider(components);
             errorProviderTenNhanVienPhuTrach = new ErrorProvider(components);
+            errorProviderEndDate = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxTaoHopDong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProviderTenHopDong).BeginInit();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)errorProviderEmail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderMaNhanVien).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVienPhuTrach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEndDate).BeginInit();
             SuspendLayout();
             // 
             // labelContractTracking
@@ -134,7 +136,7 @@
             groupBoxTaoHopDong.Controls.Add(dateTimePickerStart);
             groupBoxTaoHopDong.Controls.Add(labelNgayKetThuc);
             groupBoxTaoHopDong.Controls.Add(labelNgayBatDau);
-            groupBoxTaoHopDong.Controls.Add(textBox2);
+            groupBoxTaoHopDong.Controls.Add(textBoxTenNguoiDaiDien);
             groupBoxTaoHopDong.Controls.Add(labelTenNguoiDaiDien);
             groupBoxTaoHopDong.Controls.Add(textBoxTenHopDong);
             groupBoxTaoHopDong.Controls.Add(labelTenHopDong);
@@ -373,13 +375,13 @@
             labelNgayBatDau.TabIndex = 73;
             labelNgayBatDau.Text = "Ngày bắt đầu:";
             // 
-            // textBox2
+            // textBoxTenNguoiDaiDien
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(369, 114);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(306, 23);
-            textBox2.TabIndex = 3;
+            textBoxTenNguoiDaiDien.BorderStyle = BorderStyle.None;
+            textBoxTenNguoiDaiDien.Location = new Point(369, 114);
+            textBoxTenNguoiDaiDien.Name = "textBoxTenNguoiDaiDien";
+            textBoxTenNguoiDaiDien.Size = new Size(306, 23);
+            textBoxTenNguoiDaiDien.TabIndex = 3;
             // 
             // labelTenNguoiDaiDien
             // 
@@ -494,6 +496,10 @@
             // 
             errorProviderTenNhanVienPhuTrach.ContainerControl = this;
             // 
+            // errorProviderEndDate
+            // 
+            errorProviderEndDate.ContainerControl = this;
+            // 
             // CreateContract
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -521,6 +527,7 @@
             ((System.ComponentModel.ISupportInitialize)errorProviderEmail).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderMaNhanVien).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVienPhuTrach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEndDate).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -534,7 +541,7 @@
         private Label labelThongTinHopDong;
         private Label labelNgayKetThuc;
         private Label labelNgayBatDau;
-        private TextBox textBox2;
+        private TextBox textBoxTenNguoiDaiDien;
         private Label labelTenNguoiDaiDien;
         private TextBox textBoxTenHopDong;
         private Label labelTenHopDong;
@@ -568,5 +575,6 @@
         private ErrorProvider errorProviderEmail;
         private ErrorProvider errorProviderMaNhanVien;
         private ErrorProvider errorProviderTenNhanVienPhuTrach;
+        private ErrorProvider errorProviderEndDate;
     }
 }
