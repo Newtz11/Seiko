@@ -47,7 +47,28 @@ namespace DAO
             return rowsAffected;
         }
 
-        
+        public DataTable executeProc(string procName, List<SqlParameter> parameters)
+        {
+            DataTable data = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectString))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(procName, conn);
+                command.CommandType = CommandType.StoredProcedure;
+
+                foreach (SqlParameter param in parameters)
+                {
+                    command.Parameters.Add(param);
+                }
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    adapter.Fill(data);
+                }
+            }
+
+            return data;
+        }
 
     }
 }

@@ -28,7 +28,22 @@ namespace DTO
         public string mail {  get; set; }
         public int tienDoHD { get; set; }   // Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
 
-        public HopDong() { }
+
+        //Tạo constructor theo thứ tự trong TẠO HỢP ĐỒNG
+        public HopDong(string tenHD, string tenNguoiDaiDien, DateTime ngayBatDau, DateTime ngayKetThuc, int giaTriHD, string noiDungHD, string tenNguoiLienHe, string diaChi, string sDT, string mail, string maNV) 
+        {
+            this.tenHD = tenHD;
+            this.tenNguoiDaiDien = tenNguoiDaiDien;
+            this.ngayBatDau = ngayBatDau;
+            this.ngayKetThuc = ngayKetThuc;
+            this.giaTriHD = giaTriHD;
+            this.noiDungHD = noiDungHD;
+            this.tenNguoiLienHe = tenNguoiLienHe;
+            this.diaChi = diaChi;
+            this.sDT = sDT;
+            this.mail = mail;
+            this.maNV = maNV;
+        }
 
         public HopDong(string maHD, string maNV, string tenHD, string tenNguoiDaiDien, DateTime ngayBatDau, DateTime ngayKetThuc, int giaTriHD, int mucHoaHong, string chiaGiaiDoan, int daThanhToan, string noiDungHD, string tinhTrangHD, string tenNguoiLienHe, string diaChi, string sDT, string mail, int tienDoHD)
         {

@@ -127,7 +127,6 @@ values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-12-29', 6523, N'Ch
 
 select * from HOPDONG
 
-
 CREATE TABLE GIAIDOANTHANHTOAN
 (
   MaGiaiDoanThanhToan NVARCHAR(10) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
@@ -152,6 +151,10 @@ insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan
 values('HD001',N'Quay 50 video', '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
 insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
 values('HD002',N'Chụp 5 hình', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
+
+insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002',N'Chụp 5 hình', '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
+
 select * from GIAIDOANTHANHTOAN 
 
 
@@ -277,21 +280,36 @@ go
 
 -- Procedure
 --Procedure ContractTrackingForSale--
-create proc loadContractTrackingForSale
-@MaNV NVARCHAR(5)
-as
-begin
-	select hd.MaHD, hd.TenHopDong, hd.TenNguoiDaiDien, hd.TenNguoiLienHe, hd.NgayBatDau, hd.NgayKetThuc, hd.GiaTriHD, hd.TinhTrangHD, nv.HoTen from HOPDONG as hd, NGUOIDUNG as nv where nv.MaNV = @MaNV 
-end
-go	
-	
-exec loadContractTrackingForSale @MaNV = '00004'
+CREATE PROC loadContractTrackingForSale
+    @MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng],
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM 
+        HOPDONG AS hd
+    INNER JOIN 
+        NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE 
+        nv.MaNV = @MaNV;
+END
+GO
+drop proc loadContractTrackingForSale
+exec loadContractTrackingForSale @MaNV = '00003'
 
 --Procedure Danh sách tất cả hợp đồng dành cho những role khác trừ Sale --
 create proc loadContractTrackingForAll
 as
 begin
-	select hd.MaHD, hd.TenHopDong, hd.TenNguoiDaiDien, hd.TenNguoiLienHe, hd.NgayBatDau, hd.NgayKetThuc, hd.GiaTriHD, hd.TinhTrangHD, nv.HoTen 
+	select hd.MaHD as [Mã hợp đồng], hd.TenHopDong as [Tên hợp đồng], hd.TenNguoiDaiDien as [Tên Công ty/Cá nhân], hd.TenNguoiLienHe as [Người liên hệ] , hd.NgayBatDau as [Ngày bắt đầu], hd.NgayKetThuc as [Ngày hết hạn], hd.GiaTriHD as [Giá trị hợp đồng], hd.TinhTrangHD as [Tình trạng hợp đồng], nv.HoTen as [Phụ trách quản lý] 
 	from HOPDONG as hd
 	INNER JOIN NGUOIDUNG as nv on hd.MaNV = nv.MaNV;
 end
@@ -300,6 +318,7 @@ go
 drop proc loadContractTrackingForAll
 exec loadContractTrackingForAll
 
+--Procedure Tạo hợp đồng
 
 
 

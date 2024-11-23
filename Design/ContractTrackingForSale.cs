@@ -8,17 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BLL;
 
 namespace Design
 {
     public partial class ContractTrackingForSale : Form
     {
-        public ContractTrackingForSale()
+        NguoiDung user;
+        public ContractTrackingForSale(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);
             ApplyRoundedCorners(buttonThem);
             ApplyRoundedCorners(buttonXoa);
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -52,13 +56,27 @@ namespace Design
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            CreateContract createContract = new CreateContract();
+            CreateContract createContract = new CreateContract(user);
             createContract.Show();
         }
 
         private void ContractTracking_Load(object sender, EventArgs e)
         {
+            DataTable dt = HopDongBLL.loadContract(user);
 
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row["Mã hợp đồng"].ToString();
+                string tenHopDong = row["Tên hợp đồng"].ToString();
+                string tenCongTyCaNhan = row["Tên Công ty/Cá nhân"].ToString();
+                string nguoiLienHe = row["Người liên hệ"].ToString();
+                DateTime ngayBatDau = Convert.ToDateTime(row["Ngày bắt đầu"]);
+                DateTime ngayHetHan = Convert.ToDateTime(row["Ngày hết hạn"]);
+                int giaTriHopDong = Convert.ToInt32(row["Giá trị hợp đồng"]);
+                string tinhTrangHopDong = row["Tình trạng hợp đồng"].ToString();
+                string phuTrachQuanLy = row["Phụ trách quản lý"].ToString();
+                dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("yyyy/MM/dd"), ngayHetHan.ToString("yyyy/MM/dd"), giaTriHopDong, tinhTrangHopDong, phuTrachQuanLy);
+            }
         }
     }
 }
