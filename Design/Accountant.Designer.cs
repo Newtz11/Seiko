@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accountant));
             groupBoxFeature = new GroupBox();
-            buttonTienDoThanhToan = new Button();
+            buttonGiaiDoanThanhToan = new Button();
             mainpanel = new Panel();
             buttonContractHistory = new Button();
             buttonLogout = new Button();
@@ -48,7 +48,7 @@
             // groupBoxFeature
             // 
             groupBoxFeature.BackColor = Color.Gainsboro;
-            groupBoxFeature.Controls.Add(buttonTienDoThanhToan);
+            groupBoxFeature.Controls.Add(buttonGiaiDoanThanhToan);
             groupBoxFeature.Controls.Add(mainpanel);
             groupBoxFeature.Controls.Add(buttonContractHistory);
             groupBoxFeature.Controls.Add(buttonLogout);
@@ -64,21 +64,21 @@
             groupBoxFeature.TabStop = false;
             groupBoxFeature.Text = "groupBox1";
             // 
-            // buttonTienDoThanhToan
+            // buttonGiaiDoanThanhToan
             // 
-            buttonTienDoThanhToan.BackColor = Color.Silver;
-            buttonTienDoThanhToan.FlatAppearance.BorderColor = Color.Black;
-            buttonTienDoThanhToan.FlatAppearance.MouseDownBackColor = Color.White;
-            buttonTienDoThanhToan.FlatAppearance.MouseOverBackColor = Color.White;
-            buttonTienDoThanhToan.FlatStyle = FlatStyle.Flat;
-            buttonTienDoThanhToan.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonTienDoThanhToan.Location = new Point(6, 464);
-            buttonTienDoThanhToan.Name = "buttonTienDoThanhToan";
-            buttonTienDoThanhToan.Size = new Size(200, 48);
-            buttonTienDoThanhToan.TabIndex = 19;
-            buttonTienDoThanhToan.Text = "TIẾN ĐỘ THANH TOÁN";
-            buttonTienDoThanhToan.UseVisualStyleBackColor = false;
-            buttonTienDoThanhToan.Click += buttonTienDoThanhToan_Click;
+            buttonGiaiDoanThanhToan.BackColor = Color.Silver;
+            buttonGiaiDoanThanhToan.FlatAppearance.BorderColor = Color.Black;
+            buttonGiaiDoanThanhToan.FlatAppearance.MouseDownBackColor = Color.White;
+            buttonGiaiDoanThanhToan.FlatAppearance.MouseOverBackColor = Color.White;
+            buttonGiaiDoanThanhToan.FlatStyle = FlatStyle.Flat;
+            buttonGiaiDoanThanhToan.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonGiaiDoanThanhToan.Location = new Point(6, 464);
+            buttonGiaiDoanThanhToan.Name = "buttonGiaiDoanThanhToan";
+            buttonGiaiDoanThanhToan.Size = new Size(200, 48);
+            buttonGiaiDoanThanhToan.TabIndex = 19;
+            buttonGiaiDoanThanhToan.Text = "GIAI ĐOẠN THANH TOÁN";
+            buttonGiaiDoanThanhToan.UseVisualStyleBackColor = false;
+            buttonGiaiDoanThanhToan.Click += buttonGiaiDoanThanhToan_Click;
             // 
             // mainpanel
             // 
@@ -231,6 +231,6 @@
         private PictureBox pictureBoxLogoAccountant;
         private Panel mainpanel;
         private Panel panel1;
-        private Button buttonTienDoThanhToan;
+        private Button buttonGiaiDoanThanhToan;
     }
 }

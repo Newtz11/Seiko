@@ -21,21 +21,21 @@ namespace DAO
         private NguoiDungDAO() { }
         public bool checkTaiKhoanDangNhap(NguoiDung taiKhoan)
         {
-            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.tenDangNhap + "' and MatKhau = '" + taiKhoan.matKhau + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt.Rows.Count>0;
         }
 
         public string getVaiTro(NguoiDung taiKhoan) 
         {
-            string query = "select VaiTro from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            string query = "select VaiTro from NGUOIDUNG where TenDangNhap = '" + taiKhoan.tenDangNhap + "' and MatKhau = '" + taiKhoan.matKhau + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt.Rows[0]["VaiTro"].ToString();
         }
 
         public DataTable getUser(NguoiDung taiKhoan)
         {
-            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.maNV + "' and MatKhau = '" + taiKhoan.matKhau + "'";
+            string query = "select * from NGUOIDUNG where TenDangNhap = '" + taiKhoan.tenDangNhap + "' and MatKhau = '" + taiKhoan.matKhau + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }

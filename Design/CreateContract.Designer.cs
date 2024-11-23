@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateContract));
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
@@ -61,8 +62,28 @@
             labelThongTinHopDong = new Label();
             buttonQuayLai = new Button();
             buttonTao = new Button();
+            errorProviderTenHopDong = new ErrorProvider(components);
+            errorProviderTenNguoiDaiDien = new ErrorProvider(components);
+            errorProviderGiaTriHopDong = new ErrorProvider(components);
+            errorProviderNoiDungHopDong = new ErrorProvider(components);
+            errorProviderTenNguoiLienHe = new ErrorProvider(components);
+            errorProviderDiaChi = new ErrorProvider(components);
+            errorProviderSDT = new ErrorProvider(components);
+            errorProviderEmail = new ErrorProvider(components);
+            errorProviderMaNhanVien = new ErrorProvider(components);
+            errorProviderTenNhanVienPhuTrach = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxTaoHopDong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenHopDong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNguoiDaiDien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderGiaTriHopDong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderNoiDungHopDong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNguoiLienHe).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderMaNhanVien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVienPhuTrach).BeginInit();
             SuspendLayout();
             // 
             // labelContractTracking
@@ -431,6 +452,47 @@
             buttonTao.TabIndex = 15;
             buttonTao.Text = "Tạo Hợp Đồng";
             buttonTao.UseVisualStyleBackColor = false;
+            buttonTao.Click += buttonTao_Click;
+            // 
+            // errorProviderTenHopDong
+            // 
+            errorProviderTenHopDong.ContainerControl = this;
+            // 
+            // errorProviderTenNguoiDaiDien
+            // 
+            errorProviderTenNguoiDaiDien.ContainerControl = this;
+            // 
+            // errorProviderGiaTriHopDong
+            // 
+            errorProviderGiaTriHopDong.ContainerControl = this;
+            // 
+            // errorProviderNoiDungHopDong
+            // 
+            errorProviderNoiDungHopDong.ContainerControl = this;
+            // 
+            // errorProviderTenNguoiLienHe
+            // 
+            errorProviderTenNguoiLienHe.ContainerControl = this;
+            // 
+            // errorProviderDiaChi
+            // 
+            errorProviderDiaChi.ContainerControl = this;
+            // 
+            // errorProviderSDT
+            // 
+            errorProviderSDT.ContainerControl = this;
+            // 
+            // errorProviderEmail
+            // 
+            errorProviderEmail.ContainerControl = this;
+            // 
+            // errorProviderMaNhanVien
+            // 
+            errorProviderMaNhanVien.ContainerControl = this;
+            // 
+            // errorProviderTenNhanVienPhuTrach
+            // 
+            errorProviderTenNhanVienPhuTrach.ContainerControl = this;
             // 
             // CreateContract
             // 
@@ -449,6 +511,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             groupBoxTaoHopDong.ResumeLayout(false);
             groupBoxTaoHopDong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenHopDong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNguoiDaiDien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderGiaTriHopDong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderNoiDungHopDong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNguoiLienHe).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDiaChi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSDT).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderMaNhanVien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTenNhanVienPhuTrach).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -486,5 +558,15 @@
         private Label label2;
         private Label labelMaNhanVien;
         private Label labelThongTinSale;
+        private ErrorProvider errorProviderTenHopDong;
+        private ErrorProvider errorProviderTenNguoiDaiDien;
+        private ErrorProvider errorProviderGiaTriHopDong;
+        private ErrorProvider errorProviderNoiDungHopDong;
+        private ErrorProvider errorProviderTenNguoiLienHe;
+        private ErrorProvider errorProviderDiaChi;
+        private ErrorProvider errorProviderSDT;
+        private ErrorProvider errorProviderEmail;
+        private ErrorProvider errorProviderMaNhanVien;
+        private ErrorProvider errorProviderTenNhanVienPhuTrach;
     }
 }

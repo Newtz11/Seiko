@@ -101,6 +101,7 @@ CREATE TABLE HOPDONG
   SDT NVARCHAR(10) NOT NULL, --của người liên hệ
   Mail NVARCHAR(50) NOT NULL, --của người liên hệ
   TienDoHD INT NOT NULL, --Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
+  NhanVienThanhToan NVARCHAR(5) NULL,	--Mã nhân viên kế toán phụ trách giai đoạn ban đầu là rỗng
   PRIMARY KEY (MaHD),
   FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV)
 )
@@ -118,7 +119,6 @@ insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, 
 values ('00004', N'Quay 5 video', N'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, N'Quay video về abc', N'Đã xong', N'Đại sứ Grab', N'1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00002', N'Chụp 15 hình', N'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, N'Chụp hình về abc', N'Chưa thực hiện', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
-
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-12-29', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
 
@@ -272,6 +272,33 @@ go
 
 
 
+-- Procedure
+--Procedure ContractTrackingForSale--
+create proc loadContractTrackingForSale
+@MaNV NVARCHAR(5)
+as
+begin
+	select hd.MaHD, hd.TenHopDong, hd.TenNguoiDaiDien, hd.TenNguoiLienHe, hd.NgayBatDau, hd.NgayKetThuc, hd.GiaTriHD, hd.TinhTrangHD, nv.HoTen from HOPDONG as hd, NGUOIDUNG as nv where nv.MaNV = @MaNV 
+end
+go	
+	
+exec loadContractTrackingForSale @MaNV = '00004'
+
+--Procedure Danh sách tất cả hợp đồng dành cho những role khác trừ Sale --
+create proc loadContractTrackingForAll
+as
+begin
+	select hd.MaHD, hd.TenHopDong, hd.TenNguoiDaiDien, hd.TenNguoiLienHe, hd.NgayBatDau, hd.NgayKetThuc, hd.GiaTriHD, hd.TinhTrangHD, nv.HoTen 
+	from HOPDONG as hd
+	INNER JOIN NGUOIDUNG as nv on hd.MaNV = nv.MaNV;
+end
+go	
+
+drop proc loadContractTrackingForAll
+exec loadContractTrackingForAll
+
+
+
 
 -- Trigger 
 
@@ -298,3 +325,5 @@ BEGIN
         ROLLBACK TRANSACTION;
     END
 END;
+
+

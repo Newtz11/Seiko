@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentProgress));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxTienDoThanhToan = new GroupBox();
             comboBoxTrangThai = new ComboBox();
@@ -171,9 +171,9 @@
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(20, 9);
             label1.Name = "label1";
-            label1.Size = new Size(212, 25);
+            label1.Size = new Size(236, 25);
             label1.TabIndex = 60;
-            label1.Text = "TIẾN ĐỘ THANH TOÁN";
+            label1.Text = "GIAI ĐOẠN THANH TOÁN";
             // 
             // buttonXoa
             // 
@@ -214,43 +214,43 @@
             dataGridViewPaymentProgress.BackgroundColor = Color.White;
             dataGridViewPaymentProgress.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewPaymentProgress.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewPaymentProgress.ColumnHeadersHeight = 50;
             dataGridViewPaymentProgress.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPaymentProgress.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan, PhanTramTT, GiaTriThanhToan, TrangThai, NgayNhanThanhToan, GhiChu });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewPaymentProgress.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewPaymentProgress.Location = new Point(20, 218);
             dataGridViewPaymentProgress.Name = "dataGridViewPaymentProgress";
             dataGridViewPaymentProgress.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewPaymentProgress.RowHeadersVisible = false;
             dataGridViewPaymentProgress.RowHeadersWidth = 51;
             dataGridViewPaymentProgress.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewPaymentProgress.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewPaymentProgress.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewPaymentProgress.RowTemplate.Height = 35;
             dataGridViewPaymentProgress.ScrollBars = ScrollBars.Vertical;
             dataGridViewPaymentProgress.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -341,9 +341,9 @@
             label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(118, 55);
             label9.Name = "label9";
-            label9.Size = new Size(212, 25);
+            label9.Size = new Size(236, 25);
             label9.TabIndex = 59;
-            label9.Text = "TIẾN ĐỘ THANH TOÁN";
+            label9.Text = "GIAI ĐOẠN THANH TOÁN";
             // 
             // PaymentProgress
             // 

@@ -21,10 +21,10 @@ namespace Design
             ApplyRoundedCorners(buttonHome);
             ApplyRoundedCorners(buttonInfoUser);
             ApplyRoundedCorners(buttonContractTracking);
-            ApplyRoundedCorners(buttonTienDoThanhToan);
+            ApplyRoundedCorners(buttonGiaiDoanThanhToan);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
-            this.user = user;   
+            this.user = user;
         }
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
@@ -99,7 +99,7 @@ namespace Design
             loadform(new Home());
         }
 
-        private void buttonTienDoThanhToan_Click(object sender, EventArgs e)
+        private void buttonGiaiDoanThanhToan_Click(object sender, EventArgs e)
         {
             loadform(new PaymentProgress());
         }
