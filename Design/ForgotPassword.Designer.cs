@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPassword));
             pictureBoxLogo0 = new PictureBox();
             labelForgotPassword = new Label();
@@ -39,7 +38,6 @@
             textBoxEmail = new TextBox();
             labelOTP = new Label();
             labelEmail = new Label();
-            timerVCode = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo0).BeginInit();
             SuspendLayout();
             // 
@@ -148,12 +146,6 @@
             labelEmail.TabIndex = 15;
             labelEmail.Text = "Email";
             // 
-            // timerVCode
-            // 
-            timerVCode.Enabled = true;
-            timerVCode.Interval = 1000;
-            timerVCode.Tick += timerVCode_Tick;
-            // 
             // ForgotPassword
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,6 +181,5 @@
         private TextBox textBoxEmail;
         private Label labelOTP;
         private Label labelEmail;
-        private System.Windows.Forms.Timer timerVCode;
     }
 }

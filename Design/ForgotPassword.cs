@@ -62,7 +62,6 @@ namespace Design
         string verificationCode;
         private void buttonSendOTP_Click(object sender, EventArgs e)
         {
-            timerVCode.Stop();
             string to, from, pass;
             to = textBoxEmail.Text.ToString();
             from = "seikoapplication@gmail.com";
@@ -91,10 +90,7 @@ namespace Design
 
         }
 
-        private void timerVCode_Tick(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void buttonConfirmOTP_Click(object sender, EventArgs e)
         {
