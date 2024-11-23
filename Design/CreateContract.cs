@@ -9,16 +9,20 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BLL;
 
 namespace Design
 {
     public partial class CreateContract : Form
     {
-        public CreateContract()
+        NguoiDung user;
+        public CreateContract(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonTao);
             ApplyRoundedCorners(buttonQuayLai);
+            this.user = user;
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
         [DllImport("gdi32.dll")]
@@ -174,26 +178,6 @@ namespace Design
 
                 errorProviderEmail.SetError(textBoxEmail, string.Empty);
             }
-            // Kiểm tra điền mã nhân viên
-            if (string.IsNullOrEmpty(textBoxMaNhanVien.Text.Trim()))
-            {
-                errorProviderMaNhanVien.SetError(textBoxMaNhanVien, "Chưa điền Mã nhân viên");
-                return;
-            }
-            else
-            {
-                errorProviderMaNhanVien.SetError(textBoxMaNhanVien, string.Empty);
-            }
-            // Kiểm tra điền tên nhân viên phụ trách
-            if (string.IsNullOrEmpty(textBoxTenSale.Text.Trim()))
-            {
-                errorProviderTenNhanVienPhuTrach.SetError(textBoxTenSale, "Chưa điền Tên nhân viên phụ trách");
-                return;
-            }
-            else
-            {
-                errorProviderTenNhanVienPhuTrach.SetError(textBoxTenSale, string.Empty);
-            }
             // Kiểm tra ngày bắt đầu và ngày kết thúc
             if (dateTimePickerEnd.Value <= dateTimePickerStart.Value)
             {
@@ -204,7 +188,25 @@ namespace Design
             {
                 errorProviderEndDate.SetError(dateTimePickerEnd, string.Empty);
             }
-            MessageBox.Show("Tạo hợp đồng thành công!");
+
+            string tenHopDong = (textBoxTenHopDong.Text.Trim()).ToString();
+            string tenNguoiDaiDien = (textBoxTenNguoiDaiDien.Text.Trim()).ToString();
+            DateTime ngayBatDau = dateTimePickerStart.Value;
+            DateTime ngayKetThuc = dateTimePickerEnd.Value;
+            int giaTriHopDong = Convert.ToInt32(textBoxGiaTri.Text.Trim().ToString());
+
+            string noiDungHopDong = (richTextBoxNoiDung.Text.Trim()).ToString();
+            string tenNguoiLienHe = (textBoxTenNguoiLienHe.Text.Trim()).ToString();
+            string diaChi = (textBoxDiaChi.Text.Trim()).ToString();
+            string sDT = (textBoxSDT.Text.Trim()).ToString();
+            string mail = (textBoxEmail.Text.Trim()).ToString();
+
+            HopDong hopDongMoi = new HopDong(tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHopDong, noiDungHopDong, tenNguoiLienHe, diaChi, sDT, mail, user.maNV);
+            bool success = HopDongBLL.createContract(hopDongMoi);
+            if (success)
+            {
+                MessageBox.Show("Tạo hợp đồng thành công!");
+            }
         }
     }
 }

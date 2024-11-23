@@ -52,7 +52,7 @@ namespace Design
         }
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new CreateContract());
+            loadform(new CreateContract(user));
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace Design
 
         private void buttonContractTracking_Click_1(object sender, EventArgs e)
         {
-            loadform(new ContractTrackingForSale());
+            loadform(new ContractTrackingForSale(user));
         }
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)
