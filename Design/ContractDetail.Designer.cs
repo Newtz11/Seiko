@@ -170,6 +170,7 @@
             // 
             // comboBoxHinhThucTT
             // 
+            comboBoxHinhThucTT.Enabled = false;
             comboBoxHinhThucTT.FormattingEnabled = true;
             comboBoxHinhThucTT.Items.AddRange(new object[] { "100%", "30%-30%-40%", "30%-70%", "40%-30%-30%", "40%-60%", "50%-50%" });
             comboBoxHinhThucTT.Location = new Point(357, 476);
@@ -469,6 +470,7 @@
             // 
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxEmail.BorderStyle = BorderStyle.None;
+            textBoxEmail.Enabled = false;
             textBoxEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxEmail.Location = new Point(888, 194);
             textBoxEmail.Name = "textBoxEmail";
@@ -490,6 +492,7 @@
             // 
             textBoxSDT.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxSDT.BorderStyle = BorderStyle.None;
+            textBoxSDT.Enabled = false;
             textBoxSDT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxSDT.Location = new Point(888, 144);
             textBoxSDT.Name = "textBoxSDT";
@@ -511,6 +514,7 @@
             // 
             textBoxDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxDiaChi.BorderStyle = BorderStyle.None;
+            textBoxDiaChi.Enabled = false;
             textBoxDiaChi.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxDiaChi.Location = new Point(888, 99);
             textBoxDiaChi.Name = "textBoxDiaChi";
@@ -532,6 +536,7 @@
             // 
             textBoxTenNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxTenNguoiLienHe.BorderStyle = BorderStyle.None;
+            textBoxTenNguoiLienHe.Enabled = false;
             textBoxTenNguoiLienHe.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxTenNguoiLienHe.Location = new Point(888, 54);
             textBoxTenNguoiLienHe.Name = "textBoxTenNguoiLienHe";
@@ -562,6 +567,7 @@
             // 
             // comboBoxTrangThai
             // 
+            comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong", "Đã hủy" });
             comboBoxTrangThai.Location = new Point(357, 523);
@@ -581,6 +587,7 @@
             // 
             // richTextBoxNoiDungHopDong
             // 
+            richTextBoxNoiDungHopDong.Enabled = false;
             richTextBoxNoiDungHopDong.Location = new Point(357, 386);
             richTextBoxNoiDungHopDong.Name = "richTextBoxNoiDungHopDong";
             richTextBoxNoiDungHopDong.Size = new Size(310, 70);
@@ -600,6 +607,7 @@
             // textBoxDaThanhToan
             // 
             textBoxDaThanhToan.BorderStyle = BorderStyle.None;
+            textBoxDaThanhToan.Enabled = false;
             textBoxDaThanhToan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxDaThanhToan.Location = new Point(355, 339);
             textBoxDaThanhToan.Name = "textBoxDaThanhToan";
@@ -639,6 +647,7 @@
             // dateTimePickerEnd
             // 
             dateTimePickerEnd.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dateTimePickerEnd.Enabled = false;
             dateTimePickerEnd.Location = new Point(355, 241);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.Size = new Size(310, 27);
@@ -647,6 +656,7 @@
             // dateTimePickerStart
             // 
             dateTimePickerStart.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dateTimePickerStart.Enabled = false;
             dateTimePickerStart.Location = new Point(357, 190);
             dateTimePickerStart.Name = "dateTimePickerStart";
             dateTimePickerStart.Size = new Size(310, 27);
@@ -655,6 +665,7 @@
             // textBoxGiaTriHopDong
             // 
             textBoxGiaTriHopDong.BorderStyle = BorderStyle.None;
+            textBoxGiaTriHopDong.Enabled = false;
             textBoxGiaTriHopDong.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxGiaTriHopDong.Location = new Point(354, 291);
             textBoxGiaTriHopDong.Name = "textBoxGiaTriHopDong";

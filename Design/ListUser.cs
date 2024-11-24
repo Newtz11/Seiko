@@ -122,6 +122,9 @@ namespace Design
                     dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                     counter++;
                 }
+
+                textBoxSearch.Text = "";
+
                 comboBoxPhongBan.SelectedIndex = -1;
                 comboBoxChucVu.SelectedIndex = -1;
                 comboBoxChucVu.SelectedIndex = -1;
