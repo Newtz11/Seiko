@@ -204,21 +204,24 @@ namespace Design
 
 
             bool success = HopDongBLL.createContract(hopDongMoi);
-            string[] parts = noiDungHopDong.Split('-');
             string nhanVienThucHienCV = "";
             //In kết quả từng phần
-            foreach (string noiDungCV in parts)
+            string[] parts = noiDungHopDong.Split('-');
+
+            // If there's only one part (no hyphens), treat it as a single contract process
+            if (parts.Length == 1)
             {
-                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV);
+                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, parts[0]);
                 TienDoHopDongBLL.createContractProcess(td);
-            }
-            if (success)
-            {
-                MessageBox.Show("Tạo hợp đồng thành công!");
             }
             else
             {
-                MessageBox.Show("Tạo hợp đồng không thành công!");
+                // Multiple parts (with hyphens), process each part as a separate contract process
+                foreach (string noiDungCV in parts)
+                {
+                    TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV);
+                    TienDoHopDongBLL.createContractProcess(td);
+                }
             }
         }
     }
