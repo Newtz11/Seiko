@@ -539,7 +539,7 @@ BEGIN
         hd.TinhTrangHD AS [Tình trạng]
     FROM HOPDONG AS hd
 	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
-    WHERE (@MaHD IS NULL OR hd.MaHD = @MaHD)
+    WHERE (@MaHD IS NULL OR hd.MaHD LIKE '%' + @MaHD + '%')
       AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
       AND (@NoiDungCV IS NULL OR td.NoiDungCV LIKE '%' + @NoiDungCV + '%')
       AND (@TongKhoiLuongCV IS NULL OR td.TongKhoiLuongCV LIKE '%' + @TongKhoiLuongCV + '%')

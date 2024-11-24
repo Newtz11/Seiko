@@ -88,5 +88,65 @@ namespace DAO
             
             return result;
         }
+
+        public DataTable searchUserListByName(string name)
+        {
+            string procName = "searchNameOnListUser";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = name },
+                new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = name },
+                new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = name },
+                new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = name }
+
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable searchUserListByphongBan(string phongBan)
+        {
+            string procName = "searchPhongBanOnListUser";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = phongBan }
+
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable searchUserListByChucVu(string chucVu)
+        {
+            string procName = "searchChucVuOnListUser";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = chucVu }
+
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+
+        public DataTable searchUserListByTinhTrang(int tinhTrang)
+        {
+            string procName = "searchTinhTrangHoatDongOnListUser";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@VaiTro", SqlDbType.Bit) { Value = tinhTrang }
+
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
     }
 }
