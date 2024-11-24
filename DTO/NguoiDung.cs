@@ -24,6 +24,8 @@ namespace DTO
         public string diaChi { get; set; }
         public bool tinhTrangHoatDong { get; set; } //-> true la dang hoat dong, false la ngung hoat dong
 
+        public NguoiDung() { }
+
         public NguoiDung(string tenDangNhap, string matKhau)
         {
             this.tenDangNhap = tenDangNhap;
