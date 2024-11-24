@@ -84,6 +84,7 @@
             textBoxLoginName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBoxLoginName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxLoginName.Location = new Point(456, 183);
+            textBoxLoginName.MaxLength = 50;
             textBoxLoginName.Name = "textBoxLoginName";
             textBoxLoginName.PlaceholderText = "Nhập tên đăng nhập";
             textBoxLoginName.Size = new Size(494, 34);
@@ -94,6 +95,7 @@
             textBoxPassword.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBoxPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxPassword.Location = new Point(456, 295);
+            textBoxPassword.MaxLength = 20;
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PlaceholderText = "Nhập mật khẩu";
             textBoxPassword.Size = new Size(494, 34);
