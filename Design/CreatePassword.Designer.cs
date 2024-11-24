@@ -73,6 +73,7 @@
             buttonShowPassword2.Size = new Size(33, 30);
             buttonShowPassword2.TabIndex = 26;
             buttonShowPassword2.UseVisualStyleBackColor = true;
+            buttonShowPassword2.Click += buttonShowPassword2_Click;
             // 
             // buttonHidePassword2
             // 
@@ -82,6 +83,7 @@
             buttonHidePassword2.Size = new Size(34, 30);
             buttonHidePassword2.TabIndex = 25;
             buttonHidePassword2.UseVisualStyleBackColor = true;
+            buttonHidePassword2.Click += buttonHidePassword2_Click;
             // 
             // buttonShowPassword1
             // 
@@ -91,6 +93,7 @@
             buttonShowPassword1.Size = new Size(32, 30);
             buttonShowPassword1.TabIndex = 24;
             buttonShowPassword1.UseVisualStyleBackColor = true;
+            buttonShowPassword1.Click += buttonShowPassword1_Click;
             // 
             // buttonHidePassword1
             // 
@@ -100,6 +103,7 @@
             buttonHidePassword1.Size = new Size(33, 30);
             buttonHidePassword1.TabIndex = 23;
             buttonHidePassword1.UseVisualStyleBackColor = true;
+            buttonHidePassword1.Click += buttonHidePassword1_Click;
             // 
             // buttonCancel
             // 
@@ -141,6 +145,7 @@
             textBoxConfirmPassword.PlaceholderText = "Xác nhận mật khẩu mới (phải trùng với mật khẩu mới )";
             textBoxConfirmPassword.Size = new Size(458, 30);
             textBoxConfirmPassword.TabIndex = 18;
+            textBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // textBoxNewPassword
             // 
@@ -152,6 +157,7 @@
             textBoxNewPassword.PlaceholderText = "Mật khẩu mới";
             textBoxNewPassword.Size = new Size(458, 30);
             textBoxNewPassword.TabIndex = 17;
+            textBoxNewPassword.UseSystemPasswordChar = true;
             // 
             // labelConfirmPassword
             // 
@@ -195,6 +201,7 @@
             Name = "CreatePassword";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seiko";
+            Load += CreatePassword_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo0).EndInit();
             ResumeLayout(false);
             PerformLayout();

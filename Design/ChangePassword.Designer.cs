@@ -149,6 +149,7 @@
             textBoxConfirmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxConfirmPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxConfirmPassword.Location = new Point(108, 277);
+            textBoxConfirmPassword.MaxLength = 20;
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             textBoxConfirmPassword.PlaceholderText = "Xác nhận mật khẩu mới (phải trùng với mật khẩu mới )";
             textBoxConfirmPassword.Size = new Size(458, 30);
@@ -169,6 +170,7 @@
             textBoxNewPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxNewPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxNewPassword.Location = new Point(108, 171);
+            textBoxNewPassword.MaxLength = 20;
             textBoxNewPassword.Name = "textBoxNewPassword";
             textBoxNewPassword.PlaceholderText = "Nhập mật khẩu mới";
             textBoxNewPassword.Size = new Size(458, 30);
@@ -209,6 +211,7 @@
             textBoxChangePassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxChangePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxChangePassword.Location = new Point(108, 73);
+            textBoxChangePassword.MaxLength = 20;
             textBoxChangePassword.Name = "textBoxChangePassword";
             textBoxChangePassword.PlaceholderText = "Nhập mật khẩu hiện tại";
             textBoxChangePassword.Size = new Size(458, 30);
