@@ -137,9 +137,9 @@ CREATE TABLE GIAIDOANTHANHTOAN
   MaGiaiDoanThanhToan NVARCHAR(10) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
   TenHopDong NVARCHAR(50) NOT NULL,
-  NgayThanhToan DATE NOT NULL, --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
-  PhanTramThanhToan INT NOT NULL,
-  GiaTriThanhToan INT NOT NULL,
+  NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
+  PhanTramThanhToan INT NOT NULL DEFAULT 100,
+  GiaTriThanhToan INT NOT NULL DEFAULT 0,
   TrangThaiThanhToan BIT NOT NULL DEFAULT 0, -- 1 Đã thanh toán, 0 Chờ thanh toán
   NgayNhanThanhToan DATE,
   GhiChu NVARCHAR(100),
@@ -308,7 +308,7 @@ BEGIN
     INNER JOIN 
         NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
     WHERE 
-        nv.MaNV = @MaNV;
+        nv.MaNV = @MaNV
 END
 GO
 drop proc loadContractTrackingForSale
@@ -324,8 +324,51 @@ begin
 end
 go	
 
-drop proc loadContractTrackingForAll
-exec loadContractTrackingForAll
+		--Procedure ProjectProgressForSale --
+create proc loadProjectProgressForSale
+	@MaNV NVARCHAR(5)
+as
+begin
+	SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+    WHERE td.MaNV = @MaNV
+end
+go
+
+drop proc loadProjectProgressForSale
+exec loadProjectProgressForSale @MaNV = '00002'
+
+
+		--Procedure ProjectProgressForAll trừ Sale, Kế toán, Trưởng phòng Kế toán --
+create proc loadProjectProgressForAll
+as
+begin
+	SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+end
+go
+
+exec loadProjectProgressForAll
 
 -- procedure dung cho Form ListUser
 		-- Procedure search tên người dùng --
@@ -613,6 +656,7 @@ begin
     FROM HOPDONG
     WHERE MaHD LIKE 'HD%'
     ORDER BY MaHD DESC;
+	
 	insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
 	values (@NgayBatDau, @NgayKetThuc, @MaHD, @MaNV, @NVThucHienCV, @NoiDungCV)
 end
