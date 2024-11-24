@@ -223,6 +223,13 @@ namespace Design
                     TienDoHopDongBLL.createContractProcess(td);
                 }
             }
+
+            if (success)
+            {
+                MessageBox.Show("Tạo hợp đồng thành công");
+                this.Close();
+            }   
+            else MessageBox.Show("Tạo hợp đồng không thành công");
         }
     }
 }
