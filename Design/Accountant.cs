@@ -51,7 +51,7 @@ namespace Design
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadform(new ContractTrackingForAccountant());
+            loadform(new ContractTrackingForAccountant(user));
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)

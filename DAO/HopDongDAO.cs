@@ -50,5 +50,12 @@ namespace DAO
             
             return dt;
         }
+
+        public DataTable getSeletedContract(string maHD)
+        {
+            string query = "Select * from HOPDONG where MaHD = '" + maHD +"'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

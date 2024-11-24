@@ -277,6 +277,7 @@
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
+            dataGridViewContractTracking.CellDoubleClick += dataGridViewContractTracking_CellDoubleClick;
             // 
             // MaHopDong
             // 

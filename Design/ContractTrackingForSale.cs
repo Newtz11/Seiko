@@ -78,5 +78,16 @@ namespace Design
                 dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("yyyy/MM/dd"), ngayHetHan.ToString("yyyy/MM/dd"), giaTriHopDong, tinhTrangHopDong, phuTrachQuanLy);
             }
         }
+
+        private void dataGridViewContractTracking_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+            string maHD = this.dataGridViewContractTracking.CurrentRow.Cells[0].Value.ToString();
+            HopDong selectedContract = HopDongBLL.getSeletedContract(maHD);
+            
+            ContractDetail fContractDetail = new ContractDetail(user, selectedContract, this);
+            fContractDetail.Show();
+        }
     }
 }
