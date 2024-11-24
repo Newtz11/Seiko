@@ -155,6 +155,7 @@
             // 
             textBoxDiaChi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxDiaChi.Location = new Point(48, 585);
+            textBoxDiaChi.MaxLength = 50;
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.PlaceholderText = "Nhập địa chỉ";
             textBoxDiaChi.Size = new Size(415, 30);
@@ -236,7 +237,7 @@
             comboBoxPhongBan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxPhongBan.FormattingEnabled = true;
             comboBoxPhongBan.ItemHeight = 23;
-            comboBoxPhongBan.Items.AddRange(new object[] { "Sale", "Kế toán", "Giám đốc", "IT" });
+            comboBoxPhongBan.Items.AddRange(new object[] { "Sale", "Kế toán", "Giám đốc" });
             comboBoxPhongBan.Location = new Point(541, 103);
             comboBoxPhongBan.Name = "comboBoxPhongBan";
             comboBoxPhongBan.Size = new Size(415, 31);
@@ -258,6 +259,7 @@
             textBoxPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxPhoneNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxPhoneNumber.Location = new Point(541, 585);
+            textBoxPhoneNumber.MaxLength = 10;
             textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             textBoxPhoneNumber.PlaceholderText = "Nhập số điện thoại";
             textBoxPhoneNumber.Size = new Size(415, 30);
@@ -282,17 +284,19 @@
             labelDateTutorial.Name = "labelDateTutorial";
             labelDateTutorial.Size = new Size(129, 20);
             labelDateTutorial.TabIndex = 24;
-            labelDateTutorial.Text = "Tháng/Ngày/Năm";
+            labelDateTutorial.Text = "Ngày/Tháng/Năm";
             // 
             // dateTimePickerNgayVaoLam
             // 
             dateTimePickerNgayVaoLam.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimePickerNgayVaoLam.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerNgayVaoLam.Format = DateTimePickerFormat.Short;
+            dateTimePickerNgayVaoLam.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgayVaoLam.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgayVaoLam.Location = new Point(541, 336);
             dateTimePickerNgayVaoLam.Name = "dateTimePickerNgayVaoLam";
             dateTimePickerNgayVaoLam.Size = new Size(415, 27);
             dateTimePickerNgayVaoLam.TabIndex = 9;
+            dateTimePickerNgayVaoLam.Value = new DateTime(2024, 11, 24, 0, 0, 0, 0);
             // 
             // comboBoxChucVu
             // 
@@ -300,7 +304,7 @@
             comboBoxChucVu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxChucVu.FormattingEnabled = true;
             comboBoxChucVu.ItemHeight = 23;
-            comboBoxChucVu.Items.AddRange(new object[] { "Nhân viên Sale", "Trưởng phòng Sale", "Nhân viên Kế toán", "Trưởng phòng Kế toán", "Giám đốc", "Super Admin" });
+            comboBoxChucVu.Items.AddRange(new object[] { "Sale", "Trưởng phòng Sale", "Kế toán", "Trưởng phòng Kế toán", "Giám đốc" });
             comboBoxChucVu.Location = new Point(541, 216);
             comboBoxChucVu.Name = "comboBoxChucVu";
             comboBoxChucVu.Size = new Size(415, 31);
@@ -348,6 +352,7 @@
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.Location = new Point(541, 468);
+            textBoxEmail.MaxLength = 50;
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Nhập Email: ( ví dụ: abc@gmail.com )";
             textBoxEmail.Size = new Size(415, 30);
@@ -378,6 +383,7 @@
             // 
             textBoxFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxFullName.Location = new Point(48, 217);
+            textBoxFullName.MaxLength = 50;
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.PlaceholderText = "Nhập họ và tên";
             textBoxFullName.Size = new Size(415, 30);
@@ -387,6 +393,7 @@
             // 
             textBoxUserName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxUserName.Location = new Point(48, 103);
+            textBoxUserName.MaxLength = 50;
             textBoxUserName.Name = "textBoxUserName";
             textBoxUserName.PlaceholderText = "Nhập tên đăng nhập";
             textBoxUserName.Size = new Size(415, 30);

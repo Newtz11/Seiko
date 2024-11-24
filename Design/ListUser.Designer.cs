@@ -213,7 +213,7 @@
             // 
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
-            comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
+            comboBoxTinhTrang.Items.AddRange(new object[] { "Đang hoạt động", "Ngưng hoạt động" });
             comboBoxTinhTrang.Location = new Point(477, 165);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             comboBoxTinhTrang.Size = new Size(159, 31);
@@ -224,7 +224,7 @@
             // 
             comboBoxChucVu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxChucVu.FormattingEnabled = true;
-            comboBoxChucVu.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
+            comboBoxChucVu.Items.AddRange(new object[] { "Sale", "Trưởng phòng Sale", "Kế toán", "Trưởng phòng Kế toán", "Giám đốc" });
             comboBoxChucVu.Location = new Point(259, 165);
             comboBoxChucVu.Name = "comboBoxChucVu";
             comboBoxChucVu.Size = new Size(159, 31);

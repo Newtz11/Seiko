@@ -50,10 +50,7 @@ namespace Design
         }
 
 
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void buttonTaoTaiKhoan_Click(object sender, EventArgs e)
         {
@@ -88,6 +85,44 @@ namespace Design
                 dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                 counter++;
             }
+
+
+
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+
+            string searchTen = textBoxSearch.Text.ToString();
+            string searchPhongBan = comboBoxPhongBan.Text.ToString();
+            string searchChucVu = comboBoxChucVu.Text.ToString();
+            string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
+            DataTable dt = NguoiDungBLL.searchUserList(searchTen, searchPhongBan, searchChucVu, searchTinhTrang);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                MessageBox.Show("Không ổn rồi đại vương ơiii");
+            }
+            else
+            {
+                int counter = 1;
+                dataGridViewListUser.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+
+                    string tenDangNhap = row["Tên đăng nhập"].ToString();
+                    string mail = row["Email"].ToString();
+                    string tenNguoiDung = row["Tên người dùng"].ToString();
+                    string maNguoiDung = row["Mã người dùng"].ToString();
+                    string phongBan = row["Phòng ban"].ToString();
+                    string vaiTro = row["Chức vụ"].ToString();
+                    bool trangThai = (bool)row["Tình trạng"];
+                    string tinhTrang = trangThai ? "Đang hoạt động" : "Ngưng hoạt động";
+                    dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
+                    counter++;
+                }
+            }
+
 
 
         }
