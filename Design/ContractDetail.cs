@@ -60,6 +60,20 @@ namespace Design
             //dataGridViewThongTinThanhToan.Rows.Add("1", "20/9/2024", "40%", "10000000", "Đã thanh toán", "");
             //dataGridViewThongTinThanhToan.Rows.Add("2", "20/10/2024", "60%", "10000000", "Chưa thanh toán", "");
             //dataGridViewThongTinThanhToan.Rows.Add("3", "20/9/2024", "40%", "10000000", "Đã thanh toán", "");
+            textBoxMaHopDong.Text = hd.maHD;
+            textBoxTenHopDong.Text = hd.tenHD;
+            textBoxTenNguoiDaiDien.Text = hd.tenNguoiDaiDien;
+            dateTimePickerStart.Value = hd.ngayBatDau;
+            dateTimePickerEnd.Value = hd.ngayKetThuc;
+            textBoxGiaTriHopDong.Text = hd.giaTriHD.ToString();
+            textBoxDaThanhToan.Text = hd.daThanhToan.ToString();
+            richTextBoxNoiDungHopDong.Text = hd.noiDungHD;
+            comboBoxHinhThucTT.Text = hd.chiaGiaiDoan;
+            comboBoxTrangThai.Text = hd.tinhTrangHD;
+            textBoxTenNguoiLienHe.Text = hd.tenNguoiLienHe;
+            textBoxDiaChi.Text = hd.diaChi;
+            textBoxSDT.Text = hd.sDT;
+            textBoxEmail.Text = hd.mail;
         }
 
         private void dataGridViewThongTinSale_CellClick(object sender, DataGridViewCellEventArgs e)

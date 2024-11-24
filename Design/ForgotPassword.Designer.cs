@@ -112,6 +112,7 @@
             textBoxOTP.BorderStyle = BorderStyle.FixedSingle;
             textBoxOTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxOTP.Location = new Point(48, 315);
+            textBoxOTP.MaxLength = 6;
             textBoxOTP.Name = "textBoxOTP";
             textBoxOTP.PlaceholderText = "Điền mã OTP tại đây";
             textBoxOTP.Size = new Size(303, 30);
@@ -123,6 +124,7 @@
             textBoxEmail.BorderStyle = BorderStyle.FixedSingle;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.Location = new Point(48, 204);
+            textBoxEmail.MaxLength = 50;
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Email: ( ví dụ: abc@gmail.com )";
             textBoxEmail.Size = new Size(303, 30);

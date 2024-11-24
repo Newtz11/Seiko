@@ -55,16 +55,6 @@ namespace Design
 
         }
 
-        private void buttonShowPassword1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxConfirmPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -78,7 +68,7 @@ namespace Design
             //check trung
             string newPassword = textBoxNewPassword.Text.ToString();
             string confirmPassword = textBoxConfirmPassword.Text.ToString();
-            if (newPassword.Equals(confirmPassword)) 
+            if (newPassword.Equals(confirmPassword))
             {
                 //doi mat khau
                 bool change = NguoiDungBLL.changePassword(user, newPass);
@@ -92,6 +82,45 @@ namespace Design
             {
                 MessageBox.Show("Xác nhận lại mật khẩu phải trùng với mật khẩu mới");
             }
+        }
+
+        private void buttonShowPassword1_Click(object sender, EventArgs e)
+        {
+            buttonShowPassword1.Hide();
+            buttonHidePassword1.Show();
+            textBoxNewPassword.UseSystemPasswordChar = false;
+        }
+
+        private void buttonHidePassword1_Click(object sender, EventArgs e)
+        {
+            buttonHidePassword1.Hide();
+            buttonShowPassword1.Show();
+            textBoxNewPassword.UseSystemPasswordChar = true;
+        }
+
+        private void buttonShowPassword2_Click(object sender, EventArgs e)
+        {
+            buttonShowPassword2.Hide();
+            buttonHidePassword2.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = false;
+        }
+
+        private void buttonHidePassword2_Click(object sender, EventArgs e)
+        {
+            buttonHidePassword2.Hide();
+            buttonShowPassword2.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = true;
+        }
+
+        private void CreatePassword_Load(object sender, EventArgs e)
+        {
+            buttonHidePassword1.Hide();
+            buttonShowPassword1.Show();
+            textBoxNewPassword.UseSystemPasswordChar = true;
+
+            buttonHidePassword2.Hide();
+            buttonShowPassword2.Show();
+            textBoxConfirmPassword.UseSystemPasswordChar = true;
         }
     }
 }

@@ -85,7 +85,6 @@ namespace Design
 
             string maHD = this.dataGridViewContractTracking.CurrentRow.Cells[0].Value.ToString();
             HopDong selectedContract = HopDongBLL.getSeletedContract(maHD);
-            
             ContractDetail fContractDetail = new ContractDetail(user, selectedContract, this);
             fContractDetail.Show();
         }
