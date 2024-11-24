@@ -8,16 +8,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
+using DTO;
+using BLL;
+
 
 namespace Design
 {
     public partial class CreatePassword : Form
     {
-        public CreatePassword()
+        NguoiDung user;
+        public CreatePassword(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSavePassword);
             ApplyRoundedCorners(buttonCancel);
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -61,6 +68,30 @@ namespace Design
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonSavePassword_Click(object sender, EventArgs e)
+        {
+            string newPass = textBoxConfirmPassword.Text.ToString();
+
+
+            //check trung
+            string newPassword = textBoxNewPassword.Text.ToString();
+            string confirmPassword = textBoxConfirmPassword.Text.ToString();
+            if (newPassword.Equals(confirmPassword)) 
+            {
+                //doi mat khau
+                bool change = NguoiDungBLL.changePassword(user, newPass);
+                if (change)
+                {
+                    MessageBox.Show("Đã thay đổi mật khẩu thành công! Vui lòng đăng nhập lại");
+                    Application.Restart();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xác nhận lại mật khẩu phải trùng với mật khẩu mới");
+            }
         }
     }
 }

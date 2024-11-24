@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,21 @@ namespace Design
 {
     public partial class ContractTrackingForAccountant : Form
     {
-        public ContractTrackingForAccountant()
+        private NguoiDung user;
+        public ContractTrackingForAccountant(NguoiDung user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewContractTracking_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //ContractDetail fContractDetail = new ContractDetail(user);
         }
     }
 }

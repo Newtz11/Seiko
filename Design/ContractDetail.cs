@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,10 @@ namespace Design
 {
     public partial class ContractDetail : Form
     {
-        public ContractDetail()
+        private NguoiDung user;
+        private HopDong hd;
+        private Form f;
+        public ContractDetail(NguoiDung user, HopDong hd, Form f)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSua);
@@ -23,6 +27,9 @@ namespace Design
             ApplyRoundedCorners(buttonThemThanhToan);
             ApplyRoundedCorners(buttonXoaThanhToan);
             ApplyRoundedCorners(buttonQuayLai);
+            this.user = user;
+            this.hd = hd;
+            this.f = f;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -68,6 +75,7 @@ namespace Design
         private void buttonQuayLai_Click(object sender, EventArgs e)
         {
             this.Close();
+            f.Show();
         }
     }
 }

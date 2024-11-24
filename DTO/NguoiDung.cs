@@ -24,6 +24,8 @@ namespace DTO
         public string diaChi { get; set; }
         public bool tinhTrangHoatDong { get; set; } //-> true la dang hoat dong, false la ngung hoat dong
 
+
+        // for empty data only
         public NguoiDung() { }
 
         public NguoiDung(string tenDangNhap, string matKhau)
@@ -31,6 +33,15 @@ namespace DTO
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
         }
+
+        public NguoiDung(string maNV, string tenDangNhap, string matKhau, string mail)
+        {
+            this.maNV = maNV;
+            this.tenDangNhap =  tenDangNhap ;
+            this.matKhau = matKhau;
+            this.mail = mail;
+        }
+
 
 
         public NguoiDung(string maNV, string tenDangNhap, string hoTen, bool gioiTinh, string ngaySinh, string matKhau, string mail, 
