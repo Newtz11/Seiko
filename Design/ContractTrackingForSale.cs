@@ -51,7 +51,7 @@ namespace Design
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(comboBoxTinhTrang.SelectedValue.ToString());
         }
 
         private void buttonThem_Click(object sender, EventArgs e)
@@ -85,7 +85,6 @@ namespace Design
 
             string maHD = this.dataGridViewContractTracking.CurrentRow.Cells[0].Value.ToString();
             HopDong selectedContract = HopDongBLL.getSeletedContract(maHD);
-            
             ContractDetail fContractDetail = new ContractDetail(user, selectedContract, this);
             fContractDetail.Show();
         }
