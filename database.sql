@@ -29,14 +29,14 @@ go
 
 ---Thêm dữ liệu Super Admin---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Admin','nguyenvana',0,'1967-02-01','admin@gmail.com','Admin','0912332222','IT','quan 7')
+values	(N'Admin','nguyenvana',0,'1967-02-01','admin@gmail.com',N'Admin','0912332222',N'IT','quan 7')
 
 ---Thêm dữ liệu nhân viên Sale---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Sale num0', 'nguyenvanb', 0,'1970-10-22','sale0@gmail.com','Sale','0912332212','Sale','quan 7')
+values	(N'Sale num0', 'nguyenvang', 0,'1970-10-22','sale0@gmail.com',N'Nhân viên Sale','0912332212',N'Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Sale num1', 'nguyenvanc', 0,'1971-04-22','sale1@gmail.com','Sale','0912332213','Sale','quan 7')
+values	(N'Sale num1', 'nguyenvank', 0,'1971-04-22','sale1@gmail.com',N'Nhân viên Sale','0912332213',N'Sale','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
 values (N'Sale num2', 'nguyenvand', 1,'1980-01-18','sale2@gmail.com','Sale','0912339213','Sale','quan 7')
@@ -121,9 +121,14 @@ values ('00005', N'Chụp 10 hình', N'Công ty Asus', '2022-8-6', '2023-7-12',
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00004', N'Quay 5 video', N'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, N'Quay video về abc', N'Đã xong', N'Đại sứ Grab', N'1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Chụp 15 hình', N'Công ty Foody', '2024-4-3', '2024-4-5', 6523, 5, 2, 0, N'Chụp hình về abc', N'Chưa thực hiện', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+values ('00002', N'Chụp 15 hình', N'Công ty Foody', '2024-11-24', '2024-11-28', 6523, 5, 2, 0, N'Chụp hình về abc', N'Chưa thực hiện', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-12-29', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-11-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00017', N'Chụp 15 hình', N'Công ty Foody','2024-11-30', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681911', 'abce@gmail.com', 1)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00018', N'Chụp 15 hình', N'Công ty Foody','2024-12-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681914', 'abce@gmail.com', 1)
+
 
 select * from HOPDONG
 
@@ -175,11 +180,13 @@ CREATE TABLE TIENDOHOPDONG
 
 ---Thêm dữ liệu giai đoạn hợp đồng
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', '00005', N'Quay 2 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', N'00005', N'Quay 2 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', '00006', N'Quay 18 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', N'00006', N'Quay 18 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-03-12', '2024-05-15', 'HD002', '00004', '00007', N'Chụp 3 hình')
+values('2024-03-12', '2024-05-15', 'HD002', '00004', N'00007', N'Chụp 3 hình')
+insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NoiDungCV)
+values('2024-03-12', '2024-05-15', 'HD001', '00002', N'Chụp 3 hình')
 
 select * from TIENDOHOPDONG
 
@@ -321,18 +328,26 @@ drop proc loadContractTrackingForAll
 exec loadContractTrackingForAll
 
 -- procedure dung cho Form ListUser
-		--Procedure search tên người dùng --
+		-- Procedure search tên người dùng --
 create proc searchNameOnListUser
-@MaNV NVARCHAR(5) = NULL , @HoTen NVARCHAR(50) = NULL
+@MaNV NVARCHAR(5) = NULL , 
+@HoTen NVARCHAR(50) = NULL,
+@Mail NVARCHAR(50) = NULL,
+@TenDangNhap NVARCHAR(50) = NULL
 as
 begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where (@MaNV IS NULL OR MaNV = @MaNV) and (@HoTen IS NULL OR HoTen = @HoTen)
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
+	from NGUOIDUNG 
+	where (@MaNV IS NULL OR MaNV LIKE '%' + @MaNV + '%') 
+	and (@HoTen IS NULL OR HoTen LIKE '%' + @HoTen + '%')
+	and (@Mail IS NULL OR Mail LIKE '%' + @Mail + '%')
+	and (@TenDangNhap IS NULL OR TenDangNhap LIKE '%' + @TenDangNhap + '%')
 end
 go
 
 drop proc searchNameOnListUser
 exec searchNameOnListUser @MaNV = '00001'
-exec searchNameOnListUser @HoTen = N'Minh'
+exec searchNameOnListUser @HoTen = N'Mi'
 exec searchNameOnListUser
 
 		--Procedure search phòng ban --
@@ -412,7 +427,7 @@ GO
 
 drop proc searchConTractOnContractTrackingForSale
 exec searchConTractOnContractTrackingForSale @MaHD = 'HD002'
-exec searchConTractOnContractTrackingForSale @HoTen = N'Admin'
+exec searchConTractOnContractTrackingForSale @HoTen = N'A'
 exec searchConTractOnContractTrackingForSale
 
 
@@ -434,7 +449,7 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE (@NgayBatDau IS NULL OR hd.NgayBatDau = @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc = @NgayKetThuc)
+    WHERE (@NgayBatDau IS NULL OR hd.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc <= @NgayKetThuc)
 END
 GO
 
@@ -471,9 +486,10 @@ drop proc searchTinhTrangHopDongOnContractTrackingForSale
 exec searchTinhTrangHopDongOnContractTrackingForSale @TinhTrangHD = N'Đã xong'
 exec searchTinhTrangHopDongOnContractTrackingForSale
 
-		--Procedure search nhân viên phụ trách --
+		-- Procedure search nhân viên phụ trách --
 CREATE PROC searchNhanVienPhuTrachOnContractTrackingForSale
-    @HoTen NVARCHAR(50) = NULL
+    @HoTen NVARCHAR(50) = NULL,
+	@VaiTro NVARCHAR(20) = NULL
 AS
 BEGIN
     SELECT 
@@ -488,16 +504,56 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen)
+    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen) AND nv.VaiTro LIKE N'Nhân viên Sale'
 END
 GO
 
 
 drop proc searchNhanVienPhuTrachOnContractTrackingForSale
-exec searchNhanVienPhuTrachOnContractTrackingForSale @HoTen = N'Admin'
+exec searchNhanVienPhuTrachOnContractTrackingForSale @HoTen = 'Sale num1'
 exec searchNhanVienPhuTrachOnContractTrackingForSale
 
 
+
+-- procedure dung cho Form ProjectProgress
+		-- Procedure search Contract on ProjectProgress
+CREATE PROC searchConTractOnProjectProgress
+    @MaHD NVARCHAR(5) = NULL, 
+    @TenHopDong NVARCHAR(50) = NULL,
+	@NoiDungCV NVARCHAR(50) = NULL,
+	@TongKhoiLuongCV INT = NULL,  
+    @KhoiLuongCV INT = NULL, 
+    @NVThucHienCV NVARCHAR(50) = NULL,
+    @TinhTrangHD NVARCHAR(20) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+    WHERE (@MaHD IS NULL OR hd.MaHD = @MaHD)
+      AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
+      AND (@NoiDungCV IS NULL OR td.NoiDungCV LIKE '%' + @NoiDungCV + '%')
+      AND (@TongKhoiLuongCV IS NULL OR td.TongKhoiLuongCV LIKE '%' + @TongKhoiLuongCV + '%')
+      AND (@KhoiLuongCV IS NULL OR td.KhoiLuongCV LIKE '%' + @KhoiLuongCV + '%')
+	  AND (@NVThucHienCV IS NULL OR td.NVThucHienCV LIKE '%' + @NVThucHienCV + '%')
+      AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD LIKE '%' + @TinhTrangHD + '%')
+END
+GO
+
+
+drop proc searchConTractOnProjectProgress
+exec searchConTractOnProjectProgress @MaHD = 'HD002'
+exec searchConTractOnProjectProgress @NVThucHienCV = N'A'
+exec searchConTractOnProjectProgress
 
 -- UPDATE DATA
 		-- Procedure Đổi mật khẩu --
