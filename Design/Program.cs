@@ -15,7 +15,7 @@ namespace Design
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new CreateAccount());
+            Application.Run(new Login());
         }
     }
 }

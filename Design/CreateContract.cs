@@ -201,20 +201,25 @@ namespace Design
             string sDT = (textBoxSDT.Text.Trim()).ToString();
             string mail = (textBoxEmail.Text.Trim()).ToString();
             HopDong hopDongMoi = new HopDong(tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHopDong, noiDungHopDong, tenNguoiLienHe, diaChi, sDT, mail, user.maNV);
-            
-            
-            //bool success = HopDongBLL.createContract(hopDongMoi);
-            string[] parts = noiDungHopDong.Split('-');
 
-            // In kết quả từng phần
-            //foreach (string noiDungCV in parts)
-            //{
-            //    TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, maHD, maNV, nhanVienThucHienCV, noiDungCV);
-            //}
-            //if (success)
-            //{
-            //    MessageBox.Show("Tạo hợp đồng thành công!");
-            //}
+
+            bool success = HopDongBLL.createContract(hopDongMoi);
+            string[] parts = noiDungHopDong.Split('-');
+            string nhanVienThucHienCV = "";
+            //In kết quả từng phần
+            foreach (string noiDungCV in parts)
+            {
+                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV);
+                TienDoHopDongBLL.createContractProcess(td);
+            }
+            if (success)
+            {
+                MessageBox.Show("Tạo hợp đồng thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Tạo hợp đồng không thành công!");
+            }
         }
     }
 }

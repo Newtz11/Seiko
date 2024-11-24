@@ -20,6 +20,14 @@ namespace DTO
 
         public TienDoHopDong() { }
 
+        public TienDoHopDong(DateTime ngayBatDau, DateTime ngayKetThuc, string maNV, string nhanVienThucHienCV, string noiDungCV)
+        {
+            this.ngayBatDau = ngayBatDau;
+            this.ngayKetThuc = ngayKetThuc;
+            this.maNV = maNV;
+            this.nhanVienThucHienCV = nhanVienThucHienCV;
+            this.noiDungCV = noiDungCV;
+        }
         public TienDoHopDong(string maTienDoHD, DateTime ngayBatDau, DateTime ngayKetThuc,string maHD, string maNV, string nhanVienThucHienCV, string noiDungCV, int khoiLuongCV, int tongKhoiLuongCV)
         {
             this.maTienDoHD = maTienDoHD;

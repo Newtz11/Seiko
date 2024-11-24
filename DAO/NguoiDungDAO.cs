@@ -148,5 +148,35 @@ namespace DAO
 
             return dt;
         }
+
+        public bool createAccount(NguoiDung newAccount)
+        {
+            bool result = false;
+            try
+            {
+                string procName = "createAccount";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {                    
+                    new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 5) { Value = newAccount.tenDangNhap },
+                    new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = newAccount.hoTen },
+                    new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = newAccount.ngaySinh },
+                    new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
+                    new SqlParameter("@DiaChi", SqlDbType.NVarChar, 50) { Value = newAccount.diaChi },
+                    new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = newAccount.phongBan},
+                    new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = newAccount.vaiTro},
+                    new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = newAccount.mail },
+                    new SqlParameter("@SDT", SqlDbType.NVarChar, 10) { Value = newAccount.sDT }
+                };
+                DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

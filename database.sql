@@ -613,7 +613,7 @@ begin
     FROM HOPDONG
     WHERE MaHD LIKE 'HD%'
     ORDER BY MaHD DESC;
-	insert into TIENTIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
+	insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
 	values (@NgayBatDau, @NgayKetThuc, @MaHD, @MaNV, @NVThucHienCV, @NoiDungCV)
 end
 go

@@ -134,9 +134,9 @@ namespace BLL
             return mergedDataTable;
         }
 
-        //public static bool createAccount(NguoiDung newAccount)
-        //{
-        //    return NguoiDungDAO.Instance.createAccount(newAccount);
-        //}
+        public static bool createAccount(NguoiDung newAccount)
+        {
+            return NguoiDungDAO.Instance.createAccount(newAccount);
+        }
     }
 }

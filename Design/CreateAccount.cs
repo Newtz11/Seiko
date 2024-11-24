@@ -150,15 +150,15 @@ namespace Design
                 return;
             }
 
-            string TenDangNhap = textBoxUserName.Text.ToString();
-            string HoTen = textBoxFullName.Text.ToString();
-            string NgaySinh = dateTimePickerNgaySinh.Text.ToString();
+            string TenDangNhap = textBoxUserName.Text.ToString().Trim();
+            string HoTen = textBoxFullName.Text.ToString().Trim();
+            string NgaySinh = dateTimePickerNgaySinh.Text.ToString().Trim();
             bool GioiTinh = (radioButtonNam.Checked);
-            string DiaChi = textBoxDiaChi.Text.ToString();
-            string PhongBan = comboBoxPhongBan.Text.ToString();
-            string VaiTro = comboBoxChucVu.Text.ToString();
-            string Mail = textBoxEmail.Text.ToString();
-            string SDT = textBoxPhoneNumber.Text.ToString();
+            string DiaChi = textBoxDiaChi.Text.ToString().Trim();
+            string PhongBan = comboBoxPhongBan.Text.ToString().Trim();
+            string VaiTro = comboBoxChucVu.Text.ToString().Trim();
+            string Mail = textBoxEmail.Text.ToString().Trim();
+            string SDT = textBoxPhoneNumber.Text.ToString().Trim();
             NguoiDung newAccount = new NguoiDung(TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT);
             bool createAcc = NguoiDungBLL.createAccount(newAccount);
             if (createAcc) 
