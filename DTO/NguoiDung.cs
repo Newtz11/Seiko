@@ -24,9 +24,9 @@ namespace DTO
         public string diaChi { get; set; }
         public bool tinhTrangHoatDong { get; set; } //-> true la dang hoat dong, false la ngung hoat dong
 
+
         // for empty data only
         public NguoiDung() { }
-
 
         public NguoiDung(string tenDangNhap, string matKhau)
         {
