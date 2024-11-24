@@ -28,6 +28,19 @@ namespace DTO
         // for empty data only
         public NguoiDung() { }
 
+        public NguoiDung(string tenDangNhap, string hoTen, string ngaySinh, bool gioiTinh, string diaChi, string phongBan, string vaiTro, string mail, string sDT)
+        {
+            this.tenDangNhap = tenDangNhap;
+            this.hoTen = hoTen;
+            this.ngaySinh = ngaySinh;
+            this.gioiTinh = gioiTinh;
+            this.diaChi = diaChi;
+            this.phongBan = phongBan;
+            this.vaiTro = vaiTro;
+            this.mail = mail;
+            this.sDT = sDT;
+        }
+
         public NguoiDung(string tenDangNhap, string matKhau)
         {
             this.tenDangNhap = tenDangNhap;

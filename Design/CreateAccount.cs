@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -147,7 +149,24 @@ namespace Design
                 MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            MessageBox.Show("Tạo tài khoản thành công!");
+
+            string TenDangNhap = textBoxUserName.Text.ToString();
+            string HoTen = textBoxFullName.Text.ToString();
+            string NgaySinh = dateTimePickerNgaySinh.Text.ToString();
+            bool GioiTinh = (radioButtonNam.Checked);
+            string DiaChi = textBoxDiaChi.Text.ToString();
+            string PhongBan = comboBoxPhongBan.Text.ToString();
+            string VaiTro = comboBoxChucVu.Text.ToString();
+            string Mail = textBoxEmail.Text.ToString();
+            string SDT = textBoxPhoneNumber.Text.ToString();
+            NguoiDung newAccount = new NguoiDung(TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT);
+            bool createAcc = NguoiDungBLL.createAccount(newAccount);
+            if (createAcc) 
+            {
+                MessageBox.Show("Tạo tài khoản thành công!");
+                this.Close();
+            }
+            else MessageBox.Show("Tạo tài khoản không thành công!");
         }
 
         private void labelCreateAccount_Click(object sender, EventArgs e)

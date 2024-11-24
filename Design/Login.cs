@@ -84,7 +84,7 @@ namespace Design
                 if (user.tinhTrangHoatDong)
                 {
                     string role = user.vaiTro;
-                    if (role == "Admin")
+                    if (role == "Super Admin")
                     {
                         SuperAdmin fSuperAdmin = new SuperAdmin(user);
                         this.Hide();

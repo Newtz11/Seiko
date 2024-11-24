@@ -573,6 +573,54 @@ select * from NGUOIDUNG
 
 
 
+-- INSERT DATA
+create proc createAccount
+	@TenDangNhap NVARCHAR(50),
+	@HoTen NVARCHAR(50),
+	@NgaySinh DATE,
+	@GioiTinh BIT,
+	@DiaChi NVARCHAR(50),
+	@PhongBan NVARCHAR(20),
+	@VaiTro NVARCHAR(20),
+	@Mail NVARCHAR(50),
+	@SDT NVARCHAR(10)
+
+as
+begin
+	insert into NGUOIDUNG (TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT)
+	values (@TenDangNhap, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @PhongBan,@VaiTro, @Mail, @SDT )
+end
+go
+
+exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
+					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb2k4@gmail.com', @SDT = N'0911162180'
+delete  NGUOIDUNG
+select * from NGUOIDUNG
+
+
+		--Procedure insert tiến độ --
+create proc insertProgress
+	@NgayBatDau DATE,
+	@NgayKetThuc DATE,
+	@MaNV NVARCHAR(5),
+	@NVThucHienCV NVARCHAR(50),
+	@NoiDungCV NVARCHAR(50)
+
+as
+begin
+	DECLARE @MaHD NVARCHAR(5);
+    SELECT TOP 1 @MaHD = MaHD
+    FROM HOPDONG
+    WHERE MaHD LIKE 'HD%'
+    ORDER BY MaHD DESC;
+	insert into TIENTIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
+	values (@NgayBatDau, @NgayKetThuc, @MaHD, @MaNV, @NVThucHienCV, @NoiDungCV)
+end
+go
+
+exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', @MaHD = 'HD001', 
+					@MaNV = 0, @NVThucHienCV = N'nguyễn hữu thọ quận 7', @NoiDungCV = N'IT'
+
 
 
 
