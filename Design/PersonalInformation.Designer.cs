@@ -180,6 +180,7 @@
             // textBoxMatKhau
             // 
             textBoxMatKhau.Anchor = AnchorStyles.Left;
+            textBoxMatKhau.Enabled = false;
             textBoxMatKhau.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxMatKhau.Location = new Point(305, 377);
             textBoxMatKhau.Name = "textBoxMatKhau";
@@ -189,6 +190,7 @@
             // textBoxTenDangNhap
             // 
             textBoxTenDangNhap.Anchor = AnchorStyles.Left;
+            textBoxTenDangNhap.Enabled = false;
             textBoxTenDangNhap.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxTenDangNhap.Location = new Point(305, 330);
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";
@@ -285,6 +287,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewThongTinCaNhan.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewThongTinCaNhan.Enabled = false;
             dataGridViewThongTinCaNhan.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinCaNhan.Location = new Point(154, 478);
             dataGridViewThongTinCaNhan.Name = "dataGridViewThongTinCaNhan";
@@ -393,6 +396,7 @@
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             dataGridViewThongTinCongViec.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewThongTinCongViec.Enabled = false;
             dataGridViewThongTinCongViec.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinCongViec.Location = new Point(154, 669);
             dataGridViewThongTinCongViec.Name = "dataGridViewThongTinCongViec";

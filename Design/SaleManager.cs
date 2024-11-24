@@ -94,7 +94,7 @@ namespace Design
 
         private void buttonProjectProgress_Click(object sender, EventArgs e)
         {
-            loadform(new ProjectProgress());
+            loadform(new ProjectProgress(user));
         }
 
         private void SalesManager_Load(object sender, EventArgs e)

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectProgress));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             labelTienDoCongViec = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxListUser = new GroupBox();
@@ -42,7 +42,7 @@
             label1 = new Label();
             buttonSua = new Button();
             comboBox1 = new ComboBox();
-            dataGridViewListUser = new DataGridView();
+            dataGridViewProjectProgress = new DataGridView();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             NoiDungCongViec = new DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@
             labelProjectProgress = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProjectProgress).BeginInit();
             SuspendLayout();
             // 
             // labelTienDoCongViec
@@ -93,7 +93,7 @@
             groupBoxListUser.Controls.Add(label1);
             groupBoxListUser.Controls.Add(buttonSua);
             groupBoxListUser.Controls.Add(comboBox1);
-            groupBoxListUser.Controls.Add(dataGridViewListUser);
+            groupBoxListUser.Controls.Add(dataGridViewProjectProgress);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonTaoTaiKhoan);
@@ -168,58 +168,58 @@
             comboBox1.TabIndex = 30;
             comboBox1.Text = "Người Thực Hiện";
             // 
-            // dataGridViewListUser
+            // dataGridViewProjectProgress
             // 
-            dataGridViewListUser.AllowUserToAddRows = false;
-            dataGridViewListUser.AllowUserToDeleteRows = false;
-            dataGridViewListUser.AllowUserToOrderColumns = true;
-            dataGridViewListUser.AllowUserToResizeRows = false;
-            dataGridViewListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewListUser.BackgroundColor = Color.White;
-            dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewListUser.ColumnHeadersHeight = 50;
-            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, KhoiLuongYeuCau, NgayBatDau, NgayKetThuc, TienDo, NguoiThucHien, TinhTrang });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewListUser.GridColor = Color.Black;
-            dataGridViewListUser.Location = new Point(15, 231);
-            dataGridViewListUser.Name = "dataGridViewListUser";
-            dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewListUser.RowHeadersVisible = false;
-            dataGridViewListUser.RowHeadersWidth = 51;
-            dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewListUser.RowTemplate.Height = 35;
-            dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
-            dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewListUser.Size = new Size(1270, 550);
-            dataGridViewListUser.TabIndex = 29;
+            dataGridViewProjectProgress.AllowUserToAddRows = false;
+            dataGridViewProjectProgress.AllowUserToDeleteRows = false;
+            dataGridViewProjectProgress.AllowUserToOrderColumns = true;
+            dataGridViewProjectProgress.AllowUserToResizeRows = false;
+            dataGridViewProjectProgress.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewProjectProgress.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProjectProgress.BackgroundColor = Color.White;
+            dataGridViewProjectProgress.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewProjectProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewProjectProgress.ColumnHeadersHeight = 50;
+            dataGridViewProjectProgress.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewProjectProgress.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NoiDungCongViec, KhoiLuongYeuCau, NgayBatDau, NgayKetThuc, TienDo, NguoiThucHien, TinhTrang });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridViewProjectProgress.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewProjectProgress.GridColor = Color.Black;
+            dataGridViewProjectProgress.Location = new Point(15, 231);
+            dataGridViewProjectProgress.Name = "dataGridViewProjectProgress";
+            dataGridViewProjectProgress.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewProjectProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewProjectProgress.RowHeadersVisible = false;
+            dataGridViewProjectProgress.RowHeadersWidth = 51;
+            dataGridViewProjectProgress.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewProjectProgress.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewProjectProgress.RowTemplate.Height = 35;
+            dataGridViewProjectProgress.ScrollBars = ScrollBars.Vertical;
+            dataGridViewProjectProgress.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewProjectProgress.Size = new Size(1270, 550);
+            dataGridViewProjectProgress.TabIndex = 29;
             // 
             // MaHopDong
             // 
@@ -366,7 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             groupBoxListUser.ResumeLayout(false);
             groupBoxListUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProjectProgress).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -375,7 +375,7 @@
         private Label labelTienDoCongViec;
         private PictureBox pictureBoxIconContractTracking;
         private GroupBox groupBoxListUser;
-        private DataGridView dataGridViewListUser;
+        private DataGridView dataGridViewProjectProgress;
         private ComboBox comboBoxTinhTrang;
         private Button buttonXoa;
         private Button buttonTaoTaiKhoan;

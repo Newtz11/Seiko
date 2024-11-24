@@ -35,5 +35,27 @@ namespace DAO
             dt = DataProvider.Instance.executeProc(procName, parameters); 
             
         }
+
+        public DataTable loadProjectProgress(NguoiDung user)
+        {
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
+            {
+                string procName = "loadProjectProgressForSale";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV } 
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string query = "EXEC loadProjectProgressForAll";
+                dt = DataProvider.Instance.executeQuery(query);
+            }
+            
+            return dt;
+        }
     }
 }

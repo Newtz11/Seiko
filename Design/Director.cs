@@ -86,7 +86,7 @@ namespace Design
 
         private void buttonProjectSchedule_Click(object sender, EventArgs e)
         {
-            loadform(new ProjectProgress());
+            loadform(new ProjectProgress(user));
         }
 
         private void buttonPerformanceReport_Click(object sender, EventArgs e)
