@@ -279,7 +279,9 @@ go
 
 
 -- Procedure
---Procedure ContractTrackingForSale--
+
+-- LOAD DATA
+		--Procedure ContractTrackingForSale--
 CREATE PROC loadContractTrackingForSale
     @MaNV NVARCHAR(5)
 AS
@@ -305,7 +307,7 @@ GO
 drop proc loadContractTrackingForSale
 exec loadContractTrackingForSale @MaNV = '00003'
 
---Procedure Danh sách tất cả hợp đồng dành cho những role khác trừ Sale --
+		--Procedure Danh sách tất cả hợp đồng dành cho những role khác trừ Sale --
 create proc loadContractTrackingForAll
 as
 begin
@@ -318,7 +320,187 @@ go
 drop proc loadContractTrackingForAll
 exec loadContractTrackingForAll
 
--- Procedure Đổi mật khẩu --
+-- procedure dung cho Form ListUser
+		--Procedure search tên người dùng --
+create proc searchNameOnListUser
+@MaNV NVARCHAR(5) = NULL , @HoTen NVARCHAR(50) = NULL
+as
+begin
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where (@MaNV IS NULL OR MaNV = @MaNV) and (@HoTen IS NULL OR HoTen = @HoTen)
+end
+go
+
+drop proc searchNameOnListUser
+exec searchNameOnListUser @MaNV = '00001'
+exec searchNameOnListUser @HoTen = N'Minh'
+exec searchNameOnListUser
+
+		--Procedure search phòng ban --
+create proc searchPhongBanOnListUser
+@PhongBan NVARCHAR(20) = NULL
+as
+begin
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @PhongBan IS NULL OR PhongBan = @PhongBan
+end
+go
+
+drop proc searchPhongBanOnListUser
+exec searchPhongBanOnListUser
+exec searchPhongBanOnListUser @PhongBan = N'Sale'
+
+		--Procedure search chức vụ --
+create proc searchChucVuOnListUser
+@VaiTro NVARCHAR(20) = NULL
+as
+begin
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @VaiTro IS NULL OR VaiTro = @VaiTro
+end
+go
+
+drop proc searchChucVuOnListUser
+exec searchChucVuOnListUser
+exec searchChucVuOnListUser @VaiTro = N'Sale'
+
+		--Procedure search tình trạng hoạt động
+create proc searchTinhTrangHoatDongOnListUser
+@TinhTrangHoatDong BIT = NULL
+as
+begin
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @TinhTrangHoatDong IS NULL OR TinhTrangHoatDong = @TinhTrangHoatDong
+end
+go
+
+drop proc searchTinhTrangHoatDongOnListUser
+exec searchTinhTrangHoatDongOnListUser
+exec searchTinhTrangHoatDongOnListUser @TinhTrangHoatDong = 1
+
+
+-- procedure dung cho Form ContractTrackingForSale
+		--Procedure search hợp đồng --
+CREATE PROC searchConTractOnContractTrackingForSale
+    @MaHD NVARCHAR(5) = NULL, 
+    @TenHopDong NVARCHAR(50) = NULL, 
+    @TenNguoiDaiDien NVARCHAR(50) = NULL, 
+    @TenNguoiLienHe NVARCHAR(50) = NULL, 
+    @GiaTriHD INT = NULL, 
+    @TinhTrangHD NVARCHAR(20) = NULL, 
+    @HoTen NVARCHAR(50) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE (@MaHD IS NULL OR hd.MaHD = @MaHD)
+      AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
+      AND (@TenNguoiDaiDien IS NULL OR hd.TenNguoiDaiDien LIKE '%' + @TenNguoiDaiDien + '%')
+      AND (@TenNguoiLienHe IS NULL OR hd.TenNguoiLienHe LIKE '%' + @TenNguoiLienHe + '%')
+      AND (@GiaTriHD IS NULL OR hd.GiaTriHD = @GiaTriHD)
+      AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD LIKE '%' + @TinhTrangHD + '%')
+      AND (@HoTen IS NULL OR nv.HoTen LIKE '%' + @HoTen + '%');
+END
+GO
+
+
+drop proc searchConTractOnContractTrackingForSale
+exec searchConTractOnContractTrackingForSale @MaHD = 'HD002'
+exec searchConTractOnContractTrackingForSale @HoTen = N'Admin'
+exec searchConTractOnContractTrackingForSale
+
+
+		--Procedure lọc ngày bắt đầu và kết thúc --
+CREATE PROC searchContractByTimeOnContractTrackingForSale
+    @NgayBatDau DATE = NULL,
+	@NgayKetThuc DATE = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE (@NgayBatDau IS NULL OR hd.NgayBatDau = @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc = @NgayKetThuc)
+END
+GO
+
+
+drop proc searchContractByTimeOnContractTrackingForSale
+exec searchContractByTimeOnContractTrackingForSale @NgayBatDau = '2024-11-23'
+exec searchContractByTimeOnContractTrackingForSale @NgayBatDau = '2024-11-23', @NgayKetThuc = '2024-11-30'
+exec searchContractByTimeOnContractTrackingForSale
+
+
+		--Procedure search tình trạng hợp đồng --
+CREATE PROC searchTinhTrangHopDongOnContractTrackingForSale
+    @TinhTrangHD NVARCHAR(20) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)
+END
+GO
+
+
+drop proc searchTinhTrangHopDongOnContractTrackingForSale
+exec searchTinhTrangHopDongOnContractTrackingForSale @TinhTrangHD = N'Đã xong'
+exec searchTinhTrangHopDongOnContractTrackingForSale
+
+		--Procedure search nhân viên phụ trách --
+CREATE PROC searchNhanVienPhuTrachOnContractTrackingForSale
+    @HoTen NVARCHAR(50) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen)
+END
+GO
+
+
+drop proc searchNhanVienPhuTrachOnContractTrackingForSale
+exec searchNhanVienPhuTrachOnContractTrackingForSale @HoTen = N'Admin'
+exec searchNhanVienPhuTrachOnContractTrackingForSale
+
+
+
+-- UPDATE DATA
+		-- Procedure Đổi mật khẩu --
 create proc changePassword
 	@MaNV NVARCHAR(5),
 	@MatKhauMoi VARCHAR(20)
@@ -332,6 +514,11 @@ go
 
 exec changePassword @MaNV = '00002' , @MatKhauMoi = 'nguyenvanb'
 select * from NGUOIDUNG
+
+
+
+
+
 
 -- Trigger 
 
