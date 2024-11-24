@@ -50,7 +50,7 @@ namespace Design
         }
 
 
-       
+
 
         private void buttonTaoTaiKhoan_Click(object sender, EventArgs e)
         {
@@ -65,6 +65,7 @@ namespace Design
 
         private void ListUser_Load(object sender, EventArgs e)
         {
+            dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
             foreach (DataRow row in dt.Rows)
@@ -121,6 +122,13 @@ namespace Design
                     dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                     counter++;
                 }
+                comboBoxPhongBan.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+
+                comboBoxPhongBan.Text = "Phòng ban";
+                comboBoxChucVu.Text = "Chức vụ";
+                comboBoxTinhTrang.Text = "Tình trạng"; 
             }
 
 
@@ -129,7 +137,13 @@ namespace Design
 
         private void dataGridViewListUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            dataGridViewListUser.Rows.Clear();
+            ListUser_Load(sender, e);
         }
     }
 }
