@@ -80,7 +80,7 @@ insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT,
 values	(N'Bảo','dinhgiabao', 0,'1972-11-20','dgb2k4@gmail.com','CEO','0936681910','CEO','quan 7')
 
 
-select * from NGUOIDUNG where MaNV = '00000' and MatKhau = '12345'
+select * from NGUOIDUNG where Mail = 'abc@gmail.com'
 
 select * from NGUOIDUNG 
 
@@ -318,9 +318,20 @@ go
 drop proc loadContractTrackingForAll
 exec loadContractTrackingForAll
 
---Procedure Tạo hợp đồng
+-- Procedure Đổi mật khẩu --
+create proc changePassword
+	@MaNV NVARCHAR(5),
+	@MatKhauMoi VARCHAR(20)
+as
+begin
+	update NGUOIDUNG
+	set MatKhau = @MatKhauMoi
+	where MaNV = @MaNV
+end
+go
 
-
+exec changePassword @MaNV = '00002' , @MatKhauMoi = 'nguyenvanb'
+select * from NGUOIDUNG
 
 -- Trigger 
 

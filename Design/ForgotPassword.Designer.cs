@@ -69,9 +69,9 @@
             buttonSendOTP.FlatStyle = FlatStyle.Popup;
             buttonSendOTP.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSendOTP.ForeColor = Color.White;
-            buttonSendOTP.Location = new Point(368, 304);
+            buttonSendOTP.Location = new Point(376, 204);
             buttonSendOTP.Name = "buttonSendOTP";
-            buttonSendOTP.Size = new Size(85, 30);
+            buttonSendOTP.Size = new Size(84, 30);
             buttonSendOTP.TabIndex = 21;
             buttonSendOTP.Text = "Gửi OTP";
             buttonSendOTP.UseVisualStyleBackColor = false;
@@ -84,9 +84,9 @@
             buttonBack.FlatStyle = FlatStyle.Popup;
             buttonBack.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBack.ForeColor = Color.White;
-            buttonBack.Location = new Point(385, 415);
+            buttonBack.Location = new Point(376, 400);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(85, 26);
+            buttonBack.Size = new Size(84, 30);
             buttonBack.TabIndex = 20;
             buttonBack.Text = "Quay lại";
             buttonBack.UseVisualStyleBackColor = false;
@@ -96,11 +96,11 @@
             buttonConfirmOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             buttonConfirmOTP.BackColor = Color.DodgerBlue;
             buttonConfirmOTP.FlatStyle = FlatStyle.Popup;
-            buttonConfirmOTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonConfirmOTP.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonConfirmOTP.ForeColor = Color.White;
-            buttonConfirmOTP.Location = new Point(183, 383);
+            buttonConfirmOTP.Location = new Point(376, 315);
             buttonConfirmOTP.Name = "buttonConfirmOTP";
-            buttonConfirmOTP.Size = new Size(111, 41);
+            buttonConfirmOTP.Size = new Size(84, 30);
             buttonConfirmOTP.TabIndex = 19;
             buttonConfirmOTP.Text = "XÁC THỰC";
             buttonConfirmOTP.UseVisualStyleBackColor = false;
@@ -109,42 +109,44 @@
             // textBoxOTP
             // 
             textBoxOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxOTP.BorderStyle = BorderStyle.FixedSingle;
             textBoxOTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxOTP.Location = new Point(32, 304);
+            textBoxOTP.Location = new Point(48, 315);
             textBoxOTP.Name = "textBoxOTP";
-            textBoxOTP.PlaceholderText = "Nhập mã OTP mà bạn nhận được";
-            textBoxOTP.Size = new Size(306, 30);
+            textBoxOTP.PlaceholderText = "Điền mã OTP tại đây";
+            textBoxOTP.Size = new Size(303, 30);
             textBoxOTP.TabIndex = 18;
             // 
             // textBoxEmail
             // 
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxEmail.BorderStyle = BorderStyle.FixedSingle;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxEmail.Location = new Point(32, 202);
+            textBoxEmail.Location = new Point(48, 204);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Email: ( ví dụ: abc@gmail.com )";
-            textBoxEmail.Size = new Size(421, 30);
+            textBoxEmail.Size = new Size(303, 30);
             textBoxEmail.TabIndex = 17;
             // 
             // labelOTP
             // 
             labelOTP.AutoSize = true;
             labelOTP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOTP.Location = new Point(32, 256);
+            labelOTP.Location = new Point(32, 265);
             labelOTP.Name = "labelOTP";
-            labelOTP.Size = new Size(142, 28);
+            labelOTP.Size = new Size(147, 28);
             labelOTP.TabIndex = 16;
-            labelOTP.Text = "Nhập mã OTP";
+            labelOTP.Text = "Nhập mã OTP:";
             // 
             // labelEmail
             // 
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEmail.Location = new Point(32, 162);
+            labelEmail.Location = new Point(32, 160);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(64, 28);
+            labelEmail.Size = new Size(69, 28);
             labelEmail.TabIndex = 15;
-            labelEmail.Text = "Email";
+            labelEmail.Text = "Email:";
             // 
             // ForgotPassword
             // 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,37 @@ namespace DAO
                 "MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
+        }
+
+        public DataTable checkMail(string mail) 
+        {
+            string query = "select MaNV, TenDangNhap, MatKhau, Mail from NGUOIDUNG where Mail = '" + mail + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+        public bool changePassword(NguoiDung user, string password) 
+        {
+            
+            bool result = false;
+            try
+            {
+                string procName = "changePassword";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV },
+                    new SqlParameter("@MatKhauMoi", SqlDbType.NVarChar, 20) { Value = password }
+                };
+                DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                result = true;
+            }
+            catch (Exception ex) 
+            {
+                result = false;
+            }
+            
+            return result;
         }
     }
 }

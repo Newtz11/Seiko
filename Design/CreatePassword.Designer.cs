@@ -114,6 +114,7 @@
             buttonCancel.TabIndex = 20;
             buttonCancel.Text = "Hủy";
             buttonCancel.UseVisualStyleBackColor = false;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // buttonSavePassword
             // 
@@ -128,12 +129,14 @@
             buttonSavePassword.TabIndex = 19;
             buttonSavePassword.Text = "LƯU MẬT KHẨU";
             buttonSavePassword.UseVisualStyleBackColor = false;
+            buttonSavePassword.Click += buttonSavePassword_Click;
             // 
             // textBoxConfirmPassword
             // 
             textBoxConfirmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxConfirmPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxConfirmPassword.Location = new Point(12, 309);
+            textBoxConfirmPassword.MaxLength = 20;
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             textBoxConfirmPassword.PlaceholderText = "Xác nhận mật khẩu mới (phải trùng với mật khẩu mới )";
             textBoxConfirmPassword.Size = new Size(458, 30);
@@ -144,6 +147,7 @@
             textBoxNewPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxNewPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxNewPassword.Location = new Point(12, 207);
+            textBoxNewPassword.MaxLength = 20;
             textBoxNewPassword.Name = "textBoxNewPassword";
             textBoxNewPassword.PlaceholderText = "Mật khẩu mới";
             textBoxNewPassword.Size = new Size(458, 30);

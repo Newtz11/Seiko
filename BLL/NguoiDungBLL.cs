@@ -56,5 +56,30 @@ namespace BLL
         {
             return NguoiDungDAO.Instance.loadUser();
         }
+
+        public static NguoiDung checkEmail(string checkMail)
+        {
+            DataTable dt = NguoiDungDAO.Instance.checkMail(checkMail);
+            NguoiDung user = new NguoiDung();
+            try
+            {
+                DataRow row = dt.Rows[0];
+                string maNV = row["MaNV"].ToString();
+                string tenDangNhap = row["TenDangNhap"].ToString();
+                string matKhau = row["MatKhau"].ToString();
+                string mail = row["Mail"].ToString();
+                user = new NguoiDung(maNV, tenDangNhap, matKhau, mail);
+            }
+            catch (Exception e)
+            {
+                user = null;
+            }
+            return user;
+        }
+
+        public static bool changePassword(NguoiDung user,string password)
+        {
+            return NguoiDungDAO.Instance.changePassword(user, password);
+        }
     }
 }
