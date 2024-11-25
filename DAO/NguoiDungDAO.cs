@@ -126,7 +126,7 @@ namespace DAO
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = chucVu }
+                new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = chucVu }
 
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
@@ -141,7 +141,7 @@ namespace DAO
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@VaiTro", SqlDbType.Bit) { Value = tinhTrang }
+                new SqlParameter("@TinhTrangHoatDong", SqlDbType.Bit) { Value = tinhTrang }
 
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
@@ -164,7 +164,7 @@ namespace DAO
                     new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
                     new SqlParameter("@DiaChi", SqlDbType.NVarChar, 50) { Value = newAccount.diaChi },
                     new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = newAccount.phongBan},
-                    new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = newAccount.vaiTro},
+                    new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = newAccount.vaiTro},
                     new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = newAccount.mail },
                     new SqlParameter("@SDT", SqlDbType.NVarChar, 10) { Value = newAccount.sDT }
                 };
@@ -180,13 +180,13 @@ namespace DAO
         }
 
 
-        // check mail trugn luc tao tai khoan
+        // check mail trung luc tao tai khoan
 
         public bool checkMailTrung(NguoiDung newMail)
         {
             string query = "select MaNV, TenDangNhap, MatKhau, Mail from NGUOIDUNG where Mail = '" + newMail.mail + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
-            return !(dt.Rows.Count > 0);
+            return (dt.Rows.Count > 0);
         }
         
     }

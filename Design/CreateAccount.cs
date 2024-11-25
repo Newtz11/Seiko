@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -174,6 +176,33 @@ namespace Design
             if (createAcc) 
             {
                 MessageBox.Show("Tạo tài khoản thành công!");
+
+                // gui mail xac nhan tai khoan
+                string to, from, pass;
+                to = Mail;
+                from = "seikoapplication@gmail.com";
+                pass = "kxff xduw vtgt xecl";
+                MailMessage mess = new MailMessage();
+                mess.To.Add(to);
+                mess.From = new MailAddress(from);
+                mess.Subject = "Seiko - Confirm create account sucess";
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(from, pass);
+                try
+                {
+                    mess.Body = "Your account is: " + TenDangNhap + "\n" + "Your password is: 12345 ";
+                    smtp.Send(mess);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                }
+
+
                 this.Close();
             }
             else MessageBox.Show("Tên đăng nhập bị trùng!");

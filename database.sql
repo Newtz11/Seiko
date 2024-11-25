@@ -311,7 +311,7 @@ BEGIN
         nv.MaNV = @MaNV
 END
 GO
-drop proc loadContractTrackingForSale
+--drop proc loadContractTrackingForSale
 exec loadContractTrackingForSale @MaNV = '00003'
 
 		--Procedure Danh sách tất cả hợp đồng dành cho những role khác trừ Sale --
@@ -323,6 +323,8 @@ begin
 	INNER JOIN NGUOIDUNG as nv on hd.MaNV = nv.MaNV;
 end
 go	
+
+--exec loadContractTrackingForAll
 
 		--Procedure ProjectProgressForSale --
 create proc loadProjectProgressForSale
@@ -345,8 +347,8 @@ begin
 end
 go
 
-drop proc loadProjectProgressForSale
-exec loadProjectProgressForSale @MaNV = '00002'
+--drop proc loadProjectProgressForSale
+--exec loadProjectProgressForSale @MaNV = '00002'
 
 
 		--Procedure ProjectProgressForAll trừ Sale, Kế toán, Trưởng phòng Kế toán --
@@ -368,15 +370,15 @@ begin
 end
 go
 
-exec loadProjectProgressForAll
+--exec loadProjectProgressForAll
 
 -- procedure dung cho Form ListUser
 		-- Procedure search tên người dùng --
 create proc searchNameOnListUser
-@MaNV NVARCHAR(5) = NULL , 
-@HoTen NVARCHAR(50) = NULL,
-@Mail NVARCHAR(50) = NULL,
-@TenDangNhap NVARCHAR(50) = NULL
+	@MaNV NVARCHAR(5) = NULL , 
+	@HoTen NVARCHAR(50) = NULL,
+	@Mail NVARCHAR(50) = NULL,
+	@TenDangNhap NVARCHAR(50) = NULL
 as
 begin
 	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
@@ -388,30 +390,34 @@ begin
 end
 go
 
-drop proc searchNameOnListUser
+--drop proc searchNameOnListUser
 exec searchNameOnListUser @MaNV = '00001'
-exec searchNameOnListUser @HoTen = N'Mi'
-exec searchNameOnListUser
+--exec searchNameOnListUser @HoTen = N'Mi'
+--exec searchNameOnListUser
 
 		--Procedure search phòng ban --
 create proc searchPhongBanOnListUser
 @PhongBan NVARCHAR(20) = NULL
 as
 begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @PhongBan IS NULL OR PhongBan = @PhongBan
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
+	from NGUOIDUNG 
+	where @PhongBan IS NULL OR PhongBan = @PhongBan
 end
 go
 
-drop proc searchPhongBanOnListUser
-exec searchPhongBanOnListUser
-exec searchPhongBanOnListUser @PhongBan = N'Sale'
+--drop proc searchPhongBanOnListUser
+--exec searchPhongBanOnListUser
+--exec searchPhongBanOnListUser @PhongBan = N'Sale'
 
 		--Procedure search chức vụ --
 create proc searchChucVuOnListUser
-@VaiTro NVARCHAR(20) = NULL
+	@VaiTro NVARCHAR(20) = NULL
 as
 begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @VaiTro IS NULL OR VaiTro = @VaiTro
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
+	from NGUOIDUNG 
+	where @VaiTro IS NULL OR VaiTro = @VaiTro
 end
 go
 
@@ -421,10 +427,12 @@ exec searchChucVuOnListUser @VaiTro = N'Sale'
 
 		--Procedure search tình trạng hoạt động
 create proc searchTinhTrangHoatDongOnListUser
-@TinhTrangHoatDong BIT = NULL
+	@TinhTrangHoatDong BIT = NULL
 as
 begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] from NGUOIDUNG where @TinhTrangHoatDong IS NULL OR TinhTrangHoatDong = @TinhTrangHoatDong
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
+	from NGUOIDUNG 
+	where @TinhTrangHoatDong IS NULL OR TinhTrangHoatDong = @TinhTrangHoatDong
 end
 go
 
@@ -739,6 +747,24 @@ exec changePassword @MaNV = '00002' , @MatKhauMoi = 'nguyenvanb'
 select * from NGUOIDUNG
 
 
+		-- Procedure sửa tiến độ hợp đồng
+create proc changeProjectProgress
+	@MaTienDoHopDong NVARCHAR(5),
+	@NVThucHienCV NVARCHAR(50),
+	@KhoiLuongCV INT,
+	@TongKhoiLuongCV INT
+as
+begin
+	update TIENDOHOPDONG
+	set NVThucHienCV = @NVThucHienCV,
+		KhoiLuongCV = @KhoiLuongCV,
+		TongKhoiLuongCV = @TongKhoiLuongCV
+	where MaTienDoHopDong = @MaTienDoHopDong
+end
+go
+
+--drop proc changeProjectProgress
+
 
 -- INSERT DATA
 create proc createAccount
@@ -793,17 +819,11 @@ exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29',
 
 		--Procedure insert giai đoạn thanh toán
 create proc insertGiaiDoanThanhToan
-	@NgayNhanThanhToan DATE,
-	@GhiChu NVARCHAR(50),
-	@NhanVienQuanLy NVARCHAR(5)
-
+	@MaHD NVARCHAR(5),
+	@PhanTramThanhToan INT,
 as
 begin
-	DECLARE @MaHD NVARCHAR(5);
-    SELECT TOP 1 @MaHD = MaHD
-    FROM HOPDONG
-    WHERE MaHD LIKE 'HD%'
-    ORDER BY MaHD DESC;
+	
 	
 	insert into GIAIDOANTHANHTOAN(MaHD, NgayNhanThanhToan, GhiChu, NhanVienQuanLy)
 	values (@MaHD, @NgayNhanThanhToan, @GhiChu, @NhanVienQuanLy)

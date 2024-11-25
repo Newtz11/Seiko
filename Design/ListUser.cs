@@ -103,7 +103,7 @@ namespace Design
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
-                MessageBox.Show("Không ổn rồi đại vương ơiii");
+                return;
             }
             else
             {
