@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Design
 {
@@ -55,15 +54,15 @@ namespace Design
             DataTable dt = TienDoHopDongBLL.loadProjectProgress(user);
             foreach (DataRow row in dt.Rows)
             {
-                string maHopDong = row["Mã hợp đồng"].ToString();
-                string tenHopDong = row["Tên hợp đồng"].ToString();
-                string noiDungCV = row["Nội dung công việc"].ToString();
-                string tongKhoiLuongCV = row["Khối lượng yêu cầu"].ToString();
-                DateTime ngayBatDau = Convert.ToDateTime(row["Ngày bắt đầu"]);
-                DateTime ngayHetHan = Convert.ToDateTime(row["Ngày kết thúc"]);
-                int KhoiLuongCV = Convert.ToInt32(row["Tiến độ"]);
-                string NVThucHienCV = row["Người thực hiện"].ToString();
-                string TinhTrangHD = row["Tình trạng"].ToString();
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string noiDungCV = row[2].ToString();
+                string tongKhoiLuongCV = row[3].ToString();
+                DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                DateTime ngayHetHan = Convert.ToDateTime(row[5]);
+                int KhoiLuongCV = Convert.ToInt32(row[6]);
+                string NVThucHienCV = row[7].ToString();
+                string TinhTrangHD = row[8].ToString();
                 dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD);
             }
 
@@ -83,20 +82,16 @@ namespace Design
         {
             string searchContract = textBoxSearch.Text.ToString();
             string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
-            string searchNguoiThucHien = comboBoxNguoiThucHien.Text.ToString();
             DateTime searchNgayBatDau = dateTimePickerStart.Value;
             DateTime searchNgayKetThuc = dateTimePickerEnd.Value;
-            
-            DataTable dt = TienDoHopDongBLL.searchProjectProgressList(searchContract, searchTinhTrang, searchNguoiThucHien, searchNgayBatDau, searchNgayKetThuc);
+
+            DataTable dt = TienDoHopDongBLL.searchProjectProgressList(searchContract, searchTinhTrang, searchNgayBatDau, searchNgayKetThuc);
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
                 textBoxSearch.Text = "";
 
                 comboBoxTinhTrang.SelectedIndex = -1;
-                comboBoxNguoiThucHien.SelectedIndex = -1;
-
-                comboBoxNguoiThucHien.Text = "Người Thực Hiện";
                 comboBoxTinhTrang.Text = "Tình Trạng";
                 return;
             }
@@ -120,11 +115,18 @@ namespace Design
                 textBoxSearch.Text = "";
 
                 comboBoxTinhTrang.SelectedIndex = -1;
-                comboBoxNguoiThucHien.SelectedIndex = -1;
-
-                comboBoxNguoiThucHien.Text = "Người Thực Hiện";
                 comboBoxTinhTrang.Text = "Tình Trạng";
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            textBoxSearch.Text = "";
+            comboBoxTinhTrang.SelectedIndex = -1;
+            comboBoxTinhTrang.Text = "Tình Trạng";
+
+            dataGridViewProjectProgress.Rows.Clear();
+            ProjectProgress_Load(sender, e);
         }
     }
 }
