@@ -121,6 +121,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewCommissionView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCommissionView.Enabled = false;
             dataGridViewCommissionView.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewCommissionView.Location = new Point(40, 98);
             dataGridViewCommissionView.Name = "dataGridViewCommissionView";
@@ -217,6 +218,7 @@
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             dataGridViewTongHoaHong.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTongHoaHong.Enabled = false;
             dataGridViewTongHoaHong.Location = new Point(874, 648);
             dataGridViewTongHoaHong.Name = "dataGridViewTongHoaHong";
             dataGridViewTongHoaHong.RowHeadersVisible = false;

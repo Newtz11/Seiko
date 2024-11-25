@@ -23,6 +23,7 @@ namespace Design
             ApplyRoundedCorners(buttonSearch);
             ApplyRoundedCorners(buttonTaoTaiKhoan);
             ApplyRoundedCorners(buttonXoa);
+            ApplyRoundedCorners(buttonReset);
             this.user = user;
         }
 

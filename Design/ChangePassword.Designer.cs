@@ -52,6 +52,7 @@
             // 
             // groupBoxChangePassword
             // 
+            groupBoxChangePassword.Anchor = AnchorStyles.Top;
             groupBoxChangePassword.Controls.Add(buttonShowPassword3);
             groupBoxChangePassword.Controls.Add(buttonShowPassword2);
             groupBoxChangePassword.Controls.Add(buttonHidePassword3);
@@ -71,7 +72,7 @@
             groupBoxChangePassword.Size = new Size(584, 415);
             groupBoxChangePassword.TabIndex = 0;
             groupBoxChangePassword.TabStop = false;
-            groupBoxChangePassword.Text = "groupBox1";
+            groupBoxChangePassword.Text = "Đổi mật khẩu";
             groupBoxChangePassword.Enter += groupBox1_Enter;
             // 
             // buttonShowPassword3
@@ -231,6 +232,7 @@
             // 
             // pictureBoxLogo0
             // 
+            pictureBoxLogo0.Anchor = AnchorStyles.Top;
             pictureBoxLogo0.Image = Properties.Resources.logo0;
             pictureBoxLogo0.Location = new Point(219, 12);
             pictureBoxLogo0.Name = "pictureBoxLogo0";
@@ -241,6 +243,7 @@
             // 
             // labelChangePassword
             // 
+            labelChangePassword.Anchor = AnchorStyles.Top;
             labelChangePassword.AutoSize = true;
             labelChangePassword.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelChangePassword.Location = new Point(131, 69);

@@ -54,6 +54,7 @@
             TinhTrangHopDong = new DataGridViewTextBoxColumn();
             PhuTrachThanhToan = new DataGridViewTextBoxColumn();
             groupBoxListUser = new GroupBox();
+            buttonReset = new Button();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -296,6 +297,7 @@
             // 
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
+            groupBoxListUser.Controls.Add(buttonReset);
             groupBoxListUser.Controls.Add(button1);
             groupBoxListUser.Controls.Add(button2);
             groupBoxListUser.Controls.Add(button3);
@@ -316,6 +318,20 @@
             groupBoxListUser.Size = new Size(1300, 802);
             groupBoxListUser.TabIndex = 19;
             groupBoxListUser.TabStop = false;
+            // 
+            // buttonReset
+            // 
+            buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.FlatStyle = FlatStyle.Popup;
+            buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReset.ForeColor = Color.White;
+            buttonReset.Location = new Point(871, 202);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(106, 33);
+            buttonReset.TabIndex = 33;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -394,6 +410,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ContractTrackingForAccountant";
             Text = "Form1";
+            Load += ContractTrackingForAccountant_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).EndInit();
             groupBoxListUser.ResumeLayout(false);
             groupBoxListUser.PerformLayout();
@@ -430,5 +447,6 @@
         private DataGridViewTextBoxColumn GiaTriHopDong;
         private DataGridViewTextBoxColumn TinhTrangHopDong;
         private DataGridViewTextBoxColumn PhuTrachThanhToan;
+        private Button buttonReset;
     }
 }
