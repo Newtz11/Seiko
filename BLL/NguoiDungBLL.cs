@@ -143,7 +143,7 @@ namespace BLL
 
         public static bool checkMailTrung(NguoiDung newMail)
         {
-            return NguoiDungDAO.Instance.checkMailTrung(newAccount)
+            return NguoiDungDAO.Instance.checkMailTrung(newMail);
         }
     }
 }
