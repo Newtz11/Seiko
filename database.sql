@@ -508,7 +508,7 @@ BEGIN
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
     WHERE (hd.MaHD LIKE '%' + @Keyword + '%')
-      OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+	  OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
       OR (nv.HoTen LIKE '%' + @Keyword + '%');
@@ -516,7 +516,7 @@ END
 GO
 select * from NGUOIDUNG
 --drop proc searchGlobalOnContractTrackingForSale
-exec searchGlobalOnContractTrackingForSale @Keyword = 'def'
+--exec searchGlobalOnContractTrackingForSale @Keyword = 'd'
 
 		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSale --
 CREATE PROC searchContractByTimeOnContractTrackingForSale
@@ -576,14 +576,8 @@ GO
 
 -- procedure dung cho Form ProjectProgress
 		-- Procedure search Contract on ProjectProgress
-CREATE PROC searchConTractOnProjectProgress
-    @MaHD NVARCHAR(5) = NULL, 
-    @TenHopDong NVARCHAR(50) = NULL,
-	@NoiDungCV NVARCHAR(50) = NULL,
-	@TongKhoiLuongCV INT = NULL,  
-    @KhoiLuongCV INT = NULL, 
-    @NVThucHienCV NVARCHAR(50) = NULL,
-    @TinhTrangHD NVARCHAR(20) = NULL
+CREATE PROC searchGlobalOnProjectProgress
+    @Keyword NVARCHAR(50)
 AS
 BEGIN
     SELECT 
@@ -598,21 +592,20 @@ BEGIN
         hd.TinhTrangHD AS [Tình trạng]
     FROM HOPDONG AS hd
 	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
-    WHERE (@MaHD IS NULL OR hd.MaHD LIKE '%' + @MaHD + '%')
-      AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
-      AND (@NoiDungCV IS NULL OR td.NoiDungCV LIKE '%' + @NoiDungCV + '%')
-      AND (@TongKhoiLuongCV IS NULL OR td.TongKhoiLuongCV LIKE '%' + @TongKhoiLuongCV + '%')
-      AND (@KhoiLuongCV IS NULL OR td.KhoiLuongCV LIKE '%' + @KhoiLuongCV + '%')
-	  AND (@NVThucHienCV IS NULL OR td.NVThucHienCV LIKE '%' + @NVThucHienCV + '%')
-      AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD LIKE '%' + @TinhTrangHD + '%')
+    WHERE (hd.MaHD LIKE '%' + @Keyword + '%')
+	  OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+      OR (td.NoiDungCV LIKE '%' + @Keyword + '%')
+      OR (td.TongKhoiLuongCV LIKE '%' + @Keyword + '%')
+      OR (td.KhoiLuongCV LIKE '%' + @Keyword + '%')
+	  OR (td.NVThucHienCV LIKE '%' + @Keyword + '%')
+      OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%')
 END
 GO
 
 
---drop proc searchConTractOnProjectProgress
---exec searchConTractOnProjectProgress @MaHD = 'HD002', 
---exec searchConTractOnProjectProgress @NVThucHienCV = N'A'
---exec searchConTractOnProjectProgress
+--drop proc searchGlobalOnProjectProgress
+--exec searchGlobalOnProjectProgress @Keyword = 'tiktok'
+
 
 		-- Procedure search Time on ProjectProgress
 CREATE PROC searchTimeOnProjectProgress
@@ -667,34 +660,6 @@ GO
 --drop proc searchTinhTrangHopDongOnProjectProgress
 --exec searchTinhTrangHopDongOnProjectProgress @TinhTrangHD = N'Chưa thực hiện'
 --exec searchTinhTrangHopDongOnProjectProgress
-
-
-		-- Procedure search Nhân viên phụ trách on ProjectProgress
-CREATE PROC searchNhanVienPhuTrachOnProjectProgress
-    @HoTen NVARCHAR(50) = NULL,
-	@VaiTro NVARCHAR(50) = NULL
-AS
-BEGIN
-    SELECT 
-        hd.MaHD AS [Mã hợp đồng], 
-        hd.TenHopDong AS [Tên hợp đồng], 
-        td.NoiDungCV AS [Nội dung công việc], 
-        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
-        td.NgayBatDau AS [Ngày bắt đầu], 
-        td.NgayKetThuc AS [Ngày kết thúc], 
-        td.KhoiLuongCV AS [Tiến độ], 
-        td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
-    FROM HOPDONG AS hd
-	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
-	INNER JOIN NGUOIDUNG AS nv ON nv.MaNV = td.MaNV
-    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen) AND nv.VaiTro LIKE N'Sale'
-END
-GO
-
---drop proc searchNhanVienPhuTrachOnProjectProgress
---exec searchNhanVienPhuTrachOnProjectProgress @HoTen = N'Tony Bảo'
---exec searchNhanVienPhuTrachOnProjectProgress
 
 
 -- procedure dung cho Form PaymentProgress

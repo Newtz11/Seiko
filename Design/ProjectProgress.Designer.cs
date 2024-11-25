@@ -42,7 +42,6 @@
             dateTimePickerStart = new DateTimePicker();
             label1 = new Label();
             buttonSua = new Button();
-            comboBoxNguoiThucHien = new ComboBox();
             dataGridViewProjectProgress = new DataGridView();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
@@ -94,7 +93,6 @@
             groupBoxListUser.Controls.Add(dateTimePickerStart);
             groupBoxListUser.Controls.Add(label1);
             groupBoxListUser.Controls.Add(buttonSua);
-            groupBoxListUser.Controls.Add(comboBoxNguoiThucHien);
             groupBoxListUser.Controls.Add(dataGridViewProjectProgress);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
@@ -121,6 +119,7 @@
             buttonReset.TabIndex = 35;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
+            buttonReset.Click += buttonReset_Click;
             // 
             // dateTimePickerEnd
             // 
@@ -172,17 +171,6 @@
             buttonSua.TabIndex = 31;
             buttonSua.Text = "Sửa";
             buttonSua.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxNguoiThucHien
-            // 
-            comboBoxNguoiThucHien.Anchor = AnchorStyles.Top;
-            comboBoxNguoiThucHien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxNguoiThucHien.FormattingEnabled = true;
-            comboBoxNguoiThucHien.Location = new Point(627, 171);
-            comboBoxNguoiThucHien.Name = "comboBoxNguoiThucHien";
-            comboBoxNguoiThucHien.Size = new Size(164, 31);
-            comboBoxNguoiThucHien.TabIndex = 30;
-            comboBoxNguoiThucHien.Text = "Người Thực Hiện";
             // 
             // dataGridViewProjectProgress
             // 
@@ -293,7 +281,6 @@
             // 
             // comboBoxTinhTrang
             // 
-            comboBoxTinhTrang.Anchor = AnchorStyles.Top;
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
@@ -399,7 +386,6 @@
         private Button buttonSearch;
         private TextBox textBoxSearch;
         private Label labelProjectProgress;
-        private ComboBox comboBoxNguoiThucHien;
         private Label label1;
         private Button buttonSua;
         private DateTimePicker dateTimePickerStart;
