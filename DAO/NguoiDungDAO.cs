@@ -126,7 +126,7 @@ namespace DAO
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = chucVu }
+                new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = chucVu }
 
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
@@ -164,7 +164,7 @@ namespace DAO
                     new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
                     new SqlParameter("@DiaChi", SqlDbType.NVarChar, 50) { Value = newAccount.diaChi },
                     new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = newAccount.phongBan},
-                    new SqlParameter("@VaiTro", SqlDbType.NVarChar, 20) { Value = newAccount.vaiTro},
+                    new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = newAccount.vaiTro},
                     new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = newAccount.mail },
                     new SqlParameter("@SDT", SqlDbType.NVarChar, 10) { Value = newAccount.sDT }
                 };
