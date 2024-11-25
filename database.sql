@@ -136,7 +136,6 @@ CREATE TABLE GIAIDOANTHANHTOAN
 (
   MaGiaiDoanThanhToan NVARCHAR(10) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
-  TenHopDong NVARCHAR(50) NOT NULL,
   NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
   PhanTramThanhToan INT NOT NULL DEFAULT 100,
   GiaTriThanhToan INT NOT NULL DEFAULT 0,
@@ -150,17 +149,18 @@ CREATE TABLE GIAIDOANTHANHTOAN
 )
 
 
-insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001',N'Quay 50 video', '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
-insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001',N'Quay 50 video', '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
-insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD002',N'Chụp 5 hình', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
+insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001', '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001', '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
 
-insert into GIAIDOANTHANHTOAN(MaHD, TenHopDong, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD002',N'Chụp 5 hình', '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
+insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002', '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
 
 select * from GIAIDOANTHANHTOAN 
+
 
 
 CREATE TABLE TIENDOHOPDONG
@@ -434,7 +434,7 @@ exec searchTinhTrangHoatDongOnListUser @TinhTrangHoatDong = 1
 
 
 -- procedure dung cho Form ContractTrackingForSale
-		--Procedure search hợp đồng --
+		--Procedure search hợp đồng On ContractTrackingForSale--
 CREATE PROC searchConTractOnContractTrackingForSale
     @MaHD NVARCHAR(5) = NULL, 
     @TenHopDong NVARCHAR(50) = NULL, 
@@ -474,7 +474,7 @@ exec searchConTractOnContractTrackingForSale @HoTen = N'A'
 exec searchConTractOnContractTrackingForSale
 
 
-		--Procedure lọc ngày bắt đầu và kết thúc --
+		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSale --
 CREATE PROC searchContractByTimeOnContractTrackingForSale
     @NgayBatDau DATE = NULL,
 	@NgayKetThuc DATE = NULL
@@ -503,7 +503,7 @@ exec searchContractByTimeOnContractTrackingForSale @NgayBatDau = '2024-11-23', @
 exec searchContractByTimeOnContractTrackingForSale
 
 
-		--Procedure search tình trạng hợp đồng --
+		--Procedure search tình trạng hợp đồng On ContractTrackingForSale --
 CREATE PROC searchTinhTrangHopDongOnContractTrackingForSale
     @TinhTrangHD NVARCHAR(20) = NULL
 AS
@@ -529,7 +529,7 @@ drop proc searchTinhTrangHopDongOnContractTrackingForSale
 exec searchTinhTrangHopDongOnContractTrackingForSale @TinhTrangHD = N'Đã xong'
 exec searchTinhTrangHopDongOnContractTrackingForSale
 
-		-- Procedure search nhân viên phụ trách --
+		-- Procedure search nhân viên phụ trách On ContractTrackingForSale --
 CREATE PROC searchNhanVienPhuTrachOnContractTrackingForSale
     @HoTen NVARCHAR(50) = NULL,
 	@VaiTro NVARCHAR(20) = NULL
@@ -598,6 +598,130 @@ exec searchConTractOnProjectProgress @MaHD = 'HD002'
 exec searchConTractOnProjectProgress @NVThucHienCV = N'A'
 exec searchConTractOnProjectProgress
 
+		-- Procedure search Time on ProjectProgress
+CREATE PROC searchTimeOnProjectProgress
+    @NgayBatDau DATE = NULL,
+	@NgayKetThuc DATE = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+    WHERE (@NgayBatDau IS NULL OR td.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR td.NgayKetThuc <= @NgayKetThuc)
+END
+GO
+
+
+drop proc searchTimeOnProjectProgress
+exec searchTimeOnProjectProgress @NgayBatDau = '2024-10-13', @NgayKetThuc = '2024-11-30'
+exec searchTimeOnProjectProgress
+
+
+		-- Procedure search Tình trạng hợp đồng on ProjectProgress
+CREATE PROC searchTinhTrangHopDongOnProjectProgress
+	@TinhTrangHD NVARCHAR(20) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+    WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)
+END
+GO
+
+
+drop proc searchTinhTrangHopDongOnProjectProgress
+exec searchTinhTrangHopDongOnProjectProgress @TinhTrangHD = N'Chưa thực hiện'
+exec searchTinhTrangHopDongOnProjectProgress
+
+
+		-- Procedure search Nhân viên phụ trách on ProjectProgress
+CREATE PROC searchNhanVienPhuTrachOnProjectProgress
+    @HoTen NVARCHAR(50) = NULL,
+	@VaiTro NVARCHAR(20) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+	INNER JOIN NGUOIDUNG AS nv ON nv.MaNV = td.MaNV
+    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen) AND nv.VaiTro LIKE N'Sale'
+END
+GO
+
+drop proc searchNhanVienPhuTrachOnProjectProgress
+exec searchNhanVienPhuTrachOnProjectProgress @HoTen = N'Tony Bảo'
+exec searchNhanVienPhuTrachOnProjectProgress
+
+
+-- procedure dung cho Form PaymentProgress
+		--Procedure search Contract On PaymentProgress
+CREATE PROC searchConTractOnProjectProgress
+    @MaHD NVARCHAR(5) = NULL, 
+    @TenHopDong NVARCHAR(50) = NULL,
+	@NoiDungCV NVARCHAR(50) = NULL,
+	@TongKhoiLuongCV INT = NULL,  
+    @KhoiLuongCV INT = NULL, 
+    @NVThucHienCV NVARCHAR(50) = NULL,
+    @TinhTrangHD NVARCHAR(20) = NULL
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng]
+    FROM HOPDONG AS hd
+	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
+    WHERE (@MaHD IS NULL OR hd.MaHD LIKE '%' + @MaHD + '%')
+      AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
+      AND (@NoiDungCV IS NULL OR td.NoiDungCV LIKE '%' + @NoiDungCV + '%')
+      AND (@TongKhoiLuongCV IS NULL OR td.TongKhoiLuongCV LIKE '%' + @TongKhoiLuongCV + '%')
+      AND (@KhoiLuongCV IS NULL OR td.KhoiLuongCV LIKE '%' + @KhoiLuongCV + '%')
+	  AND (@NVThucHienCV IS NULL OR td.NVThucHienCV LIKE '%' + @NVThucHienCV + '%')
+      AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD LIKE '%' + @TinhTrangHD + '%')
+END
+GO
+
+
+drop proc searchConTractOnProjectProgress
+exec searchConTractOnProjectProgress @MaHD = 'HD002'
+exec searchConTractOnProjectProgress @NVThucHienCV = N'A'
+exec searchConTractOnProjectProgress
+
+
 -- UPDATE DATA
 		-- Procedure Đổi mật khẩu --
 create proc changePassword
@@ -641,7 +765,7 @@ delete  NGUOIDUNG
 select * from NGUOIDUNG
 
 
-		--Procedure insert tiến độ --
+		--Procedure insert tiến độ hợp đồng --
 create proc insertProgress
 	@NgayBatDau DATE,
 	@NgayKetThuc DATE,
@@ -657,14 +781,36 @@ begin
     WHERE MaHD LIKE 'HD%'
     ORDER BY MaHD DESC;
 	
-	insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-	values (@NgayBatDau, @NgayKetThuc, @MaHD, @MaNV, @NVThucHienCV, @NoiDungCV)
+	insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD,MaNV, NVThucHienCV, NoiDungCV)
+	values (@NgayBatDau, @NgayKetThuc, @MaHD,@MaNV, @NVThucHienCV, @NoiDungCV)
 end
 go
 
-exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', @MaHD = 'HD001', 
-					@MaNV = 0, @NVThucHienCV = N'nguyễn hữu thọ quận 7', @NoiDungCV = N'IT'
+drop proc insertProgress
+exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 
+					@MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
 
+
+		--Procedure insert giai đoạn thanh toán
+create proc insertGiaiDoanThanhToan
+	@NgayNhanThanhToan DATE,
+	@GhiChu NVARCHAR(50),
+	@NhanVienQuanLy NVARCHAR(5)
+
+as
+begin
+	DECLARE @MaHD NVARCHAR(5);
+    SELECT TOP 1 @MaHD = MaHD
+    FROM HOPDONG
+    WHERE MaHD LIKE 'HD%'
+    ORDER BY MaHD DESC;
+	
+	insert into GIAIDOANTHANHTOAN(MaHD, NgayNhanThanhToan, GhiChu, NhanVienQuanLy)
+	values (@MaHD, @NgayNhanThanhToan, @GhiChu, @NhanVienQuanLy)
+end
+go
+
+exec insertGiaiDoanThanhToan @NgayNhanThanhToan = '2025-1-2', @GhiChu = N'Thanh toán giai đoạn 1', @NhanVienQuanLy = '00003'
 
 
 

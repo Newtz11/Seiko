@@ -36,6 +36,7 @@
             labelTienDoCongViec = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxListUser = new GroupBox();
+            buttonReset = new Button();
             dateTimePicker2 = new DateTimePicker();
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
@@ -87,6 +88,7 @@
             // 
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
+            groupBoxListUser.Controls.Add(buttonReset);
             groupBoxListUser.Controls.Add(dateTimePicker2);
             groupBoxListUser.Controls.Add(label2);
             groupBoxListUser.Controls.Add(dateTimePicker1);
@@ -105,6 +107,20 @@
             groupBoxListUser.Size = new Size(1298, 808);
             groupBoxListUser.TabIndex = 50;
             groupBoxListUser.TabStop = false;
+            // 
+            // buttonReset
+            // 
+            buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.FlatStyle = FlatStyle.Popup;
+            buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReset.ForeColor = Color.White;
+            buttonReset.Location = new Point(825, 174);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(106, 33);
+            buttonReset.TabIndex = 35;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker2
             // 
@@ -150,9 +166,9 @@
             buttonSua.FlatStyle = FlatStyle.Popup;
             buttonSua.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSua.ForeColor = Color.White;
-            buttonSua.Location = new Point(1067, 178);
+            buttonSua.Location = new Point(1087, 175);
             buttonSua.Name = "buttonSua";
-            buttonSua.Size = new Size(74, 30);
+            buttonSua.Size = new Size(84, 32);
             buttonSua.TabIndex = 31;
             buttonSua.Text = "Sửa";
             buttonSua.UseVisualStyleBackColor = false;
@@ -162,7 +178,7 @@
             comboBox1.Anchor = AnchorStyles.Top;
             comboBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(698, 175);
+            comboBox1.Location = new Point(627, 171);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(164, 31);
             comboBox1.TabIndex = 30;
@@ -281,7 +297,7 @@
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxTinhTrang.Location = new Point(509, 175);
+            comboBoxTinhTrang.Location = new Point(442, 171);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             comboBoxTinhTrang.Size = new Size(161, 31);
             comboBoxTinhTrang.TabIndex = 4;
@@ -294,7 +310,7 @@
             buttonXoa.FlatStyle = FlatStyle.Popup;
             buttonXoa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonXoa.ForeColor = Color.White;
-            buttonXoa.Location = new Point(1167, 176);
+            buttonXoa.Location = new Point(1195, 175);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(84, 32);
             buttonXoa.TabIndex = 20;
@@ -308,9 +324,9 @@
             buttonTaoTaiKhoan.FlatStyle = FlatStyle.Popup;
             buttonTaoTaiKhoan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTaoTaiKhoan.ForeColor = Color.White;
-            buttonTaoTaiKhoan.Location = new Point(920, 178);
+            buttonTaoTaiKhoan.Location = new Point(957, 174);
             buttonTaoTaiKhoan.Name = "buttonTaoTaiKhoan";
-            buttonTaoTaiKhoan.Size = new Size(117, 30);
+            buttonTaoTaiKhoan.Size = new Size(104, 32);
             buttonTaoTaiKhoan.TabIndex = 19;
             buttonTaoTaiKhoan.Text = "Thêm mới";
             buttonTaoTaiKhoan.UseVisualStyleBackColor = false;
@@ -322,7 +338,7 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(1145, 86);
+            buttonSearch.Location = new Point(1173, 88);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(106, 33);
             buttonSearch.TabIndex = 17;
@@ -397,5 +413,6 @@
         private DataGridViewTextBoxColumn TienDo;
         private DataGridViewTextBoxColumn NguoiThucHien;
         private DataGridViewTextBoxColumn TinhTrang;
+        private Button buttonReset;
     }
 }

@@ -24,6 +24,7 @@ namespace Design
             ApplyRoundedCorners(buttonTaoTaiKhoan);
             ApplyRoundedCorners(buttonXoa);
             ApplyRoundedCorners(buttonSua);
+            ApplyRoundedCorners(buttonReset);
             this.user = user;   
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn

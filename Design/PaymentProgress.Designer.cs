@@ -35,6 +35,7 @@
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxTienDoThanhToan = new GroupBox();
+            buttonReset = new Button();
             comboBoxTrangThai = new ComboBox();
             labelTrangThai = new Label();
             dateTimePickerEnd = new DateTimePicker();
@@ -77,6 +78,7 @@
             // 
             groupBoxTienDoThanhToan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxTienDoThanhToan.BackColor = Color.LightGray;
+            groupBoxTienDoThanhToan.Controls.Add(buttonReset);
             groupBoxTienDoThanhToan.Controls.Add(comboBoxTrangThai);
             groupBoxTienDoThanhToan.Controls.Add(labelTrangThai);
             groupBoxTienDoThanhToan.Controls.Add(dateTimePickerEnd);
@@ -95,6 +97,20 @@
             groupBoxTienDoThanhToan.Size = new Size(1276, 812);
             groupBoxTienDoThanhToan.TabIndex = 31;
             groupBoxTienDoThanhToan.TabStop = false;
+            // 
+            // buttonReset
+            // 
+            buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.FlatStyle = FlatStyle.Popup;
+            buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReset.ForeColor = Color.White;
+            buttonReset.Location = new Point(623, 149);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(130, 45);
+            buttonReset.TabIndex = 82;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
             // 
             // comboBoxTrangThai
             // 
@@ -118,7 +134,7 @@
             // dateTimePickerEnd
             // 
             dateTimePickerEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePickerEnd.Location = new Point(792, 99);
+            dateTimePickerEnd.Location = new Point(822, 100);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.Size = new Size(262, 27);
             dateTimePickerEnd.TabIndex = 77;
@@ -135,7 +151,7 @@
             labelNgayNhanTT.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelNgayNhanTT.AutoSize = true;
             labelNgayNhanTT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayNhanTT.Location = new Point(593, 98);
+            labelNgayNhanTT.Location = new Point(623, 99);
             labelNgayNhanTT.Name = "labelNgayNhanTT";
             labelNgayNhanTT.Size = new Size(193, 25);
             labelNgayNhanTT.TabIndex = 79;
@@ -411,5 +427,6 @@
         private DataGridViewTextBoxColumn GhiChu;
         private ComboBox comboBoxTrangThai;
         private Label labelTrangThai;
+        private Button buttonReset;
     }
 }

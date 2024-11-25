@@ -152,6 +152,7 @@
             // 
             // comboBoxTrangThai
             // 
+            comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Items.AddRange(new object[] { "Đang hoạt động", "Ngưng hoạt động" });
@@ -163,6 +164,7 @@
             // comboBoxChucVu
             // 
             comboBoxChucVu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxChucVu.Enabled = false;
             comboBoxChucVu.FormattingEnabled = true;
             comboBoxChucVu.Items.AddRange(new object[] { "Nhân viên Sale", "Trưởng phòng Sale", "Kế toán", "Kế toán trưởng", "Giám đốc", "Super Admin" });
             comboBoxChucVu.Location = new Point(252, 537);
@@ -173,6 +175,7 @@
             // comboBoxPhongBan
             // 
             comboBoxPhongBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxPhongBan.Enabled = false;
             comboBoxPhongBan.FormattingEnabled = true;
             comboBoxPhongBan.Items.AddRange(new object[] { "Sale", "Kế toán", "Giám đốc", "IT" });
             comboBoxPhongBan.Location = new Point(252, 486);
@@ -228,6 +231,7 @@
             // 
             radioButtonNu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButtonNu.AutoSize = true;
+            radioButtonNu.Enabled = false;
             radioButtonNu.Location = new Point(334, 392);
             radioButtonNu.Name = "radioButtonNu";
             radioButtonNu.Size = new Size(50, 24);
@@ -240,6 +244,7 @@
             // 
             radioButtonNam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButtonNam.AutoSize = true;
+            radioButtonNam.Enabled = false;
             radioButtonNam.Location = new Point(251, 392);
             radioButtonNam.Name = "radioButtonNam";
             radioButtonNam.Size = new Size(62, 24);
@@ -282,6 +287,7 @@
             // 
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxEmail.BorderStyle = BorderStyle.FixedSingle;
+            textBoxEmail.Enabled = false;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.Location = new Point(250, 638);
             textBoxEmail.Name = "textBoxEmail";
@@ -303,6 +309,7 @@
             // 
             textBoxDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxDiaChi.BorderStyle = BorderStyle.FixedSingle;
+            textBoxDiaChi.Enabled = false;
             textBoxDiaChi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxDiaChi.Location = new Point(250, 586);
             textBoxDiaChi.Name = "textBoxDiaChi";
@@ -324,6 +331,7 @@
             // 
             textBoxSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSDT.BorderStyle = BorderStyle.FixedSingle;
+            textBoxSDT.Enabled = false;
             textBoxSDT.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSDT.Location = new Point(252, 438);
             textBoxSDT.Name = "textBoxSDT";
@@ -367,6 +375,7 @@
             // 
             textBoxTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTenNhanVien.BorderStyle = BorderStyle.FixedSingle;
+            textBoxTenNhanVien.Enabled = false;
             textBoxTenNhanVien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxTenNhanVien.Location = new Point(251, 289);
             textBoxTenNhanVien.Name = "textBoxTenNhanVien";
@@ -388,6 +397,7 @@
             // 
             textBoxMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxMaNhanVien.BorderStyle = BorderStyle.FixedSingle;
+            textBoxMaNhanVien.Enabled = false;
             textBoxMaNhanVien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxMaNhanVien.Location = new Point(252, 239);
             textBoxMaNhanVien.Name = "textBoxMaNhanVien";
@@ -431,17 +441,20 @@
             // 
             textBoxMatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxMatKhau.BorderStyle = BorderStyle.FixedSingle;
+            textBoxMatKhau.Enabled = false;
             textBoxMatKhau.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxMatKhau.Location = new Point(403, 101);
             textBoxMatKhau.Name = "textBoxMatKhau";
             textBoxMatKhau.PasswordChar = '*';
             textBoxMatKhau.Size = new Size(207, 30);
             textBoxMatKhau.TabIndex = 2;
+            textBoxMatKhau.UseSystemPasswordChar = true;
             // 
             // textBoxTenDangNhap
             // 
             textBoxTenDangNhap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
+            textBoxTenDangNhap.Enabled = false;
             textBoxTenDangNhap.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxTenDangNhap.Location = new Point(403, 54);
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";

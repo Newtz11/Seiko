@@ -35,6 +35,7 @@
             pictureBoxIconContractTracking = new PictureBox();
             labelContractTracking = new Label();
             groupBoxListUser = new GroupBox();
+            buttonReset = new Button();
             comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
@@ -85,6 +86,7 @@
             // 
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
+            groupBoxListUser.Controls.Add(buttonReset);
             groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
@@ -102,6 +104,20 @@
             groupBoxListUser.Size = new Size(1300, 802);
             groupBoxListUser.TabIndex = 16;
             groupBoxListUser.TabStop = false;
+            // 
+            // buttonReset
+            // 
+            buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.FlatStyle = FlatStyle.Popup;
+            buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReset.ForeColor = Color.White;
+            buttonReset.Location = new Point(878, 203);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(106, 33);
+            buttonReset.TabIndex = 8;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
             // 
             // comboBoxSale
             // 
@@ -391,5 +407,6 @@
         private DataGridViewTextBoxColumn GiaTriHopDong;
         private DataGridViewTextBoxColumn TinhTrangHopDong;
         private DataGridViewTextBoxColumn PhuTrachQuanLy;
+        private Button buttonReset;
     }
 }

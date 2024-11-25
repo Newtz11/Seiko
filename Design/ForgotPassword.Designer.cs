@@ -43,6 +43,7 @@
             // 
             // pictureBoxLogo0
             // 
+            pictureBoxLogo0.Anchor = AnchorStyles.Top;
             pictureBoxLogo0.Image = Properties.Resources.logo0;
             pictureBoxLogo0.Location = new Point(223, 12);
             pictureBoxLogo0.Name = "pictureBoxLogo0";
@@ -53,6 +54,7 @@
             // 
             // labelForgotPassword
             // 
+            labelForgotPassword.Anchor = AnchorStyles.Top;
             labelForgotPassword.AutoSize = true;
             labelForgotPassword.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelForgotPassword.Location = new Point(107, 72);
@@ -64,7 +66,7 @@
             // 
             // buttonSendOTP
             // 
-            buttonSendOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSendOTP.Anchor = AnchorStyles.Top;
             buttonSendOTP.BackColor = Color.DodgerBlue;
             buttonSendOTP.FlatStyle = FlatStyle.Popup;
             buttonSendOTP.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -79,7 +81,7 @@
             // 
             // buttonBack
             // 
-            buttonBack.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonBack.Anchor = AnchorStyles.Top;
             buttonBack.BackColor = Color.Crimson;
             buttonBack.FlatStyle = FlatStyle.Popup;
             buttonBack.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -90,10 +92,11 @@
             buttonBack.TabIndex = 20;
             buttonBack.Text = "Quay lại";
             buttonBack.UseVisualStyleBackColor = false;
+            buttonBack.Click += buttonBack_Click;
             // 
             // buttonConfirmOTP
             // 
-            buttonConfirmOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonConfirmOTP.Anchor = AnchorStyles.Top;
             buttonConfirmOTP.BackColor = Color.DodgerBlue;
             buttonConfirmOTP.FlatStyle = FlatStyle.Popup;
             buttonConfirmOTP.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
@@ -108,7 +111,7 @@
             // 
             // textBoxOTP
             // 
-            textBoxOTP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxOTP.Anchor = AnchorStyles.Top;
             textBoxOTP.BorderStyle = BorderStyle.FixedSingle;
             textBoxOTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxOTP.Location = new Point(48, 315);
@@ -120,7 +123,7 @@
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxEmail.Anchor = AnchorStyles.Top;
             textBoxEmail.BorderStyle = BorderStyle.FixedSingle;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.Location = new Point(48, 204);
@@ -132,6 +135,7 @@
             // 
             // labelOTP
             // 
+            labelOTP.Anchor = AnchorStyles.Top;
             labelOTP.AutoSize = true;
             labelOTP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelOTP.Location = new Point(32, 265);
@@ -142,6 +146,7 @@
             // 
             // labelEmail
             // 
+            labelEmail.Anchor = AnchorStyles.Top;
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelEmail.Location = new Point(32, 160);

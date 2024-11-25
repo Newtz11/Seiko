@@ -17,6 +17,7 @@ namespace Design
         {
             InitializeComponent();
             ApplyRoundedCorners(button1);
+            ApplyRoundedCorners(buttonReset);
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn

@@ -27,7 +27,7 @@ namespace Design
             ApplyRoundedCorners(buttonConfirmOTP);
             ApplyRoundedCorners(buttonSendOTP);
             ApplyRoundedCorners(buttonBack);
-            
+
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -75,7 +75,7 @@ namespace Design
 
             NguoiDung checkMail = NguoiDungBLL.checkEmail(to);
 
-            if (checkMail != null) 
+            if (checkMail != null)
             {
                 // neu mail co trong database thi gui mail
 
@@ -107,15 +107,15 @@ namespace Design
                 MessageBox.Show("Khong ton tai mail trong he thong");
             }
 
-           
+
 
         }
 
-        
+
 
         private void buttonConfirmOTP_Click(object sender, EventArgs e)
         {
-            if (verificationCode.Equals(textBoxOTP.Text.ToString())) 
+            if (verificationCode.Equals(textBoxOTP.Text.ToString()))
             {
                 CreatePassword fCreatePassword = new CreatePassword(this.user);
                 this.Close();
@@ -126,7 +126,5 @@ namespace Design
                 MessageBox.Show("Wrong verified code please try again!");
             }
         }
-
-        
     }
 }
