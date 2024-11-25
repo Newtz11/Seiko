@@ -115,7 +115,7 @@ namespace Design
                 foreach (DataRow row in dt.Rows)
                 {
 
-                    string tenDangNhap = row["Tên đăng nhập"].ToString();
+                    string tenDangNhap = row["Tên đăng nhập"].ToString();
                     string mail = row["Email"].ToString();
                     string tenNguoiDung = row["Tên người dùng"].ToString();
                     string maNguoiDung = row["Mã người dùng"].ToString();

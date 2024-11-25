@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractTrackingForAccountant));
-            comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
             buttonThem = new Button();
@@ -65,17 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             SuspendLayout();
             // 
-            // comboBoxSale
-            // 
-            comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxSale.Location = new Point(232, 201);
-            comboBoxSale.Name = "comboBoxSale";
-            comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 6;
-            comboBoxSale.Text = "Nhân viên phụ trách";
-            // 
             // comboBoxTinhTrang
             // 
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -83,7 +71,7 @@
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
             comboBoxTinhTrang.Location = new Point(33, 201);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
-            comboBoxTinhTrang.Size = new Size(159, 31);
+            comboBoxTinhTrang.Size = new Size(200, 31);
             comboBoxTinhTrang.TabIndex = 5;
             comboBoxTinhTrang.Text = "Tình trạng";
             // 
@@ -198,38 +186,38 @@
             dataGridViewContractTracking.BackgroundColor = Color.White;
             dataGridViewContractTracking.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewContractTracking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.DarkGray;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewContractTracking.ColumnHeadersHeight = 60;
             dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrangHopDong, PhuTrachThanhToan });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewContractTracking.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractTracking.Location = new Point(23, 265);
             dataGridViewContractTracking.Name = "dataGridViewContractTracking";
             dataGridViewContractTracking.ReadOnly = true;
             dataGridViewContractTracking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridViewContractTracking.RowHeadersVisible = false;
             dataGridViewContractTracking.RowHeadersWidth = 51;
             dataGridViewContractTracking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -311,7 +299,6 @@
             groupBoxListUser.Controls.Add(button1);
             groupBoxListUser.Controls.Add(button2);
             groupBoxListUser.Controls.Add(button3);
-            groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonThem);
@@ -388,6 +375,7 @@
             button3.TabIndex = 2;
             button3.Text = "Tìm kiếm";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // labelContractTracking
             // 
@@ -430,7 +418,6 @@
         }
 
         #endregion
-        private ComboBox comboBoxSale;
         private ComboBox comboBoxTinhTrang;
         private Button buttonXoa;
         private Button buttonThem;

@@ -36,7 +36,6 @@
             labelContractTracking = new Label();
             groupBoxListUser = new GroupBox();
             buttonReset = new Button();
-            comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
             buttonThem = new Button();
@@ -87,7 +86,6 @@
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
             groupBoxListUser.Controls.Add(buttonReset);
-            groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonThem);
@@ -118,17 +116,7 @@
             buttonReset.TabIndex = 8;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxSale
-            // 
-            comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxSale.Location = new Point(232, 201);
-            comboBoxSale.Name = "comboBoxSale";
-            comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 5;
-            comboBoxSale.Text = "Nhân viên phụ trách";
+            buttonReset.Click += buttonReset_Click;
             // 
             // comboBoxTinhTrang
             // 
@@ -137,7 +125,7 @@
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
             comboBoxTinhTrang.Location = new Point(33, 201);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
-            comboBoxTinhTrang.Size = new Size(159, 31);
+            comboBoxTinhTrang.Size = new Size(200, 31);
             comboBoxTinhTrang.TabIndex = 4;
             comboBoxTinhTrang.Text = "Tình trạng";
             // 
@@ -397,7 +385,6 @@
         private DateTimePicker dateTimePickerStart;
         private Button buttonXoa;
         private ComboBox comboBoxTinhTrang;
-        private ComboBox comboBoxSale;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn TenCongTyCaNhan;

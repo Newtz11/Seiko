@@ -50,5 +50,55 @@ namespace BLL
 
             return hd;
         }
+
+        public static DataTable searchConTract(string searchHopDong, string searchTinhTrang, DateTime searchTimeStart, DateTime searchTimeEnd)
+        {
+            DataTable dtHopDong = new DataTable();
+            DataTable dtTinhTrang = new DataTable();
+            DataTable dtTime = new DataTable();
+            DataTable mergedDataTable = new DataTable();
+            List<DataTable> nonEmptyTables = new List<DataTable>();
+
+            if (!string.IsNullOrEmpty(searchHopDong))
+            {
+                dtHopDong = HopDongDAO.Instance.searchContractList(searchHopDong);
+                
+            }
+
+            if (!string.IsNullOrEmpty(searchTinhTrang)) dtTinhTrang = HopDongDAO.Instance.searchContractByTinhTrang(searchTinhTrang);
+            if (searchTimeStart != DateTime.MinValue && searchTimeEnd != DateTime.MinValue)
+            {
+                dtTime = HopDongDAO.Instance.searchContractByTime(searchTimeStart, searchTimeEnd);
+            }
+
+            if (dtHopDong.Rows.Count > 0) nonEmptyTables.Add(dtHopDong);
+            if (dtTinhTrang.Rows.Count > 0) nonEmptyTables.Add(dtTinhTrang);
+            if (dtTime.Rows.Count > 0) nonEmptyTables.Add(dtTime);
+
+            // Merge the non-empty DataTables
+            if (nonEmptyTables.Count > 0)
+            {
+                mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
+                foreach (DataRow row in nonEmptyTables[0].Rows)
+                {
+                    bool isInAllTables = true;
+                    foreach (DataTable table in nonEmptyTables.Skip(1))
+                    {
+                        var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
+                        if (matchingRows.Length == 0)
+                        {
+                            isInAllTables = false;
+                            break;
+                        }
+                    }
+
+                    if (isInAllTables)
+                    {
+                        mergedDataTable.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            return mergedDataTable;
+        }
     }
 }

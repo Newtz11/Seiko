@@ -197,7 +197,6 @@ namespace Design
                 {
                     mess.Body = "Your account is: " + TenDangNhap + "\n" + "Your password is: 12345 ";
                     smtp.Send(mess);
-                    MessageBox.Show("Verified Code sent successful");
                 }
                 catch (Exception ex)
                 {

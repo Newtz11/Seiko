@@ -153,7 +153,7 @@ namespace DAO
 
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {                    
-                    new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 5) { Value = newAccount.tenDangNhap },
+                    new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = newAccount.tenDangNhap },
                     new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = newAccount.hoTen },
                     new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = newAccount.ngaySinh },
                     new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
