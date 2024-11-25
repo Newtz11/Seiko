@@ -236,6 +236,7 @@
             dataGridViewThongTinThanhToan.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinThanhToan.Location = new Point(68, 671);
             dataGridViewThongTinThanhToan.Name = "dataGridViewThongTinThanhToan";
+            dataGridViewThongTinThanhToan.ReadOnly = true;
             dataGridViewThongTinThanhToan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -264,6 +265,7 @@
             GiaiDoan.HeaderText = "Giai đoạn";
             GiaiDoan.MinimumWidth = 6;
             GiaiDoan.Name = "GiaiDoan";
+            GiaiDoan.ReadOnly = true;
             // 
             // NgayThanhToan
             // 
@@ -272,6 +274,7 @@
             NgayThanhToan.HeaderText = "Ngày thanh toán";
             NgayThanhToan.MinimumWidth = 6;
             NgayThanhToan.Name = "NgayThanhToan";
+            NgayThanhToan.ReadOnly = true;
             // 
             // PhanTramThanhToan
             // 
@@ -280,6 +283,7 @@
             PhanTramThanhToan.HeaderText = "Phần trăm thanh toán(%)";
             PhanTramThanhToan.MinimumWidth = 6;
             PhanTramThanhToan.Name = "PhanTramThanhToan";
+            PhanTramThanhToan.ReadOnly = true;
             // 
             // GiaTriThanhToan
             // 
@@ -288,6 +292,7 @@
             GiaTriThanhToan.HeaderText = "Giá trị thanh toán";
             GiaTriThanhToan.MinimumWidth = 6;
             GiaTriThanhToan.Name = "GiaTriThanhToan";
+            GiaTriThanhToan.ReadOnly = true;
             // 
             // TrangThai
             // 
@@ -296,6 +301,7 @@
             TrangThai.HeaderText = "Trạng thái";
             TrangThai.MinimumWidth = 6;
             TrangThai.Name = "TrangThai";
+            TrangThai.ReadOnly = true;
             // 
             // GhiChu
             // 
@@ -304,6 +310,7 @@
             GhiChu.HeaderText = "Ghi chú";
             GhiChu.MinimumWidth = 6;
             GhiChu.Name = "GhiChu";
+            GhiChu.ReadOnly = true;
             // 
             // buttonXoaThanhToan
             // 
@@ -374,6 +381,7 @@
             dataGridViewThongTinSale.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewThongTinSale.Location = new Point(725, 354);
             dataGridViewThongTinSale.Name = "dataGridViewThongTinSale";
+            dataGridViewThongTinSale.ReadOnly = true;
             dataGridViewThongTinSale.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.Control;
@@ -402,6 +410,7 @@
             MaNhanVien.HeaderText = "Mã nhân viên";
             MaNhanVien.MinimumWidth = 6;
             MaNhanVien.Name = "MaNhanVien";
+            MaNhanVien.ReadOnly = true;
             // 
             // TenNhanVien
             // 
@@ -410,6 +419,7 @@
             TenNhanVien.HeaderText = "Tên nhân viên";
             TenNhanVien.MinimumWidth = 6;
             TenNhanVien.Name = "TenNhanVien";
+            TenNhanVien.ReadOnly = true;
             // 
             // HoaHong
             // 
@@ -418,6 +428,7 @@
             HoaHong.HeaderText = "Hoa hồng (%)";
             HoaHong.MinimumWidth = 6;
             HoaHong.Name = "HoaHong";
+            HoaHong.ReadOnly = true;
             // 
             // TinhTrang
             // 
@@ -426,6 +437,7 @@
             TinhTrang.HeaderText = "Tình trạng";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
+            TinhTrang.ReadOnly = true;
             // 
             // buttonXoaSale
             // 
@@ -765,6 +777,7 @@
             buttonSua.TabIndex = 20;
             buttonSua.Text = "Sửa";
             buttonSua.UseVisualStyleBackColor = false;
+            buttonSua.Click += buttonSua_Click;
             // 
             // buttonLuu
             // 
@@ -779,6 +792,7 @@
             buttonLuu.TabIndex = 21;
             buttonLuu.Text = "Lưu";
             buttonLuu.UseVisualStyleBackColor = false;
+            buttonLuu.Click += buttonLuu_Click;
             // 
             // ContractDetail
             // 

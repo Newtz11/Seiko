@@ -91,5 +91,26 @@ namespace Design
             this.Close();
             f.Show();
         }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            //neu nguoi dung la ke toan thi cho phep sua hinh thuc thanh toan va them giai doan
+            if (user.vaiTro == "Trưởng phòng Kế toán")
+            {
+                comboBoxHinhThucTT.Enabled = true;
+
+            }
+        }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+            //neu nguoi dung la ke toan thi cho phep sua hinh thuc thanh toan va them giai doan
+            if (user.vaiTro == "Trưởng phòng Kế toán")
+            {
+
+                comboBoxHinhThucTT.Enabled = false;
+
+            }
+        }
     }
 }

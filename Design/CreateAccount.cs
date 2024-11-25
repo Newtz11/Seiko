@@ -160,13 +160,23 @@ namespace Design
             string Mail = textBoxEmail.Text.ToString().Trim();
             string SDT = textBoxPhoneNumber.Text.ToString().Trim();
             NguoiDung newAccount = new NguoiDung(TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT);
+            // check xem mail co ton tai trong he thong hay khong
+
+            bool checkMail = NguoiDungBLL.checkMailTrung(newAccount);
+
+            if (checkMail)
+            {
+                MessageBox.Show("Mail bị trùng!");
+
+            }
+
             bool createAcc = NguoiDungBLL.createAccount(newAccount);
             if (createAcc) 
             {
                 MessageBox.Show("Tạo tài khoản thành công!");
                 this.Close();
             }
-            else MessageBox.Show("Tạo tài khoản không thành công!");
+            else MessageBox.Show("Tên đăng nhập bị trùng!");
         }
 
         private void labelCreateAccount_Click(object sender, EventArgs e)

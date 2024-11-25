@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAO;
 using System.Data;
+using System.Security.Principal;
 
 
 namespace BLL
@@ -137,6 +138,12 @@ namespace BLL
         public static bool createAccount(NguoiDung newAccount)
         {
             return NguoiDungDAO.Instance.createAccount(newAccount);
+        }
+
+
+        public static bool checkMailTrung(NguoiDung newMail)
+        {
+            return NguoiDungDAO.Instance.checkMailTrung(newAccount)
         }
     }
 }

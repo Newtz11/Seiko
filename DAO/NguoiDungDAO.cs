@@ -178,5 +178,16 @@ namespace DAO
 
             return result;
         }
+
+
+        // check mail trugn luc tao tai khoan
+
+        public bool checkMailTrung(NguoiDung newMail)
+        {
+            string query = "select MaNV, TenDangNhap, MatKhau, Mail from NGUOIDUNG where Mail = '" + newMail.mail + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return !(dt.Rows.Count > 0);
+        }
+        
     }
 }

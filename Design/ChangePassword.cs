@@ -122,5 +122,7 @@ namespace Design
             /* Validate điền mật khẩu */
             // Kiểm tra điền mật khẩu mới
         }
+
+        
     }
 }
