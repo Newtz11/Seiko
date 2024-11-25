@@ -72,6 +72,8 @@ namespace Design
             dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
+            comboBoxPhongBan.Items.Clear();
+            comboBoxPhongBan.Items.Add("Chọn phòng ban");
             comboBoxPhongBan.Items.Add("Kế toán");
             comboBoxPhongBan.Items.Add("Sale");
             comboBoxPhongBan.Items.Add("Giám đốc");
@@ -185,21 +187,32 @@ namespace Design
         private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
         {
             string phongBan = comboBoxPhongBan.Text.ToString();
+           
             if (phongBan == "Kế toán")
             {
                 comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
                 comboBoxChucVu.Items.Add("Kế toán");
                 comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
-            } else if (phongBan == "Sale")
+            }
+            else if (phongBan == "Sale")
             {
                 comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
                 comboBoxChucVu.Items.Add("Sale");
                 comboBoxChucVu.Items.Add("Trưởng phòng Sale");
-            } else 
-                    {
-                comboBoxChucVu.Items.Clear();
-                comboBoxChucVu.Items.Add("Giám đốc"); 
             }
+            else
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
+                comboBoxChucVu.Items.Add("Giám đốc");
+            }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
