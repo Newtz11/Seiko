@@ -52,7 +52,7 @@ namespace Design
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            string searchHopDong = textBoxSearch.Text.ToString();
+            string searchHopDong = textBoxSearch.Text.ToString().Trim();
             string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
             DateTime searchTimeStart = dateTimePickerStart.Value;
             DateTime searchTimeEnd = dateTimePickerEnd.Value;

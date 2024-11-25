@@ -211,7 +211,7 @@ namespace Design
             // If there's only one part (no hyphens), treat it as a single contract process
             if (parts.Length == 1)
             {
-                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, parts[0]);
+                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungHopDong);
                 TienDoHopDongBLL.createContractProcess(td);
             }
             else
@@ -219,7 +219,11 @@ namespace Design
                 // Multiple parts (with hyphens), process each part as a separate contract process
                 foreach (string noiDungCV in parts)
                 {
-                    TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV);
+                    if (noiDungCV.Trim() == "")
+                    {
+                        continue;
+                    }
+                    TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV.Trim());
                     TienDoHopDongBLL.createContractProcess(td);
                 }
             }
