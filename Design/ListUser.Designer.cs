@@ -272,6 +272,7 @@
             buttonXoa.TabIndex = 20;
             buttonXoa.Text = "Xóa";
             buttonXoa.UseVisualStyleBackColor = false;
+            buttonXoa.Click += buttonXoa_Click;
             // 
             // buttonTaoTaiKhoan
             // 

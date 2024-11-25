@@ -47,10 +47,7 @@ namespace BLL
             return user;
         }
 
-        public static DataTable searchName(string hoTen)
-        {
-            return NguoiDungDAO.Instance.searchName(hoTen);
-        }
+        
 
 
         public static DataTable loadUser()
@@ -93,8 +90,11 @@ namespace BLL
             DataTable mergedDataTable = new DataTable();
             List<DataTable> nonEmptyTables = new List<DataTable>();
             int tinhTrangHd;
-            if (!string.IsNullOrEmpty(ten)) dtTen = NguoiDungDAO.Instance.searchUserListByName(ten);
-            if (!string.IsNullOrEmpty(phongBan)) dtPhongBan = NguoiDungDAO.Instance.searchUserListByphongBan(phongBan);
+            if (!string.IsNullOrEmpty(ten))
+            {
+                dtTen = NguoiDungDAO.Instance.searchUserListByName(ten);
+            }
+            if (!string.IsNullOrEmpty(phongBan)) dtPhongBan = NguoiDungDAO.Instance.searchUserListByPhongBan(phongBan);
             if (!string.IsNullOrEmpty(chucVu)) dtChucVu = NguoiDungDAO.Instance.searchUserListByChucVu(chucVu);
             if (string.IsNullOrEmpty(tinhTrang))
             {
@@ -145,5 +145,8 @@ namespace BLL
         {
             return NguoiDungDAO.Instance.checkMailTrung(newMail);
         }
+
+
+        
     }
 }

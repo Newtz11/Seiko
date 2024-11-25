@@ -220,6 +220,7 @@
             dataGridViewContractTracking.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractTracking.Location = new Point(23, 265);
             dataGridViewContractTracking.Name = "dataGridViewContractTracking";
+            dataGridViewContractTracking.ReadOnly = true;
             dataGridViewContractTracking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -244,54 +245,63 @@
             MaHopDong.HeaderText = "Mã hợp đồng";
             MaHopDong.MinimumWidth = 6;
             MaHopDong.Name = "MaHopDong";
+            MaHopDong.ReadOnly = true;
             // 
             // TenHopDong
             // 
             TenHopDong.HeaderText = "Tên hợp đồng";
             TenHopDong.MinimumWidth = 6;
             TenHopDong.Name = "TenHopDong";
+            TenHopDong.ReadOnly = true;
             // 
             // TenCongTyCaNhan
             // 
             TenCongTyCaNhan.HeaderText = "Tên Công ty/Cá nhân";
             TenCongTyCaNhan.MinimumWidth = 6;
             TenCongTyCaNhan.Name = "TenCongTyCaNhan";
+            TenCongTyCaNhan.ReadOnly = true;
             // 
             // NguoiLienHe
             // 
             NguoiLienHe.HeaderText = "Người liên hệ";
             NguoiLienHe.MinimumWidth = 6;
             NguoiLienHe.Name = "NguoiLienHe";
+            NguoiLienHe.ReadOnly = true;
             // 
             // NgayBatDau
             // 
             NgayBatDau.HeaderText = "Ngày bắt đầu";
             NgayBatDau.MinimumWidth = 6;
             NgayBatDau.Name = "NgayBatDau";
+            NgayBatDau.ReadOnly = true;
             // 
             // NgayHetHan
             // 
             NgayHetHan.HeaderText = "Ngày hết hạn";
             NgayHetHan.MinimumWidth = 6;
             NgayHetHan.Name = "NgayHetHan";
+            NgayHetHan.ReadOnly = true;
             // 
             // GiaTriHopDong
             // 
             GiaTriHopDong.HeaderText = "Giá trị hợp đồng";
             GiaTriHopDong.MinimumWidth = 6;
             GiaTriHopDong.Name = "GiaTriHopDong";
+            GiaTriHopDong.ReadOnly = true;
             // 
             // TinhTrangHopDong
             // 
             TinhTrangHopDong.HeaderText = "Tình trạng hợp đồng";
             TinhTrangHopDong.MinimumWidth = 6;
             TinhTrangHopDong.Name = "TinhTrangHopDong";
+            TinhTrangHopDong.ReadOnly = true;
             // 
             // PhuTrachThanhToan
             // 
             PhuTrachThanhToan.HeaderText = "Phụ trách thanh toán";
             PhuTrachThanhToan.MinimumWidth = 6;
             PhuTrachThanhToan.Name = "PhuTrachThanhToan";
+            PhuTrachThanhToan.ReadOnly = true;
             // 
             // groupBoxListUser
             // 

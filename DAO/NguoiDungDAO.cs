@@ -91,29 +91,25 @@ namespace DAO
 
         public DataTable searchUserListByName(string name)
         {
-            string procName = "searchNameOnListUser";
+            string procName = "searchGlobalOnListUser";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = name },
-                new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = name },
-                new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = name },
-                new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = name }
-
+                new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name }
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
         }
 
-        public DataTable searchUserListByphongBan(string phongBan)
+
+        public DataTable searchUserListByPhongBan(string phongBan)
         {
             string procName = "searchPhongBanOnListUser";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = phongBan }
-
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
@@ -127,14 +123,11 @@ namespace DAO
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = chucVu }
-
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
         }
-
-
         public DataTable searchUserListByTinhTrang(int tinhTrang)
         {
             string procName = "searchTinhTrangHoatDongOnListUser";
@@ -142,12 +135,13 @@ namespace DAO
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@TinhTrangHoatDong", SqlDbType.Bit) { Value = tinhTrang }
-
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
         }
+
+
 
         public bool createAccount(NguoiDung newAccount)
         {
@@ -189,5 +183,8 @@ namespace DAO
             return (dt.Rows.Count > 0);
         }
         
+
+
+       
     }
 }

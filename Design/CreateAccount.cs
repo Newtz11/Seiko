@@ -178,6 +178,8 @@ namespace Design
                 MessageBox.Show("Tạo tài khoản thành công!");
 
                 // gui mail xac nhan tai khoan
+                //send mail here
+                // gui mail xac nhan tai khoan
                 string to, from, pass;
                 to = Mail;
                 from = "seikoapplication@gmail.com";
@@ -195,13 +197,13 @@ namespace Design
                 {
                     mess.Body = "Your account is: " + TenDangNhap + "\n" + "Your password is: 12345 ";
                     smtp.Send(mess);
+                    MessageBox.Show("Verified Code sent successful");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
 
                 }
-
 
                 this.Close();
             }
