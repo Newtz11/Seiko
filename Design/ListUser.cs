@@ -71,7 +71,7 @@ namespace Design
         {
             dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
-            int counter = 0;
+            int counter = 1;
 
             comboBoxPhongBan.Items.Clear();
             comboBoxPhongBan.Items.Add("Chọn phòng ban");
@@ -80,18 +80,14 @@ namespace Design
             comboBoxPhongBan.Items.Add("Giám đốc");
             foreach (DataRow row in dt.Rows)
             {
-                if (counter == 0)
-                {
-                    counter++;
-                    continue;
-                }
-                string tenDangNhap = row["Tên Đăng Nhập"].ToString();
-                string mail = row["Email"].ToString();
-                string tenNguoiDung = row["Tên người dùng"].ToString();
-                string maNguoiDung = row["Mã người dùng"].ToString();
-                string phongBan = row["Phòng ban"].ToString();
-                string vaiTro = row["Chức vụ"].ToString();
-                bool trangThai = (bool)row["Tình trạng"];
+                string tenDangNhap = row[0].ToString();
+                if (tenDangNhap == "admin") continue;
+                string mail = row[1].ToString();
+                string tenNguoiDung = row[2].ToString();
+                string maNguoiDung = row[3].ToString();
+                string phongBan = row[4].ToString();
+                string vaiTro = row[5].ToString();
+                bool trangThai = (bool)row[6];
                 string tinhTrang = trangThai ? "Đang hoạt động" : "Ngưng hoạt động";
                 dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                 counter++;
@@ -109,6 +105,11 @@ namespace Design
             string searchChucVu = comboBoxChucVu.Text.ToString();
             string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
             DataTable dt = NguoiDungBLL.searchUserList(searchTen, searchPhongBan, searchChucVu, searchTinhTrang);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string tenDangNhap = dt.Rows[i][0].ToString();
+                if (tenDangNhap == "admin") dt.Rows[i].Delete();
+            }
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
@@ -129,19 +130,20 @@ namespace Design
                 dataGridViewListUser.Rows.Clear();
                 foreach (DataRow row in dt.Rows)
                 {
-
-
-                    string tenDangNhap = row["Tên đăng nhập"].ToString();
-                    string mail = row["Email"].ToString();
-                    string tenNguoiDung = row["Tên người dùng"].ToString();
-                    string maNguoiDung = row["Mã người dùng"].ToString();
-                    string phongBan = row["Phòng ban"].ToString();
-                    string vaiTro = row["Chức vụ"].ToString();
-                    bool trangThai = (bool)row["Tình trạng"];
+                    string tenDangNhap = row[0].ToString();
+                    if (tenDangNhap == "admin") continue;
+                    string mail = row[1].ToString();
+                    string tenNguoiDung = row[2].ToString();
+                    string maNguoiDung = row[3].ToString();
+                    string phongBan = row[4].ToString();
+                    string vaiTro = row[5].ToString();
+                    bool trangThai = (bool)row[6];
                     string tinhTrang = trangThai ? "Đang hoạt động" : "Ngưng hoạt động";
                     dataGridViewListUser.Rows.Add(counter, tenDangNhap, mail, tenNguoiDung, maNguoiDung, phongBan, vaiTro, tinhTrang);
                     counter++;
                 }
+
+               
 
                 textBoxSearch.Text = "";
 
@@ -194,13 +196,13 @@ namespace Design
         private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-           
+            string phongBan = comboBoxPhongBan.Text.ToString();
             if (phongBan == "Kế toán")
             {
                 comboBoxChucVu.Items.Clear();
                 comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
                 comboBoxChucVu.Items.Add("Kế toán");
-                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
+                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán");
 
             }
             else if (phongBan == "Sale")
@@ -208,7 +210,7 @@ namespace Design
                 comboBoxChucVu.Items.Clear();
                 comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
                 comboBoxChucVu.Items.Add("Sale");
-                comboBoxChucVu.Items.Add("Trưởng phòng Sale");
+                comboBoxChucVu.Items.Add("Trưởng phòng Sale");
             }
             else
             {
