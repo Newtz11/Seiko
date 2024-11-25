@@ -106,7 +106,7 @@
             // buttonReset
             // 
             buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.BackColor = Color.DodgerBlue;
             buttonReset.FlatStyle = FlatStyle.Popup;
             buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReset.ForeColor = Color.White;
@@ -116,9 +116,7 @@
             buttonReset.TabIndex = 8;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
-
             buttonReset.Click += buttonReset_Click;
-
             // 
             // comboBoxTinhTrang
             // 

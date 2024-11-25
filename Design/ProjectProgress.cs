@@ -21,7 +21,6 @@ namespace Design
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);
-            ApplyRoundedCorners(buttonThem);
             ApplyRoundedCorners(buttonXoa);
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonReset);
@@ -128,13 +127,6 @@ namespace Design
 
             dataGridViewProjectProgress.Rows.Clear();
             ProjectProgress_Load(sender, e);
-        }
-
-        
-
-        private void buttonThem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -54,7 +54,6 @@
             TinhTrang = new DataGridViewTextBoxColumn();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
-            buttonThem = new Button();
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             labelProjectProgress = new Label();
@@ -96,7 +95,6 @@
             groupBoxListUser.Controls.Add(dataGridViewProjectProgress);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
-            groupBoxListUser.Controls.Add(buttonThem);
             groupBoxListUser.Controls.Add(buttonSearch);
             groupBoxListUser.Controls.Add(textBoxSearch);
             groupBoxListUser.Controls.Add(labelProjectProgress);
@@ -109,11 +107,11 @@
             // buttonReset
             // 
             buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonReset.BackColor = Color.Goldenrod;
+            buttonReset.BackColor = Color.DodgerBlue;
             buttonReset.FlatStyle = FlatStyle.Popup;
             buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReset.ForeColor = Color.White;
-            buttonReset.Location = new Point(825, 174);
+            buttonReset.Location = new Point(956, 175);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(106, 33);
             buttonReset.TabIndex = 35;
@@ -203,6 +201,7 @@
             dataGridViewProjectProgress.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewProjectProgress.GridColor = Color.Black;
             dataGridViewProjectProgress.Location = new Point(15, 231);
+            dataGridViewProjectProgress.MultiSelect = false;
             dataGridViewProjectProgress.Name = "dataGridViewProjectProgress";
             dataGridViewProjectProgress.ReadOnly = true;
             dataGridViewProjectProgress.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -314,21 +313,6 @@
             buttonXoa.Text = "Xóa";
             buttonXoa.UseVisualStyleBackColor = false;
             // 
-            // buttonThem
-            // 
-            buttonThem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonThem.BackColor = Color.FromArgb(0, 192, 0);
-            buttonThem.FlatStyle = FlatStyle.Popup;
-            buttonThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonThem.ForeColor = Color.White;
-            buttonThem.Location = new Point(957, 174);
-            buttonThem.Name = "buttonThem";
-            buttonThem.Size = new Size(104, 32);
-            buttonThem.TabIndex = 19;
-            buttonThem.Text = "Thêm mới";
-            buttonThem.UseVisualStyleBackColor = false;
-            buttonThem.Click += buttonThem_Click;
-            // 
             // buttonSearch
             // 
             buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -393,7 +377,6 @@
         private DataGridView dataGridViewProjectProgress;
         private ComboBox comboBoxTinhTrang;
         private Button buttonXoa;
-        private Button buttonThem;
         private Button buttonSearch;
         private TextBox textBoxSearch;
         private Label labelProjectProgress;

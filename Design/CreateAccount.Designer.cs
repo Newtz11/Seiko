@@ -46,11 +46,8 @@
             labelPhongBan = new Label();
             textBoxPhoneNumber = new TextBox();
             labelPhoneNumber = new Label();
-            labelDateTutorial = new Label();
-            dateTimePickerNgayVaoLam = new DateTimePicker();
             comboBoxChucVu = new ComboBox();
             buttonTaoTaiKhoan = new Button();
-            labelDateOfJoining = new Label();
             labelRole = new Label();
             textBoxEmail = new TextBox();
             labelEmail = new Label();
@@ -116,11 +113,8 @@
             groupBoxEmail.Controls.Add(labelPhongBan);
             groupBoxEmail.Controls.Add(textBoxPhoneNumber);
             groupBoxEmail.Controls.Add(labelPhoneNumber);
-            groupBoxEmail.Controls.Add(labelDateTutorial);
-            groupBoxEmail.Controls.Add(dateTimePickerNgayVaoLam);
             groupBoxEmail.Controls.Add(comboBoxChucVu);
             groupBoxEmail.Controls.Add(buttonTaoTaiKhoan);
-            groupBoxEmail.Controls.Add(labelDateOfJoining);
             groupBoxEmail.Controls.Add(labelRole);
             groupBoxEmail.Controls.Add(textBoxEmail);
             groupBoxEmail.Controls.Add(labelEmail);
@@ -210,12 +204,13 @@
             label1.Name = "label1";
             label1.Size = new Size(129, 20);
             label1.TabIndex = 30;
-            label1.Text = "Tháng/Ngày/Năm";
+            label1.Text = "Ngày/Tháng/Năm";
             // 
             // dateTimePickerNgaySinh
             // 
             dateTimePickerNgaySinh.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerNgaySinh.Format = DateTimePickerFormat.Short;
+            dateTimePickerNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgaySinh.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgaySinh.Location = new Point(48, 336);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
             dateTimePickerNgaySinh.Size = new Size(415, 27);
@@ -259,7 +254,7 @@
             // 
             textBoxPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxPhoneNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPhoneNumber.Location = new Point(541, 585);
+            textBoxPhoneNumber.Location = new Point(550, 468);
             textBoxPhoneNumber.MaxLength = 10;
             textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             textBoxPhoneNumber.PlaceholderText = "Nhập số điện thoại";
@@ -271,33 +266,11 @@
             labelPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelPhoneNumber.AutoSize = true;
             labelPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPhoneNumber.Location = new Point(532, 542);
+            labelPhoneNumber.Location = new Point(541, 425);
             labelPhoneNumber.Name = "labelPhoneNumber";
             labelPhoneNumber.Size = new Size(138, 28);
             labelPhoneNumber.TabIndex = 25;
             labelPhoneNumber.Text = "Số điện thoại";
-            // 
-            // labelDateTutorial
-            // 
-            labelDateTutorial.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            labelDateTutorial.AutoSize = true;
-            labelDateTutorial.Location = new Point(541, 366);
-            labelDateTutorial.Name = "labelDateTutorial";
-            labelDateTutorial.Size = new Size(129, 20);
-            labelDateTutorial.TabIndex = 24;
-            labelDateTutorial.Text = "Ngày/Tháng/Năm";
-            // 
-            // dateTimePickerNgayVaoLam
-            // 
-            dateTimePickerNgayVaoLam.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePickerNgayVaoLam.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerNgayVaoLam.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerNgayVaoLam.Format = DateTimePickerFormat.Custom;
-            dateTimePickerNgayVaoLam.Location = new Point(541, 336);
-            dateTimePickerNgayVaoLam.Name = "dateTimePickerNgayVaoLam";
-            dateTimePickerNgayVaoLam.Size = new Size(415, 27);
-            dateTimePickerNgayVaoLam.TabIndex = 9;
-            dateTimePickerNgayVaoLam.Value = new DateTime(2024, 11, 24, 0, 0, 0, 0);
             // 
             // comboBoxChucVu
             // 
@@ -326,17 +299,6 @@
             buttonTaoTaiKhoan.UseVisualStyleBackColor = false;
             buttonTaoTaiKhoan.Click += buttonTaoTaiKhoan_Click;
             // 
-            // labelDateOfJoining
-            // 
-            labelDateOfJoining.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            labelDateOfJoining.AutoSize = true;
-            labelDateOfJoining.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDateOfJoining.Location = new Point(541, 282);
-            labelDateOfJoining.Name = "labelDateOfJoining";
-            labelDateOfJoining.Size = new Size(288, 28);
-            labelDateOfJoining.TabIndex = 20;
-            labelDateOfJoining.Text = "Ngày tham gia doanh nghiệp";
-            // 
             // labelRole
             // 
             labelRole.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -352,7 +314,7 @@
             // 
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxEmail.Location = new Point(541, 468);
+            textBoxEmail.Location = new Point(541, 325);
             textBoxEmail.MaxLength = 50;
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Nhập Email: ( ví dụ: abc@gmail.com )";
@@ -364,7 +326,7 @@
             labelEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEmail.Location = new Point(541, 425);
+            labelEmail.Location = new Point(541, 282);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(64, 28);
             labelEmail.TabIndex = 15;
@@ -474,14 +436,11 @@
         private Label labelUserName;
         private TextBox textBoxFullName;
         private TextBox textBoxUserName;
-        private Label labelDateOfJoining;
         private Label labelRole;
         private TextBox textBoxEmail;
         private Label labelEmail;
         private Button buttonTaoTaiKhoan;
         private ComboBox comboBoxChucVu;
-        private Label labelDateTutorial;
-        private DateTimePicker dateTimePickerNgayVaoLam;
         private TextBox textBoxPhoneNumber;
         private Label labelPhoneNumber;
         private ComboBox comboBoxPhongBan;
