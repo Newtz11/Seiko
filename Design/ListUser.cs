@@ -72,6 +72,9 @@ namespace Design
             dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
+            comboBoxPhongBan.Items.Add("Kế toán");
+            comboBoxPhongBan.Items.Add("Sale");
+            comboBoxPhongBan.Items.Add("Giám đốc");
             foreach (DataRow row in dt.Rows)
             {
                 if (counter == 0)
@@ -106,6 +109,15 @@ namespace Design
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+
+                comboBoxPhongBan.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+
+                comboBoxPhongBan.Text = "Phòng ban";
+                comboBoxChucVu.Text = "Chức vụ";
+                comboBoxTinhTrang.Text = "Tình trạng";
                 return;
             }
             else
@@ -149,15 +161,44 @@ namespace Design
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Text = "";
+
+            comboBoxPhongBan.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+
+            comboBoxPhongBan.Text = "Phòng ban";
+            comboBoxChucVu.Text = "Chức vụ";
+            comboBoxTinhTrang.Text = "Tình trạng";
             dataGridViewListUser.Rows.Clear();
             ListUser_Load(sender, e);
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridViewListUser.SelectedRows.Count > 0) 
+            if (dataGridViewListUser.SelectedRows.Count > 0)
             {
-            
+
+            }
+        }
+
+        private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string phongBan = comboBoxPhongBan.Text.ToString();
+            if (phongBan == "Kế toán")
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Kế toán");
+                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
+            } else if (phongBan == "Sale")
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Sale");
+                comboBoxChucVu.Items.Add("Trưởng phòng Sale");
+            } else 
+                    {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Giám đốc"); 
             }
         }
     }

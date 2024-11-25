@@ -23,6 +23,10 @@ namespace Design
             InitializeComponent();
             ApplyRoundedCorners(buttonTaoTaiKhoan);
             ApplyRoundedCorners(buttonHuyBo);
+            comboBoxPhongBan.Items.Add("Kế toán");
+            comboBoxPhongBan.Items.Add("Sale");
+            comboBoxPhongBan.Items.Add("Giám đốc");
+
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -173,7 +177,7 @@ namespace Design
             }
 
             bool createAcc = NguoiDungBLL.createAccount(newAccount);
-            if (createAcc) 
+            if (createAcc)
             {
                 MessageBox.Show("Tạo tài khoản thành công!");
 
@@ -218,5 +222,28 @@ namespace Design
         {
             this.Close();
         }
+        private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string phongBan = comboBoxPhongBan.Text.ToString();
+            if (phongBan == "Kế toán")
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Kế toán");
+                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
+            }
+            else if (phongBan == "Sale")
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Sale");
+                comboBoxChucVu.Items.Add("Trưởng phòng Sale");
+            }
+            else
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Giám đốc");
+            }
+        }
+
+        
     }
 }
