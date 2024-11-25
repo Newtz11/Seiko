@@ -114,11 +114,20 @@ namespace Design
 
         private void dataGridViewContractTracking_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
                 // Store the selected row index
                 selectedRowIndex = e.RowIndex;
             }
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

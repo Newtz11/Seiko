@@ -116,6 +116,9 @@
             buttonReset.TabIndex = 8;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
+
+            buttonReset.Click += buttonReset_Click;
+
             // 
             // comboBoxTinhTrang
             // 
@@ -124,7 +127,7 @@
             comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
             comboBoxTinhTrang.Location = new Point(33, 201);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
-            comboBoxTinhTrang.Size = new Size(159, 31);
+            comboBoxTinhTrang.Size = new Size(200, 31);
             comboBoxTinhTrang.TabIndex = 4;
             comboBoxTinhTrang.Text = "Tình trạng";
             // 

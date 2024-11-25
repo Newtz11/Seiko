@@ -52,7 +52,43 @@ namespace Design
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            
+            string searchHopDong = textBoxSearch.Text.ToString();
+            string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
+            DateTime searchTimeStart = dateTimePickerStart.Value;
+            DateTime searchTimeEnd = dateTimePickerEnd.Value;
+            DataTable dt = HopDongBLL.searchConTract(searchHopDong, searchTinhTrang, searchTimeStart, searchTimeEnd);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+                comboBoxTinhTrang.SelectedIndex = -1;
+                comboBoxTinhTrang.Text = "Tình trạng";
+                return;
+            }
+            else
+            {
+
+                dataGridViewContractTracking.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+
+                    string maHopDong = row[0].ToString();
+                    string tenHopDong = row[1].ToString();
+                    string tenNguoiDaiDien = row[2].ToString();
+                    string tenNguoiLienHe = row[3].ToString();
+                    DateTime ngayBatDau = (DateTime) row[4];
+                    DateTime ngayKetThuc = (DateTime)row[5];
+                    int giaTriHopDong = Convert.ToInt32(row[6]);
+                    string tinhTrangHD = row[7].ToString();
+                    string phuTrachQuanLy = row[8].ToString();
+                    dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenNguoiDaiDien, tenNguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), giaTriHopDong, tinhTrangHD, phuTrachQuanLy);
+                }
+
+                textBoxSearch.Text = "";
+
+                comboBoxTinhTrang.SelectedIndex = -1;
+                comboBoxTinhTrang.Text = "Tình trạng";
+            }
         }
 
         private void buttonThem_Click(object sender, EventArgs e)
@@ -76,7 +112,7 @@ namespace Design
                 int giaTriHopDong = Convert.ToInt32(row["Giá trị hợp đồng"]);
                 string tinhTrangHopDong = row["Tình trạng hợp đồng"].ToString();
                 string phuTrachQuanLy = row["Phụ trách quản lý"].ToString();
-                dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("yyyy/MM/dd"), ngayHetHan.ToString("yyyy/MM/dd"), giaTriHopDong, tinhTrangHopDong, phuTrachQuanLy);
+                dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tinhTrangHopDong, phuTrachQuanLy);
             }
         }
 
@@ -86,6 +122,16 @@ namespace Design
             HopDong selectedContract = HopDongBLL.getSeletedContract(maHD);
             ContractDetail fContractDetail = new ContractDetail(user, selectedContract, this);
             fContractDetail.Show();
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            textBoxSearch.Text = "";
+            comboBoxTinhTrang.SelectedIndex = -1;
+            comboBoxTinhTrang.Text = "Tình trạng";
+
+            dataGridViewContractTracking.Rows.Clear();
+            ContractTracking_Load(sender, e);
         }
     }
 }

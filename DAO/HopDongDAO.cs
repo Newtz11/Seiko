@@ -57,5 +57,46 @@ namespace DAO
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
+        public DataTable searchContractList(string name)
+        {
+            string procName = "searchGlobalOnContractTrackingForSale";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name }
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable searchContractByTinhTrang(string tinhTrang)
+        {
+            string procName = "searchTinhTrangHopDongOnContractTrackingForSale";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = tinhTrang }
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable searchContractByTime(DateTime timeStart, DateTime timeEnd) 
+        {
+            string procName = "searchContractByTimeOnContractTrackingForSale";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)timeStart ?? DBNull.Value },
+                new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)timeEnd ?? DBNull.Value }
+            };
+
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
     }
 }

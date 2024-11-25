@@ -123,6 +123,7 @@ namespace DAO
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50) { Value = chucVu }
+
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 

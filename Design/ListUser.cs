@@ -72,8 +72,12 @@ namespace Design
             dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
-            comboBoxPhongBan.Items.Add("Sale");
+
+            comboBoxPhongBan.Items.Clear();
+            comboBoxPhongBan.Items.Add("Chọn phòng ban");
             comboBoxPhongBan.Items.Add("Kế toán");
+            comboBoxPhongBan.Items.Add("Sale");
+            comboBoxPhongBan.Items.Add("Giám đốc");
             foreach (DataRow row in dt.Rows)
             {
                 if (counter == 0)
@@ -125,7 +129,9 @@ namespace Design
                 dataGridViewListUser.Rows.Clear();
                 foreach (DataRow row in dt.Rows)
                 {
-                    string tenDangNhap = row["Tên đăng nhập"].ToString();
+
+
+                    string tenDangNhap = row["Tên đăng nhập"].ToString();
                     string mail = row["Email"].ToString();
                     string tenNguoiDung = row["Tên người dùng"].ToString();
                     string maNguoiDung = row["Mã người dùng"].ToString();
@@ -159,6 +165,15 @@ namespace Design
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Text = "";
+
+            comboBoxPhongBan.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+
+            comboBoxPhongBan.Text = "Phòng ban";
+            comboBoxChucVu.Text = "Chức vụ";
+            comboBoxTinhTrang.Text = "Tình trạng";
             dataGridViewListUser.Rows.Clear();
             textBoxSearch.Text = "";
 
@@ -174,22 +189,38 @@ namespace Design
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-
         }
 
         private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string phongBan = comboBoxPhongBan.Text.ToString();
-            if (string.Equals(phongBan, "Sale"))
+            
+           
+            if (phongBan == "Kế toán")
             {
                 comboBoxChucVu.Items.Clear();
-                comboBoxChucVu.Items.Add("Ke toan");
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
+                comboBoxChucVu.Items.Add("Kế toán");
+                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
+
             }
-            else if(string.Equals(phongBan, "Kế toán"))
+            else if (phongBan == "Sale")
             {
                 comboBoxChucVu.Items.Clear();
-                comboBoxChucVu.Items.Add("Ke sale");
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
+                comboBoxChucVu.Items.Add("Sale");
+                comboBoxChucVu.Items.Add("Trưởng phòng Sale");
             }
+            else
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("-- Chọn chức vụ --");
+                comboBoxChucVu.Items.Add("Giám đốc");
+            }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

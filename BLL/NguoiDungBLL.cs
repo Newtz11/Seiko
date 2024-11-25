@@ -145,8 +145,6 @@ namespace BLL
         {
             return NguoiDungDAO.Instance.checkMailTrung(newMail);
         }
-
-
         
     }
 }
