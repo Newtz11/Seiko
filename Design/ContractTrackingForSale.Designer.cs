@@ -116,7 +116,9 @@
             buttonReset.TabIndex = 8;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
+
             buttonReset.Click += buttonReset_Click;
+
             // 
             // comboBoxTinhTrang
             // 
@@ -263,6 +265,7 @@
             dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewContractTracking.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractTracking.Location = new Point(23, 265);
+            dataGridViewContractTracking.MultiSelect = false;
             dataGridViewContractTracking.Name = "dataGridViewContractTracking";
             dataGridViewContractTracking.ReadOnly = true;
             dataGridViewContractTracking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;

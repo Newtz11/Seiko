@@ -37,12 +37,12 @@
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxListUser = new GroupBox();
             buttonReset = new Button();
-            dateTimePicker2 = new DateTimePicker();
+            dateTimePickerEnd = new DateTimePicker();
             label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerStart = new DateTimePicker();
             label1 = new Label();
             buttonSua = new Button();
-            comboBox1 = new ComboBox();
+            comboBoxNguoiThucHien = new ComboBox();
             dataGridViewProjectProgress = new DataGridView();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
@@ -89,12 +89,12 @@
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
             groupBoxListUser.Controls.Add(buttonReset);
-            groupBoxListUser.Controls.Add(dateTimePicker2);
+            groupBoxListUser.Controls.Add(dateTimePickerEnd);
             groupBoxListUser.Controls.Add(label2);
-            groupBoxListUser.Controls.Add(dateTimePicker1);
+            groupBoxListUser.Controls.Add(dateTimePickerStart);
             groupBoxListUser.Controls.Add(label1);
             groupBoxListUser.Controls.Add(buttonSua);
-            groupBoxListUser.Controls.Add(comboBox1);
+            groupBoxListUser.Controls.Add(comboBoxNguoiThucHien);
             groupBoxListUser.Controls.Add(dataGridViewProjectProgress);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
@@ -122,12 +122,12 @@
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            dateTimePicker2.Location = new Point(159, 175);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(261, 27);
-            dateTimePicker2.TabIndex = 3;
+            dateTimePickerEnd.Location = new Point(159, 175);
+            dateTimePickerEnd.Name = "dateTimePickerEnd";
+            dateTimePickerEnd.Size = new Size(261, 27);
+            dateTimePickerEnd.TabIndex = 3;
             // 
             // label2
             // 
@@ -139,13 +139,13 @@
             label2.TabIndex = 34;
             label2.Text = "Ngày kết thúc:";
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            dateTimePicker1.Location = new Point(159, 137);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(261, 27);
-            dateTimePicker1.TabIndex = 2;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            dateTimePickerStart.Location = new Point(159, 137);
+            dateTimePickerStart.Name = "dateTimePickerStart";
+            dateTimePickerStart.Size = new Size(261, 27);
+            dateTimePickerStart.TabIndex = 2;
+            dateTimePickerStart.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // label1
             // 
@@ -173,16 +173,16 @@
             buttonSua.Text = "Sửa";
             buttonSua.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // comboBoxNguoiThucHien
             // 
-            comboBox1.Anchor = AnchorStyles.Top;
-            comboBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(627, 171);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(164, 31);
-            comboBox1.TabIndex = 30;
-            comboBox1.Text = "Người Thực Hiện";
+            comboBoxNguoiThucHien.Anchor = AnchorStyles.Top;
+            comboBoxNguoiThucHien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            comboBoxNguoiThucHien.FormattingEnabled = true;
+            comboBoxNguoiThucHien.Location = new Point(627, 171);
+            comboBoxNguoiThucHien.Name = "comboBoxNguoiThucHien";
+            comboBoxNguoiThucHien.Size = new Size(164, 31);
+            comboBoxNguoiThucHien.TabIndex = 30;
+            comboBoxNguoiThucHien.Text = "Người Thực Hiện";
             // 
             // dataGridViewProjectProgress
             // 
@@ -344,6 +344,7 @@
             buttonSearch.TabIndex = 17;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxSearch
             // 
@@ -398,11 +399,11 @@
         private Button buttonSearch;
         private TextBox textBoxSearch;
         private Label labelProjectProgress;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxNguoiThucHien;
         private Label label1;
         private Button buttonSua;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePickerStart;
+        private DateTimePicker dateTimePickerEnd;
         private Label label2;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;

@@ -226,6 +226,7 @@
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
+            dataGridViewContractTracking.CellClick += dataGridViewContractTracking_CellClick;
             dataGridViewContractTracking.CellDoubleClick += dataGridViewContractTracking_CellDoubleClick;
             // 
             // MaHopDong
@@ -342,8 +343,9 @@
             button1.Name = "button1";
             button1.Size = new Size(106, 33);
             button1.TabIndex = 8;
-            button1.Text = "Xóa";
+            button1.Text = "Xóa";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
