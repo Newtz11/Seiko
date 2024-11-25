@@ -58,9 +58,6 @@ namespace Design
 
         private void ContractDetail_Load(object sender, EventArgs e)
         {
-            //dataGridViewThongTinThanhToan.Rows.Add("1", "20/9/2024", "40%", "10000000", "Đã thanh toán", "");
-            //dataGridViewThongTinThanhToan.Rows.Add("2", "20/10/2024", "60%", "10000000", "Chưa thanh toán", "");
-            //dataGridViewThongTinThanhToan.Rows.Add("3", "20/9/2024", "40%", "10000000", "Đã thanh toán", "");
             textBoxMaHopDong.Text = hd.maHD;
             textBoxTenHopDong.Text = hd.tenHD;
             textBoxTenNguoiDaiDien.Text = hd.tenNguoiDaiDien;
@@ -113,6 +110,11 @@ namespace Design
 
 
             }
+        }
+
+        private void comboBoxHinhThucTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Doi hinh thuc thanh toan");
         }
     }
 }

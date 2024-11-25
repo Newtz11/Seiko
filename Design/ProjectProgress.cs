@@ -25,7 +25,7 @@ namespace Design
             ApplyRoundedCorners(buttonXoa);
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonReset);
-            this.user = user;   
+            this.user = user;
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
         [DllImport("gdi32.dll")]
@@ -77,6 +77,54 @@ namespace Design
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string searchContract = textBoxSearch.Text.ToString();
+            string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
+            string searchNguoiThucHien = comboBoxNguoiThucHien.Text.ToString();
+            DateTime searchNgayBatDau = dateTimePickerStart.Value;
+            DateTime searchNgayKetThuc = dateTimePickerEnd.Value;
+            
+            DataTable dt = TienDoHopDongBLL.searchProjectProgressList(searchContract, searchTinhTrang, searchNguoiThucHien, searchNgayBatDau, searchNgayKetThuc);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+
+                comboBoxTinhTrang.SelectedIndex = -1;
+                comboBoxNguoiThucHien.SelectedIndex = -1;
+
+                comboBoxNguoiThucHien.Text = "Người Thực Hiện";
+                comboBoxTinhTrang.Text = "Tình Trạng";
+                return;
+            }
+            else
+            {
+                dataGridViewProjectProgress.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    string maHopDong = row[0].ToString();
+                    string tenHopDong = row[1].ToString();
+                    string noiDungCV = row[2].ToString();
+                    string khoiLuongCV = row[3].ToString();
+                    DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                    DateTime ngayKetThuc = Convert.ToDateTime(row[5]);
+                    int tienDo = Convert.ToInt32(row[6]);
+                    string tenNguoiThucHien = row[7].ToString();
+                    string tinhTrangHD = row[8].ToString();
+                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD);
+                }
+
+                textBoxSearch.Text = "";
+
+                comboBoxTinhTrang.SelectedIndex = -1;
+                comboBoxNguoiThucHien.SelectedIndex = -1;
+
+                comboBoxNguoiThucHien.Text = "Người Thực Hiện";
+                comboBoxTinhTrang.Text = "Tình Trạng";
+            }
         }
     }
 }

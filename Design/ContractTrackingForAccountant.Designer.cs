@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractTrackingForAccountant));
-            comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
             buttonThem = new Button();
@@ -64,17 +63,6 @@
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             SuspendLayout();
-            // 
-            // comboBoxSale
-            // 
-            comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxSale.Location = new Point(232, 201);
-            comboBoxSale.Name = "comboBoxSale";
-            comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 6;
-            comboBoxSale.Text = "Nhân viên phụ trách";
             // 
             // comboBoxTinhTrang
             // 
@@ -238,6 +226,7 @@
             dataGridViewContractTracking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewContractTracking.Size = new Size(1260, 500);
             dataGridViewContractTracking.TabIndex = 8;
+            dataGridViewContractTracking.CellClick += dataGridViewContractTracking_CellClick;
             dataGridViewContractTracking.CellDoubleClick += dataGridViewContractTracking_CellDoubleClick;
             // 
             // MaHopDong
@@ -311,7 +300,6 @@
             groupBoxListUser.Controls.Add(button1);
             groupBoxListUser.Controls.Add(button2);
             groupBoxListUser.Controls.Add(button3);
-            groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonThem);
@@ -355,8 +343,9 @@
             button1.Name = "button1";
             button1.Size = new Size(106, 33);
             button1.TabIndex = 8;
-            button1.Text = "Xóa";
+            button1.Text = "Xóa";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -430,7 +419,6 @@
         }
 
         #endregion
-        private ComboBox comboBoxSale;
         private ComboBox comboBoxTinhTrang;
         private Button buttonXoa;
         private Button buttonThem;

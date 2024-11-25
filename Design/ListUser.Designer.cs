@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListUser));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             pictureBoxIconListUser = new PictureBox();
             labelListUser = new Label();
             groupBoxListUser = new GroupBox();
@@ -125,42 +125,42 @@
             dataGridViewListUser.BackgroundColor = Color.White;
             dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.DarkGray;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridViewListUser.ColumnHeadersHeight = 50;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenDangNhap, mail, TenNguoiDung, MaNguoiDung, PhongBan, ChucVu, TinhTrang });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle10;
             dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewListUser.Location = new Point(39, 213);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
             dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -239,17 +239,17 @@
             // 
             // comboBoxChucVu
             // 
+            comboBoxChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxChucVu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxChucVu.FormattingEnabled = true;
-            comboBoxChucVu.Items.AddRange(new object[] { "Sale", "Trưởng phòng Sale", "Kế toán", "Trưởng phòng Kế toán", "Giám đốc" });
             comboBoxChucVu.Location = new Point(259, 165);
             comboBoxChucVu.Name = "comboBoxChucVu";
             comboBoxChucVu.Size = new Size(159, 31);
             comboBoxChucVu.TabIndex = 27;
-            comboBoxChucVu.Text = "Chức vụ";
             // 
             // comboBoxPhongBan
             // 
+            comboBoxPhongBan.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxPhongBan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxPhongBan.FormattingEnabled = true;
             comboBoxPhongBan.Items.AddRange(new object[] { "Sale", "Kế toán", "Giám đốc", "IT" });
@@ -257,7 +257,7 @@
             comboBoxPhongBan.Name = "comboBoxPhongBan";
             comboBoxPhongBan.Size = new Size(159, 31);
             comboBoxPhongBan.TabIndex = 26;
-            comboBoxPhongBan.Text = "Phòng ban";
+            comboBoxPhongBan.SelectedIndexChanged += comboBoxPhongBan_SelectedIndexChanged;
             // 
             // buttonXoa
             // 

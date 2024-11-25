@@ -177,6 +177,7 @@
             comboBoxHinhThucTT.Name = "comboBoxHinhThucTT";
             comboBoxHinhThucTT.Size = new Size(310, 28);
             comboBoxHinhThucTT.TabIndex = 9;
+            comboBoxHinhThucTT.SelectedIndexChanged += comboBoxHinhThucTT_SelectedIndexChanged;
             // 
             // labelHinhThucTT
             // 

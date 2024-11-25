@@ -36,7 +36,6 @@
             labelContractTracking = new Label();
             groupBoxListUser = new GroupBox();
             buttonReset = new Button();
-            comboBoxSale = new ComboBox();
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
             buttonThem = new Button();
@@ -87,7 +86,6 @@
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
             groupBoxListUser.Controls.Add(buttonReset);
-            groupBoxListUser.Controls.Add(comboBoxSale);
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonThem);
@@ -118,17 +116,6 @@
             buttonReset.TabIndex = 8;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxSale
-            // 
-            comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
-            comboBoxSale.Location = new Point(232, 201);
-            comboBoxSale.Name = "comboBoxSale";
-            comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 5;
-            comboBoxSale.Text = "Nhân viên phụ trách";
             // 
             // comboBoxTinhTrang
             // 
@@ -275,6 +262,7 @@
             dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewContractTracking.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractTracking.Location = new Point(23, 265);
+            dataGridViewContractTracking.MultiSelect = false;
             dataGridViewContractTracking.Name = "dataGridViewContractTracking";
             dataGridViewContractTracking.ReadOnly = true;
             dataGridViewContractTracking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -397,7 +385,6 @@
         private DateTimePicker dateTimePickerStart;
         private Button buttonXoa;
         private ComboBox comboBoxTinhTrang;
-        private ComboBox comboBoxSale;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn TenCongTyCaNhan;

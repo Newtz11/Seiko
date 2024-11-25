@@ -72,6 +72,8 @@ namespace Design
             dataGridViewListUser.Rows.Clear();
             DataTable dt = NguoiDungBLL.loadUser();
             int counter = 0;
+            comboBoxPhongBan.Items.Add("Sale");
+            comboBoxPhongBan.Items.Add("Kế toán");
             foreach (DataRow row in dt.Rows)
             {
                 if (counter == 0)
@@ -106,6 +108,15 @@ namespace Design
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+
+                comboBoxPhongBan.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+                comboBoxChucVu.SelectedIndex = -1;
+
+                comboBoxPhongBan.Text = "Phòng ban";
+                comboBoxChucVu.Text = "Chức vụ";
+                comboBoxTinhTrang.Text = "Tình trạng";
                 return;
             }
             else
@@ -114,7 +125,6 @@ namespace Design
                 dataGridViewListUser.Rows.Clear();
                 foreach (DataRow row in dt.Rows)
                 {
-
                     string tenDangNhap = row["Tên đăng nhập"].ToString();
                     string mail = row["Email"].ToString();
                     string tenNguoiDung = row["Tên người dùng"].ToString();
@@ -150,14 +160,35 @@ namespace Design
         private void buttonReset_Click(object sender, EventArgs e)
         {
             dataGridViewListUser.Rows.Clear();
+            textBoxSearch.Text = "";
+
+            comboBoxPhongBan.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+            comboBoxChucVu.SelectedIndex = -1;
+
+            comboBoxPhongBan.Text = "Phòng ban";
+            comboBoxChucVu.Text = "Chức vụ";
+            comboBoxTinhTrang.Text = "Tình trạng";
             ListUser_Load(sender, e);
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridViewListUser.SelectedRows.Count > 0) 
+
+        }
+
+        private void comboBoxPhongBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string phongBan = comboBoxPhongBan.Text.ToString();
+            if (string.Equals(phongBan, "Sale"))
             {
-            
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Ke toan");
+            }
+            else if(string.Equals(phongBan, "Kế toán"))
+            {
+                comboBoxChucVu.Items.Clear();
+                comboBoxChucVu.Items.Add("Ke sale");
             }
         }
     }

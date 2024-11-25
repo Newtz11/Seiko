@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace Design
     public partial class ContractTrackingForAccountant : Form
     {
         private NguoiDung user;
+        private bool isEditing = false;
+        private int selectedRowIndex = -1;
         private bool enableDoubleClick;
         public ContractTrackingForAccountant(NguoiDung user)
         {
@@ -52,34 +55,70 @@ namespace Design
         //button them
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridViewContractTracking.ReadOnly = false;
+            //them nhan vien phu trach 
+            if (selectedRowIndex >= 0)
+            {
+                dataGridViewContractTracking.Rows[selectedRowIndex].Cells[9].ReadOnly = false;
+                isEditing = true;
+            }
 
         }
 
         private void dataGridViewContractTracking_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataGridViewContractTracking.Rows[e.RowIndex];
+            //DataGridViewRow selectedRow = dataGridViewContractTracking.Rows[e.RowIndex];
 
-            // Check if the last cell is empty
-            int lastColumnIndex = dataGridViewContractTracking.Columns.Count - 1;
-            DataGridViewCell lastCell = selectedRow.Cells[lastColumnIndex];
+            //// Check if the last cell is empty
+            //int lastColumnIndex = dataGridViewContractTracking.Columns.Count - 1;
+            //DataGridViewCell lastCell = selectedRow.Cells[lastColumnIndex];
 
-            if (lastCell.Value == null || string.IsNullOrEmpty(lastCell.Value.ToString()))
-            {
-                // Last cell is empty, show a message or take other actions
-                MessageBox.Show("Hợp đồng này chưa có nhân viên quản lý thanh toán");
-            }
-            else
-            {
-                // Last cell is not empty, open the ContractDetail form
-                //ContractDetail fContractDetail = new ContractDetail(user);
-                // ... other actions ...
-            }
+            //if (lastCell.Value == null || string.IsNullOrEmpty(lastCell.Value.ToString()))
+            //{
+            //    // Last cell is empty, show a message or take other actions
+            //    MessageBox.Show("Hợp đồng này chưa có nhân viên quản lý thanh toán");
+            //}
+            //else
+            //{
+            //    // Last cell is not empty, open the ContractDetail form
+            //    //ContractDetail fContractDetail = new ContractDetail(user);
+            //    // ... other actions ...
+            //}
+
+
+            string maHD = this.dataGridViewContractTracking.CurrentRow.Cells[0].Value.ToString();
+            HopDong selectedContract = HopDongBLL.getSeletedContract(maHD);
+            ContractDetail fContractDetail = new ContractDetail(user, selectedContract, this);
+            fContractDetail.Show();
+
+
         }
 
         private void ContractTrackingForAccountant_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (isEditing)
+            {
+                // Save the edited row to the database
+                // ... (your database saving logic here)
+
+                // Reset the editing state
+                dataGridViewContractTracking.Rows[selectedRowIndex].ReadOnly = true;
+                isEditing = false;
+                selectedRowIndex = -1;
+            }
+        }
+
+        private void dataGridViewContractTracking_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Store the selected row index
+                selectedRowIndex = e.RowIndex;
+            }
         }
     }
 }

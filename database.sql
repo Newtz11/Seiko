@@ -311,21 +311,6 @@ go
 -- Procedure
 
 -- LOAD DATA
-
-		--Procedure XEM MAIL --
-create proc MailView
-AS
-BEGIN
-    SELECT TOP 1 Mail AS Email, TenDangNhap AS [TenDangNhap]
-    FROM NGUOIDUNG
-    ORDER BY CAST(MaNV AS INT) DESC;
-END
-GO
-
---drop proc MailView
---exec MailView
-
-
 		--Procedure ContractTrackingForSale--
 CREATE PROC loadContractTrackingForSale
     @MaNV NVARCHAR(5)
@@ -436,76 +421,30 @@ go
 
 
 -- procedure dung cho Form ListUser
-		-- Procedure search tên người dùng --
-create proc searchNameOnListUserByMaNV
-	@MaNV NVARCHAR(5) = NULL
-as
-begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
-	from NGUOIDUNG 
-	where (@MaNV IS NULL OR MaNV LIKE '%' + @MaNV + '%')
-end
-go
+		-- Procedure search On ListUser --
+CREATE PROC searchGlobalOnListUser
+    @Keyword NVARCHAR(50)
+AS
+BEGIN
+    SELECT TenDangNhap AS [Tên đăng nhập], 
+           Mail AS [Email], 
+           HoTen AS [Tên người dùng], 
+           MaNV AS [Mã người dùng], 
+           PhongBan AS [Phòng ban], 
+           VaiTro AS [Chức vụ], 
+           TinhTrangHoatDong AS [Tình trạng] 
+    FROM NGUOIDUNG
+    WHERE MaNV LIKE '%' + @Keyword + '%'
+       OR HoTen LIKE '%' + @Keyword + '%'
+       OR Mail LIKE '%' + @Keyword + '%'
+       OR TenDangNhap LIKE '%' + @Keyword + '%'
+END
+GO
 
---drop proc searchNameOnListUserByMaNV
---exec searchNameOnListUserByMaNV @MaNV = '2'
+--drop proc searchGlobalOnListUser
+--exec searchGlobalOnListUser @Keyword = 'b'
 
-create proc searchNameOnListUserByHoTen
-	@HoTen NVARCHAR(50) = NULL
-as
-begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
-	from NGUOIDUNG 
-	where (@HoTen IS NULL OR HoTen LIKE '%' + @HoTen + '%')
-end
-go
-
---drop proc searchNameOnListUserByHoTen
---exec searchNameOnListUserByHoTen @HoTen = 'kh'
-
-
-create proc searchNameOnListUserByMail
-	@Mail NVARCHAR(50) = NULL
-as
-begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
-	from NGUOIDUNG 
-	where (@Mail IS NULL OR Mail LIKE '%' + @Mail + '%')
-end
-go
-
---drop proc searchNameOnListUserByMail
-exec searchNameOnListUserByMail @Mail = 'kh'
-
-create proc searchNameOnListUserByTenDangNhap
-	@TenDangNhap NVARCHAR(50) = NULL
-as
-begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
-	from NGUOIDUNG 
-	where (@TenDangNhap IS NULL OR TenDangNhap LIKE '%' + @TenDangNhap + '%')
-end
-go
-
---drop proc searchNameOnListUserByTenDangNhap
---exec searchNameOnListUserByTenDangNhap @TenDangNhap = 'kh'
-
-		--Procedure search phòng ban --
-create proc searchPhongBanOnListUser
-@PhongBan NVARCHAR(20) = NULL
-as
-begin
-	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
-	from NGUOIDUNG 
-	where @PhongBan IS NULL OR PhongBan = @PhongBan
-end
-go
-
---drop proc searchPhongBanOnListUser
---exec searchPhongBanOnListUser
---exec searchPhongBanOnListUser @PhongBan = N'Sale'
-
-		--Procedure search chức vụ --
+		--Procedure search Chức Vụ On ListUser
 create proc searchChucVuOnListUser
 	@VaiTro NVARCHAR(50) = NULL
 as
@@ -518,7 +457,7 @@ go
 
 --drop proc searchChucVuOnListUser
 --exec searchChucVuOnListUser
---exec searchChucVuOnListUser @VaiTro = N'Sale'
+--exec searchChucVuOnListUser @VaiTro = N'Super Admin'
 
 		--Procedure search tình trạng hoạt động
 create proc searchTinhTrangHoatDongOnListUser
@@ -532,20 +471,27 @@ end
 go
 
 --drop proc searchTinhTrangHoatDongOnListUser
---exec searchTinhTrangHoatDongOnListUser
 --exec searchTinhTrangHoatDongOnListUser @TinhTrangHoatDong = 1
+
+		-- Procedure search Phòng Ban On ListUser
+create proc searchPhongBanOnListUser
+@PhongBan NVARCHAR(20) = NULL
+as
+begin
+	select TenDangNhap as [Tên đăng nhập], Mail as [Email], HoTen as [Tên người dùng], MaNV as [Mã người dùng], PhongBan as [Phòng ban], VaiTro as [Chức vụ], TinhTrangHoatDong as [Tình trạng] 
+	from NGUOIDUNG 
+	where @PhongBan IS NULL OR PhongBan = @PhongBan
+end
+go
+
+--drop searchPhongBanOnListUser
+--exec searchPhongBanOnListUser @PhongBan = 'IT'
 
 
 -- procedure dung cho Form ContractTrackingForSale
 		--Procedure search hợp đồng On ContractTrackingForSale--
-CREATE PROC searchConTractOnContractTrackingForSale
-    @MaHD NVARCHAR(5) = NULL, 
-    @TenHopDong NVARCHAR(50) = NULL, 
-    @TenNguoiDaiDien NVARCHAR(50) = NULL, 
-    @TenNguoiLienHe NVARCHAR(50) = NULL, 
-    @GiaTriHD INT = NULL, 
-    @TinhTrangHD NVARCHAR(20) = NULL, 
-    @HoTen NVARCHAR(50) = NULL
+CREATE PROC searchGlobalOnContractTrackingForSale
+    @Keyword NVARCHAR(50)
 AS
 BEGIN
     SELECT 
@@ -560,22 +506,17 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE (@MaHD IS NULL OR hd.MaHD = @MaHD)
-      AND (@TenHopDong IS NULL OR hd.TenHopDong LIKE '%' + @TenHopDong + '%')
-      AND (@TenNguoiDaiDien IS NULL OR hd.TenNguoiDaiDien LIKE '%' + @TenNguoiDaiDien + '%')
-      AND (@TenNguoiLienHe IS NULL OR hd.TenNguoiLienHe LIKE '%' + @TenNguoiLienHe + '%')
-      AND (@GiaTriHD IS NULL OR hd.GiaTriHD = @GiaTriHD)
-      AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD LIKE '%' + @TinhTrangHD + '%')
-      AND (@HoTen IS NULL OR nv.HoTen LIKE '%' + @HoTen + '%');
+    WHERE (hd.MaHD LIKE '%' + @Keyword + '%')
+      OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+      OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
+      OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
+      OR (hd.MaHD LIKE '%' + @Keyword + '%')
+      OR (nv.HoTen LIKE '%' + @Keyword + '%');
 END
 GO
 
-
---drop proc searchConTractOnContractTrackingForSale
---exec searchConTractOnContractTrackingForSale @MaHD = 'HD002'
---exec searchConTractOnContractTrackingForSale @HoTen = N'A'
---exec searchConTractOnContractTrackingForSale
-
+--drop proc searchGlobalOnContractTrackingForSale
+--exec searchGlobalOnContractTrackingForSale @Keyword = 'HD'
 
 		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSale --
 CREATE PROC searchContractByTimeOnContractTrackingForSale
@@ -892,12 +833,12 @@ begin
 	values (@TenDangNhap, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @PhongBan,@VaiTro, @Mail, @SDT )
 end
 go
-drop proc createAccount
+--drop proc createAccount
 exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
 					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb2k4@gmail.com', @SDT = N'0911162180'
 
 --delete  NGUOIDUNG
-select * from NGUOIDUNG
+--select * from NGUOIDUNG
 
 		--Procedure insert tiến độ hợp đồng --
 create proc insertProgress
