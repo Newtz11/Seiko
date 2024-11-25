@@ -46,10 +46,9 @@ namespace Design
             button.Region = Region.FromHrgn(hRgn);
         }
 
-        private void AccountantPaymentCommission_Load(object sender, EventArgs e)
+        private void PaymentProgress_Load(object sender, EventArgs e)
         {
-            dataGridViewPaymentProgress.Rows.Add("HD001", "Quay video", "Giai đoạn 1", "12/9/2022", "40","40000000","Đã thanh toán","15/9/2022","Thanh toán giai đoạn 1");
-            dataGridViewPaymentProgress.Rows.Add("HD001", "Quay video", "Giai đoạn 2", "12/11/2022", "60", "60000000", "Chờ thanh toán", "", "");
+           
         }
     }
 }

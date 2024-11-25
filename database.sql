@@ -27,7 +27,7 @@ CREATE TABLE NGUOIDUNG
 )
 go
 
-
+select * from NGUOIDUNG
 
 
 ---Thêm dữ liệu Super Admin---
@@ -138,7 +138,7 @@ values ('00001', N'Quay 50 video',N'Công ty Milo', '2023-11-21', '2024-10-24', 
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00003', N'Chụp 5 hình', N'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, N'Chụp hình về abc', N'Đang thực hiện', N'Valhein', N'1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Quay 10 video', N'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, N'Quay video về abc', N'Đang thực hiện', N'Đại sứ Omo', N'1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
+values ('00002', N'Ghi Hình capcut', N'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, N'Quay video về bột giặt', N'Chưa thực hiện', N'Đại sứ Omo', N'1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00005', N'Chụp 10 hình', N'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, N'Chụp hình về abc', N'Chờ nghiệm thu', N'Đại sứ Asus', N'1 NHT Quận 7', '0936681913', 'abcd@gmail.com', 4)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
@@ -441,6 +441,7 @@ BEGIN
 END
 GO
 
+
 --drop proc searchGlobalOnListUser
 --exec searchGlobalOnListUser @Keyword = 'b'
 
@@ -510,13 +511,12 @@ BEGIN
       OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
-      OR (hd.MaHD LIKE '%' + @Keyword + '%')
       OR (nv.HoTen LIKE '%' + @Keyword + '%');
 END
 GO
-
+select * from NGUOIDUNG
 --drop proc searchGlobalOnContractTrackingForSale
---exec searchGlobalOnContractTrackingForSale @Keyword = 'HD'
+exec searchGlobalOnContractTrackingForSale @Keyword = 'capcut'
 
 		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSale --
 CREATE PROC searchContractByTimeOnContractTrackingForSale
@@ -572,32 +572,6 @@ GO
 --drop proc searchTinhTrangHopDongOnContractTrackingForSale
 --exec searchTinhTrangHopDongOnContractTrackingForSale @TinhTrangHD = N'Đã xong'
 --exec searchTinhTrangHopDongOnContractTrackingForSale
-
-		-- Procedure search nhân viên phụ trách On ContractTrackingForSale --
-CREATE PROC searchNhanVienPhuTrachOnContractTrackingForSale
-    @HoTen NVARCHAR(50) = NULL,
-	@VaiTro NVARCHAR(50) = NULL
-AS
-BEGIN
-    SELECT 
-        hd.MaHD AS [Mã hợp đồng], 
-        hd.TenHopDong AS [Tên hợp đồng], 
-        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
-        hd.TenNguoiLienHe AS [Người liên hệ], 
-        hd.NgayBatDau AS [Ngày bắt đầu], 
-        hd.NgayKetThuc AS [Ngày hết hạn], 
-        hd.GiaTriHD AS [Giá trị hợp đồng], 
-        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
-        nv.HoTen AS [Phụ trách quản lý]
-    FROM HOPDONG AS hd
-    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE (@HoTen IS NULL OR nv.HoTen = @HoTen) AND nv.VaiTro LIKE N'Sale'
-END
-GO
-
---drop proc searchNhanVienPhuTrachOnContractTrackingForSale
---exec searchNhanVienPhuTrachOnContractTrackingForSale @HoTen = 'Nguyễn Văn A'
---exec searchNhanVienPhuTrachOnContractTrackingForSale
 
 
 -- procedure dung cho Form ProjectProgress
@@ -826,7 +800,6 @@ create proc createAccount
 	@VaiTro NVARCHAR(50),
 	@Mail NVARCHAR(50),
 	@SDT NVARCHAR(10)
-
 as
 begin
 	insert into NGUOIDUNG (TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT)
@@ -834,11 +807,11 @@ begin
 end
 go
 --drop proc createAccount
-exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
-					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb2k4@gmail.com', @SDT = N'0911162180'
+exec createAccount @TenDangNhap = 'b', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
+					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'Giám đốc',@VaiTro = N'Giám đốc', @Mail = N'dgb35k4@gmail.com', @SDT = N'0911162180'
 
 --delete  NGUOIDUNG
---select * from NGUOIDUNG
+select * from NGUOIDUNG
 
 		--Procedure insert tiến độ hợp đồng --
 create proc insertProgress
@@ -865,7 +838,7 @@ drop proc insertProgress
 exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 
 					@MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
 
-
+exec searchGlobalOnContractTrackingForSale @Keyword = 'd' 
 		--Procedure insert giai đoạn thanh toán
 create proc insertGiaiDoanThanhToan
 	@MaHD NVARCHAR(5),
