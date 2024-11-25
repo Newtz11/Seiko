@@ -16,6 +16,7 @@ namespace Design
     public partial class PersonalInformation : Form
     {
         private NguoiDung user;
+        
         public PersonalInformation(NguoiDung user)
         {
             InitializeComponent();
@@ -68,8 +69,9 @@ namespace Design
 
         private void buttonDoiMatKhau_Click(object sender, EventArgs e)
         {
-            ChangePassword changePassword = new ChangePassword();
+            ChangePassword changePassword = new ChangePassword(user, this);
             changePassword.Show();
+
         }
     }
 }
