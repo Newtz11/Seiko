@@ -234,14 +234,15 @@
             // comboBoxPhongBan
             // 
             comboBoxPhongBan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBoxPhongBan.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxPhongBan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxPhongBan.FormattingEnabled = true;
             comboBoxPhongBan.ItemHeight = 23;
-            comboBoxPhongBan.Items.AddRange(new object[] { "Sale", "Kế toán", "Giám đốc" });
             comboBoxPhongBan.Location = new Point(541, 103);
             comboBoxPhongBan.Name = "comboBoxPhongBan";
             comboBoxPhongBan.Size = new Size(415, 31);
             comboBoxPhongBan.TabIndex = 7;
+            comboBoxPhongBan.SelectedIndexChanged += comboBoxPhongBan_SelectedIndexChanged;
             // 
             // labelPhongBan
             // 
@@ -301,10 +302,10 @@
             // comboBoxChucVu
             // 
             comboBoxChucVu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBoxChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxChucVu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxChucVu.FormattingEnabled = true;
             comboBoxChucVu.ItemHeight = 23;
-            comboBoxChucVu.Items.AddRange(new object[] { "Sale", "Trưởng phòng Sale", "Kế toán", "Trưởng phòng Kế toán", "Giám đốc" });
             comboBoxChucVu.Location = new Point(541, 216);
             comboBoxChucVu.Name = "comboBoxChucVu";
             comboBoxChucVu.Size = new Size(415, 31);
