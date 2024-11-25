@@ -91,29 +91,25 @@ namespace DAO
 
         public DataTable searchUserListByName(string name)
         {
-            string procName = "searchNameOnListUser";
+            string procName = "searchGlobalOnListUser";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = name },
-                new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = name },
-                new SqlParameter("@Mail", SqlDbType.NVarChar, 50) { Value = name },
-                new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = name }
-
+                new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name }
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
         }
 
-        public DataTable searchUserListByphongBan(string phongBan)
+
+        public DataTable searchUserListByPhongBan(string phongBan)
         {
             string procName = "searchPhongBanOnListUser";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = phongBan }
-
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
@@ -133,21 +129,20 @@ namespace DAO
 
             return dt;
         }
-
-
         public DataTable searchUserListByTinhTrang(int tinhTrang)
         {
             string procName = "searchTinhTrangHoatDongOnListUser";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@VaiTro", SqlDbType.Bit) { Value = tinhTrang }
-
+                new SqlParameter("@TinhTrangHoatDong", SqlDbType.Bit) { Value = tinhTrang }
             };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
         }
+
+
 
         public bool createAccount(NguoiDung newAccount)
         {
@@ -180,14 +175,17 @@ namespace DAO
         }
 
 
-        // check mail trugn luc tao tai khoan
+        // check mail trung luc tao tai khoan
 
         public bool checkMailTrung(NguoiDung newMail)
         {
             string query = "select MaNV, TenDangNhap, MatKhau, Mail from NGUOIDUNG where Mail = '" + newMail.mail + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
-            return !(dt.Rows.Count > 0);
+            return (dt.Rows.Count > 0);
         }
         
+
+
+       
     }
 }

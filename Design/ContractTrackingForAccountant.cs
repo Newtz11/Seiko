@@ -15,6 +15,7 @@ namespace Design
     public partial class ContractTrackingForAccountant : Form
     {
         private NguoiDung user;
+        private bool enableDoubleClick;
         public ContractTrackingForAccountant(NguoiDung user)
         {
             InitializeComponent();
@@ -48,15 +49,32 @@ namespace Design
             button.Region = Region.FromHrgn(hRgn);
         }
 
-
+        //button them
         private void button2_Click(object sender, EventArgs e)
         {
+            dataGridViewContractTracking.ReadOnly = false;
 
         }
 
         private void dataGridViewContractTracking_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //ContractDetail fContractDetail = new ContractDetail(user);
+            DataGridViewRow selectedRow = dataGridViewContractTracking.Rows[e.RowIndex];
+
+            // Check if the last cell is empty
+            int lastColumnIndex = dataGridViewContractTracking.Columns.Count - 1;
+            DataGridViewCell lastCell = selectedRow.Cells[lastColumnIndex];
+
+            if (lastCell.Value == null || string.IsNullOrEmpty(lastCell.Value.ToString()))
+            {
+                // Last cell is empty, show a message or take other actions
+                MessageBox.Show("Hợp đồng này chưa có nhân viên quản lý thanh toán");
+            }
+            else
+            {
+                // Last cell is not empty, open the ContractDetail form
+                //ContractDetail fContractDetail = new ContractDetail(user);
+                // ... other actions ...
+            }
         }
 
         private void ContractTrackingForAccountant_Load(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,8 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -103,7 +106,7 @@ namespace Design
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
-                MessageBox.Show("Không ổn rồi đại vương ơiii");
+                return;
             }
             else
             {
@@ -132,7 +135,7 @@ namespace Design
 
                 comboBoxPhongBan.Text = "Phòng ban";
                 comboBoxChucVu.Text = "Chức vụ";
-                comboBoxTinhTrang.Text = "Tình trạng"; 
+                comboBoxTinhTrang.Text = "Tình trạng";
             }
 
 
@@ -148,6 +151,14 @@ namespace Design
         {
             dataGridViewListUser.Rows.Clear();
             ListUser_Load(sender, e);
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewListUser.SelectedRows.Count > 0) 
+            {
+            
+            }
         }
     }
 }

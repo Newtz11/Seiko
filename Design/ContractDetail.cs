@@ -17,6 +17,7 @@ namespace Design
         private NguoiDung user;
         private HopDong hd;
         private Form f;
+        private string hinhThucTT;
         public ContractDetail(NguoiDung user, HopDong hd, Form f)
         {
             InitializeComponent();
@@ -107,8 +108,9 @@ namespace Design
             //neu nguoi dung la ke toan thi cho phep sua hinh thuc thanh toan va them giai doan
             if (user.vaiTro == "Trưởng phòng Kế toán")
             {
-
+                hinhThucTT = comboBoxHinhThucTT.Text.ToString();
                 comboBoxHinhThucTT.Enabled = false;
+
 
             }
         }
