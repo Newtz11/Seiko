@@ -98,18 +98,12 @@ namespace BLL
                 {
                     
                     
-                    if (maTienDo == row[0])
+                    if (maTienDo == row[0].ToString())
                         
                         TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, kl, tienDo);
-                    
                 }
 
-            }
-
-
-
-
-            
+            }   
         }
     }
 }

@@ -76,7 +76,7 @@ namespace Design
                     string tenHopDong = row[1].ToString();
                     string tenNguoiDaiDien = row[2].ToString();
                     string tenNguoiLienHe = row[3].ToString();
-                    DateTime ngayBatDau = (DateTime) row[4];
+                    DateTime ngayBatDau = (DateTime)row[4];
                     DateTime ngayKetThuc = (DateTime)row[5];
                     int giaTriHopDong = Convert.ToInt32(row[6]);
                     string tinhTrangHD = row[7].ToString();
@@ -132,6 +132,11 @@ namespace Design
 
             dataGridViewContractTracking.Rows.Clear();
             ContractTracking_Load(sender, e);
+        }
+
+        private void dataGridViewContractTracking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

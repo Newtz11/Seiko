@@ -126,7 +126,7 @@ CREATE TABLE HOPDONG
   SDT NVARCHAR(10) NOT NULL, --của người liên hệ
   Mail NVARCHAR(50) NOT NULL, --của người liên hệ
   TienDoHD INT NOT NULL, --Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
-  NhanVienThanhToan VARCHAR(50) NULL,	--Mã nhân viên kế toán phụ trách giai đoạn ban đầu là rỗng
+  NhanVienThanhToan VARCHAR(50) NULL,	--Tên đăng nhập của kế toán phụ trách giai đoạn ban đầu là rỗng
   PRIMARY KEY (MaHD),
   FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV),
   FOREIGN KEY (NhanVienThanhToan) REFERENCES NGUOIDUNG(TenDangNhap)
@@ -157,7 +157,7 @@ select * from HOPDONG
 
 CREATE TABLE GIAIDOANTHANHTOAN
 (
-  MaGiaiDoanThanhToan NVARCHAR(10) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
+  MaGiaiDoanThanhToan NVARCHAR(5) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
   NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
   PhanTramThanhToan INT NOT NULL DEFAULT 100,
@@ -182,7 +182,7 @@ values('HD002', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn
 insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
 values('HD002', '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
 
-select * from GIAIDOANTHANHTOAN 
+--select * from GIAIDOANTHANHTOAN 
 
 
 
@@ -291,6 +291,7 @@ BEGIN
 END
 GO
 
+
 -- Tạo mã tiến độ hợp đồng --
 CREATE FUNCTION taoMaTienDoHopDong()
 RETURNS NVARCHAR(5)
@@ -394,6 +395,33 @@ end
 go
 
 --exec loadProjectProgressForAll
+
+
+		--load ContractTracking For Accountant
+create proc loadConTractTrackingForAccountant
+	@MaNV NVARCHAR(5)
+as
+begin
+	SELECT 
+        hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng],
+        hd.NhanVienThanhToan AS [Phụ trách thanh toán]
+    FROM HOPDONG AS hd
+	INNER JOIN NGUOIDUNG AS nv ON hd.NhanVienThanhToan = nv.TenDangNhap
+	INNER JOIN GIAIDOANTHANHTOAN AS gd ON hd.NhanVienThanhToan = gd.NhanVienQuanLy
+	WHERE nv.VaiTro = N'Kế toán'
+end
+go
+
+--drop proc loadConTractTrackingForAccountant
+--exec loadConTractTrackingForAccountant @MaNV = '00004'
+
 
 		--Procedure PaymentProgress for Accountant--
 create proc loadPaymentProgressForAccountant
@@ -701,12 +729,27 @@ exec searchConTractOnPaymentProgress @NVThucHienCV = N'A'
 exec searchConTractOnPaymentProgress
 
 
-	
+select * from NGUOIDUNG
 
 -- UPDATE DATA
 
 		--Procedure update hợp đồng
-create proc updateHopDong
+create proc updateNhanVienThanhToan
+	@MaHD NVARCHAR(5),
+	@NhanVienThanhToan VARCHAR(50)
+AS
+BEGIN
+	UPDATE HOPDONG
+	SET NhanVienThanhToan = @NhanVienThanhToan
+	WHERE MaHD = @MaHD
+END
+GO
+
+--drop proc updateNhanVienThanhToan
+exec updateNhanVienThanhToan @MaHD = 'HD002' , @NhanVienThanhToan = 'kiennt'
+select * from HOPDONG
+		--Procedure updateChiaGiaiDoanHopDong
+create proc updateChiaGiaiDoanHopDong	
 	@MaHD NVARCHAR(5),
 	@ChiaGiaiDoan VARCHAR(20)
 AS
@@ -717,7 +760,10 @@ BEGIN
 END
 GO
 
---drop proc updateHopDong
+--drop proc updateChiaGiaiDoanHopDong
+--exec updateChiaGiaiDoanHopDong @MaHD = 'HD002' , @ChiaGiaiDoan = '100%'
+
+
 
 		-- Procedure Đổi mật khẩu --
 create proc changePassword
@@ -751,7 +797,36 @@ begin
 end
 go
 
+
 --drop proc changeProjectProgress
+
+
+--procedure sửa giai đoạn thanh toán changeProjectProgress
+
+create proc changePaymentProgress
+	@MaGiaiDoanThanhToan NVARCHAR(5),
+	@NgayThanhToan DATE,
+	@PhanTramThanhToan INT,
+	@GiaTriThanhToan INT,
+	@TrangThaiThanhToan BIT,
+	@NgayNhanThanhToan DATE,
+	@GhiChu NVARCHAR(100)
+as
+begin
+	update GIAIDOANTHANHTOAN
+	set
+		NgayThanhToan = @NgayThanhToan,
+		PhanTramThanhToan = @PhanTramThanhToan,
+		GiaTriThanhToan = @GiaTriThanhToan,
+		TrangThaiThanhToan = @TrangThaiThanhToan,
+		NgayNhanThanhToan = @NgayNhanThanhToan,
+		GhiChu = @GhiChu
+	where MaGiaiDoanThanhToan = @MaGiaiDoanThanhToan
+end
+go
+
+--drop proc changePaymentProgress
+
 
 
 -- INSERT DATA
@@ -799,8 +874,8 @@ begin
 end
 go
 
-drop proc insertProgress
-exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 
+--drop proc insertProgress
+--exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 
 					@MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
 
 
