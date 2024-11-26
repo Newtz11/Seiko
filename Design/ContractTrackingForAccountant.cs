@@ -19,6 +19,7 @@ namespace Design
         private bool isEditing = false;
         private int selectedRowIndex = -1;
         private bool enableDoubleClick;
+
         public ContractTrackingForAccountant(NguoiDung user)
         {
             InitializeComponent();
@@ -56,33 +57,29 @@ namespace Design
         private void button2_Click(object sender, EventArgs e)
         {
             //them nhan vien phu trach 
-            if (selectedRowIndex >= 0)
+
+            //dataGridViewContractTracking.Rows[selectedRowIndex].Cells[8].ReadOnly = false;
+            dataGridViewContractTracking.ReadOnly = false;
+
+            //this.PhuTrachThanhToan.Items.Add("NhanVien 1");
+            //this.PhuTrachThanhToan.Items.Add("NhanVien 2");
+
+            DataTable dt = NguoiDungBLL.getAccountant();
+            foreach (DataRow row in dt.Rows)
             {
-                dataGridViewContractTracking.Rows[selectedRowIndex].Cells[9].ReadOnly = false;
-                isEditing = true;
+                Console.WriteLine(row[0].ToString());
+                this.PhuTrachThanhToan.Items.Add(row[0].ToString());
             }
+            isEditing = true;
+
+
+
 
         }
 
         private void dataGridViewContractTracking_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //DataGridViewRow selectedRow = dataGridViewContractTracking.Rows[e.RowIndex];
 
-            //// Check if the last cell is empty
-            //int lastColumnIndex = dataGridViewContractTracking.Columns.Count - 1;
-            //DataGridViewCell lastCell = selectedRow.Cells[lastColumnIndex];
-
-            //if (lastCell.Value == null || string.IsNullOrEmpty(lastCell.Value.ToString()))
-            //{
-            //    // Last cell is empty, show a message or take other actions
-            //    MessageBox.Show("Hợp đồng này chưa có nhân viên quản lý thanh toán");
-            //}
-            //else
-            //{
-            //    // Last cell is not empty, open the ContractDetail form
-            //    //ContractDetail fContractDetail = new ContractDetail(user);
-            //    // ... other actions ...
-            //}
 
 
             string maHD = this.dataGridViewContractTracking.CurrentRow.Cells[0].Value.ToString();
@@ -91,10 +88,27 @@ namespace Design
             fContractDetail.Show();
 
 
+
         }
 
         private void ContractTrackingForAccountant_Load(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
+            dataGridViewContractTracking.Rows.Clear();
+            dt = HopDongBLL.loadContract(user);
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string tenCongTyCaNhan = row[2].ToString();
+                string nguoiLienHe = row[3].ToString();
+                DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                DateTime ngayHetHan = Convert.ToDateTime(row[5]);
+                int giaTriHopDong = Convert.ToInt32(row[6]);
+                string tinhTrangHopDong = row[7].ToString();
+                //string phuTrachQuanLy = row[8].ToString();
+                dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tinhTrangHopDong);
+            }
 
         }
 
@@ -128,6 +142,32 @@ namespace Design
         {
 
 
+        }
+
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            List<List<string>> lst = new List<List<string>>();
+
+            foreach (DataGridViewRow row in dataGridViewContractTracking.Rows)
+            {
+                List<string> tempList = new List<string>();
+
+                if (row.Cells[0] != null && row.Cells[0].Value != null)
+                {
+                    tempList.Add(row.Cells[0].Value.ToString());
+                }
+
+                if (row.Cells[8] != null && row.Cells[8].Value != null)
+                {
+                    tempList.Add(row.Cells[8].Value.ToString());
+                }
+
+                lst.Add(tempList);
+            }
+
+            HopDongBLL.updatePayment(lst);
+            dataGridViewContractTracking.ReadOnly = true;
         }
     }
 }

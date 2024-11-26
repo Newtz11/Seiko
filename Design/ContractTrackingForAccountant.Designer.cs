@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractTrackingForAccountant));
             comboBoxTinhTrang = new ComboBox();
             buttonXoa = new Button();
@@ -51,7 +51,7 @@
             NgayHetHan = new DataGridViewTextBoxColumn();
             GiaTriHopDong = new DataGridViewTextBoxColumn();
             TinhTrangHopDong = new DataGridViewTextBoxColumn();
-            PhuTrachThanhToan = new DataGridViewTextBoxColumn();
+            PhuTrachThanhToan = new DataGridViewComboBoxColumn();
             groupBoxListUser = new GroupBox();
             buttonReset = new Button();
             button1 = new Button();
@@ -59,6 +59,7 @@
             button3 = new Button();
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
+            buttonSave = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
@@ -186,38 +187,38 @@
             dataGridViewContractTracking.BackgroundColor = Color.White;
             dataGridViewContractTracking.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewContractTracking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.DarkGray;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewContractTracking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewContractTracking.ColumnHeadersHeight = 60;
             dataGridViewContractTracking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewContractTracking.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrangHopDong, PhuTrachThanhToan });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridViewContractTracking.DefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewContractTracking.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewContractTracking.Location = new Point(23, 265);
             dataGridViewContractTracking.Name = "dataGridViewContractTracking";
             dataGridViewContractTracking.ReadOnly = true;
             dataGridViewContractTracking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridViewContractTracking.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewContractTracking.RowHeadersVisible = false;
             dataGridViewContractTracking.RowHeadersWidth = 51;
             dataGridViewContractTracking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -291,11 +292,14 @@
             PhuTrachThanhToan.MinimumWidth = 6;
             PhuTrachThanhToan.Name = "PhuTrachThanhToan";
             PhuTrachThanhToan.ReadOnly = true;
+            PhuTrachThanhToan.Resizable = DataGridViewTriState.True;
+            PhuTrachThanhToan.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // groupBoxListUser
             // 
             groupBoxListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxListUser.BackColor = Color.LightGray;
+            groupBoxListUser.Controls.Add(buttonSave);
             groupBoxListUser.Controls.Add(buttonReset);
             groupBoxListUser.Controls.Add(button1);
             groupBoxListUser.Controls.Add(button2);
@@ -399,6 +403,21 @@
             pictureBoxIconContractTracking.TabIndex = 17;
             pictureBoxIconContractTracking.TabStop = false;
             // 
+            // buttonSave
+            // 
+            buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSave.BackColor = Color.DodgerBlue;
+            buttonSave.FlatStyle = FlatStyle.Popup;
+            buttonSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSave.ForeColor = Color.White;
+            buttonSave.Location = new Point(730, 202);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(106, 33);
+            buttonSave.TabIndex = 34;
+            buttonSave.Text = "Lưu";
+            buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += buttonSave_Click;
+            // 
             // ContractTrackingForAccountant
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -437,6 +456,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private Button buttonReset;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn TenCongTyCaNhan;
@@ -445,7 +465,7 @@
         private DataGridViewTextBoxColumn NgayHetHan;
         private DataGridViewTextBoxColumn GiaTriHopDong;
         private DataGridViewTextBoxColumn TinhTrangHopDong;
-        private DataGridViewTextBoxColumn PhuTrachThanhToan;
-        private Button buttonReset;
+        private DataGridViewComboBoxColumn PhuTrachThanhToan;
+        private Button buttonSave;
     }
 }
