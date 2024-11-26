@@ -98,7 +98,7 @@ namespace BLL
                 {
                     
                     
-                    if (maTienDo == row[0])
+                    if (maTienDo == row[0].toString())
                         
                         TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, kl, tienDo);
                     
