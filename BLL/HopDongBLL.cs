@@ -100,5 +100,29 @@ namespace BLL
             }
             return mergedDataTable;
         }
+
+        public static void updatePayment(List<List<string>> lst)
+        {
+            foreach (List<string> payment in lst)
+            {
+                string maHD = "";
+                string nhanVien = "";
+                for (int i = 0; i < payment.Count; i++) 
+                {
+                    if (i==0) maHD = payment[i];
+                    else nhanVien = payment[i];
+                }
+                DataTable dt = HopDongDAO.Instance.getContract();
+
+                foreach (DataRow row in dt.Rows)
+                { 
+                    if (row[0].ToString() == maHD)
+                    {
+                        HopDongDAO.Instance.updateNhanVienThanhToanHopDong(maHD, nhanVien);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

@@ -237,7 +237,6 @@
             dataGridViewContractTracking.AllowUserToDeleteRows = false;
             dataGridViewContractTracking.AllowUserToOrderColumns = true;
             dataGridViewContractTracking.AllowUserToResizeRows = false;
-            dataGridViewContractTracking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewContractTracking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewContractTracking.BackgroundColor = Color.White;
             dataGridViewContractTracking.BorderStyle = BorderStyle.Fixed3D;

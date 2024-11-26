@@ -41,6 +41,10 @@ namespace DAO
                 };
                 dt = DataProvider.Instance.executeProc(procName, parameters);
             }
+            else if (user.vaiTro == "Kế toán")
+            {
+                //ke toan
+            }
             else
             {
                 string query = "EXEC loadContractTrackingForAll";
@@ -97,6 +101,34 @@ namespace DAO
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
+        }
+
+
+        //lay tat ca hop dong
+
+        public DataTable getContract()
+        {
+            string query = "Select MaHD from HOPDONG";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+
+        //
+
+        public void updateNhanVienThanhToanHopDong(string maHD, string nhanVien)
+        {
+            //
+            string procName = "updateNhanVienThanhToan";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHD },
+                new SqlParameter("@NhanVienThanhToan", SqlDbType.VarChar, 50) { Value = nhanVien }
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            
         }
     }
 }

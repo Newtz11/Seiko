@@ -88,6 +88,7 @@ namespace Design
 
                 comboBoxTinhTrang.SelectedIndex = -1;
                 comboBoxTinhTrang.Text = "Tình trạng";
+                
             }
         }
 
