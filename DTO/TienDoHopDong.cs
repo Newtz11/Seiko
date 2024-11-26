@@ -19,6 +19,11 @@ namespace DTO
         public int tongKhoiLuongCV { get; set; }
 
         public TienDoHopDong() { }
+        
+
+
+
+
 
         public TienDoHopDong(DateTime ngayBatDau, DateTime ngayKetThuc, string maNV, string nhanVienThucHienCV, string noiDungCV)
         {

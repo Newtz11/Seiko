@@ -17,6 +17,9 @@ namespace Design
     public partial class ProjectProgress : Form
     {
         private NguoiDung user;
+        private DataGridViewRow editRow;
+        private DataGridViewCell editCell;
+        private string oldValue;
         public ProjectProgress(NguoiDung user)
         {
             InitializeComponent();
@@ -25,6 +28,8 @@ namespace Design
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonReset);
             this.user = user;
+            dataGridViewProjectProgress.Columns.Add("Ma Tien Do", "Ma Tien Do");
+            dataGridViewProjectProgress.Columns[9].Visible = false;
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
         [DllImport("gdi32.dll")]
@@ -63,7 +68,8 @@ namespace Design
                 int KhoiLuongCV = Convert.ToInt32(row[6]);
                 string NVThucHienCV = row[7].ToString();
                 string TinhTrangHD = row[8].ToString();
-                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD);
+                string maTienDo = row[9].ToString();
+                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD, maTienDo);
             }
 
         }
@@ -109,7 +115,8 @@ namespace Design
                     int tienDo = Convert.ToInt32(row[6]);
                     string tenNguoiThucHien = row[7].ToString();
                     string tinhTrangHD = row[8].ToString();
-                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD);
+                    string maTienDo = row[9].ToString();
+                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
                 }
 
                 textBoxSearch.Text = "";
@@ -127,6 +134,61 @@ namespace Design
 
             dataGridViewProjectProgress.Rows.Clear();
             ProjectProgress_Load(sender, e);
+        }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            dataGridViewProjectProgress.ReadOnly = false;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            dataGridViewProjectProgress.ReadOnly = true;
+            DataTable dataTable = new DataTable();
+       
+
+            dataTable.Columns.Add("maHopDong");
+            dataTable.Columns.Add("tenHopDong");
+            dataTable.Columns.Add("noiDungCV");
+            dataTable.Columns.Add("khoiLuongCV");
+            dataTable.Columns.Add("ngayBatDau");
+            dataTable.Columns.Add("ngayKetThuc");
+            dataTable.Columns.Add("tienDo");
+            dataTable.Columns.Add("tenNguoiThucHien");
+            dataTable.Columns.Add("tinhTrangHD");
+            dataTable.Columns.Add("maTienDo");
+
+
+            // Populate the DataTable with data from the DataGridView
+            foreach (DataGridViewRow row in dataGridViewProjectProgress.Rows)
+            {
+                DataRow dataRow = dataTable.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dataRow[cell.ColumnIndex] = cell.Value;
+                    
+                }
+                
+                dataTable.Rows.Add(dataRow);
+
+            }
+
+            DataTable dt = TienDoHopDongBLL.suaDGVProjectProgress(dataTable);
+            dataGridViewProjectProgress.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string noiDungCV = row[2].ToString();
+                string khoiLuongCV = row[3].ToString();
+                string ngayBatDau = row[4].ToString();
+                string ngayKetThuc = row[5].ToString();
+                int tienDo = Convert.ToInt32(row[6]);
+                string tenNguoiThucHien = row[7].ToString();
+                string tinhTrangHD = row[8].ToString();
+                string maTienDo = row[9].ToString();
+                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
+            }
         }
     }
 }

@@ -98,5 +98,30 @@ namespace DAO
 
             return dt;
         }
+
+
+        public DataTable suaDGVProjectProgress()
+        {
+            string query = "select MaTienDoHopDong from TienDoHopDong";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+        public void updateProjectProgress(string maTienDo, string nvThucHienCV, int tongKL, int tienDo)
+        {
+            string procName = "changeProjectProgress";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaTienDoHopDong", SqlDbType.NVarChar, 5) { Value = maTienDo },
+                new SqlParameter("@NVThucHienCV", SqlDbType.NVarChar, 50) { Value = nvThucHienCV },
+                new SqlParameter("@KhoiLuongCV", SqlDbType.Int) { Value = tienDo},
+                new SqlParameter("@TongKhoiLuongCV", SqlDbType.Int) { Value = tongKL}
+                
+            };
+
+            DataProvider.Instance.executeProc(procName, parameters);
+
+        }
     }
 }

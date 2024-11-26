@@ -71,5 +71,33 @@ namespace BLL
             }
             return mergedDataTable;
         }
+
+
+        public static DataTable suaDGVProjectProgress(DataTable dtNew)
+        {
+            DataTable dtOld = TienDoHopDongDAO.Instance.suaDGVProjectProgress();
+            DataTable dt =  new DataTable();
+            foreach (DataRow row in dtOld.Rows) 
+            {
+                foreach(DataRow row2 in dtNew.Rows)
+                {
+                    if (row[0] == row2[9])
+                    {
+                        //trung lay du lieu tu bang moi va luu vao database
+                        string maTienDo = row2[9].ToString();
+                        string nvThucHienCV = row2[7].ToString().Trim();
+                        int khoiLuongCV = Convert.ToInt32(row2[3].ToString());
+                        int tienDo = Convert.ToInt32(row2[6].ToString());
+                        TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, khoiLuongCV, tienDo);
+                    }
+                }
+
+            }
+
+
+
+
+            return dtNew;
+        }
     }
 }

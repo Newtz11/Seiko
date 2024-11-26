@@ -46,10 +46,7 @@ namespace Design
             IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
             button.Region = Region.FromHrgn(hRgn);
         }
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void CreateContract_Load(object sender, EventArgs e)
         {
