@@ -25,9 +25,12 @@ namespace Design
             ApplyRoundedCorners(buttonXoa);
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonReset);
+            ApplyRoundedCorners(buttonSave);
             this.user = user;
             dataGridViewProjectProgress.Columns.Add("Ma Tien Do", "Ma Tien Do");
             dataGridViewProjectProgress.Columns[9].Visible = false;
+            // Đăng ký sự kiện CellValidating
+            this.dataGridViewProjectProgress.CellValidating += new DataGridViewCellValidatingEventHandler(this.dataGridViewProjectProgress_CellValidating);
         }
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
         [DllImport("gdi32.dll")]
@@ -144,12 +147,12 @@ namespace Design
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
-            List<List<string>> lst = new List<List<string> > (); 
-            
+            List<List<string>> lst = new List<List<string>>();
+
 
             foreach (DataGridViewRow row in dataGridViewProjectProgress.Rows)
             {
-                List<string> tempLst = new List<string> ();
+                List<string> tempLst = new List<string>();
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     tempLst.Add(cell.Value.ToString());
@@ -157,7 +160,7 @@ namespace Design
                 lst.Add(tempLst);
             }
 
-            
+
             // Populate the DataTable with data from the DataGridView
 
 
@@ -166,6 +169,76 @@ namespace Design
             dataGridViewProjectProgress.Rows.Clear();
             dataGridViewProjectProgress.ReadOnly = true;
             ProjectProgress_Load(sender, e);
+        }
+
+        private void dataGridViewProjectProgress_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //Phương thức kiểm tra hợp lệ cột khối lượng yêu cầu và tiến độ
+        private void dataGridViewProjectProgress_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // Kiểm tra nếu có dữ liệu được nhập vào cột thứ 4 (Khối lượng yêu cầu)
+            if (e.ColumnIndex == 3)  // Cột thứ 4 (Khối lượng yêu cầu)
+            {
+                if (!string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                    // Kiểm tra nếu dữ liệu nhập vào là một số hợp lệ
+                    if (!int.TryParse(e.FormattedValue.ToString(), out int value))
+                    {
+                        // Hiển thị thông báo lỗi nếu không phải là số
+                        MessageBox.Show("Cột này chỉ chấp nhận số nguyên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;  // Ngừng việc nhập dữ liệu
+                        return;
+                    }
+
+                    // Kiểm tra cột thứ 3 (chỉ số cột là 2) để tính tổng các ký tự số
+                    var column3Value = dataGridViewProjectProgress.Rows[e.RowIndex].Cells[2].Value?.ToString();
+                    if (!string.IsNullOrEmpty(column3Value))
+                    {
+                        // Tính tổng các ký tự số trong cột thứ 3
+                        int sumOfDigits = column3Value.Where(char.IsDigit).Sum(c => c - '0');
+
+                        // So sánh tổng ký tự số với giá trị người dùng nhập vào cột thứ 4
+                        if (value != sumOfDigits)
+                        {
+                            // Hiển thị thông báo lỗi nếu không khớp
+                            MessageBox.Show($"Tổng các ký tự số trong cột thứ 3 phải bằng {sumOfDigits}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            e.Cancel = true;  // Ngừng việc nhập dữ liệu
+                        }
+                    }
+                }
+            }
+
+            // Kiểm tra nếu là cột thứ 7 (chỉ số cột là 6)
+            if (e.ColumnIndex == 6)  // Cột thứ 7 (chỉ số 6)
+            {
+                if (!string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                    // Kiểm tra nếu dữ liệu nhập vào là một số hợp lệ
+                    if (!int.TryParse(e.FormattedValue.ToString(), out int value))
+                    {
+                        // Hiển thị thông báo lỗi nếu không phải là số
+                        MessageBox.Show("Cột này chỉ chấp nhận số nguyên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;  // Ngừng việc nhập dữ liệu
+                        return;
+                    }
+
+                    // Lấy giá trị của ô cột thứ 4 (chỉ số cột là 3) cùng hàng
+                    var column4Value = dataGridViewProjectProgress.Rows[e.RowIndex].Cells[3].Value;
+                    if (column4Value != null && int.TryParse(column4Value.ToString(), out int column4Number))
+                    {
+                        // Kiểm tra nếu số nhập vào cột thứ 7 không được lớn hơn số trong cột thứ 4
+                        if (value > column4Number)
+                        {
+                            // Hiển thị thông báo lỗi nếu giá trị trong cột thứ 7 lớn hơn cột thứ 4
+                            MessageBox.Show("Giá trị trong cột thứ 7 không được lớn hơn giá trị trong cột thứ 4!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            e.Cancel = true;  // Ngừng việc nhập dữ liệu
+                        }
+                    }
+                }
+            }
         }
     }
 }

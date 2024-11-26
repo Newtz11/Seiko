@@ -109,7 +109,7 @@
             // buttonSave
             // 
             buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonSave.BackColor = Color.DodgerBlue;
+            buttonSave.BackColor = Color.FromArgb(0, 192, 0);
             buttonSave.FlatStyle = FlatStyle.Popup;
             buttonSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSave.ForeColor = Color.White;
@@ -242,6 +242,7 @@
             dataGridViewProjectProgress.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewProjectProgress.Size = new Size(1270, 550);
             dataGridViewProjectProgress.TabIndex = 29;
+            dataGridViewProjectProgress.CellContentClick += dataGridViewProjectProgress_CellContentClick;
             // 
             // MaHopDong
             // 
