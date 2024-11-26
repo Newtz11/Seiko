@@ -73,23 +73,35 @@ namespace BLL
         }
 
 
-        public static DataTable suaDGVProjectProgress(DataTable dtNew)
+        public static void suaDGVProjectProgress(List<List<string>> dtNew)
         {
             DataTable dtOld = TienDoHopDongDAO.Instance.suaDGVProjectProgress();
             DataTable dt =  new DataTable();
-            foreach (DataRow row in dtOld.Rows) 
+            
+            foreach(List<string> row2 in dtNew)
             {
-                foreach(DataRow row2 in dtNew.Rows)
+                string maTienDo = "";
+                string nvThucHienCV = "";
+                int kl = 0;
+                int tienDo = 0;
+                for (int i = 0; i < row2.Count; i++)
                 {
-                    if (row[0] == row2[9])
-                    {
-                        //trung lay du lieu tu bang moi va luu vao database
-                        string maTienDo = row2[9].ToString();
-                        string nvThucHienCV = row2[7].ToString().Trim();
-                        int khoiLuongCV = Convert.ToInt32(row2[3].ToString());
-                        int tienDo = Convert.ToInt32(row2[6].ToString());
-                        TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, khoiLuongCV, tienDo);
-                    }
+                    if (i == 9) maTienDo = row2[i].ToString();
+
+                    if (i == 7) nvThucHienCV = row2[i].ToString().Trim();
+
+                    if (i == 3) kl = Convert.ToInt32(row2[i].ToString());
+
+                    if (i == 6) tienDo = Convert.ToInt32(row2[i].ToString());
+                }
+                foreach (DataRow row in dtOld.Rows)
+                {
+                    
+                    
+                    if (maTienDo == row[0])
+                        
+                        TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, kl, tienDo);
+                    
                 }
 
             }
@@ -97,7 +109,7 @@ namespace BLL
 
 
 
-            return dtNew;
+            
         }
     }
 }

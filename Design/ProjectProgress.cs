@@ -17,9 +17,7 @@ namespace Design
     public partial class ProjectProgress : Form
     {
         private NguoiDung user;
-        private DataGridViewRow editRow;
-        private DataGridViewCell editCell;
-        private string oldValue;
+        private DataTable currentTable;
         public ProjectProgress(NguoiDung user)
         {
             InitializeComponent();
@@ -71,6 +69,7 @@ namespace Design
                 string maTienDo = row[9].ToString();
                 dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD, maTienDo);
             }
+            currentTable = dt;
 
         }
 
@@ -123,6 +122,7 @@ namespace Design
 
                 comboBoxTinhTrang.SelectedIndex = -1;
                 comboBoxTinhTrang.Text = "Tình Trạng";
+                currentTable = dt;
             }
         }
 
@@ -143,52 +143,29 @@ namespace Design
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            dataGridViewProjectProgress.ReadOnly = true;
-            DataTable dataTable = new DataTable();
-       
 
-            dataTable.Columns.Add("maHopDong");
-            dataTable.Columns.Add("tenHopDong");
-            dataTable.Columns.Add("noiDungCV");
-            dataTable.Columns.Add("khoiLuongCV");
-            dataTable.Columns.Add("ngayBatDau");
-            dataTable.Columns.Add("ngayKetThuc");
-            dataTable.Columns.Add("tienDo");
-            dataTable.Columns.Add("tenNguoiThucHien");
-            dataTable.Columns.Add("tinhTrangHD");
-            dataTable.Columns.Add("maTienDo");
+            List<List<string>> lst = new List<List<string> > (); 
+            
 
-
-            // Populate the DataTable with data from the DataGridView
             foreach (DataGridViewRow row in dataGridViewProjectProgress.Rows)
             {
-                DataRow dataRow = dataTable.NewRow();
+                List<string> tempLst = new List<string> ();
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    dataRow[cell.ColumnIndex] = cell.Value;
-                    
+                    tempLst.Add(cell.Value.ToString());
                 }
-                
-                dataTable.Rows.Add(dataRow);
-
+                lst.Add(tempLst);
             }
 
-            DataTable dt = TienDoHopDongBLL.suaDGVProjectProgress(dataTable);
+            
+            // Populate the DataTable with data from the DataGridView
+
+
+
+            TienDoHopDongBLL.suaDGVProjectProgress(lst);
             dataGridViewProjectProgress.Rows.Clear();
-            foreach (DataRow row in dt.Rows)
-            {
-                string maHopDong = row[0].ToString();
-                string tenHopDong = row[1].ToString();
-                string noiDungCV = row[2].ToString();
-                string khoiLuongCV = row[3].ToString();
-                string ngayBatDau = row[4].ToString();
-                string ngayKetThuc = row[5].ToString();
-                int tienDo = Convert.ToInt32(row[6]);
-                string tenNguoiThucHien = row[7].ToString();
-                string tinhTrangHD = row[8].ToString();
-                string maTienDo = row[9].ToString();
-                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
-            }
+            dataGridViewProjectProgress.ReadOnly = true;
+            ProjectProgress_Load(sender, e);
         }
     }
 }
