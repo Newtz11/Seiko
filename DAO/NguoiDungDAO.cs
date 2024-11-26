@@ -185,7 +185,13 @@ namespace DAO
         }
         
 
+        public DataTable getAccountant()
+        {
+            string query = "select TenDangNhap from NGUOIDUNG where VaiTro = N'Kế toán'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
 
-       
+
     }
 }

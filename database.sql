@@ -749,7 +749,9 @@ GO
 exec updateNhanVienThanhToan @MaHD = 'HD002' , @NhanVienThanhToan = 'kiennt'
 select * from HOPDONG
 		--Procedure updateChiaGiaiDoanHopDong
+
 create proc updateChiaGiaiDoanHopDong	
+
 	@MaHD NVARCHAR(5),
 	@ChiaGiaiDoan VARCHAR(20)
 AS
