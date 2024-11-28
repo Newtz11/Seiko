@@ -265,6 +265,7 @@
             textBoxGiaTri.Name = "textBoxGiaTri";
             textBoxGiaTri.Size = new Size(306, 23);
             textBoxGiaTri.TabIndex = 6;
+            textBoxGiaTri.TextChanged += textBoxGiaTri_TextChanged;
             // 
             // labelGiaTri
             // 

@@ -88,6 +88,7 @@ namespace Design
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             byte[] image = getImage();
+            this.user.hinhAnh = image;
             NguoiDungBLL.updateUserImage(user, image);
         }
 

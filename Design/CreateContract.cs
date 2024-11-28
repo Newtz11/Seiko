@@ -17,6 +17,7 @@ namespace Design
     public partial class CreateContract : System.Windows.Forms.Form
     {
         NguoiDung user;
+        private int soChuSo = 0;
         public CreateContract(NguoiDung user)
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace Design
             IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
             button.Region = Region.FromHrgn(hRgn);
         }
-        
+
 
         private void CreateContract_Load(object sender, EventArgs e)
         {
@@ -229,8 +230,16 @@ namespace Design
             {
                 MessageBox.Show("Tạo hợp đồng thành công");
                 this.Close();
-            }   
+            }
             else MessageBox.Show("Tạo hợp đồng không thành công");
+        }
+
+        private void textBoxGiaTri_TextChanged(object sender, EventArgs e)
+        {
+            if (soChuSo == 3){
+                soChuSo = 0;
+
+            }
         }
     }
 }
