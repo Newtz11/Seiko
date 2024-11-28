@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Design
 {
-    public partial class AccountDetail : Form
+    public partial class AccountDetail : System.Windows.Forms.Form
     {
         public AccountDetail()
         {

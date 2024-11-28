@@ -38,17 +38,19 @@
             labelContractTracking = new Label();
             groupBoxCommissionView = new GroupBox();
             dataGridViewCommissionView = new DataGridView();
-            maHopDong = new DataGridViewTextBoxColumn();
-            TenHopDong = new DataGridViewTextBoxColumn();
-            MaNhanVien = new DataGridViewTextBoxColumn();
-            TenNhanVien = new DataGridViewTextBoxColumn();
-            NgayThanhToan = new DataGridViewTextBoxColumn();
-            MucHoaHong = new DataGridViewTextBoxColumn();
-            TienHoaHong = new DataGridViewTextBoxColumn();
             dataGridViewTongHoaHong = new DataGridView();
             TongSoHoaHong = new DataGridViewTextBoxColumn();
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
+            maHopDong = new DataGridViewTextBoxColumn();
+            TenHopDong = new DataGridViewTextBoxColumn();
+            GiaiDoanThanhToan = new DataGridViewTextBoxColumn();
+            MaNhanVien = new DataGridViewTextBoxColumn();
+            TenNhanVien = new DataGridViewTextBoxColumn();
+            NgayNhanThanhToan = new DataGridViewTextBoxColumn();
+            GiaTriThanhToan = new DataGridViewTextBoxColumn();
+            MucHoaHong = new DataGridViewTextBoxColumn();
+            TienHoaHong = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxCommissionView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCommissionView).BeginInit();
@@ -108,11 +110,11 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewCommissionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCommissionView.ColumnHeadersHeight = 60;
             dataGridViewCommissionView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCommissionView.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, MaNhanVien, TenNhanVien, NgayThanhToan, MucHoaHong, TienHoaHong });
+            dataGridViewCommissionView.Columns.AddRange(new DataGridViewColumn[] { maHopDong, TenHopDong, GiaiDoanThanhToan, MaNhanVien, TenNhanVien, NgayNhanThanhToan, GiaTriThanhToan, MucHoaHong, TienHoaHong });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -142,57 +144,6 @@
             dataGridViewCommissionView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCommissionView.Size = new Size(1134, 511);
             dataGridViewCommissionView.TabIndex = 3;
-            // 
-            // maHopDong
-            // 
-            maHopDong.FillWeight = 116.0638F;
-            maHopDong.HeaderText = "Mã hợp dồng";
-            maHopDong.MinimumWidth = 30;
-            maHopDong.Name = "maHopDong";
-            maHopDong.Resizable = DataGridViewTriState.False;
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.FillWeight = 112.188828F;
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            TenHopDong.Resizable = DataGridViewTriState.False;
-            // 
-            // MaNhanVien
-            // 
-            MaNhanVien.FillWeight = 99.04235F;
-            MaNhanVien.HeaderText = "Mã nhân viên";
-            MaNhanVien.MinimumWidth = 6;
-            MaNhanVien.Name = "MaNhanVien";
-            // 
-            // TenNhanVien
-            // 
-            TenNhanVien.FillWeight = 99.04235F;
-            TenNhanVien.HeaderText = "Tên nhân viên";
-            TenNhanVien.MinimumWidth = 6;
-            TenNhanVien.Name = "TenNhanVien";
-            // 
-            // NgayThanhToan
-            // 
-            NgayThanhToan.FillWeight = 99.04235F;
-            NgayThanhToan.HeaderText = "Ngày thanh toán";
-            NgayThanhToan.MinimumWidth = 6;
-            NgayThanhToan.Name = "NgayThanhToan";
-            // 
-            // MucHoaHong
-            // 
-            MucHoaHong.FillWeight = 99.04235F;
-            MucHoaHong.HeaderText = "Hoa hồng (%)";
-            MucHoaHong.MinimumWidth = 6;
-            MucHoaHong.Name = "MucHoaHong";
-            // 
-            // TienHoaHong
-            // 
-            TienHoaHong.FillWeight = 99.04235F;
-            TienHoaHong.HeaderText = "Tiền hoa hồng";
-            TienHoaHong.MinimumWidth = 6;
-            TienHoaHong.Name = "TienHoaHong";
             // 
             // dataGridViewTongHoaHong
             // 
@@ -260,6 +211,69 @@
             textBoxSearch.Size = new Size(978, 30);
             textBoxSearch.TabIndex = 1;
             // 
+            // maHopDong
+            // 
+            maHopDong.FillWeight = 116.0638F;
+            maHopDong.HeaderText = "Mã hợp dồng";
+            maHopDong.MinimumWidth = 30;
+            maHopDong.Name = "maHopDong";
+            maHopDong.Resizable = DataGridViewTriState.False;
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.FillWeight = 112.188828F;
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            TenHopDong.Resizable = DataGridViewTriState.False;
+            // 
+            // GiaiDoanThanhToan
+            // 
+            GiaiDoanThanhToan.HeaderText = "Giai đoạn thanh toán";
+            GiaiDoanThanhToan.MinimumWidth = 6;
+            GiaiDoanThanhToan.Name = "GiaiDoanThanhToan";
+            // 
+            // MaNhanVien
+            // 
+            MaNhanVien.FillWeight = 99.04235F;
+            MaNhanVien.HeaderText = "Mã nhân viên";
+            MaNhanVien.MinimumWidth = 6;
+            MaNhanVien.Name = "MaNhanVien";
+            // 
+            // TenNhanVien
+            // 
+            TenNhanVien.FillWeight = 99.04235F;
+            TenNhanVien.HeaderText = "Tên nhân viên";
+            TenNhanVien.MinimumWidth = 6;
+            TenNhanVien.Name = "TenNhanVien";
+            // 
+            // NgayNhanThanhToan
+            // 
+            NgayNhanThanhToan.FillWeight = 99.04235F;
+            NgayNhanThanhToan.HeaderText = "Ngày nhận thanh toán";
+            NgayNhanThanhToan.MinimumWidth = 6;
+            NgayNhanThanhToan.Name = "NgayNhanThanhToan";
+            // 
+            // GiaTriThanhToan
+            // 
+            GiaTriThanhToan.HeaderText = "Giá trị thanh toán";
+            GiaTriThanhToan.MinimumWidth = 6;
+            GiaTriThanhToan.Name = "GiaTriThanhToan";
+            // 
+            // MucHoaHong
+            // 
+            MucHoaHong.FillWeight = 99.04235F;
+            MucHoaHong.HeaderText = "Hoa hồng (%)";
+            MucHoaHong.MinimumWidth = 6;
+            MucHoaHong.Name = "MucHoaHong";
+            // 
+            // TienHoaHong
+            // 
+            TienHoaHong.FillWeight = 99.04235F;
+            TienHoaHong.HeaderText = "Tiền hoa hồng";
+            TienHoaHong.MinimumWidth = 6;
+            TienHoaHong.Name = "TienHoaHong";
+            // 
             // SaleCommissionView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -294,9 +308,11 @@
         private DataGridView dataGridViewCommissionView;
         private DataGridViewTextBoxColumn maHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
+        private DataGridViewTextBoxColumn GiaiDoanThanhToan;
         private DataGridViewTextBoxColumn MaNhanVien;
         private DataGridViewTextBoxColumn TenNhanVien;
-        private DataGridViewTextBoxColumn NgayThanhToan;
+        private DataGridViewTextBoxColumn NgayNhanThanhToan;
+        private DataGridViewTextBoxColumn GiaTriThanhToan;
         private DataGridViewTextBoxColumn MucHoaHong;
         private DataGridViewTextBoxColumn TienHoaHong;
     }

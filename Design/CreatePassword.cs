@@ -16,7 +16,7 @@ using BLL;
 
 namespace Design
 {
-    public partial class CreatePassword : Form
+    public partial class CreatePassword : System.Windows.Forms.Form
     {
         NguoiDung user;
         public CreatePassword(NguoiDung user)

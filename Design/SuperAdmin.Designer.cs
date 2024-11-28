@@ -37,7 +37,6 @@
             buttonLogout = new Button();
             pictureBox1 = new PictureBox();
             buttonFinacialReport = new Button();
-            buttonRole = new Button();
             buttonContractTracking = new Button();
             buttonPerformanceReport = new Button();
             buttonProjectProgress = new Button();
@@ -59,7 +58,6 @@
             groupBoxFeature.Controls.Add(buttonLogout);
             groupBoxFeature.Controls.Add(pictureBox1);
             groupBoxFeature.Controls.Add(buttonFinacialReport);
-            groupBoxFeature.Controls.Add(buttonRole);
             groupBoxFeature.Controls.Add(buttonContractTracking);
             groupBoxFeature.Controls.Add(buttonPerformanceReport);
             groupBoxFeature.Controls.Add(buttonProjectProgress);
@@ -79,7 +77,7 @@
             buttonContractHistory.BackColor = Color.Silver;
             buttonContractHistory.FlatStyle = FlatStyle.Popup;
             buttonContractHistory.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractHistory.Location = new Point(6, 709);
+            buttonContractHistory.Location = new Point(6, 660);
             buttonContractHistory.Name = "buttonContractHistory";
             buttonContractHistory.Size = new Size(200, 48);
             buttonContractHistory.TabIndex = 9;
@@ -93,7 +91,7 @@
             buttonUserList.FlatStyle = FlatStyle.Popup;
             buttonUserList.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonUserList.ForeColor = SystemColors.ControlText;
-            buttonUserList.Location = new Point(6, 283);
+            buttonUserList.Location = new Point(6, 303);
             buttonUserList.Name = "buttonUserList";
             buttonUserList.Size = new Size(200, 48);
             buttonUserList.TabIndex = 3;
@@ -109,7 +107,7 @@
             buttonHome.FlatAppearance.MouseOverBackColor = Color.White;
             buttonHome.FlatStyle = FlatStyle.Flat;
             buttonHome.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonHome.Location = new Point(6, 135);
+            buttonHome.Location = new Point(6, 155);
             buttonHome.Name = "buttonHome";
             buttonHome.Size = new Size(200, 48);
             buttonHome.TabIndex = 1;
@@ -143,7 +141,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(94, 799);
+            pictureBox1.Location = new Point(95, 762);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(30, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -155,7 +153,7 @@
             buttonFinacialReport.BackColor = Color.Silver;
             buttonFinacialReport.FlatStyle = FlatStyle.Popup;
             buttonFinacialReport.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonFinacialReport.Location = new Point(6, 568);
+            buttonFinacialReport.Location = new Point(6, 588);
             buttonFinacialReport.Name = "buttonFinacialReport";
             buttonFinacialReport.Size = new Size(200, 48);
             buttonFinacialReport.TabIndex = 7;
@@ -163,25 +161,12 @@
             buttonFinacialReport.UseVisualStyleBackColor = false;
             buttonFinacialReport.Click += buttonFinacialReport_Click;
             // 
-            // buttonRole
-            // 
-            buttonRole.BackColor = Color.Silver;
-            buttonRole.FlatStyle = FlatStyle.Popup;
-            buttonRole.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonRole.Location = new Point(6, 639);
-            buttonRole.Name = "buttonRole";
-            buttonRole.Size = new Size(200, 48);
-            buttonRole.TabIndex = 8;
-            buttonRole.Text = "PHÂN QUYỀN ";
-            buttonRole.UseVisualStyleBackColor = false;
-            buttonRole.Click += buttonRole_Click;
-            // 
             // buttonContractTracking
             // 
             buttonContractTracking.BackColor = Color.Silver;
             buttonContractTracking.FlatStyle = FlatStyle.Popup;
             buttonContractTracking.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonContractTracking.Location = new Point(6, 353);
+            buttonContractTracking.Location = new Point(6, 373);
             buttonContractTracking.Name = "buttonContractTracking";
             buttonContractTracking.Size = new Size(200, 48);
             buttonContractTracking.TabIndex = 4;
@@ -194,7 +179,7 @@
             buttonPerformanceReport.BackColor = Color.Silver;
             buttonPerformanceReport.FlatStyle = FlatStyle.Popup;
             buttonPerformanceReport.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPerformanceReport.Location = new Point(6, 496);
+            buttonPerformanceReport.Location = new Point(6, 516);
             buttonPerformanceReport.Name = "buttonPerformanceReport";
             buttonPerformanceReport.Size = new Size(200, 48);
             buttonPerformanceReport.TabIndex = 6;
@@ -207,7 +192,7 @@
             buttonProjectProgress.BackColor = Color.Silver;
             buttonProjectProgress.FlatStyle = FlatStyle.Popup;
             buttonProjectProgress.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonProjectProgress.Location = new Point(6, 425);
+            buttonProjectProgress.Location = new Point(6, 445);
             buttonProjectProgress.Name = "buttonProjectProgress";
             buttonProjectProgress.Size = new Size(200, 48);
             buttonProjectProgress.TabIndex = 5;
@@ -221,7 +206,7 @@
             buttonInformation.FlatStyle = FlatStyle.Popup;
             buttonInformation.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInformation.ForeColor = SystemColors.ControlText;
-            buttonInformation.Location = new Point(6, 211);
+            buttonInformation.Location = new Point(6, 231);
             buttonInformation.Name = "buttonInformation";
             buttonInformation.Size = new Size(200, 48);
             buttonInformation.TabIndex = 2;
@@ -276,7 +261,6 @@
         private Button buttonLogout;
         private PictureBox pictureBox1;
         private Button buttonFinacialReport;
-        private Button buttonRole;
         private Button buttonContractTracking;
         private Button buttonPerformanceReport;
         private Button buttonProjectProgress;

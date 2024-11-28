@@ -113,22 +113,6 @@ namespace DAO
             return dt;
         }
 
-
         //
-
-        public void updateNhanVienThanhToanHopDong(string maHD, string nhanVien)
-        {
-            //
-            string procName = "updateNhanVienThanhToan";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
-            {
-                new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHD },
-                new SqlParameter("@NhanVienThanhToan", SqlDbType.VarChar, 50) { Value = nhanVien }
-            };
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
-
-            
-        }
     }
 }

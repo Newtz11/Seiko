@@ -141,6 +141,7 @@
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxEmail.BorderStyle = BorderStyle.None;
             textBoxEmail.Location = new Point(906, 205);
+            textBoxEmail.MaxLength = 50;
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(306, 23);
             textBoxEmail.TabIndex = 12;
@@ -184,6 +185,7 @@
             textBoxDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxDiaChi.BorderStyle = BorderStyle.None;
             textBoxDiaChi.Location = new Point(906, 114);
+            textBoxDiaChi.MaxLength = 50;
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.Size = new Size(306, 23);
             textBoxDiaChi.TabIndex = 10;
@@ -205,6 +207,7 @@
             textBoxTenNguoiLienHe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxTenNguoiLienHe.BorderStyle = BorderStyle.None;
             textBoxTenNguoiLienHe.Location = new Point(907, 70);
+            textBoxTenNguoiLienHe.MaxLength = 50;
             textBoxTenNguoiLienHe.Name = "textBoxTenNguoiLienHe";
             textBoxTenNguoiLienHe.Size = new Size(306, 23);
             textBoxTenNguoiLienHe.TabIndex = 9;
@@ -237,6 +240,7 @@
             // 
             richTextBoxNoiDung.BorderStyle = BorderStyle.None;
             richTextBoxNoiDung.Location = new Point(369, 312);
+            richTextBoxNoiDung.MaxLength = 50;
             richTextBoxNoiDung.Name = "richTextBoxNoiDung";
             richTextBoxNoiDung.Size = new Size(306, 100);
             richTextBoxNoiDung.TabIndex = 7;
@@ -257,6 +261,7 @@
             // 
             textBoxGiaTri.BorderStyle = BorderStyle.None;
             textBoxGiaTri.Location = new Point(369, 264);
+            textBoxGiaTri.MaxLength = 11;
             textBoxGiaTri.Name = "textBoxGiaTri";
             textBoxGiaTri.Size = new Size(306, 23);
             textBoxGiaTri.TabIndex = 6;
@@ -274,16 +279,20 @@
             // 
             // dateTimePickerEnd
             // 
+            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
             dateTimePickerEnd.Location = new Point(369, 213);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(306, 30);
+            dateTimePickerEnd.Size = new Size(135, 30);
             dateTimePickerEnd.TabIndex = 5;
             // 
             // dateTimePickerStart
             // 
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(369, 158);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(306, 30);
+            dateTimePickerStart.Size = new Size(135, 30);
             dateTimePickerStart.TabIndex = 4;
             // 
             // labelNgayKetThuc
@@ -312,6 +321,7 @@
             // 
             textBoxTenNguoiDaiDien.BorderStyle = BorderStyle.None;
             textBoxTenNguoiDaiDien.Location = new Point(369, 114);
+            textBoxTenNguoiDaiDien.MaxLength = 50;
             textBoxTenNguoiDaiDien.Name = "textBoxTenNguoiDaiDien";
             textBoxTenNguoiDaiDien.Size = new Size(306, 23);
             textBoxTenNguoiDaiDien.TabIndex = 3;
@@ -331,6 +341,7 @@
             // 
             textBoxTenHopDong.BorderStyle = BorderStyle.None;
             textBoxTenHopDong.Location = new Point(369, 68);
+            textBoxTenHopDong.MaxLength = 50;
             textBoxTenHopDong.Name = "textBoxTenHopDong";
             textBoxTenHopDong.Size = new Size(306, 23);
             textBoxTenHopDong.TabIndex = 2;

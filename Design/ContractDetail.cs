@@ -12,21 +12,19 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ContractDetail : Form
+    public partial class ContractDetail : System.Windows.Forms.Form
     {
         private NguoiDung user;
         private HopDong hd;
-        private Form f;
+        private System.Windows.Forms.Form f;
         private string hinhThucTT;
-        public ContractDetail(NguoiDung user, HopDong hd, Form f)
+        public ContractDetail(NguoiDung user, HopDong hd, System.Windows.Forms.Form f)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonLuu);
             ApplyRoundedCorners(buttonThemSale);
             ApplyRoundedCorners(buttonXoaSale);
-            ApplyRoundedCorners(buttonThemThanhToan);
-            ApplyRoundedCorners(buttonXoaThanhToan);
             ApplyRoundedCorners(buttonQuayLai);
             this.user = user;
             this.hd = hd;
@@ -66,7 +64,6 @@ namespace Design
             textBoxGiaTriHopDong.Text = hd.giaTriHD.ToString();
             textBoxDaThanhToan.Text = hd.daThanhToan.ToString();
             richTextBoxNoiDungHopDong.Text = hd.noiDungHD;
-            comboBoxHinhThucTT.Text = hd.chiaGiaiDoan;
             comboBoxTrangThai.Text = hd.tinhTrangHD;
             textBoxTenNguoiLienHe.Text = hd.tenNguoiLienHe;
             textBoxDiaChi.Text = hd.diaChi;
@@ -92,24 +89,12 @@ namespace Design
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            //neu nguoi dung la ke toan thi cho phep sua hinh thuc thanh toan va them giai doan
-            if (user.vaiTro == "Trưởng phòng Kế toán")
-            {
-                comboBoxHinhThucTT.Enabled = true;
-
-            }
+            
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            //neu nguoi dung la ke toan thi cho phep sua hinh thuc thanh toan va them giai doan
-            if (user.vaiTro == "Trưởng phòng Kế toán")
-            {
-                hinhThucTT = comboBoxHinhThucTT.Text.ToString();
-                comboBoxHinhThucTT.Enabled = false;
-
-
-            }
+            
         }
 
         private void comboBoxHinhThucTT_SelectedIndexChanged(object sender, EventArgs e)

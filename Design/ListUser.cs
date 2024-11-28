@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ListUser : Form
+    public partial class ListUser : System.Windows.Forms.Form
     {
         private NguoiDung user;
         public ListUser(NguoiDung user)

@@ -14,7 +14,7 @@ using BLL;
 
 namespace Design
 {
-    public partial class CreateContract : Form
+    public partial class CreateContract : System.Windows.Forms.Form
     {
         NguoiDung user;
         public CreateContract(NguoiDung user)

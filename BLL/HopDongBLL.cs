@@ -34,7 +34,6 @@ namespace BLL
             DateTime ngayKetThuc = (DateTime)row["NgayKetThuc"];
             int giaTriHD = Convert.ToInt32(row["GiaTriHD"].ToString());
             int mucHoaHong = Convert.ToInt32(row["MucHoaHong"]);
-            string chiaGiaiDoan = row["ChiaGiaiDoan"].ToString();
             int daThanhToan = Convert.ToInt32(row["DaThanhToan"]);
             string noiDungHD = row["NoiDungHD"].ToString();
             string tinhTrangHD = row["TinhTrangHD"].ToString();
@@ -45,7 +44,7 @@ namespace BLL
             int tienDoHD = Convert.ToInt32(row["TienDoHD"]);
             string nhanVienThanhToan = row["NhanVienThanhToan"].ToString();
 
-            HopDong hd = new HopDong(mahd, maNV, tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHD, mucHoaHong, chiaGiaiDoan, daThanhToan, noiDungHD,
+            HopDong hd = new HopDong(mahd, maNV, tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHD, mucHoaHong, daThanhToan, noiDungHD,
                 tinhTrangHD, tenNguoiLienHe, diaChi, sDT, mail, tienDoHD, nhanVienThanhToan);
 
             return hd;
@@ -103,26 +102,7 @@ namespace BLL
 
         public static void updatePayment(List<List<string>> lst)
         {
-            foreach (List<string> payment in lst)
-            {
-                string maHD = "";
-                string nhanVien = "";
-                for (int i = 0; i < payment.Count; i++) 
-                {
-                    if (i==0) maHD = payment[i];
-                    else nhanVien = payment[i];
-                }
-                DataTable dt = HopDongDAO.Instance.getContract();
-
-                foreach (DataRow row in dt.Rows)
-                { 
-                    if (row[0].ToString() == maHD)
-                    {
-                        HopDongDAO.Instance.updateNhanVienThanhToanHopDong(maHD, nhanVien);
-                        return;
-                    }
-                }
-            }
+            
         }
     }
 }

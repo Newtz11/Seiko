@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ProjectProgress : Form
+    public partial class ProjectProgress : System.Windows.Forms.Form
     {
         private NguoiDung user;
         private DataTable currentTable;
@@ -26,6 +26,7 @@ namespace Design
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonReset);
             ApplyRoundedCorners(buttonSave);
+            ApplyRoundedCorners(buttonThem);
             this.user = user;
             dataGridViewProjectProgress.Columns.Add("Ma Tien Do", "Ma Tien Do");
             dataGridViewProjectProgress.Columns[9].Visible = false;

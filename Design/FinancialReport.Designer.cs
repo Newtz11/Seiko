@@ -135,7 +135,7 @@
             labelChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelChonGiaTri.AutoSize = true;
             labelChonGiaTri.Font = new Font("Segoe UI", 10.8F);
-            labelChonGiaTri.Location = new Point(622, 111);
+            labelChonGiaTri.Location = new Point(714, 110);
             labelChonGiaTri.Name = "labelChonGiaTri";
             labelChonGiaTri.Size = new Size(108, 25);
             labelChonGiaTri.TabIndex = 61;
@@ -178,9 +178,9 @@
             // 
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(737, 112);
+            comboBox1.Location = new Point(829, 111);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(249, 28);
+            comboBox1.Size = new Size(157, 28);
             comboBox1.TabIndex = 7;
             // 
             // chartFinancialReport
@@ -216,9 +216,11 @@
             // 
             dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimePicker1.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dateTimePicker1.Location = new Point(737, 77);
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(829, 77);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(249, 27);
+            dateTimePicker1.Size = new Size(157, 27);
             dateTimePicker1.TabIndex = 3;
             // 
             // labelToiNgay
@@ -226,7 +228,7 @@
             labelToiNgay.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelToiNgay.AutoSize = true;
             labelToiNgay.Font = new Font("Segoe UI", 10.8F);
-            labelToiNgay.Location = new Point(642, 77);
+            labelToiNgay.Location = new Point(714, 77);
             labelToiNgay.Name = "labelToiNgay";
             labelToiNgay.Size = new Size(84, 25);
             labelToiNgay.TabIndex = 33;
@@ -235,9 +237,11 @@
             // dateTimePickerStart
             // 
             dateTimePickerStart.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(107, 78);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(258, 27);
+            dateTimePickerStart.Size = new Size(157, 27);
             dateTimePickerStart.TabIndex = 2;
             // 
             // labelTuNgay

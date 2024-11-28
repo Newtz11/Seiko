@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class PersonalInformation : Form
+    public partial class PersonalInformation : System.Windows.Forms.Form
     {
         private NguoiDung user;
         

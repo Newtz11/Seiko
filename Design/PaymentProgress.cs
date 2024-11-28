@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class PaymentProgress : Form
+    public partial class PaymentProgress : System.Windows.Forms.Form
     {
         public PaymentProgress()
         {
@@ -48,7 +48,19 @@ namespace Design
 
         private void PaymentProgress_Load(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            PaymentProgressEdit paymentProgressEdit = new PaymentProgressEdit();
+            paymentProgressEdit.ShowDialog();
+        }
+
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            PaymentProgressEdit paymentProgressEdit = new PaymentProgressEdit();
+            paymentProgressEdit.ShowDialog();
         }
     }
 }

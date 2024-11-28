@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ForgotPassword : Form
+    public partial class ForgotPassword : System.Windows.Forms.Form
     {
         NguoiDung user;
         public ForgotPassword()

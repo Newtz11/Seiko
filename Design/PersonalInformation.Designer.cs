@@ -186,6 +186,7 @@
             textBoxMatKhau.Name = "textBoxMatKhau";
             textBoxMatKhau.Size = new Size(207, 30);
             textBoxMatKhau.TabIndex = 2;
+            textBoxMatKhau.UseSystemPasswordChar = true;
             // 
             // textBoxTenDangNhap
             // 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class Home : Form
+    public partial class Home : System.Windows.Forms.Form
     {
         public Home()
         {

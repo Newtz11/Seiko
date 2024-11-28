@@ -256,9 +256,11 @@
             // dateTimePickerNgaySinh
             // 
             dateTimePickerNgaySinh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePickerNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgaySinh.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgaySinh.Location = new Point(251, 338);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
-            dateTimePickerNgaySinh.Size = new Size(261, 27);
+            dateTimePickerNgaySinh.Size = new Size(133, 27);
             dateTimePickerNgaySinh.TabIndex = 6;
             // 
             // labelChucVu
