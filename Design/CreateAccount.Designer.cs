@@ -213,7 +213,7 @@
             dateTimePickerNgaySinh.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgaySinh.Location = new Point(48, 336);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
-            dateTimePickerNgaySinh.Size = new Size(415, 27);
+            dateTimePickerNgaySinh.Size = new Size(182, 27);
             dateTimePickerNgaySinh.TabIndex = 3;
             // 
             // labelNgaySinh

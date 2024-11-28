@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class SaleCommissionView : Form
+    public partial class SaleCommissionView : System.Windows.Forms.Form
     {
         public SaleCommissionView()
         {

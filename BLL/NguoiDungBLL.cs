@@ -146,11 +146,5 @@ namespace BLL
             return NguoiDungDAO.Instance.checkMailTrung(newMail);
         }
 
-        public static DataTable getAccountant()
-        {
-            return NguoiDungDAO.Instance.getAccountant();
-        }
-
-
     }
 }

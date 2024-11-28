@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class CreateAccount : Form
+    public partial class CreateAccount : System.Windows.Forms.Form
     {
         public CreateAccount()
         {

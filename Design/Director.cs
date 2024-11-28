@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class Director : Form
+    public partial class Director : System.Windows.Forms.Form
     {
         private NguoiDung user;
         public Director(NguoiDung user)
@@ -66,7 +66,7 @@ namespace Design
         {
             if (this.mainpanel.Controls.Count > 0)
                 this.mainpanel.Controls.RemoveAt(0);
-            Form f = Form as Form;
+            System.Windows.Forms.Form f = Form as System.Windows.Forms.Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.mainpanel.Controls.Add(f);

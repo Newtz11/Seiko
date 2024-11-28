@@ -13,7 +13,7 @@ using BLL;
 
 namespace Design
 {
-    public partial class ContractTrackingForSale : Form
+    public partial class ContractTrackingForSale : System.Windows.Forms.Form
     {
         NguoiDung user;
         public ContractTrackingForSale(NguoiDung user)

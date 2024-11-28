@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerformanceReport));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pictureBoxIconPerformanceReport = new PictureBox();
             labelPerformanceReport = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -131,17 +131,17 @@
             // chartPerformance
             // 
             chartPerformance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chartArea1.Name = "ChartArea1";
-            chartPerformance.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartPerformance.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            chartPerformance.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartPerformance.Legends.Add(legend2);
             chartPerformance.Location = new Point(49, 387);
             chartPerformance.Name = "chartPerformance";
             chartPerformance.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartPerformance.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartPerformance.Series.Add(series2);
             chartPerformance.Size = new Size(1174, 375);
             chartPerformance.TabIndex = 84;
             chartPerformance.Text = "chart1";
@@ -151,9 +151,9 @@
             // 
             comboBoxChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBoxChonGiaTri.FormattingEnabled = true;
-            comboBoxChonGiaTri.Location = new Point(790, 115);
+            comboBoxChonGiaTri.Location = new Point(899, 116);
             comboBoxChonGiaTri.Name = "comboBoxChonGiaTri";
-            comboBoxChonGiaTri.Size = new Size(262, 28);
+            comboBoxChonGiaTri.Size = new Size(150, 28);
             comboBoxChonGiaTri.TabIndex = 7;
             // 
             // labelChonGiaTri
@@ -161,7 +161,7 @@
             labelChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelChonGiaTri.AutoSize = true;
             labelChonGiaTri.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelChonGiaTri.Location = new Point(676, 118);
+            labelChonGiaTri.Location = new Point(785, 119);
             labelChonGiaTri.Name = "labelChonGiaTri";
             labelChonGiaTri.Size = new Size(108, 25);
             labelChonGiaTri.TabIndex = 82;
@@ -170,7 +170,7 @@
             // radioButtonNam
             // 
             radioButtonNam.AutoSize = true;
-            radioButtonNam.Location = new Point(428, 120);
+            radioButtonNam.Location = new Point(442, 120);
             radioButtonNam.Name = "radioButtonNam";
             radioButtonNam.Size = new Size(62, 24);
             radioButtonNam.TabIndex = 6;
@@ -181,7 +181,7 @@
             // radioButtonQuy
             // 
             radioButtonQuy.AutoSize = true;
-            radioButtonQuy.Location = new Point(366, 121);
+            radioButtonQuy.Location = new Point(380, 121);
             radioButtonQuy.Name = "radioButtonQuy";
             radioButtonQuy.Size = new Size(56, 24);
             radioButtonQuy.TabIndex = 5;
@@ -192,7 +192,7 @@
             // radioButtonThang
             // 
             radioButtonThang.AutoSize = true;
-            radioButtonThang.Location = new Point(289, 121);
+            radioButtonThang.Location = new Point(303, 121);
             radioButtonThang.Name = "radioButtonThang";
             radioButtonThang.Size = new Size(71, 24);
             radioButtonThang.TabIndex = 4;
@@ -213,16 +213,20 @@
             // dateTimePickerEnd
             // 
             dateTimePickerEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePickerEnd.Location = new Point(790, 68);
+            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEnd.Location = new Point(899, 69);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(262, 27);
+            dateTimePickerEnd.Size = new Size(150, 27);
             dateTimePickerEnd.TabIndex = 3;
             // 
             // dateTimePickerStart
             // 
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(130, 68);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(262, 27);
+            dateTimePickerStart.Size = new Size(148, 27);
             dateTimePickerStart.TabIndex = 2;
             // 
             // labelEnd
@@ -230,7 +234,7 @@
             labelEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelEnd.AutoSize = true;
             labelEnd.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelEnd.Location = new Point(700, 70);
+            labelEnd.Location = new Point(809, 71);
             labelEnd.Name = "labelEnd";
             labelEnd.Size = new Size(84, 25);
             labelEnd.TabIndex = 75;
@@ -272,43 +276,43 @@
             dataGridViewPerformance.BackgroundColor = Color.White;
             dataGridViewPerformance.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewPerformance.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewPerformance.ColumnHeadersHeight = 50;
             dataGridViewPerformance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPerformance.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, DaHoanThanh, DangThucHien, ChuaHoanThanh });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewPerformance.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewPerformance.Location = new Point(49, 161);
             dataGridViewPerformance.Name = "dataGridViewPerformance";
             dataGridViewPerformance.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewPerformance.RowHeadersVisible = false;
             dataGridViewPerformance.RowHeadersWidth = 50;
             dataGridViewPerformance.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewPerformance.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewPerformance.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewPerformance.RowTemplate.Height = 35;
             dataGridViewPerformance.ScrollBars = ScrollBars.Vertical;
             dataGridViewPerformance.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

@@ -744,6 +744,7 @@ BEGIN
 	WHERE MaHD = @MaHD
 END
 GO
+select * from HOPDONG
 
 --drop proc updateNhanVienThanhToan
 exec updateNhanVienThanhToan @MaHD = 'HD002' , @NhanVienThanhToan = 'kiennt'
@@ -875,6 +876,8 @@ begin
 	values (@NgayBatDau, @NgayKetThuc, @MaHD,@MaNV, @NVThucHienCV, @NoiDungCV)
 end
 go
+
+
 
 --drop proc insertProgress
 --exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 

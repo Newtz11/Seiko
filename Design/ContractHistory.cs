@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ContractHistory : Form
+    public partial class ContractHistory : System.Windows.Forms.Form
     {
         public ContractHistory()
         {

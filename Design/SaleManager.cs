@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class SaleManager : Form
+    public partial class SaleManager : System.Windows.Forms.Form
     {
         private NguoiDung user;
         public SaleManager(NguoiDung user)
@@ -63,7 +63,7 @@ namespace Design
         {
             if (this.mainPanel.Controls.Count > 0)
                 this.mainPanel.Controls.RemoveAt(0);
-            Form f = Form as Form;
+            System.Windows.Forms.Form f = Form as System.Windows.Forms.Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.mainPanel.Controls.Add(f);

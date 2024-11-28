@@ -12,7 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Design
 {
-    public partial class FinancialReport : Form
+    public partial class FinancialReport : System.Windows.Forms.Form
     {
         public FinancialReport()
         {

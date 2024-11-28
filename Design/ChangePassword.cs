@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class ChangePassword : Form
+    public partial class ChangePassword : System.Windows.Forms.Form
     {
         private NguoiDung user;
-        private Form f;
-        public ChangePassword(NguoiDung user, Form f)
+        private System.Windows.Forms.Form f;
+        public ChangePassword(NguoiDung user, System.Windows.Forms.Form f)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSavePassword);

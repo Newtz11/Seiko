@@ -40,18 +40,15 @@
             labelContractTracking = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxEmail = new GroupBox();
-            comboBoxHinhThucTT = new ComboBox();
-            labelHinhThucTT = new Label();
             buttonQuayLai = new Button();
             dataGridViewThongTinThanhToan = new DataGridView();
             GiaiDoan = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
+            NgayXacNhanThanhToan = new DataGridViewTextBoxColumn();
             PhanTramThanhToan = new DataGridViewTextBoxColumn();
             GiaTriThanhToan = new DataGridViewTextBoxColumn();
             TrangThai = new DataGridViewTextBoxColumn();
             GhiChu = new DataGridViewTextBoxColumn();
-            buttonXoaThanhToan = new Button();
-            buttonThemThanhToan = new Button();
             labelThongTinThanhToan = new Label();
             dataGridViewThongTinSale = new DataGridView();
             MaNhanVien = new DataGridViewTextBoxColumn();
@@ -123,12 +120,8 @@
             // 
             groupBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxEmail.BackColor = Color.LightGray;
-            groupBoxEmail.Controls.Add(comboBoxHinhThucTT);
-            groupBoxEmail.Controls.Add(labelHinhThucTT);
             groupBoxEmail.Controls.Add(buttonQuayLai);
             groupBoxEmail.Controls.Add(dataGridViewThongTinThanhToan);
-            groupBoxEmail.Controls.Add(buttonXoaThanhToan);
-            groupBoxEmail.Controls.Add(buttonThemThanhToan);
             groupBoxEmail.Controls.Add(labelThongTinThanhToan);
             groupBoxEmail.Controls.Add(dataGridViewThongTinSale);
             groupBoxEmail.Controls.Add(buttonXoaSale);
@@ -164,30 +157,9 @@
             groupBoxEmail.Controls.Add(labelMaHopDong);
             groupBoxEmail.Location = new Point(13, 164);
             groupBoxEmail.Name = "groupBoxEmail";
-            groupBoxEmail.Size = new Size(1450, 827);
+            groupBoxEmail.Size = new Size(1450, 777);
             groupBoxEmail.TabIndex = 17;
             groupBoxEmail.TabStop = false;
-            // 
-            // comboBoxHinhThucTT
-            // 
-            comboBoxHinhThucTT.Enabled = false;
-            comboBoxHinhThucTT.FormattingEnabled = true;
-            comboBoxHinhThucTT.Items.AddRange(new object[] { "100%", "30%-30%-40%", "30%-70%", "40%-30%-30%", "40%-60%", "50%-50%" });
-            comboBoxHinhThucTT.Location = new Point(357, 476);
-            comboBoxHinhThucTT.Name = "comboBoxHinhThucTT";
-            comboBoxHinhThucTT.Size = new Size(310, 28);
-            comboBoxHinhThucTT.TabIndex = 9;
-            comboBoxHinhThucTT.SelectedIndexChanged += comboBoxHinhThucTT_SelectedIndexChanged;
-            // 
-            // labelHinhThucTT
-            // 
-            labelHinhThucTT.AutoSize = true;
-            labelHinhThucTT.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelHinhThucTT.Location = new Point(37, 475);
-            labelHinhThucTT.Name = "labelHinhThucTT";
-            labelHinhThucTT.Size = new Size(184, 25);
-            labelHinhThucTT.TabIndex = 86;
-            labelHinhThucTT.Text = "Hình thức thanh toán:";
             // 
             // buttonQuayLai
             // 
@@ -196,7 +168,7 @@
             buttonQuayLai.FlatStyle = FlatStyle.Popup;
             buttonQuayLai.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonQuayLai.ForeColor = Color.White;
-            buttonQuayLai.Location = new Point(1268, 776);
+            buttonQuayLai.Location = new Point(1268, 719);
             buttonQuayLai.Name = "buttonQuayLai";
             buttonQuayLai.Size = new Size(157, 41);
             buttonQuayLai.TabIndex = 22;
@@ -225,7 +197,7 @@
             dataGridViewThongTinThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewThongTinThanhToan.ColumnHeadersHeight = 50;
             dataGridViewThongTinThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewThongTinThanhToan.Columns.AddRange(new DataGridViewColumn[] { GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan, TrangThai, GhiChu });
+            dataGridViewThongTinThanhToan.Columns.AddRange(new DataGridViewColumn[] { GiaiDoan, NgayThanhToan, NgayXacNhanThanhToan, PhanTramThanhToan, GiaTriThanhToan, TrangThai, GhiChu });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -235,7 +207,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewThongTinThanhToan.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewThongTinThanhToan.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewThongTinThanhToan.Location = new Point(68, 671);
+            dataGridViewThongTinThanhToan.Location = new Point(37, 572);
             dataGridViewThongTinThanhToan.Name = "dataGridViewThongTinThanhToan";
             dataGridViewThongTinThanhToan.ReadOnly = true;
             dataGridViewThongTinThanhToan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -277,6 +249,15 @@
             NgayThanhToan.Name = "NgayThanhToan";
             NgayThanhToan.ReadOnly = true;
             // 
+            // NgayXacNhanThanhToan
+            // 
+            NgayXacNhanThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            NgayXacNhanThanhToan.HeaderText = "Ngày xác nhận thanh toán";
+            NgayXacNhanThanhToan.MinimumWidth = 6;
+            NgayXacNhanThanhToan.Name = "NgayXacNhanThanhToan";
+            NgayXacNhanThanhToan.ReadOnly = true;
+            NgayXacNhanThanhToan.Width = 173;
+            // 
             // PhanTramThanhToan
             // 
             PhanTramThanhToan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -313,37 +294,11 @@
             GhiChu.Name = "GhiChu";
             GhiChu.ReadOnly = true;
             // 
-            // buttonXoaThanhToan
-            // 
-            buttonXoaThanhToan.BackColor = Color.Crimson;
-            buttonXoaThanhToan.FlatStyle = FlatStyle.Popup;
-            buttonXoaThanhToan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonXoaThanhToan.ForeColor = Color.White;
-            buttonXoaThanhToan.Location = new Point(259, 613);
-            buttonXoaThanhToan.Name = "buttonXoaThanhToan";
-            buttonXoaThanhToan.Size = new Size(157, 41);
-            buttonXoaThanhToan.TabIndex = 18;
-            buttonXoaThanhToan.Text = "Xóa";
-            buttonXoaThanhToan.UseVisualStyleBackColor = false;
-            // 
-            // buttonThemThanhToan
-            // 
-            buttonThemThanhToan.BackColor = Color.FromArgb(0, 192, 0);
-            buttonThemThanhToan.FlatStyle = FlatStyle.Popup;
-            buttonThemThanhToan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonThemThanhToan.ForeColor = Color.White;
-            buttonThemThanhToan.Location = new Point(68, 613);
-            buttonThemThanhToan.Name = "buttonThemThanhToan";
-            buttonThemThanhToan.Size = new Size(157, 41);
-            buttonThemThanhToan.TabIndex = 17;
-            buttonThemThanhToan.Text = "Thêm mới";
-            buttonThemThanhToan.UseVisualStyleBackColor = false;
-            // 
             // labelThongTinThanhToan
             // 
             labelThongTinThanhToan.AutoSize = true;
             labelThongTinThanhToan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelThongTinThanhToan.Location = new Point(6, 569);
+            labelThongTinThanhToan.Location = new Point(6, 522);
             labelThongTinThanhToan.Name = "labelThongTinThanhToan";
             labelThongTinThanhToan.Size = new Size(219, 28);
             labelThongTinThanhToan.TabIndex = 83;
@@ -582,8 +537,8 @@
             // 
             comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.FormattingEnabled = true;
-            comboBoxTrangThai.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong", "Đã hủy" });
-            comboBoxTrangThai.Location = new Point(357, 523);
+            comboBoxTrangThai.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Đã xong", "Đã hủy" });
+            comboBoxTrangThai.Location = new Point(357, 476);
             comboBoxTrangThai.Name = "comboBoxTrangThai";
             comboBoxTrangThai.Size = new Size(310, 28);
             comboBoxTrangThai.TabIndex = 10;
@@ -592,7 +547,7 @@
             // 
             labelTrangThai.AutoSize = true;
             labelTrangThai.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelTrangThai.Location = new Point(37, 522);
+            labelTrangThai.Location = new Point(37, 475);
             labelTrangThai.Name = "labelTrangThai";
             labelTrangThai.Size = new Size(93, 25);
             labelTrangThai.TabIndex = 51;
@@ -660,19 +615,23 @@
             // dateTimePickerEnd
             // 
             dateTimePickerEnd.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
             dateTimePickerEnd.Enabled = false;
+            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
             dateTimePickerEnd.Location = new Point(355, 241);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(310, 27);
+            dateTimePickerEnd.Size = new Size(135, 27);
             dateTimePickerEnd.TabIndex = 5;
             // 
             // dateTimePickerStart
             // 
             dateTimePickerStart.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
             dateTimePickerStart.Enabled = false;
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(357, 190);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(310, 27);
+            dateTimePickerStart.Size = new Size(133, 27);
             dateTimePickerStart.TabIndex = 4;
             // 
             // textBoxGiaTriHopDong
@@ -800,7 +759,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1482, 1003);
+            ClientSize = new Size(1482, 953);
             Controls.Add(buttonLuu);
             Controls.Add(groupBoxEmail);
             Controls.Add(labelContractTracking);
@@ -859,22 +818,19 @@
         private Button buttonXoaSale;
         private DataGridView dataGridViewThongTinSale;
         private Label labelThongTinThanhToan;
-        private Button buttonXoaThanhToan;
-        private Button buttonThemThanhToan;
         private DataGridView dataGridViewThongTinThanhToan;
         private Button buttonLuu;
         private Button buttonQuayLai;
-        private DataGridViewTextBoxColumn GiaiDoan;
-        private DataGridViewTextBoxColumn NgayThanhToan;
-        private DataGridViewTextBoxColumn PhanTramThanhToan;
-        private DataGridViewTextBoxColumn GiaTriThanhToan;
-        private DataGridViewTextBoxColumn TrangThai;
-        private DataGridViewTextBoxColumn GhiChu;
-        private ComboBox comboBoxHinhThucTT;
-        private Label labelHinhThucTT;
         private DataGridViewTextBoxColumn MaNhanVien;
         private DataGridViewTextBoxColumn TenNhanVien;
         private DataGridViewTextBoxColumn HoaHong;
         private DataGridViewTextBoxColumn TinhTrang;
+        private DataGridViewTextBoxColumn GiaiDoan;
+        private DataGridViewTextBoxColumn NgayThanhToan;
+        private DataGridViewTextBoxColumn NgayXacNhanThanhToan;
+        private DataGridViewTextBoxColumn PhanTramThanhToan;
+        private DataGridViewTextBoxColumn GiaTriThanhToan;
+        private DataGridViewTextBoxColumn TrangThai;
+        private DataGridViewTextBoxColumn GhiChu;
     }
 }

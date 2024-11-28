@@ -264,7 +264,7 @@
             // 
             comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Location = new Point(911, 143);
+            comboBoxSale.Location = new Point(660, 146);
             comboBoxSale.Name = "comboBoxSale";
             comboBoxSale.Size = new Size(197, 31);
             comboBoxSale.TabIndex = 6;
@@ -274,7 +274,7 @@
             // 
             labelNgayKetThuc.AutoSize = true;
             labelNgayKetThuc.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayKetThuc.Location = new Point(471, 147);
+            labelNgayKetThuc.Location = new Point(337, 146);
             labelNgayKetThuc.Name = "labelNgayKetThuc";
             labelNgayKetThuc.Size = new Size(126, 25);
             labelNgayKetThuc.TabIndex = 31;
@@ -282,9 +282,11 @@
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(601, 147);
+            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEnd.Location = new Point(467, 146);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(264, 27);
+            dateTimePickerEnd.Size = new Size(135, 27);
             dateTimePickerEnd.TabIndex = 4;
             // 
             // labelNgayBatDau
@@ -299,9 +301,11 @@
             // 
             // dateTimePickerStart
             // 
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(155, 145);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(275, 27);
+            dateTimePickerStart.Size = new Size(135, 27);
             dateTimePickerStart.TabIndex = 3;
             // 
             // button1

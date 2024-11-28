@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class SuperAdmin : Form
+    public partial class SuperAdmin : System.Windows.Forms.Form
     {
         private NguoiDung user;
         public SuperAdmin(NguoiDung user)
@@ -29,7 +29,6 @@ namespace Design
             ApplyRoundedCorners(buttonProjectProgress);
             ApplyRoundedCorners(buttonPerformanceReport);
             ApplyRoundedCorners(buttonFinacialReport);
-            ApplyRoundedCorners(buttonRole);
             ApplyRoundedCorners(buttonContractHistory);
             ApplyRoundedCorners(buttonLogout);
             this.user = user;
@@ -74,7 +73,7 @@ namespace Design
         {
             if (this.mainPanel.Controls.Count > 0)
                 this.mainPanel.Controls.RemoveAt(0);
-            Form f = Form as Form;
+            System.Windows.Forms.Form f = Form as System.Windows.Forms.Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.mainPanel.Controls.Add(f);
@@ -97,10 +96,6 @@ namespace Design
             loadForm(new ContractTrackingForSale(user));
         }
 
-        private void buttonRole_Click(object sender, EventArgs e)
-        {
-            loadForm(new SuperAdminDecentralization());
-        }
 
         private void buttonFinacialReport_Click(object sender, EventArgs e)
         {

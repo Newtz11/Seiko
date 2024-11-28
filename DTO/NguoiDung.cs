@@ -23,6 +23,7 @@ namespace DTO
         public string ngayVaoLam { get; set; }
         public string diaChi { get; set; }
         public bool tinhTrangHoatDong { get; set; } //-> true la dang hoat dong, false la ngung hoat dong
+        
 
 
         // for empty data only

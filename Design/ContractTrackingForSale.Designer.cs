@@ -99,7 +99,7 @@
             groupBoxListUser.Controls.Add(dataGridViewContractTracking);
             groupBoxListUser.Location = new Point(12, 139);
             groupBoxListUser.Name = "groupBoxListUser";
-            groupBoxListUser.Size = new Size(1300, 802);
+            groupBoxListUser.Size = new Size(1310, 802);
             groupBoxListUser.TabIndex = 16;
             groupBoxListUser.TabStop = false;
             // 
@@ -110,7 +110,7 @@
             buttonReset.FlatStyle = FlatStyle.Popup;
             buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReset.ForeColor = Color.White;
-            buttonReset.Location = new Point(878, 203);
+            buttonReset.Location = new Point(888, 203);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(106, 33);
             buttonReset.TabIndex = 8;
@@ -122,10 +122,10 @@
             // 
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
-            comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
+            comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Đã xong" });
             comboBoxTinhTrang.Location = new Point(33, 201);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
-            comboBoxTinhTrang.Size = new Size(200, 31);
+            comboBoxTinhTrang.Size = new Size(265, 31);
             comboBoxTinhTrang.TabIndex = 4;
             comboBoxTinhTrang.Text = "Tình trạng";
             // 
@@ -137,7 +137,7 @@
             buttonXoa.FlatStyle = FlatStyle.Popup;
             buttonXoa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonXoa.ForeColor = Color.White;
-            buttonXoa.Location = new Point(1151, 203);
+            buttonXoa.Location = new Point(1161, 203);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(106, 33);
             buttonXoa.TabIndex = 7;
@@ -152,7 +152,7 @@
             buttonThem.FlatStyle = FlatStyle.Popup;
             buttonThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             buttonThem.ForeColor = Color.White;
-            buttonThem.Location = new Point(1015, 203);
+            buttonThem.Location = new Point(1025, 203);
             buttonThem.Name = "buttonThem";
             buttonThem.Size = new Size(106, 33);
             buttonThem.TabIndex = 6;
@@ -164,7 +164,7 @@
             // 
             labelNgayKetThuc.AutoSize = true;
             labelNgayKetThuc.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayKetThuc.Location = new Point(473, 148);
+            labelNgayKetThuc.Location = new Point(362, 148);
             labelNgayKetThuc.Name = "labelNgayKetThuc";
             labelNgayKetThuc.Size = new Size(126, 25);
             labelNgayKetThuc.TabIndex = 21;
@@ -172,9 +172,11 @@
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(603, 148);
+            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEnd.Location = new Point(492, 148);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(264, 27);
+            dateTimePickerEnd.Size = new Size(135, 27);
             dateTimePickerEnd.TabIndex = 3;
             // 
             // labelNgayBatDau
@@ -189,9 +191,11 @@
             // 
             // dateTimePickerStart
             // 
+            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             dateTimePickerStart.Location = new Point(163, 146);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(266, 27);
+            dateTimePickerStart.Size = new Size(135, 27);
             dateTimePickerStart.TabIndex = 18;
             // 
             // labelContractList
@@ -213,7 +217,7 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(1127, 94);
+            buttonSearch.Location = new Point(1137, 94);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(130, 30);
             buttonSearch.TabIndex = 2;
@@ -228,7 +232,7 @@
             textBoxSearch.Location = new Point(33, 94);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Tìm kiếm hợp đồng danh sách ";
-            textBoxSearch.Size = new Size(1033, 30);
+            textBoxSearch.Size = new Size(1043, 30);
             textBoxSearch.TabIndex = 1;
             // 
             // dataGridViewContractTracking
@@ -237,6 +241,7 @@
             dataGridViewContractTracking.AllowUserToDeleteRows = false;
             dataGridViewContractTracking.AllowUserToOrderColumns = true;
             dataGridViewContractTracking.AllowUserToResizeRows = false;
+            dataGridViewContractTracking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewContractTracking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewContractTracking.BackgroundColor = Color.White;
             dataGridViewContractTracking.BorderStyle = BorderStyle.Fixed3D;
@@ -354,7 +359,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            ClientSize = new Size(1320, 953);
+            ClientSize = new Size(1330, 953);
             Controls.Add(groupBoxListUser);
             Controls.Add(labelContractTracking);
             Controls.Add(pictureBoxIconContractTracking);

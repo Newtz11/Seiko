@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class AccountantManager : Form
+    public partial class AccountantManager : System.Windows.Forms.Form
     {
         private NguoiDung user;
         public AccountantManager(NguoiDung user)
@@ -38,7 +38,7 @@ namespace Design
         {
             if (this.panel1.Controls.Count > 0)
                 this.panel1.Controls.RemoveAt(0);
-            Form f = Form as Form;
+            System.Windows.Forms.Form f = Form as System.Windows.Forms.Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.panel1.Controls.Add(f);
@@ -63,7 +63,7 @@ namespace Design
 
         private void buttonContractTracking_Click(object sender, EventArgs e)
         {
-            loadForm(new ContractTrackingForAccountant(user));
+            loadForm(new ContractTrackingForSale(user));
         }
 
         private void buttonFinancialReport_Click(object sender, EventArgs e)

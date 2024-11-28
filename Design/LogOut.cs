@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Design
 {
-    public partial class LogOut : Form
+    public partial class LogOut : System.Windows.Forms.Form
     {
         public LogOut()
         {
