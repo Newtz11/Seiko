@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +16,8 @@ namespace Design
 {
     public partial class PaymentProgress : System.Windows.Forms.Form
     {
-        public PaymentProgress()
+        GiaiDoanThanhToan giaiDoan;
+        public PaymentProgress(GiaiDoanThanhToan giaiDoan)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonSearch);
@@ -21,6 +25,7 @@ namespace Design
             ApplyRoundedCorners(buttonThem);
             ApplyRoundedCorners(buttonXoa);
             ApplyRoundedCorners(buttonReset);
+            this.giaiDoan = giaiDoan;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -48,7 +53,21 @@ namespace Design
 
         private void PaymentProgress_Load(object sender, EventArgs e)
         {
-
+            dataGridViewPaymentProgress.Rows.Clear();
+            DataTable dt = GiaiDoanThanhToanBLL.loadPaymentProgress(giaiDoan);
+            foreach (DataRow row in dt.Rows)
+            {
+                string MaHopDong = row[0].ToString();
+                string TenHopDong = row[1].ToString();
+                int GiaiDoan = Convert.ToInt32(row[2]);
+                DateTime NgayThanhToan = Convert.ToDateTime(row[3]);
+                int PhanTramThanhToan = Convert.ToInt32(row[4]);
+                int GiaTriThanhToan = Convert.ToInt32(row[5]);
+                string TrangThai = row[6].ToString();
+                DateTime NgayNhanThanhToan = Convert.ToDateTime(row[7]);
+                string GhiChu = row[8].ToString();
+                dataGridViewPaymentProgress.Rows.Add(MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), PhanTramThanhToan, GiaTriThanhToan, TrangThai, NgayNhanThanhToan.ToString("dd/MM/yyyy"), GhiChu);
+            }
         }
 
         private void buttonSua_Click(object sender, EventArgs e)

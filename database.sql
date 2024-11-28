@@ -10,7 +10,7 @@ use QuanLiHopDong
 
 CREATE TABLE NGUOIDUNG
 (
-  MaNV NVARCHAR(5) DEFAULT dbo.taoMaNV(), 
+  MaNV NVARCHAR(5) DEFAULT dbo.taoMaNV(),
   TenDangNhap VARCHAR(50) NOT NULL UNIQUE, -- tên đăng nhập duy nhất
   HoTen NVARCHAR(50) NOT NULL,
   GioiTinh BIT NOT NULL,  --0 nam, 1 nữ
@@ -23,6 +23,7 @@ CREATE TABLE NGUOIDUNG
   NgayVaoLam DATE NOT NULL DEFAULT GETDATE(),
   DiaChi NVARCHAR(50) NOT NULL,
   TinhTrangHoatDong BIT NOT NULL DEFAULT 1, --1 Đang hoạt động, 0 Ngưng hoạt động
+  HinhAnh image,
   PRIMARY KEY (MaNV)
 )
 go
@@ -52,7 +53,7 @@ values (N'Sale num4', 'nguyenvanf', 1,'1990-09-05','sale4@gmail.com','Sale','091
 
 ---Thêm dữ liệu nhân viên Kế toán---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values (N'Kế toán num0', 'tranvana', 1, '1992-04-04', 'ketoan0@gmail.com', 'Accountant', '0284851679', 'Accountant', 'quan7')
+values (N'Kế toán num0', 'tranvana', 1, '1992-04-04', 'ketoan0@gmail.com', N'Kế toán', '0284851679', N'Kế toán', 'quan7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
 values (N'Kế toán num1', 'tranvanb', 1,'1991-05-29', 'ketoan1@gmail.com', 'Accountant', '0284482679', 'Accountant', 'quan7')
@@ -85,7 +86,7 @@ values	(N'Bảo','dinhgiabao', 0,'1972-11-20','dgb2k4@gmail.com','CEO','09366819
 
 select * from NGUOIDUNG where Mail = 'abc@gmail.com'
 
-select * from NGUOIDUNG 
+select * from GIAIDOANTHANHTOAN
 
 CREATE TABLE TAIKHOANDAXOA
 (
@@ -117,7 +118,6 @@ CREATE TABLE HOPDONG
   NgayKetThuc DATE NOT NULL, -- ngay ket thuc phai sau ngay bat dau
   GiaTriHD INT NOT NULL,
   MucHoaHong INT NOT NULL DEFAULT 5, --Mặc định ban đầu 5% (Không cho phép người tạo hđ thay đổi- chỉ trưởng Sale được thay đổi)
-  ChiaGiaiDoan VARCHAR(20) NOT NULL DEFAULT '100%', --Chia theo thời gian ('100%', '30%-30%-40%','30%-70%','40%-30%-30%','40%-60%','50%-50%')
   DaThanhToan INT NOT NULL DEFAULT 0, --Trừ số tiền ghi nhận thanh toán
   NoiDungHD NVARCHAR(100) NOT NULL,
   TinhTrangHD NVARCHAR(20) NOT NULL DEFAULT N'Chưa thực hiện', --Chưa thực hiện, đang thực hiện, chờ nghiệm thu, đã xong
@@ -126,31 +126,21 @@ CREATE TABLE HOPDONG
   SDT NVARCHAR(10) NOT NULL, --của người liên hệ
   Mail NVARCHAR(50) NOT NULL, --của người liên hệ
   TienDoHD INT NOT NULL, --Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
-  NhanVienThanhToan VARCHAR(50) NULL,	--Tên đăng nhập của kế toán phụ trách giai đoạn ban đầu là rỗng
   PRIMARY KEY (MaHD),
-  FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV),
-  FOREIGN KEY (NhanVienThanhToan) REFERENCES NGUOIDUNG(TenDangNhap)
+  FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV)
 )
 
 ---Thêm dữ liệu Hợp Đồng---
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00001', N'Quay 50 video',N'Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, '100%', 0, N'Quay video về abc',N'Chưa thực hiện', N'Đại sứ Milo', N'1 NHT Quận 7', '0936681910', 'abc@gmail.com', 4)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00003', N'Chụp 5 hình', N'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 2, 0, N'Chụp hình về abc', N'Đang thực hiện', N'Valhein', N'1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Ghi Hình capcut', N'Công ty Omo', '2024-2-22', '2025-1-3', 7564, 5, 2, 564, N'Quay video về bột giặt', N'Chưa thực hiện', N'Đại sứ Omo', N'1 NHT Quận 7', '0936681912', 'jkl@gmail.com', 3)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00005', N'Chụp 10 hình', N'Công ty Asus', '2022-8-6', '2023-7-12', 8764, 5, 2, 8000, N'Chụp hình về abc', N'Chờ nghiệm thu', N'Đại sứ Asus', N'1 NHT Quận 7', '0936681913', 'abcd@gmail.com', 4)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00004', N'Quay 5 video', N'Công ty Grab', '2024-4-3', '2024-8-12', 8143, 5, 2, 8143, N'Quay video về abc', N'Đã xong', N'Đại sứ Grab', N'1 NHT Quận 7', '0936681914', 'abcf@gmail.com', 2)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, ChiaGiaiDoan, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Chụp 15 hình', N'Công ty Foody', '2024-11-24', '2024-11-28', 6523, 5, 2, 0, N'Chụp hình về abc', N'Chưa thực hiện', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00001', N'Quay 50 video',N'Công ty Milo', '2023-11-21', '2024-10-24', 1768, 5, 0, N'Quay video về abc',N'Chưa thực hiện', N'Đại sứ Milo', N'1 NHT Quận 7', '0936681910', 'abc@gmail.com', 4)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00003', N'Chụp 5 hình', N'Valhein', '2024-1-2', '2024-5-6', 1231, 5, 0, N'Chụp hình về abc', N'Đang thực hiện', N'Valhein', N'1 NHT Quận 7', '0936681911', 'def@gmail.com', 3)
+
+
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-11-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681915', 'abce@gmail.com', 1)
+values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-11-30', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681911', 'abce@gmail.com', 1)
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00017', N'Chụp 15 hình', N'Công ty Foody','2024-11-30', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681911', 'abce@gmail.com', 1)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00018', N'Chụp 15 hình', N'Công ty Foody','2024-12-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681914', 'abce@gmail.com', 1)
+values ('00003', N'Chụp 15 hình', N'Công ty Foody','2024-12-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681914', 'abce@gmail.com', 1)
 
 
 select * from HOPDONG
@@ -159,28 +149,27 @@ CREATE TABLE GIAIDOANTHANHTOAN
 (
   MaGiaiDoanThanhToan NVARCHAR(5) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
+  GiaiDoan INT NOT NULL,
   NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
   PhanTramThanhToan INT NOT NULL DEFAULT 100,
   GiaTriThanhToan INT NOT NULL DEFAULT 0,
   TrangThaiThanhToan BIT NOT NULL DEFAULT 0, -- 1 Đã thanh toán, 0 Chờ thanh toán
   NgayNhanThanhToan DATE,
-  GhiChu NVARCHAR(100),
-  NhanVienQuanLy VARCHAR(50), --Người quản lý thanh toán (kế toán) TÊN ĐĂNG NHẬP
+  GhiChu NVARCHAR(100)
   PRIMARY KEY (MaGiaiDoanThanhToan, MaHD),
-  FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD),
-  FOREIGN KEY (NhanVienQuanLy) REFERENCES NGUOIDUNG(TenDangNhap)
+  FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD)
 )
 
 
-insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001', '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
-insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD001', '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
-insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD002', '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
+insert into GIAIDOANTHANHTOAN(MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001', 1, '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD001', 2, '2024-11-26', 40, 768, '2024-11-28', N'Thanh toán giai đoạn 2 HD001')
+insert into GIAIDOANTHANHTOAN(MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002', 1, '2024-11-24', 50, 500, '2024-11-26', N'Thanh toán giai đoạn 1 HD002')
 
-insert into GIAIDOANTHANHTOAN(MaHD, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
-values('HD002', '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
+insert into GIAIDOANTHANHTOAN(MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
+values('HD002', 2, '2024/11/24', 50, 500, '2024/11/26', N'Thanh toán giai đoạn 1 HD002')
 
 --select * from GIAIDOANTHANHTOAN 
 
@@ -203,16 +192,14 @@ CREATE TABLE TIENDOHOPDONG
 
 ---Thêm dữ liệu giai đoạn hợp đồng
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', N'00005', N'Quay 2 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', N'Sơn', N'Quay 2 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-01-02', '2024-04-02', 'HD001', '00002', N'00006', N'Quay 18 video')
+values('2024-01-02', '2024-04-02', 'HD001', '00002', N'Thủy', N'Quay 18 video')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
-values('2024-03-12', '2024-05-15', 'HD002', '00004', N'00007', N'Chụp 3 hình')
+values('2024-03-12', '2024-05-15', 'HD002', '00004', N'Hỏa', N'Chụp 3 hình')
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NoiDungCV)
-values('2024-03-12', '2024-05-15', 'HD001', '00002', N'Chụp 3 hình')
-
+values('2024-03-12', '2024-05-15', 'HD001', 'Thổ', N'Chụp 3 hình')
 select * from TIENDOHOPDONG
-
 
 
 
@@ -350,6 +337,28 @@ go
 
 --exec loadContractTrackingForAll
 
+		--Proc loadPaymentProgress giai đoạn thanh toán On PaymentProgress
+create proc loadPaymentProgress
+as
+begin
+	select gd.MaHD as [Mã hợp đồng],
+			hd.TenHopDong as [Tên hợp đồng],
+			gd.GiaiDoan as [Giai đoạn],
+			gd.NgayThanhToan as [Ngày thanh toán],
+			gd.PhanTramThanhToan as [Phần trăm thanh toán],
+			gd.GiaTriThanhToan as [Giá trị thanh toán],
+			gd.TrangThaiThanhToan as [Trạng thái],
+			gd.NgayNhanThanhToan as [Ngày nhận thanh toán],
+			gd.GhiChu as [Ghi chú]
+	from GIAIDOANTHANHTOAN as gd
+	INNER JOIN HOPDONG as hd ON gd.MaHD = hd.MaHD
+end
+go
+
+--exec loadPaymentProgress
+--select * from GIAIDOANTHANHTOAN
+
+
 		--Procedure ProjectProgressForSale --
 create proc loadProjectProgressForSale
 	@MaNV NVARCHAR(5)
@@ -393,58 +402,8 @@ begin
 	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
 end
 go
-
+select * from TIENDOHOPDONG
 --exec loadProjectProgressForAll
-
-
-		--load ContractTracking For Accountant
-create proc loadConTractTrackingForAccountant
-	@MaNV NVARCHAR(5)
-as
-begin
-	SELECT 
-        hd.MaHD AS [Mã hợp đồng],
-        hd.TenHopDong AS [Tên hợp đồng],
-        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
-        hd.TenNguoiLienHe AS [Người liên hệ],
-        hd.NgayBatDau AS [Ngày bắt đầu],
-        hd.NgayKetThuc AS [Ngày hết hạn],
-        hd.GiaTriHD AS [Giá trị hợp đồng],
-        hd.TinhTrangHD AS [Tình trạng hợp đồng],
-        hd.NhanVienThanhToan AS [Phụ trách thanh toán]
-    FROM HOPDONG AS hd
-	INNER JOIN NGUOIDUNG AS nv ON hd.NhanVienThanhToan = nv.TenDangNhap
-	INNER JOIN GIAIDOANTHANHTOAN AS gd ON hd.NhanVienThanhToan = gd.NhanVienQuanLy
-	WHERE nv.VaiTro = N'Kế toán'
-end
-go
-
---drop proc loadConTractTrackingForAccountant
---exec loadConTractTrackingForAccountant @MaNV = '00004'
-
-
-		--Procedure PaymentProgress for Accountant--
-create proc loadPaymentProgressForAccountant
-	@MaNV NVARCHAR(5)
-as
-begin
-	SELECT 
-        hd.MaHD AS [Mã hợp đồng], 
-        hd.TenHopDong AS [Tên hợp đồng],
-		gd.NgayThanhToan AS [Ngày thanh toán],
-        gd.PhanTramThanhToan AS [Phần trăm thanh toán(%)], 
-        gd.GiaTriThanhToan AS [Giá trị thanh toán], 
-        gd.TrangThaiThanhToan AS [Trạng thái],
-		gd.NgayNhanThanhToan AS [Ngày nhận thanh toán],
-		gd.GhiChu AS [Ghi chú]
-    FROM GIAIDOANTHANHTOAN AS gd
-	INNER JOIN HOPDONG AS hd ON gd.MaHD = hd.MaHD
-	INNER JOIN NGUOIDUNG AS nv ON gd.NhanVienQuanLy = nv.TenDangNhap
-end
-go
-
---drop proc loadPaymentProgressForAccountant
---exec loadPaymentProgressForAccountant @MaNV = '00002'
 
 
 
@@ -468,7 +427,6 @@ BEGIN
        OR TenDangNhap LIKE '%' + @Keyword + '%'
 END
 GO
-
 
 --drop proc searchGlobalOnListUser
 --exec searchGlobalOnListUser @Keyword = 'b'
@@ -517,6 +475,28 @@ go
 --exec searchPhongBanOnListUser @PhongBan = 'IT'
 
 
+--procedure dùng cho Form PaymentProgress
+	--Procedure search giai đoạn thanh toán On PaymentProgress
+create proc searchGlobalOnPaymentProgress
+	@Keyword NVARCHAR(50)
+AS
+BEGIN
+    SELECT TenDangNhap AS [Tên đăng nhập], 
+           Mail AS [Email], 
+           HoTen AS [Tên người dùng], 
+           MaNV AS [Mã người dùng], 
+           PhongBan AS [Phòng ban], 
+           VaiTro AS [Chức vụ], 
+           TinhTrangHoatDong AS [Tình trạng] 
+    FROM NGUOIDUNG
+    WHERE MaNV LIKE '%' + @Keyword + '%'
+       OR HoTen LIKE '%' + @Keyword + '%'
+       OR Mail LIKE '%' + @Keyword + '%'
+       OR TenDangNhap LIKE '%' + @Keyword + '%'
+END
+GO
+
+select * from NGUOIDUNG
 -- procedure dung cho Form ContractTrackingForSale
 		--Procedure search hợp đồng On ContractTrackingForSale--
 CREATE PROC searchGlobalOnContractTrackingForSale
@@ -835,6 +815,7 @@ go
 -- INSERT DATA
 create proc createAccount
 	@TenDangNhap NVARCHAR(50),
+	@MatKhau VARCHAR(20),
 	@HoTen NVARCHAR(50),
 	@NgaySinh DATE,
 	@GioiTinh BIT,
@@ -845,13 +826,28 @@ create proc createAccount
 	@SDT NVARCHAR(10)
 as
 begin
-	insert into NGUOIDUNG (TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT)
-	values (@TenDangNhap, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @PhongBan,@VaiTro, @Mail, @SDT )
+	insert into NGUOIDUNG (TenDangNhap, MatKhau, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT)
+	values (@TenDangNhap, @MatKhau, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @PhongBan,@VaiTro, @Mail, @SDT )
 end
 go
+
+-- update account
+create proc updateAccount
+	@MaNV NVARCHAR(5),
+	@HinhAnh image
+as
+begin
+	update NGUOIDUNG
+	set HinhAnh = @HinhAnh
+	where MaNV = @MaNV
+end
+go
+
+
+
 --drop proc createAccount
-exec createAccount @TenDangNhap = 'b', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
-					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'Giám đốc',@VaiTro = N'Giám đốc', @Mail = N'dgb35k4@gmail.com', @SDT = N'0911162180'
+exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
+					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb35k4@gmail.com', @SDT = N'0911162180'
 
 --delete  NGUOIDUNG
 select * from NGUOIDUNG
