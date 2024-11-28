@@ -165,7 +165,8 @@ namespace Design
             string VaiTro = comboBoxChucVu.Text.ToString().Trim();
             string Mail = textBoxEmail.Text.ToString().Trim();
             string SDT = textBoxPhoneNumber.Text.ToString().Trim();
-            NguoiDung newAccount = new NguoiDung(TenDangNhap, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT);
+            string matKhau = GenerateRandomPassword(6);
+            NguoiDung newAccount = new NguoiDung(TenDangNhap, matKhau, HoTen, NgaySinh, GioiTinh, DiaChi, PhongBan, VaiTro, Mail, SDT);
             // check xem mail co ton tai trong he thong hay khong
 
             bool checkMail = NguoiDungBLL.checkMailTrung(newAccount);
@@ -179,8 +180,6 @@ namespace Design
             bool createAcc = NguoiDungBLL.createAccount(newAccount);
             if (createAcc)
             {
-                MessageBox.Show("Tạo tài khoản thành công!");
-
                 // gui mail xac nhan tai khoan
                 //send mail here
                 // gui mail xac nhan tai khoan
@@ -199,7 +198,7 @@ namespace Design
                 smtp.Credentials = new NetworkCredential(from, pass);
                 try
                 {
-                    mess.Body = "Your account is: " + TenDangNhap + "\n" + "Your password is: 12345 ";
+                    mess.Body = "Your account is: " + TenDangNhap + "\n" + "Your password is: " + matKhau;
                     smtp.Send(mess);
                 }
                 catch (Exception ex)
@@ -207,7 +206,7 @@ namespace Design
                     MessageBox.Show(ex.Message);
 
                 }
-
+                MessageBox.Show("Tạo tài khoản thành công!");
                 this.Close();
             }
             else MessageBox.Show("Tên đăng nhập bị trùng!");
@@ -244,6 +243,19 @@ namespace Design
             }
         }
 
-        
+        public static string GenerateRandomPassword(int length)
+        {
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            Random random = new Random();
+            char[] password = new char[length];
+
+            for(int i = 0; i < length; i++)
+            {
+                password[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new string(password);
+        }
     }
 }

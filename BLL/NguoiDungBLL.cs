@@ -42,8 +42,9 @@ namespace BLL
             string ngayVaoLam = rawNgayVaoLam.ToString("dd/MM/yyyy");
             string diaChi = row["DiaChi"].ToString();
             bool tinhTrangHoatDong = (bool)row["TinhTrangHoatDong"];
+            byte[] hinhAnh = (byte[])row["HinhAnh"];
             NguoiDung user = new NguoiDung(maNV, tenDangNhap, hoTen, gioiTinh, ngaySinh, matKhau, mail, vaiTro, sDT, 
-                phongBan, ngayVaoLam, diaChi, tinhTrangHoatDong);
+                phongBan, ngayVaoLam, diaChi, tinhTrangHoatDong, hinhAnh);
             return user;
         }
 
@@ -146,5 +147,10 @@ namespace BLL
             return NguoiDungDAO.Instance.checkMailTrung(newMail);
         }
 
+
+        public static void updateUserImage(NguoiDung user, byte[] image)
+        {
+            NguoiDungDAO.Instance.updateUserImage(user, image);
+        }
     }
 }

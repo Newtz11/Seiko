@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Design
     public partial class PersonalInformation : System.Windows.Forms.Form
     {
         private NguoiDung user;
-        
+
         public PersonalInformation(NguoiDung user)
         {
             InitializeComponent();
@@ -57,14 +58,15 @@ namespace Design
 
         private void PersonalInformation_Load(object sender, EventArgs e)
         {
-            
+
             textBoxTenDangNhap.Text = user.tenDangNhap.ToString();
             textBoxMatKhau.Text = user.matKhau.ToString();
             string gioiTinh = user.gioiTinh ? "Nữ" : "Nam";
             string trangThaiHoatDong = user.tinhTrangHoatDong ? "Đang hoạt động" : "Ngưng hoạt động";
             dataGridViewThongTinCaNhan.Rows.Add(user.maNV, user.hoTen, user.ngaySinh, gioiTinh, user.sDT, user.diaChi, user.mail);
             dataGridViewThongTinCongViec.Rows.Add(user.vaiTro, user.phongBan, user.ngayVaoLam, trangThaiHoatDong);
-            
+            pictureBoxAnhDaiDien.Image = showImage(user.hinhAnh);
+
         }
 
         private void buttonDoiMatKhau_Click(object sender, EventArgs e)
@@ -72,6 +74,40 @@ namespace Design
             ChangePassword changePassword = new ChangePassword(user, this);
             changePassword.Show();
 
+        }
+
+        private void buttonThayAnhDaiDien_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxAnhDaiDien.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+            byte[] image = getImage();
+            NguoiDungBLL.updateUserImage(user, image);
+        }
+
+
+        private byte[] getImage()
+        {
+            MemoryStream stream = new MemoryStream();
+            pictureBoxAnhDaiDien.Image.Save(stream, pictureBoxAnhDaiDien.Image.RawFormat);
+            return stream.GetBuffer();
+        }
+
+        private void pictureBoxAnhDaiDien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Image showImage(byte[] img)
+        {
+            MemoryStream memoryStream = new MemoryStream(img);
+            return Image.FromStream(memoryStream);
         }
     }
 }

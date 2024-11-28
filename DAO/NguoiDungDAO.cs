@@ -154,6 +154,7 @@ namespace DAO
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {                    
                     new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = newAccount.tenDangNhap },
+                    new SqlParameter("@MatKhau", SqlDbType.NVarChar, 20) { Value = newAccount.matKhau },
                     new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = newAccount.hoTen },
                     new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = newAccount.ngaySinh },
                     new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
@@ -184,6 +185,19 @@ namespace DAO
             return (dt.Rows.Count > 0);
         }
         
+        public void updateUserImage(NguoiDung user, byte[] image)
+        {
+            string procName = "updateAccount";
 
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV },
+                new SqlParameter("@HinhAnh", SqlDbType.Image) { Value = image },
+
+            };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            
+        }
     }
 }

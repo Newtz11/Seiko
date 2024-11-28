@@ -24,14 +24,15 @@ namespace DTO
         public string diaChi { get; set; }
         public bool tinhTrangHoatDong { get; set; } //-> true la dang hoat dong, false la ngung hoat dong
         
-
+        public byte[] hinhAnh { get; set; } 
 
         // for empty data only
         public NguoiDung() { }
 
-        public NguoiDung(string tenDangNhap, string hoTen, string ngaySinh, bool gioiTinh, string diaChi, string phongBan, string vaiTro, string mail, string sDT)
+        public NguoiDung(string tenDangNhap, string matKhau, string hoTen, string ngaySinh, bool gioiTinh, string diaChi, string phongBan, string vaiTro, string mail, string sDT)
         {
             this.tenDangNhap = tenDangNhap;
+            this.matKhau = matKhau;
             this.hoTen = hoTen;
             this.ngaySinh = ngaySinh;
             this.gioiTinh = gioiTinh;
@@ -59,7 +60,7 @@ namespace DTO
 
 
         public NguoiDung(string maNV, string tenDangNhap, string hoTen, bool gioiTinh, string ngaySinh, string matKhau, string mail, 
-            string vaiTro, string sDT, string phongBan, string ngayVaoLam, string diaChi, bool tinhTrangHoatDong)
+            string vaiTro, string sDT, string phongBan, string ngayVaoLam, string diaChi, bool tinhTrangHoatDong, byte[] hinhAnh)
         {
             this.maNV = maNV;
             this.tenDangNhap = tenDangNhap;
@@ -74,6 +75,7 @@ namespace DTO
             this.ngayVaoLam = ngayVaoLam;
             this.diaChi = diaChi;
             this.tinhTrangHoatDong = tinhTrangHoatDong;
+            this.hinhAnh = hinhAnh;
         }
     }
 }
