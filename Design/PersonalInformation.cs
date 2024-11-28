@@ -65,7 +65,7 @@ namespace Design
             string trangThaiHoatDong = user.tinhTrangHoatDong ? "Đang hoạt động" : "Ngưng hoạt động";
             dataGridViewThongTinCaNhan.Rows.Add(user.maNV, user.hoTen, user.ngaySinh, gioiTinh, user.sDT, user.diaChi, user.mail);
             dataGridViewThongTinCongViec.Rows.Add(user.vaiTro, user.phongBan, user.ngayVaoLam, trangThaiHoatDong);
-            pictureBoxAnhDaiDien.Image = showImage(user.hinhAnh);
+            if (user.hinhAnh != null) pictureBoxAnhDaiDien.Image = showImage(user.hinhAnh);
 
         }
 

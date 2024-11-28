@@ -42,7 +42,7 @@ namespace BLL
             string ngayVaoLam = rawNgayVaoLam.ToString("dd/MM/yyyy");
             string diaChi = row["DiaChi"].ToString();
             bool tinhTrangHoatDong = (bool)row["TinhTrangHoatDong"];
-            byte[] hinhAnh = (byte[])row["HinhAnh"];
+            byte[] hinhAnh = row["HinhAnh"] as byte[] ?? null;
             NguoiDung user = new NguoiDung(maNV, tenDangNhap, hoTen, gioiTinh, ngaySinh, matKhau, mail, vaiTro, sDT, 
                 phongBan, ngayVaoLam, diaChi, tinhTrangHoatDong, hinhAnh);
             return user;
