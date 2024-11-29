@@ -70,8 +70,7 @@ namespace Design
                 int KhoiLuongCV = Convert.ToInt32(row[6]);
                 string NVThucHienCV = row[7].ToString();
                 string TinhTrangHD = row[8].ToString();
-                string maTienDo = row[9].ToString();
-                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD, maTienDo);
+                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD);
             }
             currentTable = dt;
 
