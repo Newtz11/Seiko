@@ -41,10 +41,6 @@ namespace DAO
                 };
                 dt = DataProvider.Instance.executeProc(procName, parameters);
             }
-            else if (user.vaiTro == "Kế toán")
-            {
-                //ke toan
-            }
             else
             {
                 string query = "EXEC loadContractTrackingForAll";

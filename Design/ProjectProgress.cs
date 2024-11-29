@@ -70,8 +70,7 @@ namespace Design
                 int KhoiLuongCV = Convert.ToInt32(row[6]);
                 string NVThucHienCV = row[7].ToString();
                 string TinhTrangHD = row[8].ToString();
-                string maTienDo = row[9].ToString();
-                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD, maTienDo);
+                dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD);
             }
             currentTable = dt;
 
@@ -118,8 +117,7 @@ namespace Design
                     int tienDo = Convert.ToInt32(row[6]);
                     string tenNguoiThucHien = row[7].ToString();
                     string tinhTrangHD = row[8].ToString();
-                    string maTienDo = row[9].ToString();
-                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
+                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD);
                 }
 
                 textBoxSearch.Text = "";
