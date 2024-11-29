@@ -63,10 +63,13 @@ namespace Design
                 DateTime NgayThanhToan = Convert.ToDateTime(row[3]);
                 int PhanTramThanhToan = Convert.ToInt32(row[4]);
                 int GiaTriThanhToan = Convert.ToInt32(row[5]);
-                string TrangThai = row[6].ToString();
+                string trangThaiTT = "";
+                bool TrangThai = (bool)row[6];
+                if (TrangThai == true) trangThaiTT = "Đã thanh toán";
+                else trangThaiTT = "Chưa thanh toán";
                 DateTime NgayNhanThanhToan = Convert.ToDateTime(row[7]);
                 string GhiChu = row[8].ToString();
-                dataGridViewPaymentProgress.Rows.Add(MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), PhanTramThanhToan, GiaTriThanhToan, TrangThai, NgayNhanThanhToan.ToString("dd/MM/yyyy"), GhiChu);
+                dataGridViewPaymentProgress.Rows.Add(MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, NgayNhanThanhToan.ToString("dd/MM/yyyy"), GhiChu);
             }
         }
 
@@ -110,10 +113,13 @@ namespace Design
                     DateTime NgayThanhToan = Convert.ToDateTime(row[3]);
                     int PhanTramThanhToan = Convert.ToInt32(row[4]);
                     int GiaTriThanhToan = Convert.ToInt32(row[5]);
-                    string TrangThai = row[6].ToString();
+                    string trangThaiTT = "";
+                    bool TrangThai = (bool)row[6];
+                    if (TrangThai == true) trangThaiTT = "Đã thanh toán";
+                    else trangThaiTT = "Chưa thanh toán";
                     DateTime NgayNhanThanhToan = Convert.ToDateTime(row[7]);
                     string GhiChu = row[8].ToString();
-                    dataGridViewPaymentProgress.Rows.Add(MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), PhanTramThanhToan, GiaTriThanhToan, TrangThai, NgayNhanThanhToan.ToString("dd/MM/yyyy"), GhiChu);
+                    dataGridViewPaymentProgress.Rows.Add(MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, NgayNhanThanhToan.ToString("dd/MM/yyyy"), GhiChu);
                 }
 
                 textBoxSearch.Text = "";

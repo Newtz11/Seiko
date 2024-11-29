@@ -171,6 +171,7 @@ select * from TIENDOHOPDONG
 
 
 
+
 	--Function tao khoa chinh--
 
 --Tạo mã người dùng--
@@ -370,7 +371,7 @@ begin
 end
 go
 select * from TIENDOHOPDONG
---exec loadProjectProgressForAll
+exec loadProjectProgressForAll
 
 
 

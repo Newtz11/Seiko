@@ -117,8 +117,7 @@ namespace Design
                     int tienDo = Convert.ToInt32(row[6]);
                     string tenNguoiThucHien = row[7].ToString();
                     string tinhTrangHD = row[8].ToString();
-                    string maTienDo = row[9].ToString();
-                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
+                    dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"), tienDo, tenNguoiThucHien, tinhTrangHD);
                 }
 
                 textBoxSearch.Text = "";
