@@ -97,5 +97,10 @@ namespace BLL
         {
             return GiaiDoanThanhToanDAO.Instance.loadThongTinThanhToan(mHD);
         }
+
+        public static void delGiaiDoanTT(string maHD, string giaiDoan)
+        {
+            GiaiDoanThanhToanDAO.Instance.delGiaiDoanTT(maHD, giaiDoan);
+        }
     }
 }

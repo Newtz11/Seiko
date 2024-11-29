@@ -212,6 +212,7 @@
             buttonXoa.TabIndex = 23;
             buttonXoa.Text = "Xóa";
             buttonXoa.UseVisualStyleBackColor = false;
+            buttonXoa.Click += buttonXoa_Click;
             // 
             // buttonSua
             // 
