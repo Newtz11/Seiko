@@ -137,12 +137,7 @@ namespace DAO
         }
 
 
-        public DataTable getMaHDMoi()
-        {
-            string query = "exec getNewestMaHD";
-            DataTable dt = DataProvider.Instance.executeQuery(query);
-            return dt;
-        }
+       
 
     }
 }
