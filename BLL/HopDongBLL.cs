@@ -102,5 +102,12 @@ namespace BLL
         {
             return HopDongDAO.Instance.loadContractHistory(user);
         }
+
+        public static string getMaHDMoi()
+        {
+            DataTable dt = HopDongDAO.Instance.getMaHDMoi();
+            string maTienDo = dt.Rows[0]["MaHD"].ToString();
+            return maTienDo;
+        }
     }
 }
