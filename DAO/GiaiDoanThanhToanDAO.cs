@@ -1,4 +1,4 @@
-﻿using DTO;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
+
+
 
 namespace DAO
 {
@@ -17,6 +20,7 @@ namespace DAO
             get { if (instance == null) instance = new GiaiDoanThanhToanDAO(); return instance; }
             private set { instance = value; }
         }
+
         private GiaiDoanThanhToanDAO() { }
 
         public DataTable loadPaymentProgress(GiaiDoanThanhToan giaiDoan)
@@ -66,6 +70,7 @@ namespace DAO
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
 
             return dt;
+
         }
     }
 }

@@ -40,7 +40,7 @@
             groupBoxThongTinCaNhan = new GroupBox();
             label8 = new Label();
             label7 = new Label();
-            pictureBox3 = new PictureBox();
+            pictureBoxAnhDaiDien = new PictureBox();
             buttonDoiMatKhau = new Button();
             buttonChinhSua = new Button();
             textBoxMatKhau = new TextBox();
@@ -65,7 +65,7 @@
             TrangThai = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             groupBoxThongTinCaNhan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAnhDaiDien).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThongTinCaNhan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThongTinCongViec).BeginInit();
             SuspendLayout();
@@ -96,7 +96,7 @@
             groupBoxThongTinCaNhan.BackColor = Color.LightGray;
             groupBoxThongTinCaNhan.Controls.Add(label8);
             groupBoxThongTinCaNhan.Controls.Add(label7);
-            groupBoxThongTinCaNhan.Controls.Add(pictureBox3);
+            groupBoxThongTinCaNhan.Controls.Add(pictureBoxAnhDaiDien);
             groupBoxThongTinCaNhan.Controls.Add(buttonDoiMatKhau);
             groupBoxThongTinCaNhan.Controls.Add(buttonChinhSua);
             groupBoxThongTinCaNhan.Controls.Add(textBoxMatKhau);
@@ -136,16 +136,17 @@
             label7.TabIndex = 79;
             label7.Text = "Thông tin cá nhân:";
             // 
-            // pictureBox3
+            // pictureBoxAnhDaiDien
             // 
-            pictureBox3.Anchor = AnchorStyles.Top;
-            pictureBox3.Image = Properties.Resources.avatar;
-            pictureBox3.Location = new Point(434, 26);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(154, 158);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 71;
-            pictureBox3.TabStop = false;
+            pictureBoxAnhDaiDien.Anchor = AnchorStyles.Top;
+            pictureBoxAnhDaiDien.Image = Properties.Resources.avatar;
+            pictureBoxAnhDaiDien.Location = new Point(434, 26);
+            pictureBoxAnhDaiDien.Name = "pictureBoxAnhDaiDien";
+            pictureBoxAnhDaiDien.Size = new Size(154, 158);
+            pictureBoxAnhDaiDien.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxAnhDaiDien.TabIndex = 71;
+            pictureBoxAnhDaiDien.TabStop = false;
+            pictureBoxAnhDaiDien.Click += pictureBoxAnhDaiDien_Click;
             // 
             // buttonDoiMatKhau
             // 
@@ -211,6 +212,7 @@
             buttonThayAnhDaiDien.TabIndex = 72;
             buttonThayAnhDaiDien.Text = "THAY ĐỔI ẢNH ĐẠI DIỆN ";
             buttonThayAnhDaiDien.UseVisualStyleBackColor = false;
+            buttonThayAnhDaiDien.Click += buttonThayAnhDaiDien_Click;
             // 
             // label4
             // 
@@ -258,6 +260,7 @@
             buttonLuu.TabIndex = 70;
             buttonLuu.Text = "LƯU";
             buttonLuu.UseVisualStyleBackColor = false;
+            buttonLuu.Click += buttonLuu_Click;
             // 
             // dataGridViewThongTinCaNhan
             // 
@@ -469,7 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             groupBoxThongTinCaNhan.ResumeLayout(false);
             groupBoxThongTinCaNhan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAnhDaiDien).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThongTinCaNhan).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThongTinCongViec).EndInit();
             ResumeLayout(false);
@@ -483,7 +486,7 @@
         private GroupBox groupBoxThongTinCaNhan;
         private Label label8;
         private Label label7;
-        private PictureBox pictureBox3;
+        private PictureBox pictureBoxAnhDaiDien;
         private Button buttonDoiMatKhau;
         private Button buttonChinhSua;
         private TextBox textBoxMatKhau;
