@@ -104,15 +104,15 @@ namespace Design
             DataTable dt = HopDongBLL.loadContract(user);
             foreach (DataRow row in dt.Rows)
             {
-                string maHopDong = row["Mã hợp đồng"].ToString();
-                string tenHopDong = row["Tên hợp đồng"].ToString();
-                string tenCongTyCaNhan = row["Tên Công ty/Cá nhân"].ToString();
-                string nguoiLienHe = row["Người liên hệ"].ToString();
-                DateTime ngayBatDau = Convert.ToDateTime(row["Ngày bắt đầu"]);
-                DateTime ngayHetHan = Convert.ToDateTime(row["Ngày hết hạn"]);
-                int giaTriHopDong = Convert.ToInt32(row["Giá trị hợp đồng"]);
-                string tinhTrangHopDong = row["Tình trạng hợp đồng"].ToString();
-                string phuTrachQuanLy = row["Phụ trách quản lý"].ToString();
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string tenCongTyCaNhan = row[2].ToString();
+                string nguoiLienHe = row[3].ToString();
+                DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                DateTime ngayHetHan = Convert.ToDateTime(row[5]);
+                int giaTriHopDong = Convert.ToInt32(row[6]);
+                string tinhTrangHopDong = row[7].ToString();
+                string phuTrachQuanLy = row[8].ToString();
                 dataGridViewContractTracking.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tinhTrangHopDong, phuTrachQuanLy);
             }
         }

@@ -17,11 +17,10 @@ namespace DTO
         public bool trangThaiThanhToan { get; set; }
         public DateTime ngayNhanThanhToan { get; set; }
         public string ghiChu {  get; set; }
-        public string nhanVienQuanLy {  get; set; }     // Người quản lý thanh toán (Kế toán)
 
         public GiaiDoanThanhToan() { }
 
-        public GiaiDoanThanhToan(string maGiaiDoanThanhToan, string maHD, string tenHD, DateTime ngayThanhToan, int phanTramThanhToan, int giaTriThanhToan, bool trangThaiThanhToan, DateTime ngayNhanThanhToan, string ghiChu, string nhanVienQuanLy)
+        public GiaiDoanThanhToan(string maGiaiDoanThanhToan, string maHD, string tenHD, DateTime ngayThanhToan, int phanTramThanhToan, int giaTriThanhToan, bool trangThaiThanhToan, DateTime ngayNhanThanhToan, string ghiChu)
         {
             this.maGiaiDoanThanhToan = maGiaiDoanThanhToan;
             this.maHD = maHD;
@@ -32,7 +31,6 @@ namespace DTO
             this.trangThaiThanhToan = trangThaiThanhToan;
             this.ngayNhanThanhToan = ngayNhanThanhToan;
             this.ghiChu = ghiChu;
-            this.nhanVienQuanLy = nhanVienQuanLy;
         }
     }
 }

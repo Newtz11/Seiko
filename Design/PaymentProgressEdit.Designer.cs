@@ -350,7 +350,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PaymentProgressEdit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "s";
+            Text = "Seiko";
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             groupBoxPaymentProgressEdit.ResumeLayout(false);
             groupBoxPaymentProgressEdit.PerformLayout();

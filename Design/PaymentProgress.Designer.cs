@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentProgress));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxTienDoThanhToan = new GroupBox();
             buttonReset = new Button();
             comboBoxTrangThai = new ComboBox();
             labelTrangThai = new Label();
-            dateTimePickerEnd = new DateTimePicker();
+            dateTimePickerNgayNhanThanhToan = new DateTimePicker();
             dateTimePickerNgayThanhToan = new DateTimePicker();
             labelNgayNhanTT = new Label();
             labelNgayTT = new Label();
@@ -81,7 +81,7 @@
             groupBoxTienDoThanhToan.Controls.Add(buttonReset);
             groupBoxTienDoThanhToan.Controls.Add(comboBoxTrangThai);
             groupBoxTienDoThanhToan.Controls.Add(labelTrangThai);
-            groupBoxTienDoThanhToan.Controls.Add(dateTimePickerEnd);
+            groupBoxTienDoThanhToan.Controls.Add(dateTimePickerNgayNhanThanhToan);
             groupBoxTienDoThanhToan.Controls.Add(dateTimePickerNgayThanhToan);
             groupBoxTienDoThanhToan.Controls.Add(labelNgayNhanTT);
             groupBoxTienDoThanhToan.Controls.Add(labelNgayTT);
@@ -114,12 +114,14 @@
             // 
             // comboBoxTrangThai
             // 
+            comboBoxTrangThai.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Items.AddRange(new object[] { "Đã thanh toán", "Chưa thanh toán" });
             comboBoxTrangThai.Location = new Point(119, 150);
             comboBoxTrangThai.Name = "comboBoxTrangThai";
-            comboBoxTrangThai.Size = new Size(223, 28);
+            comboBoxTrangThai.Size = new Size(223, 31);
             comboBoxTrangThai.TabIndex = 81;
+            comboBoxTrangThai.Text = "Trạng thái";
             // 
             // labelTrangThai
             // 
@@ -131,15 +133,15 @@
             labelTrangThai.TabIndex = 80;
             labelTrangThai.Text = "Trạng thái:";
             // 
-            // dateTimePickerEnd
+            // dateTimePickerNgayNhanThanhToan
             // 
-            dateTimePickerEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
-            dateTimePickerEnd.Location = new Point(884, 99);
-            dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(163, 27);
-            dateTimePickerEnd.TabIndex = 77;
+            dateTimePickerNgayNhanThanhToan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dateTimePickerNgayNhanThanhToan.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgayNhanThanhToan.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNgayNhanThanhToan.Location = new Point(884, 99);
+            dateTimePickerNgayNhanThanhToan.Name = "dateTimePickerNgayNhanThanhToan";
+            dateTimePickerNgayNhanThanhToan.Size = new Size(163, 27);
+            dateTimePickerNgayNhanThanhToan.TabIndex = 77;
             // 
             // dateTimePickerNgayThanhToan
             // 
@@ -236,43 +238,43 @@
             dataGridViewPaymentProgress.BackgroundColor = Color.White;
             dataGridViewPaymentProgress.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewPaymentProgress.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewPaymentProgress.ColumnHeadersHeight = 50;
             dataGridViewPaymentProgress.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPaymentProgress.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, GiaiDoan, NgayThanhToan, PhanTramTT, GiaTriThanhToan, TrangThai, NgayNhanThanhToan, GhiChu });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewPaymentProgress.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewPaymentProgress.Location = new Point(20, 209);
             dataGridViewPaymentProgress.Name = "dataGridViewPaymentProgress";
             dataGridViewPaymentProgress.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewPaymentProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewPaymentProgress.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewPaymentProgress.RowHeadersVisible = false;
             dataGridViewPaymentProgress.RowHeadersWidth = 51;
             dataGridViewPaymentProgress.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewPaymentProgress.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewPaymentProgress.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewPaymentProgress.RowTemplate.Height = 35;
             dataGridViewPaymentProgress.ScrollBars = ScrollBars.Vertical;
             dataGridViewPaymentProgress.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -346,6 +348,7 @@
             buttonSearch.TabIndex = 2;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxSearch
             // 
@@ -418,7 +421,7 @@
         private Button buttonSua;
         private Label label1;
         private Button buttonThem;
-        private DateTimePicker dateTimePickerEnd;
+        private DateTimePicker dateTimePickerNgayNhanThanhToan;
         private DateTimePicker dateTimePickerNgayThanhToan;
         private Label labelNgayNhanTT;
         private Label labelNgayTT;
