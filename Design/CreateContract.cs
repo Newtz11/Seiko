@@ -206,13 +206,15 @@ namespace Design
 
 
             bool success = HopDongBLL.createContract(hopDongMoi);
-            string maHD = HopDongBLL.getMaHDMoi();
-            TienDoHopDongBLL.addTienDo(maHD);
+            
 
             if (success)
             {
                 MessageBox.Show("Tạo hợp đồng thành công");
                 string maHD = HopDongBLL.getMaHDMoi();
+
+                TienDoHopDongBLL.addTienDo(maHD);
+
                 int phanTramThanhToan = 100;
                 DateTime ngayThanhToan = ngayKetThuc;
                 DateTime ngayNhanThanhToan = ngayKetThuc;
@@ -222,6 +224,7 @@ namespace Design
                 GiaiDoanThanhToan giaidoanMoi = new GiaiDoanThanhToan(phanTramThanhToan, ngayThanhToan, ngayNhanThanhToan, giaTriThanhToan, ghiChu, maHD, giaiDoan);
 
                 GiaiDoanThanhToanBLL.createGiaiDoan(giaidoanMoi);
+
 
 
                 this.Close();
