@@ -73,38 +73,43 @@ namespace BLL
         }
 
 
-        public static void suaDGVProjectProgress(List<List<string>> dtNew)
+        public static void updateProjectProgress(TienDoHopDong tiendo)
         {
-            DataTable dtOld = TienDoHopDongDAO.Instance.suaDGVProjectProgress();
+            DataTable dtOld = TienDoHopDongDAO.Instance.getAllIDProjectProgress();
             DataTable dt =  new DataTable();
+            string maHopDong = tiendo.maHD;
+            string noiDungCV = tiendo.noiDungCV;
+            string khoiLuongCV = tiendo.tongKhoiLuongCV.ToString();
+            DateTime ngayBatDau = tiendo.ngayBatDau;
+            DateTime ngayKetThuc = tiendo.ngayKetThuc; 
+            string tienDo = tiendo.khoiLuongCV.ToString();
+            string tenNguoiThucHien = tiendo.nhanVienThucHienCV.ToString();
+            string maTienDo = tiendo.maTienDoHD.ToString();
             
-            foreach(List<string> row2 in dtNew)
+            foreach (DataRow row in dtOld.Rows)
             {
-                string maTienDo = "";
-                string nvThucHienCV = "";
-                int kl = 0;
-                int tienDo = 0;
-                for (int i = 0; i < row2.Count; i++)
+                Console.WriteLine(row[0].ToString());
+                if (maTienDo == row[0].ToString())
                 {
-                    if (i == 9) maTienDo = row2[i].ToString();
-
-                    if (i == 7) nvThucHienCV = row2[i].ToString().Trim();
-
-                    if (i == 3) kl = Convert.ToInt32(row2[i].ToString());
-
-                    if (i == 6) tienDo = Convert.ToInt32(row2[i].ToString());
-                }
-                foreach (DataRow row in dtOld.Rows)
-                {
-       
-                    
-                    if (maTienDo == row[0].ToString())
-
-                        
-                        TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, nvThucHienCV, kl, tienDo);
+                    TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien);
+                    return;
                 }
 
-            }   
+               
+            }
+        }
+
+        public static void addTienDo(string maHopDong)
+        {
+            TienDoHopDongDAO.Instance.addTienDo(maHopDong);
+        }
+
+
+        public static string getMaTienDo(string maHopDong)
+        {
+            DataTable dt = TienDoHopDongDAO.Instance.getMaTienDo(maHopDong);
+            string maTienDo = dt.Rows[0]["MaTienDoHopDong"].ToString();
+            return maTienDo;
         }
     }
 }
