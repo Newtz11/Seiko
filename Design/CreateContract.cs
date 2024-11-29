@@ -192,7 +192,9 @@ namespace Design
             string tenNguoiDaiDien = (textBoxTenNguoiDaiDien.Text.Trim()).ToString();
             DateTime ngayBatDau = dateTimePickerStart.Value;
             DateTime ngayKetThuc = dateTimePickerEnd.Value;
-            int giaTriHopDong = Convert.ToInt32(textBoxGiaTri.Text.Trim().ToString());
+            string input = textBoxGiaTri.Text.Trim();
+            string numberWithoutCommas = input.Replace(",", "");
+            int giaTriHopDong = Convert.ToInt32(numberWithoutCommas);
 
             string noiDungHopDong = (richTextBoxNoiDung.Text.Trim()).ToString();
             string tenNguoiLienHe = (textBoxTenNguoiLienHe.Text.Trim()).ToString();
@@ -203,8 +205,8 @@ namespace Design
 
 
             bool success = HopDongBLL.createContract(hopDongMoi);
-            
-           
+            string maHD = HopDongBLL.getMaHDMoi();
+            TienDoHopDongBLL.addTienDo(maHD);
 
             if (success)
             {

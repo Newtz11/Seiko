@@ -99,9 +99,12 @@ namespace BLL
             return mergedDataTable;
         }
 
-        public static void updatePayment(List<List<string>> lst)
+        public static string getMaHDMoi()
         {
-            
+            DataTable dt = HopDongDAO.Instance.getMaHDMoi();
+            string maTienDo = dt.Rows[0]["MaHD"].ToString();
+            return maTienDo;
         }
+
     }
 }

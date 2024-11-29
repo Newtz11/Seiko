@@ -150,15 +150,15 @@ namespace Design
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
+
             if (dataGridViewProjectProgress.SelectedRows.Count > 0)
             {
                 dataGridViewProjectProgress.EndEdit();
                 previousSelectedRow = null;
-                
+
 
                 DataGridViewRow selectedRow = dataGridViewProjectProgress.SelectedRows[0];
-                
+
                 string maHopDong = selectedRow.Cells[0].Value.ToString();
                 string tenHopDong = selectedRow.Cells[1].Value.ToString();
                 string noiDungCV = selectedRow.Cells[2].Value.ToString();
@@ -169,13 +169,13 @@ namespace Design
                 int tienDo = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
                 string tenNguoiThucHien = selectedRow.Cells[7].Value.ToString();
                 string maTienDo = selectedRow.Cells[9].Value.ToString();
-                
+
 
 
                 TienDoHopDong tiendo = new TienDoHopDong(maTienDo, ngayBatDau, ngayKetThuc, maHopDong, noiDungCV, tienDo, khoiLuongCV, tenNguoiThucHien);
                 TienDoHopDongBLL.updateProjectProgress(tiendo);
                 MessageBox.Show("Data saved successfully.");
-              
+
 
                 dataGridViewProjectProgress.ClearSelection();
                 dataGridViewProjectProgress.ReadOnly = true;
@@ -193,7 +193,7 @@ namespace Design
 
         }
 
-        
+
         private void dataGridViewProjectProgress_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             // Kiểm tra nếu có dữ liệu được nhập vào cột thứ 4 (Khối lượng yêu cầu)
@@ -272,9 +272,9 @@ namespace Design
             string tenNguoiThucHien = "";
             string tinhTrangHD = "Chưa thực hiện";
             TienDoHopDongBLL.addTienDo(maHopDong);
-            string maTienDo = TienDoHopDongBLL.getMaTienDo(maHopDong); 
+            string maTienDo = TienDoHopDongBLL.getMaTienDo(maHopDong);
             dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien, tinhTrangHD, maTienDo);
-            
+
         }
 
         private void dataGridViewProjectProgress_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -303,6 +303,11 @@ namespace Design
         private void dataGridViewProjectProgress_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             //previousSelectedRow = null;
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
