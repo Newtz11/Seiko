@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using System.Globalization;
 
 namespace Design
 {
@@ -202,29 +203,8 @@ namespace Design
 
 
             bool success = HopDongBLL.createContract(hopDongMoi);
-            string nhanVienThucHienCV = "";
-            //In kết quả từng phần
-            string[] parts = noiDungHopDong.Split('-');
-
-            // If there's only one part (no hyphens), treat it as a single contract process
-            if (parts.Length == 1)
-            {
-                TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungHopDong);
-                TienDoHopDongBLL.createContractProcess(td);
-            }
-            else
-            {
-                // Multiple parts (with hyphens), process each part as a separate contract process
-                foreach (string noiDungCV in parts)
-                {
-                    if (noiDungCV.Trim() == "")
-                    {
-                        continue;
-                    }
-                    TienDoHopDong td = new TienDoHopDong(ngayBatDau, ngayKetThuc, user.maNV, nhanVienThucHienCV, noiDungCV.Trim());
-                    TienDoHopDongBLL.createContractProcess(td);
-                }
-            }
+            
+           
 
             if (success)
             {
@@ -236,9 +216,18 @@ namespace Design
 
         private void textBoxGiaTri_TextChanged(object sender, EventArgs e)
         {
-            if (soChuSo == 3){
-                soChuSo = 0;
+            if (string.IsNullOrEmpty(textBoxGiaTri.Text))
+                return;
 
+            string input = textBoxGiaTri.Text;
+            decimal number;
+
+            if (decimal.TryParse(input, NumberStyles.Number, CultureInfo.InvariantCulture, out number))
+            {
+                // Format the number with commas for thousands separators
+                string formattedNumber = number.ToString("N0", CultureInfo.InvariantCulture); // "N0" for no decimals
+                textBoxGiaTri.Text = formattedNumber;
+                textBoxGiaTri.Select(formattedNumber.Length, 0); // Set the cursor to the end
             }
         }
     }

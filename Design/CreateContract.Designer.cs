@@ -261,7 +261,7 @@
             // 
             textBoxGiaTri.BorderStyle = BorderStyle.None;
             textBoxGiaTri.Location = new Point(369, 264);
-            textBoxGiaTri.MaxLength = 11;
+            textBoxGiaTri.MaxLength = 13;
             textBoxGiaTri.Name = "textBoxGiaTri";
             textBoxGiaTri.Size = new Size(306, 23);
             textBoxGiaTri.TabIndex = 6;

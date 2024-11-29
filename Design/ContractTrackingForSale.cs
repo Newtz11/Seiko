@@ -94,8 +94,12 @@ namespace Design
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            CreateContract createContract = new CreateContract(user);
-            createContract.Show();
+            if (user.vaiTro == "Sale" || user.vaiTro == "Trưởng phòng Sale")
+            {
+                CreateContract createContract = new CreateContract(user);
+                createContract.Show();
+            }
+           
         }
 
         private void ContractTracking_Load(object sender, EventArgs e)

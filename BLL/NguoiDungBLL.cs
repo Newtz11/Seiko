@@ -18,10 +18,7 @@ namespace BLL
             return NguoiDungDAO.Instance.checkTaiKhoanDangNhap(taiKhoan);
         }
 
-        public static string getVaiTro(NguoiDung taiKhoan)
-        {
-            return NguoiDungDAO.Instance.getVaiTro(taiKhoan);
-        }
+        
 
         public static NguoiDung getUser(NguoiDung taiKhoan)
         {
