@@ -151,5 +151,17 @@ namespace DAO
             dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
+        public void delGiaiDoanTT(string maHD, string giaiDoan)
+        {
+            string procName = "delGiaiDoan";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHD },
+                    new SqlParameter("@GiaiDoan", SqlDbType.Int) { Value = giaiDoan }
+                };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+        }
     }
 }

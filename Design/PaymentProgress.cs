@@ -200,5 +200,22 @@ namespace Design
             dataGridViewPaymentProgress.Rows.Clear();
             PaymentProgress_Load(sender, e);
         }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPaymentProgress.SelectedRows.Count > 0) 
+            {
+
+                string maHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[0].Value.ToString();
+                string giaiDoan = this.dataGridViewPaymentProgress.CurrentRow.Cells[2].Value.ToString();
+                GiaiDoanThanhToanBLL.delGiaiDoanTT(maHD, giaiDoan);
+
+                MessageBox.Show("Xóa thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công!");
+            }
+        }
     }
 }
