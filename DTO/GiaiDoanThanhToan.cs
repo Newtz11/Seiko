@@ -10,6 +10,7 @@ namespace DTO
     {
         public string maGiaiDoanThanhToan {  get; set; }
         public string maHD { get; set; }
+        public int giaiDoan { get; set; }
         public string tenHD { get; set; }
         public DateTime ngayThanhToan { get; set; }     // Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
         public int phanTramThanhToan { get; set; }
@@ -31,6 +32,29 @@ namespace DTO
             this.trangThaiThanhToan = trangThaiThanhToan;
             this.ngayNhanThanhToan = ngayNhanThanhToan;
             this.ghiChu = ghiChu;
+        }
+
+        public GiaiDoanThanhToan(int phanTramThanhToan, DateTime ngayThanhToan, DateTime ngayNhanThanhToan, int giaTriThanhToan, string ghiChu, string maHD, int giaiDoan)
+        {
+            this.phanTramThanhToan = phanTramThanhToan;
+            this.ngayThanhToan = ngayThanhToan;
+            this.ngayNhanThanhToan = ngayNhanThanhToan;
+            this.giaTriThanhToan = giaTriThanhToan;
+            this.ghiChu = ghiChu;
+            this.maHD = maHD;
+            this.giaiDoan = giaiDoan;
+        }
+
+        public GiaiDoanThanhToan(int phanTramThanhToan, DateTime ngayThanhToan, DateTime ngayNhanThanhToan, int giaTriThanhToan, bool trangThai,string ghiChu, string maHD, int giaiDoan)
+        {
+            this.phanTramThanhToan = phanTramThanhToan;
+            this.ngayThanhToan = ngayThanhToan;
+            this.ngayNhanThanhToan = ngayNhanThanhToan;
+            this.giaTriThanhToan = giaTriThanhToan;
+            this.trangThaiThanhToan = trangThai;
+            this.ghiChu = ghiChu;
+            this.maHD = maHD;
+            this.giaiDoan = giaiDoan;
         }
     }
 }

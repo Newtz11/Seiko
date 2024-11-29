@@ -109,5 +109,40 @@ namespace DAO
             return dt;
         }
 
+
+        //
+
+        public DataTable loadContractHistory(NguoiDung user)
+        {
+            
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
+            {
+                string procName = "loadContractOnContractHistoryForSale";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string query = "EXEC loadConTractOnContractHistoryForAll";
+                dt = DataProvider.Instance.executeQuery(query);
+
+            }
+
+            return dt;
+        }
+
+
+        public DataTable getMaHDMoi()
+        {
+            string query = "exec getNewestMaHD";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
     }
 }

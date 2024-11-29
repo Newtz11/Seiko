@@ -37,13 +37,7 @@ namespace DAO
         }
 
 
-        public DataTable searchName(string name)
-        {
-            string query = "select MaNV as #, HoTen as [Tên Người Dùng], PhongBan as [Phòng Ban]" +
-                " from NGUOIDUNG where HoTen LIKE '" + name + "%';";
-            DataTable dt = DataProvider.Instance.executeQuery(query);
-            return dt;
-        }
+    
 
         public DataTable loadUser()
         {

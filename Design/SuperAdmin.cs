@@ -114,7 +114,7 @@ namespace Design
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadForm(new ContractHistory());
+            loadForm(new ContractHistory(user));
         }
 
         private void SuperAdmin_Load(object sender, EventArgs e)

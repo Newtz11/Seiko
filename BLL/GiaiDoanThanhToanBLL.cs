@@ -14,9 +14,9 @@ namespace BLL
     public class GiaiDoanThanhToanBLL
     {
 
-        public static DataTable loadPaymentProgress(GiaiDoanThanhToan giaiDoan)
+        public static DataTable loadPaymentProgress()
         {
-            return GiaiDoanThanhToanDAO.Instance.loadPaymentProgress(giaiDoan);
+            return GiaiDoanThanhToanDAO.Instance.loadPaymentProgress();
         }
 
         public static DataTable SearchGiaiDoan(string searchGiaiDoan, string searchTrangThai, DateTime searchNgayThanhToan, DateTime searchNgayNhanThanhToan)
@@ -73,6 +73,29 @@ namespace BLL
             }
             return mergedDataTable;
 
+        }
+
+        public static int getGiaiDoanMoi(string maHD)
+        {
+            DataTable dt = new DataTable();
+            dt = GiaiDoanThanhToanDAO.Instance.getGiaiDoanMoi(maHD);
+            int giaiDoan = Convert.ToInt32(dt.Rows[0][0]);
+            return giaiDoan;
+        }
+
+        public static bool createGiaiDoan(GiaiDoanThanhToan giaiDoanMoi)
+        {
+            return GiaiDoanThanhToanDAO.Instance.createGiaiDoan(giaiDoanMoi);
+        }
+
+        public static bool updateGiaiDoan(GiaiDoanThanhToan giaidoanMoi)
+        {
+            return GiaiDoanThanhToanDAO.Instance.updateGiaiDoan(giaidoanMoi);
+        }
+
+        public static DataTable loadThongTinThanhToan()
+        {
+            return GiaiDoanThanhToanDAO.Instance.loadThongTinThanhToan();
         }
     }
 }

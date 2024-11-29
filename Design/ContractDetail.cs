@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,30 @@ namespace Design
             textBoxDiaChi.Text = hd.diaChi;
             textBoxSDT.Text = hd.sDT;
             textBoxEmail.Text = hd.mail;
+
+            // Load data thông tin thanh toán
+            dataGridViewThongTinThanhToan.Rows.Clear();
+            DataTable dt = GiaiDoanThanhToanBLL.loadThongTinThanhToan();
+            foreach (DataRow row in dt.Rows)
+            {
+                int GiaiDoan = Convert.ToInt32(row[0]);
+                DateTime NgayThanhToan = Convert.ToDateTime(row[1]);
+                string ngayNhanTT = "";
+                if (row[2] != DBNull.Value)
+                {
+                    DateTime NgayNhanThanhToan = Convert.ToDateTime(row[2]);
+                    ngayNhanTT = NgayNhanThanhToan.ToString("dd/MM/yyyy");
+                }
+                int PhanTramThanhToan = Convert.ToInt32(row[3]);
+                int GiaTriThanhToan = Convert.ToInt32(row[4]);
+                string trangThaiTT = "";
+                bool TrangThai = (bool)row[5];
+                if (TrangThai == true) trangThaiTT = "Đã thanh toán";
+                else trangThaiTT = "Chưa thanh toán";
+                string GhiChu = row[7].ToString();
+
+                dataGridViewThongTinThanhToan.Rows.Add(GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), ngayNhanTT, PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, GhiChu);
+            }
         }
 
         private void dataGridViewThongTinSale_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -101,7 +101,7 @@ namespace Design
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new ContractHistory());
+            loadform(new ContractHistory(user));
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)

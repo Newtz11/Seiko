@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -97,6 +97,10 @@ namespace BLL
                 }
             }
             return mergedDataTable;
+        }
+        public static DataTable loadContractHistory(NguoiDung user)
+        {
+            return HopDongDAO.Instance.loadContractHistory(user);
         }
 
         public static string getMaHDMoi()
