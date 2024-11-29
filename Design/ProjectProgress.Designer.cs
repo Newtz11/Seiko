@@ -263,7 +263,10 @@
             dataGridViewProjectProgress.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewProjectProgress.Size = new Size(1270, 550);
             dataGridViewProjectProgress.TabIndex = 29;
+            dataGridViewProjectProgress.CellBeginEdit += dataGridViewProjectProgress_CellBeginEdit;
             dataGridViewProjectProgress.CellContentClick += dataGridViewProjectProgress_CellContentClick;
+            dataGridViewProjectProgress.CellEndEdit += dataGridViewProjectProgress_CellEndEdit;
+            dataGridViewProjectProgress.SelectionChanged += dataGridViewProjectProgress_SelectionChanged;
             // 
             // MaHopDong
             // 
@@ -352,6 +355,7 @@
             buttonXoa.TabIndex = 20;
             buttonXoa.Text = "Xóa";
             buttonXoa.UseVisualStyleBackColor = false;
+            buttonXoa.Click += buttonXoa_Click;
             // 
             // buttonSearch
             // 

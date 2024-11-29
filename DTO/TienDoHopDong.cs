@@ -21,7 +21,17 @@ namespace DTO
         public TienDoHopDong() { }
         
 
-
+        public TienDoHopDong(string maTienDoHD, DateTime ngayBatDau, DateTime ngayKetThuc, string maHD, string noiDungCV, int khoiLuongCV, int tongKhoiLuongCV, string nhanVienThucHienCV)
+        {
+            this.maTienDoHD = maTienDoHD;
+            this.ngayBatDau = ngayBatDau;
+            this.ngayKetThuc = ngayKetThuc;
+            this.maHD = maHD;
+            this.noiDungCV = noiDungCV;
+            this.khoiLuongCV = khoiLuongCV;
+            this.tongKhoiLuongCV = tongKhoiLuongCV;
+            this.nhanVienThucHienCV =   nhanVienThucHienCV;
+        }
 
 
 

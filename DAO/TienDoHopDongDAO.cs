@@ -100,27 +100,59 @@ namespace DAO
         }
 
 
-        public DataTable suaDGVProjectProgress()
+        public DataTable getAllIDProjectProgress()
         {
             string query = "select MaTienDoHopDong from TienDoHopDong";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
 
-        public void updateProjectProgress(string maTienDo, string nvThucHienCV, int tongKL, int tienDo)
+        public void updateProjectProgress(string maTienDo, string noiDungCV, string khoiLuongCV, DateTime ngayBatDau, DateTime ngayKetThuc, string tienDo, string tenNguoiThucHien)
         {
-            string procName = "changeProjectProgress";
-
+            string procName = "updateProjectProgress";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@MaTienDoHopDong", SqlDbType.NVarChar, 5) { Value = maTienDo },
-                new SqlParameter("@NVThucHienCV", SqlDbType.NVarChar, 50) { Value = nvThucHienCV },
-                new SqlParameter("@KhoiLuongCV", SqlDbType.Int) { Value = tienDo},
-                new SqlParameter("@TongKhoiLuongCV", SqlDbType.Int) { Value = tongKL}
-                
+                new SqlParameter("@NoiDungCV", SqlDbType.NVarChar, 50) { Value = noiDungCV},
+                new SqlParameter("@KhoiLuongCV", SqlDbType.Int) { Value = khoiLuongCV },
+                new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = ngayBatDau},
+                new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = ngayKetThuc },
+                new SqlParameter("@TienDo", SqlDbType.Int) { Value = tienDo },
+                new SqlParameter("@TenNguoiThucHien", SqlDbType.NVarChar, 50) { Value = tenNguoiThucHien }
             };
 
             DataProvider.Instance.executeProc(procName, parameters);
+
+        }
+
+
+        public void addTienDo(string maHD)
+        {
+            string procName = "createProjectProgress";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHD}
+
+            };
+
+            DataProvider.Instance.executeProc(procName, parameters);
+        }
+
+
+        public DataTable getMaTienDo(string maHopDong)
+        {
+            DataTable dt = new DataTable();
+           
+            
+            string procName = "getNewestTienDoHopDong";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHopDong }
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+            return dt;
 
         }
     }

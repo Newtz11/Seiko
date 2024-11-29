@@ -100,14 +100,15 @@ namespace DAO
         }
 
 
-        //lay tat ca hop dong
 
-        public DataTable getContract()
+
+        public DataTable getMaHDMoi()
         {
-            string query = "Select MaHD from HOPDONG";
+            string query = "exec getNewestMaHD";
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
 
         //
 
@@ -142,5 +143,6 @@ namespace DAO
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
     }
 }
