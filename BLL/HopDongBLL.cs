@@ -98,10 +98,9 @@ namespace BLL
             }
             return mergedDataTable;
         }
-
-        public static void updatePayment(List<List<string>> lst)
+        public static DataTable loadContractHistory(NguoiDung user)
         {
-            
+            return HopDongDAO.Instance.loadContractHistory(user);
         }
     }
 }

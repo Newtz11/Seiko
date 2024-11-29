@@ -15,7 +15,6 @@ namespace Design
     public partial class Accountant : System.Windows.Forms.Form
     {
         private NguoiDung user;
-        private GiaiDoanThanhToan giaiDoan;
         public Accountant(NguoiDung user)
         {
             InitializeComponent();
@@ -29,7 +28,7 @@ namespace Design
         }
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new ContractHistory());
+            loadform(new ContractHistory(user));
         }
 
         public void loadform(object Form)
@@ -102,7 +101,7 @@ namespace Design
 
         private void buttonGiaiDoanThanhToan_Click(object sender, EventArgs e)
         {
-            loadform(new PaymentProgress(giaiDoan));
+            loadform(new PaymentProgress(user));
         }
     }
 }

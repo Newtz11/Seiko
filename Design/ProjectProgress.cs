@@ -17,7 +17,7 @@ namespace Design
     public partial class ProjectProgress : System.Windows.Forms.Form
     {
         private NguoiDung user;
-        private DataTable currentTable;
+
         public ProjectProgress(NguoiDung user)
         {
             InitializeComponent();
@@ -72,7 +72,7 @@ namespace Design
                 string TinhTrangHD = row[8].ToString();
                 dataGridViewProjectProgress.Rows.Add(maHopDong, tenHopDong, noiDungCV, tongKhoiLuongCV, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), KhoiLuongCV, NVThucHienCV, TinhTrangHD);
             }
-            currentTable = dt;
+
 
         }
 
@@ -124,7 +124,7 @@ namespace Design
 
                 comboBoxTinhTrang.SelectedIndex = -1;
                 comboBoxTinhTrang.Text = "Tình Trạng";
-                currentTable = dt;
+
             }
         }
 
@@ -232,12 +232,17 @@ namespace Design
                         if (value > column4Number)
                         {
                             // Hiển thị thông báo lỗi nếu giá trị trong cột thứ 7 lớn hơn cột thứ 4
-                            MessageBox.Show("Giá trị trong cột thứ 7 không được lớn hơn giá trị trong cột thứ 4!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Giá trị không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             e.Cancel = true;  // Ngừng việc nhập dữ liệu
                         }
                     }
                 }
             }
+        }
+
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
