@@ -196,66 +196,8 @@ namespace Design
 
         private void dataGridViewProjectProgress_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            // Kiểm tra nếu có dữ liệu được nhập vào cột thứ 4 (Khối lượng yêu cầu)
-            //if (e.ColumnIndex == 3)  // Cột thứ 4 (Khối lượng yêu cầu)
-            //{
-            //    if (!string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            //    {
-            //        // Kiểm tra nếu dữ liệu nhập vào là một số hợp lệ
-            //        if (!int.TryParse(e.FormattedValue.ToString(), out int value))
-            //        {
-            //            // Hiển thị thông báo lỗi nếu không phải là số
-            //            MessageBox.Show("Cột này chỉ chấp nhận số nguyên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            e.Cancel = true;  // Ngừng việc nhập dữ liệu
-            //            return;
-            //        }
-
-            //        // Kiểm tra cột thứ 3 (chỉ số cột là 2) để tính tổng các ký tự số
-            //        var column3Value = dataGridViewProjectProgress.Rows[e.RowIndex].Cells[2].Value?.ToString();
-            //        if (!string.IsNullOrEmpty(column3Value))
-            //        {
-            //            // Tính tổng các ký tự số trong cột thứ 3
-            //            int sumOfDigits = column3Value.Where(char.IsDigit).Sum(c => c - '0');
-
-            //            // So sánh tổng ký tự số với giá trị người dùng nhập vào cột thứ 4
-            //            if (value != sumOfDigits)
-            //            {
-            //                // Hiển thị thông báo lỗi nếu không khớp
-            //                MessageBox.Show($"Tổng các ký tự số trong cột thứ 3 phải bằng {sumOfDigits}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //                e.Cancel = true;  // Ngừng việc nhập dữ liệu
-            //            }
-            //        }
-            //    }
-            //}
-
-            //// Kiểm tra nếu là cột thứ 7 (chỉ số cột là 6)
-            //if (e.ColumnIndex == 6)  // Cột thứ 7 (chỉ số 6)
-            //{
-            //    if (!string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            //    {
-            //        // Kiểm tra nếu dữ liệu nhập vào là một số hợp lệ
-            //        if (!int.TryParse(e.FormattedValue.ToString(), out int value))
-            //        {
-            //            // Hiển thị thông báo lỗi nếu không phải là số
-            //            MessageBox.Show("Cột này chỉ chấp nhận số nguyên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            e.Cancel = true;  // Ngừng việc nhập dữ liệu
-            //            return;
-            //        }
-
-            //        // Lấy giá trị của ô cột thứ 4 (chỉ số cột là 3) cùng hàng
-            //        var column4Value = dataGridViewProjectProgress.Rows[e.RowIndex].Cells[3].Value;
-            //        if (column4Value != null && int.TryParse(column4Value.ToString(), out int column4Number))
-            //        {
-            //            // Kiểm tra nếu số nhập vào cột thứ 7 không được lớn hơn số trong cột thứ 4
-            //            if (value > column4Number)
-            //            {
-            //                // Hiển thị thông báo lỗi nếu giá trị trong cột thứ 7 lớn hơn cột thứ 4
-            //                MessageBox.Show("Giá trị trong cột thứ 7 không được lớn hơn giá trị trong cột thứ 4!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //                e.Cancel = true;  // Ngừng việc nhập dữ liệu
-            //            }
-            //        }
-            //    }
-            //}
+            
+            
         }
 
         private void buttonThem_Click(object sender, EventArgs e)
@@ -307,7 +249,17 @@ namespace Design
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-
+            if (dataGridViewProjectProgress.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewProjectProgress.SelectedRows[0];
+                string maTienDo = selectedRow.Cells[9].Value.ToString();
+                TienDoHopDongBLL.delTienDo(maTienDo);
+                MessageBox.Show("Xóa thành công tiến độ");
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công tiến độ");
+            }
         }
     }
 }

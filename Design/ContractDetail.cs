@@ -73,7 +73,7 @@ namespace Design
 
             // Load data thông tin thanh toán
             dataGridViewThongTinThanhToan.Rows.Clear();
-            DataTable dt = GiaiDoanThanhToanBLL.loadThongTinThanhToan();
+            DataTable dt = GiaiDoanThanhToanBLL.loadThongTinThanhToan(hd.maHD);
             foreach (DataRow row in dt.Rows)
             {
                 int GiaiDoan = Convert.ToInt32(row[0]);
@@ -90,7 +90,7 @@ namespace Design
                 bool TrangThai = (bool)row[5];
                 if (TrangThai == true) trangThaiTT = "Đã thanh toán";
                 else trangThaiTT = "Chưa thanh toán";
-                string GhiChu = row[7].ToString();
+                string GhiChu = row[6].ToString();
 
                 dataGridViewThongTinThanhToan.Rows.Add(GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), ngayNhanTT, PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, GhiChu);
             }

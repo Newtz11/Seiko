@@ -979,6 +979,20 @@ END
 GO
 
 
+	--DELETE
+CREATE PROC delGiaiDoan
+	@MaHD NVARCHAR(5),
+	@GiaiDoan INT
+as
+begin
+	DELETE FROM GIAIDOANTHANHTOAN
+    WHERE MaHD = @MaHD AND GiaiDoan = @GiaiDoan;
+end
+go
+
+exec delGiaiDoan @MaHD = 'HD001', @GiaiDoan = 3
+select * from GIAIDOANTHANHTOAN
+
 -- Trigger 
 
 CREATE TRIGGER checkSDT

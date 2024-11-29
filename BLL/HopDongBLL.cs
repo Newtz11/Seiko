@@ -41,10 +41,9 @@ namespace BLL
             string diaChi = row["DiaChi"].ToString();
             string sDT = row["SDT"].ToString();
             string mail = row["Mail"].ToString();
-            int tienDoHD = Convert.ToInt32(row["TienDoHD"]);
 
             HopDong hd = new HopDong(mahd, maNV, tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHD, mucHoaHong, daThanhToan, noiDungHD,
-                tinhTrangHD, tenNguoiLienHe, diaChi, sDT, mail, tienDoHD);
+                tinhTrangHD, tenNguoiLienHe, diaChi, sDT, mail);
 
             return hd;
         }

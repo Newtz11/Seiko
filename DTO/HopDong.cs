@@ -24,8 +24,7 @@ namespace DTO
         public string tenNguoiLienHe {  get; set; }
         public string diaChi {  get; set; }
         public string sDT {  get; set; }
-        public string mail {  get; set; }
-        public int tienDoHD { get; set; }   // Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
+        public string mail {  get; set; }   // Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
 
         //Tạo constructor theo thứ tự trong TẠO HỢP ĐỒNG
 
@@ -47,7 +46,7 @@ namespace DTO
             this.maNV = maNV;
         }
 
-        public HopDong(string maHD, string maNV, string tenHD, string tenNguoiDaiDien, DateTime ngayBatDau, DateTime ngayKetThuc, int giaTriHD, int mucHoaHong, int daThanhToan, string noiDungHD, string tinhTrangHD, string tenNguoiLienHe, string diaChi, string sDT, string mail, int tienDoHD)
+        public HopDong(string maHD, string maNV, string tenHD, string tenNguoiDaiDien, DateTime ngayBatDau, DateTime ngayKetThuc, int giaTriHD, int mucHoaHong, int daThanhToan, string noiDungHD, string tinhTrangHD, string tenNguoiLienHe, string diaChi, string sDT, string mail)
         {
             this.maHD = maHD;
             this.maNV = maNV;
@@ -64,7 +63,6 @@ namespace DTO
             this.diaChi = diaChi;
             this.sDT = sDT;
             this.mail = mail;
-            this.tienDoHD = tienDoHD;
         }
     }
 }

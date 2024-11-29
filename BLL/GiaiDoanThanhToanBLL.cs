@@ -93,9 +93,9 @@ namespace BLL
             return GiaiDoanThanhToanDAO.Instance.updateGiaiDoan(giaidoanMoi);
         }
 
-        public static DataTable loadThongTinThanhToan()
+        public static DataTable loadThongTinThanhToan(string mHD)
         {
-            return GiaiDoanThanhToanDAO.Instance.loadThongTinThanhToan();
+            return GiaiDoanThanhToanDAO.Instance.loadThongTinThanhToan(mHD);
         }
     }
 }

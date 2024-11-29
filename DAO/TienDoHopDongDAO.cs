@@ -155,5 +155,12 @@ namespace DAO
             return dt;
 
         }
+
+
+        public void delTienDo(string maTienDo)
+        {
+            string query = "Delete from TIENDOHOPDONG where MaTienDoHopDong = '" + maTienDo + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+        }
     }
 }

@@ -111,5 +111,10 @@ namespace BLL
             string maTienDo = dt.Rows[0]["MaTienDoHopDong"].ToString();
             return maTienDo;
         }
+
+        public static void delTienDo(string maTienDo)
+        {
+            TienDoHopDongDAO.Instance.delTienDo(maTienDo);
+        }
     }
 }

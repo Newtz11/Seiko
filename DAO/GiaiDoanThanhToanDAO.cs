@@ -144,10 +144,10 @@ namespace DAO
             return result;
         }
 
-        public DataTable loadThongTinThanhToan()
+        public DataTable loadThongTinThanhToan(string mHD)
         {
             DataTable dt = new DataTable();
-            string query = "EXEC loadThongTinThanhToan";
+            string query = "EXEC loadThongTinThanhToan @MaHD = '" + mHD + "'";
             dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
