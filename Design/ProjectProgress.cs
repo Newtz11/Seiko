@@ -174,7 +174,7 @@ namespace Design
 
                 TienDoHopDong tiendo = new TienDoHopDong(maTienDo, ngayBatDau, ngayKetThuc, maHopDong, noiDungCV, tienDo, khoiLuongCV, tenNguoiThucHien);
                 TienDoHopDongBLL.updateProjectProgress(tiendo);
-                MessageBox.Show("Data saved successfully.");
+                MessageBox.Show("Chỉnh sửa tiến độ thành công.");
 
 
                 dataGridViewProjectProgress.ClearSelection();
@@ -184,7 +184,7 @@ namespace Design
             }
             else
             {
-                MessageBox.Show("Please select a row to edit.");
+                MessageBox.Show("Hãy chọn hàng thông tin bạn muốn sửa.");
             }
         }
 
@@ -282,7 +282,7 @@ namespace Design
             if (previousSelectedRow != null && previousSelectedRow != dataGridViewProjectProgress.SelectedRows[0])
             {
                 e.Cancel = true;
-                MessageBox.Show("Please select only one row at a time.");
+                MessageBox.Show("Chỉ được chọn một hàng duy nhất bạn muốn sửa.");
             }
             else
             {

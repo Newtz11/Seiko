@@ -90,7 +90,7 @@ namespace Design
                         this.Hide();
                         fSuperAdmin.Show();
                     }
-                    else if (role == "Giám đốc")
+                    else if (role == "Giám đốc")
                     {
                         Director fHomeDirector0 = new Director(user);
                         this.Hide();
@@ -102,19 +102,19 @@ namespace Design
                         this.Hide();
                         fSale.Show();
                     }
-                    else if (role == "Kế toán")
+                    else if (role == "Kế toán")
                     {
                         Accountant fHomeAccountant = new Accountant(user);
                         this.Hide();
                         fHomeAccountant.Show();
                     }
-                    else if (role == "Trưởng phòng Sale")
+                    else if (role == "Trưởng phòng Sale")
                     {
                         SaleManager fHomeSaleManager = new SaleManager(user);
                         this.Hide();
                         fHomeSaleManager.Show();
                     }
-                    else if (role == "Trưởng phòng Kế toán")
+                    else if (role == "Trưởng phòng Kế toán")
                     {
                         AccountantManager fHomeAccountantManager = new AccountantManager(user);
                         this.Hide();

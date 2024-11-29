@@ -240,7 +240,7 @@
             // 
             richTextBoxNoiDung.BorderStyle = BorderStyle.None;
             richTextBoxNoiDung.Location = new Point(369, 312);
-            richTextBoxNoiDung.MaxLength = 50;
+            richTextBoxNoiDung.MaxLength = 100;
             richTextBoxNoiDung.Name = "richTextBoxNoiDung";
             richTextBoxNoiDung.Size = new Size(306, 100);
             richTextBoxNoiDung.TabIndex = 7;

@@ -414,6 +414,7 @@
             Name = "CreateAccount";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            Load += CreateAccount_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconCreateAccount).EndInit();
             groupBoxEmail.ResumeLayout(false);
             groupBoxEmail.PerformLayout();

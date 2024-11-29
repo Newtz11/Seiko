@@ -110,6 +110,10 @@ namespace Design
             textBoxPhanTramThanhToan.Text = phanTramThanhToan.ToString();
             textBoxGhiChu.Text = ghiChu;
             comboBoxTrangThaiThanhToan.Text = trangThaiTT.ToString();
+           
+            
+            if (trangThaiTT) comboBoxTrangThaiThanhToan.Text = "Đã thanh toán";
+            else comboBoxTrangThaiThanhToan.Text = "Chưa thanh toán";
 
         }
 
@@ -118,6 +122,7 @@ namespace Design
             if (action == 1)
             {
                 // hanh dong them
+                comboBoxTrangThaiThanhToan.Enabled = false;
                 int phanTramThanhToan = Convert.ToInt32(textBoxPhanTramThanhToan.Text.Trim().ToString());
                 DateTime ngayThanhToan = dateTimePickerNgayThanhToan.Value;
                 DateTime ngayNhanThanhToan = dateTimePickerNgayNhanThanhToan.Value;
@@ -145,7 +150,6 @@ namespace Design
                 int giaiDoan = Convert.ToInt32(textBoxGiaiDoan.Text.Trim().ToString());
                 string maHD = textBoxMaHopDong.Text.Trim().ToString(); 
                 string trangthai = comboBoxTrangThaiThanhToan.Text.ToString().Trim();
-
                 bool trangThai = false;
                 if(trangthai.Equals("Đã thanh toán"))
                 {

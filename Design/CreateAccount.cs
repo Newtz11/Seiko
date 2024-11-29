@@ -158,7 +158,8 @@ namespace Design
 
             string TenDangNhap = textBoxUserName.Text.ToString().Trim();
             string HoTen = textBoxFullName.Text.ToString().Trim();
-            string NgaySinh = dateTimePickerNgaySinh.Text.ToString().Trim();
+            string NgaySinh = dateTimePickerNgaySinh.Value.ToString("dd/MM/yyyy");
+            Console.WriteLine(NgaySinh);
             bool GioiTinh = (radioButtonNam.Checked);
             string DiaChi = textBoxDiaChi.Text.ToString().Trim();
             string PhongBan = comboBoxPhongBan.Text.ToString().Trim();
@@ -228,7 +229,7 @@ namespace Design
             {
                 comboBoxChucVu.Items.Clear();
                 comboBoxChucVu.Items.Add("Kế toán");
-                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán ");
+                comboBoxChucVu.Items.Add("Trưởng phòng Kế toán");
             }
             else if (phongBan == "Sale")
             {
@@ -250,12 +251,17 @@ namespace Design
             Random random = new Random();
             char[] password = new char[length];
 
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 password[i] = chars[random.Next(chars.Length)];
             }
 
             return new string(password);
+        }
+
+        private void CreateAccount_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

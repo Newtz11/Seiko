@@ -83,7 +83,7 @@ namespace Design
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            if (user.vaiTro == "Kế toán")
+            if (user.vaiTro == "Kế toán")
             {
                 string maHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[0].Value.ToString();
                 string tenHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[1].Value.ToString();
@@ -125,7 +125,7 @@ namespace Design
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            if (user.vaiTro == "Kế toán")
+            if (user.vaiTro == "Kế toán")
             {
                 string maHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[0].Value.ToString();
                 string tenHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[1].Value.ToString();

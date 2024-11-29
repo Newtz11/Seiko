@@ -22,8 +22,8 @@ namespace DAO
 
         public bool createContract(HopDong hopDong)
         {
-            string query = "insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD) " +
-                "values ('"+ hopDong.maNV  +"', N'"+ hopDong.tenHD +"', N'"+ hopDong.tenNguoiDaiDien +"','"+ hopDong.ngayKetThuc +"', "+ hopDong.giaTriHD +", N'"+ hopDong.noiDungHD +"', N'"+ hopDong.tenNguoiLienHe +"', N'"+ hopDong.diaChi +"', '"+ hopDong.sDT +"', '"+ hopDong.mail +"', "+ hopDong.tienDoHD +")";
+            string query = "insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail) " +
+                "values ('"+ hopDong.maNV  +"', N'"+ hopDong.tenHD +"', N'"+ hopDong.tenNguoiDaiDien +"','"+ hopDong.ngayBatDau +"','"+ hopDong.ngayKetThuc +"', "+ hopDong.giaTriHD +", N'"+ hopDong.noiDungHD +"', N'"+ hopDong.tenNguoiLienHe +"', N'"+ hopDong.diaChi +"', '"+ hopDong.sDT +"', '"+ hopDong.mail +"')";
             int rowAffected = DataProvider.Instance.executeNoneQuery(query);
             return rowAffected > 0;
         }

@@ -35,12 +35,12 @@ values	(N'Admin','nguyenvana',0,'1967-02-01','admin@gmail.com',N'Admin','0912332
 
 ---Thêm dữ liệu nhân viên Sale---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Sale num0', 'nguyenthia', 0,'1970-10-22','sale0@gmail.com',N'Kế toán','0912332212',N'Kế toán','quan 7')
+values	(N'Sale num0', 'nguyenthia', 0,'1970-10-22','sale0@gmail.com',N'Giám đốc','0912332212',N'Kế toán','quan 7')
 
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Sale num1', 'nguyenvanu', 0,'1971-04-22','sale1@gmail.com',N'Trưởng phòng Kế toán','0912332213',N'Kế toán','quan 7')
+values	(N'Sale num1', 'nguyenvanu', 0,'1971-04-22','sale1@gmail.com',N'Trưởng phòng Sale','0912332213',N'Kế toán','quan 7')
 
-
+select * from NGUOIDUNG
 ---Thêm dữ liệu Giám đốc---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
 values	(N'Giám đốc num0','trannguyenvanf', 0,'1972-11-20','giamdoc0@gmail.com',N'Giám đốc','0936681910',N'Giám đốc','quan 7')
@@ -91,10 +91,11 @@ CREATE TABLE HOPDONG
   DiaChi NVARCHAR(50) NOT NULL, --của người liên hệ
   SDT NVARCHAR(10) NOT NULL, --của người liên hệ
   Mail NVARCHAR(50) NOT NULL, --của người liên hệ
-  TienDoHD INT NOT NULL, --Số tiến độ hợp đồng CẮT CHUỖI NỘI DUNG HỢP ĐỒNG
   PRIMARY KEY (MaHD),
   FOREIGN KEY (MaNV) REFERENCES NGUOIDUNG(MaNV)
 )
+ALTER TABLE HOPDONG
+ALTER COLUMN NoiDungHD NVARCHAR(100);
 
 ---Thêm dữ liệu Hợp Đồng---
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien, NgayBatDau, NgayKetThuc, GiaTriHD, MucHoaHong, DaThanhToan, NoiDungHD, TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
@@ -279,11 +280,11 @@ begin
 			TrangThaiThanhToan as [Trạng thái],
 			GhiChu as [Ghi chú]
 	from GIAIDOANTHANHTOAN
-	where 
+	where MaHD = @MaHD
 end
 go
-drop proc loadThongTinThanhToan
-exec loadThongTinThanhToan
+--drop proc loadThongTinThanhToan
+--exec loadThongTinThanhToan
 
 		--Procedure ContractTrackingForSale--
 CREATE PROC loadContractTrackingForSale
@@ -387,11 +388,13 @@ begin
         td.NgayKetThuc AS [Ngày kết thúc], 
         td.KhoiLuongCV AS [Tiến độ], 
         td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong as [MaTD]
     FROM HOPDONG AS hd
 	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
 end
 go
+--drop proc loadProjectProgressForAll
 select * from TIENDOHOPDONG
 exec loadProjectProgressForAll
 
@@ -625,9 +628,9 @@ BEGIN
 	  OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%')
 END
 GO
-select * from HOPDONG
-drop proc searchGlobalOnContractTrackingForSale
-exec searchGlobalOnContractTrackingForSale @Keyword = N''
+
+--drop proc searchGlobalOnContractTrackingForSale
+--exec searchGlobalOnContractTrackingForSale @Keyword = N''
 
 		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSale --
 CREATE PROC searchContractByTimeOnContractTrackingForSale
@@ -676,7 +679,7 @@ BEGIN
     WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)
 END
 GO
-
+select * from NGUOIDUNG
 
 --drop proc searchTinhTrangHopDongOnContractTrackingForSale
 --exec searchTinhTrangHopDongOnContractTrackingForSale @TinhTrangHD = N'Đã xong'
@@ -698,7 +701,8 @@ BEGIN
         td.NgayKetThuc AS [Ngày kết thúc], 
         td.KhoiLuongCV AS [Tiến độ], 
         td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong as [MaTD]
     FROM TIENDOHOPDONG AS td
 	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
     WHERE (td.MaHD LIKE '%' + @Keyword + '%')
@@ -731,7 +735,8 @@ BEGIN
         td.NgayKetThuc AS [Ngày kết thúc], 
         td.KhoiLuongCV AS [Tiến độ], 
         td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong AS [MaTD]
     FROM TIENDOHOPDONG AS td
 	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
     WHERE (@NgayBatDau IS NULL OR td.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR td.NgayKetThuc <= @NgayKetThuc)
@@ -758,7 +763,8 @@ BEGIN
         td.NgayKetThuc AS [Ngày kết thúc], 
         td.KhoiLuongCV AS [Tiến độ], 
         td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong AS [MaTD]
     FROM TIENDOHOPDONG AS td
 	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
     WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)
@@ -854,6 +860,9 @@ begin
 end
 go
 
+--EXEC createAccount @TenDangNhap = 'admin', @MatKhau = '12345', @HoTen = N'Admin', @NgaySinh = '2004-11-30', @GioiTinh = 1, @DiaChi = N'12 kbdnd', @PhongBan = N'IT', @VaiTro = N'Super Admin', @Mail = N'abc@gmail.com', @SDT = '09087456'
+--EXEC createAccount @TenDangNhap = 'bao', @MatKhau = '12345', @HoTen = N'ketoan2', @NgaySinh = '2004-11-30', @GioiTinh = 1, @DiaChi = N'12 kbdnd', @PhongBan = N'Kế toán', @VaiTro = N'Kế toán', @Mail = N'abcde@gmail.com', @SDT = '09087456'
+
 -- update account
 create proc updateAccount
 	@MaNV NVARCHAR(5),
@@ -868,9 +877,7 @@ go
 
 
 
---drop proc createAccount
-exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
-					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb35k4@gmail.com', @SDT = N'0911162180'
+
 
 --drop proc insertProgress
 --exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', @MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
@@ -943,8 +950,34 @@ end
 go
 select * from HOPDONG
 
-exec createPaymentProgress @MaHD = 'HD001', @GiaiDoan = 1, @NgayThanhToan = '2024-11-29', @PhanTramThanhToan = 20, @GiaTriThanhToan = 1500, @NgayNhanThanhToan = '2024-11-29', @GhiChu = N'Thanh toán giai đoạn 1'
+exec createPaymentProgress @MaHD = 'HD003', @GiaiDoan = 1, @NgayThanhToan = '2024-11-29', @PhanTramThanhToan = 20, @GiaTriThanhToan = 3000, @NgayNhanThanhToan = '2024-11-29', @GhiChu = N'Thanh toán giai đoạn 1'
 select * from GIAIDOANTHANHTOAN
+
+
+CREATE PROCEDURE GetNewestMaHD
+AS
+BEGIN
+    SELECT TOP 1 MaHD
+    FROM HOPDONG
+    ORDER BY MaHD DESC;
+END
+GO
+
+
+
+CREATE PROCEDURE getNewestTienDoHopDong
+    @MaHD NVARCHAR(5)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 1 MaTienDoHopDong
+    FROM TIENDOHOPDONG
+    WHERE MaHD = @MaHD
+    ORDER BY MaTienDoHopDong DESC; -- Assuming newer values are higher
+END
+GO
+
 
 -- Trigger 
 

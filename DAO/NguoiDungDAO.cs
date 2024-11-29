@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,13 +140,17 @@ namespace DAO
             try
             {
                 string procName = "createAccount";
+                string format = "dd/MM/yyyy";
+
+                DateTime ngaySinh = DateTime.ParseExact(newAccount.ngaySinh, format, CultureInfo.InvariantCulture);
+
 
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {                    
                     new SqlParameter("@TenDangNhap", SqlDbType.NVarChar, 50) { Value = newAccount.tenDangNhap },
                     new SqlParameter("@MatKhau", SqlDbType.NVarChar, 20) { Value = newAccount.matKhau },
                     new SqlParameter("@HoTen", SqlDbType.NVarChar, 50) { Value = newAccount.hoTen },
-                    new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = newAccount.ngaySinh },
+                    new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = ngaySinh },
                     new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = newAccount.gioiTinh},
                     new SqlParameter("@DiaChi", SqlDbType.NVarChar, 50) { Value = newAccount.diaChi },
                     new SqlParameter("@PhongBan", SqlDbType.NVarChar, 20) { Value = newAccount.phongBan},
