@@ -205,12 +205,13 @@ namespace Design
 
 
             bool success = HopDongBLL.createContract(hopDongMoi);
-            string maHD = HopDongBLL.getMaHDMoi();
-            TienDoHopDongBLL.addTienDo(maHD);
+            
 
             if (success)
             {
                 MessageBox.Show("Tạo hợp đồng thành công");
+                string maHD = HopDongBLL.getMaHDMoi();
+                TienDoHopDongBLL.addTienDo(maHD);
                 this.Close();
             }
             else MessageBox.Show("Tạo hợp đồng không thành công");
