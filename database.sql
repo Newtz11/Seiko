@@ -105,8 +105,8 @@ values ('00003', N'Chụp 5 hình', N'Valhein', '2024-1-2', '2024-5-6', 1231, 5
 
 insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
 values ('00002', N'Chụp 15 hình', N'Công ty Foody','2024-11-30', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681911', 'abce@gmail.com', 1)
-insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
-values ('00003', N'Chụp 15 hình', N'Công ty Foody','2024-12-24', 6523, N'Chụp hình về abc', N'Đại sứ Foody', N'1 NHT Quận 7', '0936681914', 'abce@gmail.com', 1)
+insert into HOPDONG(MaNV, TenHopDong, TenNguoiDaiDien,NgayKetThuc, GiaTriHD, NoiDungHD,TinhTrangHD, TenNguoiLienHe, DiaChi, SDT, Mail, TienDoHD)
+values ('00004', N'Chụp 15 hình', N'Công ty Foody','2024-12-24', 6523, N'Chụp hình về abc', N'Đã xong',N'Đại sứ Foody', N'1 NHT Quận 7', '0936681914', 'abce@gmail.com', 1)
 
 
 select * from HOPDONG
@@ -116,16 +116,15 @@ CREATE TABLE GIAIDOANTHANHTOAN
   MaGiaiDoanThanhToan NVARCHAR(5) DEFAULT dbo.taoMaGiaiDoanThanhToan(),
   MaHD NVARCHAR(5) NOT NULL,
   GiaiDoan INT NOT NULL,
-  NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán (có lúc tạo CHIA GIAI ĐOẠN)
+  NgayThanhToan DATE NOT NULL DEFAULT GETDATE(), --Ngày hạn thanh toán DỰ KIẾN
   PhanTramThanhToan INT NOT NULL DEFAULT 100,
   GiaTriThanhToan INT NOT NULL DEFAULT 0,
   TrangThaiThanhToan BIT NOT NULL DEFAULT 0, -- 1 Đã thanh toán, 0 Chờ thanh toán
-  NgayNhanThanhToan DATE,
-  GhiChu NVARCHAR(100)
+  NgayNhanThanhToan DATE NOT NULL,	-- Ngày thanh toán thực tế
+  GhiChu NVARCHAR(100) NOT NULL ,
   PRIMARY KEY (MaGiaiDoanThanhToan, MaHD),
   FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD)
 )
-
 
 insert into GIAIDOANTHANHTOAN(MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan,NgayNhanThanhToan,GhiChu)
 values('HD001', 1, '2024-11-24', 60, 1000, '2024-11-26', N'Thanh toán giai đoạn 1 HD001')
@@ -156,6 +155,8 @@ CREATE TABLE TIENDOHOPDONG
   FOREIGN KEY (MaHD) REFERENCES HOPDONG(MaHD),
 )
 
+
+
 ---Thêm dữ liệu giai đoạn hợp đồng
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NVThucHienCV, NoiDungCV)
 values('2024-01-02', '2024-04-02', 'HD001', '00002', N'Sơn', N'Quay 2 video')
@@ -166,7 +167,6 @@ values('2024-03-12', '2024-05-15', 'HD002', '00004', N'Hỏa', N'Chụp 3 hình
 insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD, MaNV, NoiDungCV)
 values('2024-03-12', '2024-05-15', 'HD001', 'Thổ', N'Chụp 3 hình')
 select * from TIENDOHOPDONG
-
 
 
 
@@ -266,6 +266,25 @@ go
 -- Procedure
 
 -- LOAD DATA
+		--Procedure load thông tin thông toán On ContractDetail--
+create proc loadThongTinThanhToan
+	@MaHD NVARCHAR(5)
+as
+begin
+	select GiaiDoan as [Giai đoạn],
+			NgayThanhToan as [Ngày thanh toán],
+			NgayNhanThanhToan as [Ngày xác nhận thanh toán],
+			PhanTramThanhToan as [Phần trăm thanh toán(%)],
+			GiaTriThanhToan as [Giá trị thanh toán],
+			TrangThaiThanhToan as [Trạng thái],
+			GhiChu as [Ghi chú]
+	from GIAIDOANTHANHTOAN
+	where 
+end
+go
+drop proc loadThongTinThanhToan
+exec loadThongTinThanhToan
+
 		--Procedure ContractTrackingForSale--
 CREATE PROC loadContractTrackingForSale
     @MaNV NVARCHAR(5)
@@ -316,13 +335,15 @@ begin
 			gd.GiaTriThanhToan as [Giá trị thanh toán],
 			gd.TrangThaiThanhToan as [Trạng thái],
 			gd.NgayNhanThanhToan as [Ngày nhận thanh toán],
-			gd.GhiChu as [Ghi chú]
+			gd.GhiChu as [Ghi chú],
+			gd.MaGiaiDoanThanhToan as [Mã GD]
 	from GIAIDOANTHANHTOAN as gd
 	INNER JOIN HOPDONG as hd ON gd.MaHD = hd.MaHD
 end
 go
 
---exec loadPaymentProgress
+--drop proc loadPaymentProgress
+exec loadPaymentProgress
 --select * from GIAIDOANTHANHTOAN
 
 
@@ -341,7 +362,8 @@ begin
         td.NgayKetThuc AS [Ngày kết thúc], 
         td.KhoiLuongCV AS [Tiến độ], 
         td.NVThucHienCV AS [Người thực hiện], 
-        hd.TinhTrangHD AS [Tình trạng]
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong AS [MaTD]
     FROM HOPDONG AS hd
 	INNER JOIN TIENDOHOPDONG AS td ON hd.MaHD = td.MaHD
     WHERE td.MaNV = @MaNV
@@ -373,6 +395,54 @@ go
 select * from TIENDOHOPDONG
 exec loadProjectProgressForAll
 
+
+		--Procedure load Form ContractHistory For Sale
+create proc loadContractOnContractHistoryForSale
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+		nv.HoTen as [Account/Sale],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng]
+    FROM 
+        HOPDONG AS hd
+    INNER JOIN 
+        NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE 
+        nv.MaNV = @MaNV and hd.TinhTrangHD = N'Đã xong'
+END
+GO
+--exec loadContractOnContractHistoryForSale @MaNV = '00004'
+
+		--Procedure load Form ContractHistory For All
+create proc loadConTractOnContractHistoryForAll
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+		nv.HoTen as [Account/Sale],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng]
+    FROM 
+        HOPDONG AS hd
+    INNER JOIN 
+        NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE hd.TinhTrangHD = N'Đã xong'
+END
+GO
+--exec loadConTractOnContractHistoryForAll
 
 
 -- procedure dung cho Form ListUser
@@ -700,32 +770,24 @@ GO
 --exec searchTinhTrangHopDongOnProjectProgress @TinhTrangHD = N'Chưa thực hiện'
 --exec searchTinhTrangHopDongOnProjectProgress
 
+		--Procedure lấy giai đoạn lớn nhất
+create proc getNewStage
+	@MaHD NVARCHAR(5)
+AS
+BEGIN
+    -- Lấy giai đoạn lớn nhất (mới nhất) của hợp đồng theo MaHD
+    SELECT TOP 1 GiaiDoan
+    FROM GIAIDOANTHANHTOAN
+    WHERE MaHD = @MaHD
+    ORDER BY GiaiDoan DESC;  -- Sắp xếp theo GiaiDoan giảm dần, giai đoạn mới nhất sẽ được lấy đầu tiên
+END
+GO
 
+exec getNewStage @MaHD = N'HD001'
 
 
 
 -- UPDATE DATA
-
-		--Procedure update hợp đồng
-create proc updateNhanVienThanhToan
-	@MaHD NVARCHAR(5),
-	@NhanVienThanhToan VARCHAR(50)
-AS
-BEGIN
-	UPDATE HOPDONG
-	SET NhanVienThanhToan = @NhanVienThanhToan
-	WHERE MaHD = @MaHD
-END
-GO
-select * from HOPDONG
-
---drop proc updateNhanVienThanhToan
-exec updateNhanVienThanhToan @MaHD = 'HD002' , @NhanVienThanhToan = 'kiennt'
-select * from HOPDONG
-
-
-
-
 
 		-- Procedure Đổi mật khẩu --
 create proc changePassword
@@ -743,30 +805,12 @@ exec changePassword @MaNV = '00002' , @MatKhauMoi = 'nguyenvanb'
 select * from NGUOIDUNG
 
 
-		-- Procedure sửa tiến độ hợp đồng
-create proc changeProjectProgress
-	@MaTienDoHopDong NVARCHAR(5),
-	@NVThucHienCV NVARCHAR(50),
-	@KhoiLuongCV INT,
-	@TongKhoiLuongCV INT
-as
-begin
-	update TIENDOHOPDONG
-	set NVThucHienCV = @NVThucHienCV,
-		KhoiLuongCV = @KhoiLuongCV,
-		TongKhoiLuongCV = @TongKhoiLuongCV
-	where MaTienDoHopDong = @MaTienDoHopDong
-end
-go
-
-
---drop proc changeProjectProgress
-
 
 --procedure sửa giai đoạn thanh toán changeProjectProgress
 
-create proc changePaymentProgress
-	@MaGiaiDoanThanhToan NVARCHAR(5),
+create proc updatePaymentProgress
+	@MaHD NVARCHAR(5),
+	@GiaiDoan INT,
 	@NgayThanhToan DATE,
 	@PhanTramThanhToan INT,
 	@GiaTriThanhToan INT,
@@ -783,12 +827,12 @@ begin
 		TrangThaiThanhToan = @TrangThaiThanhToan,
 		NgayNhanThanhToan = @NgayNhanThanhToan,
 		GhiChu = @GhiChu
-	where MaGiaiDoanThanhToan = @MaGiaiDoanThanhToan
+	where MaHD = @MaHD and GiaiDoan = @GiaiDoan
 end
 go
-
---drop proc changePaymentProgress
-
+exec updatePaymentProgress @MaGiaiDoanThanhToan = '00001', @NgayThanhToan = '2024-11-29', @PhanTramThanhToan = 20, @GiaTriThanhToan = 10, @TrangThaiThanhToan = 0, @NgayNhanThanhToan = '2024-12-10', @GhiChu = N'adiae'
+--drop proc updatePaymentProgress
+select * from GIAIDOANTHANHTOAN
 
 
 -- INSERT DATA
@@ -828,54 +872,79 @@ go
 exec createAccount @TenDangNhap = 'admin', @HoTen = N'đinh gia bảo', @NgaySinh = '2004-3-12', 
 					@GioiTinh = 0, @DiaChi = N'nguyễn hữu thọ quận 7', @PhongBan = N'IT',@VaiTro = N'Super Admin', @Mail = N'dgb35k4@gmail.com', @SDT = N'0911162180'
 
---delete  NGUOIDUNG
-select * from NGUOIDUNG
-
-		--Procedure insert tiến độ hợp đồng --
-create proc insertProgress
-	@NgayBatDau DATE,
-	@NgayKetThuc DATE,
-	@MaNV NVARCHAR(5),
-	@NVThucHienCV NVARCHAR(50),
-	@NoiDungCV NVARCHAR(50)
-
-as
-begin
-	DECLARE @MaHD NVARCHAR(5);
-    SELECT TOP 1 @MaHD = MaHD
-    FROM HOPDONG
-    WHERE MaHD LIKE 'HD%'
-    ORDER BY MaHD DESC;
-	
-	insert into TIENDOHOPDONG(NgayBatDau, NgayKetThuc, MaHD,MaNV, NVThucHienCV, NoiDungCV)
-	values (@NgayBatDau, @NgayKetThuc, @MaHD,@MaNV, @NVThucHienCV, @NoiDungCV)
-end
-go
-
-
-
 --drop proc insertProgress
---exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', 
-					@MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
+--exec insertProgress @NgayBatDau = '2024-11-25', @NgayKetThuc = '2024-12-29', @MaNV = '00002', @NVThucHienCV = N'Sơn', @NoiDungCV = N'quay 5 video'
 
 
-		--Procedure insert giai đoạn thanh toán
-create proc insertGiaiDoanThanhToan
-	@MaHD NVARCHAR(5),
-	@PhanTramThanhToan INT
+
+
+	--Procedure tao ProjectProgress
+create proc createProjectProgress
+	@MaHD NVARCHAR(5)
+	
 as
 begin
-	
-	
-	insert into GIAIDOANTHANHTOAN(MaHD, PhanTramThanhToan)
-	values (@MaHD, @PhanTramThanhToan)
+	declare @NgayBatDau AS DATE 
+	declare @NgayKetThuc as  DATE
+	declare @NoiDungCV as NVARCHAR(50)
+	declare @MaNV as NVARCHAR(5)
+
+	select @NgayBatDau = NgayBatDau, @NgayKetThuc = NgayKetThuc, @NoiDungCV = TenHopDong, @MaNV = MaNV
+	from HOPDONG
+	where @MaHD = MaHD
+
+	insert into TIENDOHOPDONG (MaHD, NgayBatDau, NgayKetThuc, NoiDungCV, MaNV)
+	values (@MaHD, @NgayBatDau, @NgayKetThuc, @NoiDungCV, @MaNV)
+end
+go
+exec createProjectProgress @MaHD = 'HD001'
+
+select * from TIENDOHOPDONG
+
+	--Procedure sua ProjectProgress
+create proc updateProjectProgress
+	@MaTienDoHopDong NVARCHAR(5),
+	@NoiDungCV NVARCHAR(50),
+	@KhoiLuongCV INT,
+	@NgayBatDau DATE, 
+	@NgayKetThuc DATE, 
+	@TienDo INT, 
+	@TenNguoiThucHien NVARCHAR(50)
+as
+begin
+	update TIENDOHOPDONG
+	set MaTienDoHopDong = @MaTienDoHopDong,
+		NoiDungCV = @NoiDungCV,
+		TongKhoiLuongCV = @KhoiLuongCV,
+		NgayBatDau = @NgayBatDau,
+		NgayKetThuc = @NgayKetThuc,
+		KhoiLuongCV = @TienDo,
+		NVThucHienCV = @TenNguoiThucHien
+	where MaTienDoHopDong = @MaTienDoHopDong
 end
 go
 
---drop proc insertGiaiDoanThanhToan
---exec insertGiaiDoanThanhToan @MaHD = 'HD002', @PhanTramThanhToan = 40
 
 
+	--Procedure tạo giai đoạn thanh toán PaymentProgress
+create proc createPaymentProgress
+	@MaHD NVARCHAR(5),
+	@GiaiDoan INT,
+	@NgayThanhToan DATE,
+	@PhanTramThanhToan INT,
+	@GiaTriThanhToan INT,
+	@NgayNhanThanhToan DATE,
+	@GhiChu NVARCHAR(100)
+as
+begin
+	insert into GIAIDOANTHANHTOAN (MaHD, GiaiDoan, NgayThanhToan, PhanTramThanhToan, GiaTriThanhToan, NgayNhanThanhToan, GhiChu)
+	values (@MaHD, @GiaiDoan, @NgayThanhToan, @PhanTramThanhToan, @GiaTriThanhToan, @NgayNhanThanhToan, @GhiChu)
+end
+go
+select * from HOPDONG
+
+exec createPaymentProgress @MaHD = 'HD001', @GiaiDoan = 1, @NgayThanhToan = '2024-11-29', @PhanTramThanhToan = 20, @GiaTriThanhToan = 1500, @NgayNhanThanhToan = '2024-11-29', @GhiChu = N'Thanh toán giai đoạn 1'
+select * from GIAIDOANTHANHTOAN
 
 -- Trigger 
 

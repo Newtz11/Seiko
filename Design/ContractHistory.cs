@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +16,13 @@ namespace Design
 {
     public partial class ContractHistory : System.Windows.Forms.Form
     {
-        public ContractHistory()
+        NguoiDung user;
+        public ContractHistory(NguoiDung user)
         {
             InitializeComponent();
             ApplyRoundedCorners(button1);
             ApplyRoundedCorners(buttonReset);
+            this.user = user;
         }
 
         // Hàm để tạo vùng hình chữ nhật có góc bo tròn
@@ -46,12 +51,21 @@ namespace Design
 
         private void ContractHistory_Load(object sender, EventArgs e)
         {
-            dataGridViewContractHistory.Rows.Add("HD001", "Quay video", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
-            dataGridViewContractHistory.Rows.Add("HD002", "Chụp ảnh", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
-            dataGridViewContractHistory.Rows.Add("HD003", "Quay video", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
-            dataGridViewContractHistory.Rows.Add("HD004", "Chụp ảnh", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
-            dataGridViewContractHistory.Rows.Add("HD005", "Quay video", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
-            dataGridViewContractHistory.Rows.Add("HD006", "Chụp ảnh", "CTY NESTLE", "Nguyen Van A", "20-10-2020", "20-11-2023", "100000000", "Nguyen Van B", "Đã xong");
+            dataGridViewContractHistory.Rows.Clear();
+            DataTable dt = HopDongBLL.loadContract(user);
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string tenCongTyCaNhan = row[2].ToString();
+                string nguoiLienHe = row[3].ToString();
+                DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                DateTime ngayHetHan = Convert.ToDateTime(row[5]);
+                int giaTriHopDong = Convert.ToInt32(row[6]);
+                string tenSale = row[7].ToString();
+                string tinhTrangHopDong = row[8].ToString();
+                dataGridViewContractHistory.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tenSale, tinhTrangHopDong);
+            }
         }
     }
 }

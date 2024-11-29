@@ -63,9 +63,9 @@
             label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(118, 55);
             label9.Name = "label9";
-            label9.Size = new Size(342, 25);
+            label9.Size = new Size(236, 25);
             label9.TabIndex = 64;
-            label9.Text = "CHỈNH SỬA GIAI ĐOẠN THANH TOÁN";
+            label9.Text = "GIAI ĐOẠN THANH TOÁN";
             // 
             // pictureBoxIconContractTracking
             // 
@@ -137,6 +137,7 @@
             buttonLuu.TabIndex = 10;
             buttonLuu.Text = "LƯU";
             buttonLuu.UseVisualStyleBackColor = false;
+            buttonLuu.Click += buttonLuu_Click;
             // 
             // comboBoxTrangThaiThanhToan
             // 
@@ -227,6 +228,7 @@
             // textBoxGiaiDoan
             // 
             textBoxGiaiDoan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxGiaiDoan.Enabled = false;
             textBoxGiaiDoan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxGiaiDoan.Location = new Point(771, 59);
             textBoxGiaiDoan.MaxLength = 2;
@@ -290,6 +292,7 @@
             // 
             // textBoxTenHopDong
             // 
+            textBoxTenHopDong.Enabled = false;
             textBoxTenHopDong.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxTenHopDong.Location = new Point(221, 151);
             textBoxTenHopDong.MaxLength = 50;
@@ -310,6 +313,7 @@
             // 
             // textBoxMaHopDong
             // 
+            textBoxMaHopDong.Enabled = false;
             textBoxMaHopDong.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxMaHopDong.Location = new Point(221, 60);
             textBoxMaHopDong.MaxLength = 5;
@@ -351,6 +355,7 @@
             Name = "PaymentProgressEdit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seiko";
+            Load += PaymentProgressEdit_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).EndInit();
             groupBoxPaymentProgressEdit.ResumeLayout(false);
             groupBoxPaymentProgressEdit.PerformLayout();

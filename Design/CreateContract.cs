@@ -201,6 +201,7 @@ namespace Design
             string diaChi = (textBoxDiaChi.Text.Trim()).ToString();
             string sDT = (textBoxSDT.Text.Trim()).ToString();
             string mail = (textBoxEmail.Text.Trim()).ToString();
+            
             HopDong hopDongMoi = new HopDong(tenHopDong, tenNguoiDaiDien, ngayBatDau, ngayKetThuc, giaTriHopDong, noiDungHopDong, tenNguoiLienHe, diaChi, sDT, mail, user.maNV);
 
 
@@ -211,6 +212,18 @@ namespace Design
             if (success)
             {
                 MessageBox.Show("Tạo hợp đồng thành công");
+                string maHD = HopDongBLL.getMaHDMoi();
+                int phanTramThanhToan = 100;
+                DateTime ngayThanhToan = ngayKetThuc;
+                DateTime ngayNhanThanhToan = ngayKetThuc;
+                int giaTriThanhToan = giaTriHopDong;
+                string ghiChu = "  ";
+                int giaiDoan = 1;
+                GiaiDoanThanhToan giaidoanMoi = new GiaiDoanThanhToan(phanTramThanhToan, ngayThanhToan, ngayNhanThanhToan, giaTriThanhToan, ghiChu, maHD, giaiDoan);
+
+                GiaiDoanThanhToanBLL.createGiaiDoan(giaidoanMoi);
+
+
                 this.Close();
             }
             else MessageBox.Show("Tạo hợp đồng không thành công");

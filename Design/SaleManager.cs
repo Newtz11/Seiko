@@ -56,7 +56,7 @@ namespace Design
 
         private void buttonContractHistory_Click(object sender, EventArgs e)
         {
-            loadform(new ContractHistory());
+            loadform(new ContractHistory(user));
         }
 
         public void loadform(object Form)
