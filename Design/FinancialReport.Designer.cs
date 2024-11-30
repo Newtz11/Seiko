@@ -55,13 +55,10 @@
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             labelProjectProgress = new Label();
-            MaHopDong = new DataGridViewTextBoxColumn();
-            TenHopDong = new DataGridViewTextBoxColumn();
+            MaHD = new DataGridViewTextBoxColumn();
+            TenHD = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
-            SoTien = new DataGridViewTextBoxColumn();
-            buttonSearch = new Button();
-            textBoxSearch = new TextBox();
-            labelProjectProgress = new Label();
+            DoanhThu = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartFinancialReport).BeginInit();
@@ -290,7 +287,7 @@
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 80;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NgayThanhToan, SoTien });
+            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHD, TenHD, NgayThanhToan, DoanhThu });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -323,40 +320,6 @@
             dataGridViewListUser.Size = new Size(1197, 250);
             dataGridViewListUser.TabIndex = 8;
             // 
-            // MaHopDong
-            // 
-            MaHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            MaHopDong.FillWeight = 320.85556F;
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 150;
-            MaHopDong.Name = "MaHopDong";
-            MaHopDong.Resizable = DataGridViewTriState.True;
-            // 
-            // TenHopDong
-            // 
-            // MaHopDong
-            // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
-            // 
-            // TenHopDong
-            // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
-            // 
-            // NgayThanhToan
-            // 
-            NgayThanhToan.HeaderText = "Ngày thanh toán";
-            NgayThanhToan.MinimumWidth = 6;
-            NgayThanhToan.Name = "NgayThanhToan";
-            // 
-            // SoTien
-            // 
-            SoTien.HeaderText = "Doanh thu";
-            SoTien.MinimumWidth = 6;
-            SoTien.Name = "SoTien";
             // buttonSearch
             // 
             buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -390,17 +353,17 @@
             labelProjectProgress.Size = new Size(0, 38);
             labelProjectProgress.TabIndex = 13;
             // 
-            // MaHopDong
+            // MaHD
             // 
-            MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 6;
-            MaHopDong.Name = "MaHopDong";
+            MaHD.HeaderText = "Mã hợp đồng";
+            MaHD.MinimumWidth = 6;
+            MaHD.Name = "MaHD";
             // 
-            // TenHopDong
+            // TenHD
             // 
-            TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 6;
-            TenHopDong.Name = "TenHopDong";
+            TenHD.HeaderText = "Tên hợp đồng";
+            TenHD.MinimumWidth = 6;
+            TenHD.Name = "TenHD";
             // 
             // NgayThanhToan
             // 
@@ -408,11 +371,11 @@
             NgayThanhToan.MinimumWidth = 6;
             NgayThanhToan.Name = "NgayThanhToan";
             // 
-            // SoTien
+            // DoanhThu
             // 
-            SoTien.HeaderText = "Doanh thu";
-            SoTien.MinimumWidth = 6;
-            SoTien.Name = "SoTien";
+            DoanhThu.HeaderText = "Doanh thu";
+            DoanhThu.MinimumWidth = 6;
+            DoanhThu.Name = "DoanhThu";
             // 
             // FinancialReport
             // 
@@ -477,9 +440,9 @@
         private RadioButton radioButtonNam;
         private RadioButton radioButtonThang;
         private Button buttonCapNhat;
-        private DataGridViewTextBoxColumn MaHopDong;
-        private DataGridViewTextBoxColumn TenHopDong;
+        private DataGridViewTextBoxColumn MaHD;
+        private DataGridViewTextBoxColumn TenHD;
         private DataGridViewTextBoxColumn NgayThanhToan;
-        private DataGridViewTextBoxColumn SoTien;
+        private DataGridViewTextBoxColumn DoanhThu;
     }
 }

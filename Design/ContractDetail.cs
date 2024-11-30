@@ -57,6 +57,8 @@ namespace Design
 
         private void ContractDetail_Load(object sender, EventArgs e)
         {
+            // check để biết hợp đồng hoàn thành hay chưa
+            int tongPhanTram = 0;
             textBoxMaHopDong.Text = hd.maHD;
             textBoxTenHopDong.Text = hd.tenHD;
             textBoxTenNguoiDaiDien.Text = hd.tenNguoiDaiDien;
@@ -93,7 +95,11 @@ namespace Design
                 string GhiChu = row[6].ToString();
 
                 dataGridViewThongTinThanhToan.Rows.Add(GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), ngayNhanTT, PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, GhiChu);
-            
+                // check xem có cộng không
+                if (TrangThai)
+                {
+                    tongPhanTram += PhanTramThanhToan;
+                }
             }
 
             // Load data thông tin nhân viên
@@ -112,6 +118,12 @@ namespace Design
 
                 dataGridViewThongTinSale.Rows.Add(maNhanVien, tenNhanVien, hoaHong, tinhTrangHoatDongSale);
 
+            }
+
+            // Check
+            if (tongPhanTram == 100)
+            {
+                comboBoxTrangThai.Enabled = true;
             }
         }
 
