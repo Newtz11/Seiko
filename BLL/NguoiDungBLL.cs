@@ -172,6 +172,7 @@ namespace BLL
 
             }
 
+
             if (dtNhanVien.Rows.Count > 0) nonEmptyTables.Add(dtNhanVien);
 
             // Merge the non-empty DataTables
@@ -198,6 +199,7 @@ namespace BLL
                 }
             }
             return mergedDataTable;
+
 
         }
         public static DataTable getChartByMonth(string thang)
