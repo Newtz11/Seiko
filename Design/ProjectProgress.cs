@@ -97,7 +97,7 @@ namespace Design
             DateTime searchNgayBatDau = dateTimePickerStart.Value;
             DateTime searchNgayKetThuc = dateTimePickerEnd.Value;
 
-            DataTable dt = TienDoHopDongBLL.searchProjectProgressList(searchContract, searchTinhTrang, searchNgayBatDau, searchNgayKetThuc);
+            DataTable dt = TienDoHopDongBLL.searchProjectProgressList(searchContract, searchTinhTrang, searchNgayBatDau, searchNgayKetThuc, user);
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns

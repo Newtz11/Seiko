@@ -1,4 +1,5 @@
 ﻿using DTO;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,44 +59,86 @@ namespace DAO
             return dt;
         }
 
-        public DataTable searchContractList(string searchContract)
+        public DataTable searchContractList(string searchContract, NguoiDung user)
         {
-            string procName = "searchGlobalOnProjectProgress";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
             {
-                new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchContract }
-            };
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
-
+                string procName = "searchGlobalOnProjectProgressOnlySale";
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchContract },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchGlobalOnProjectProgress";
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchContract }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
             return dt;
         }
 
-        public DataTable searchContractListByTinhTrang(string searchTinhTrang)
+        public DataTable searchContractListByTinhTrang(string searchTinhTrang, NguoiDung user)
         {
-            string procName = "searchTinhTrangHopDongOnProjectProgress";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
             {
-                new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = searchTinhTrang }
-            };
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                string procName = "searchTinhTrangHopDongOnProjectProgressOnlySale";
 
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = searchTinhTrang },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchTinhTrangHopDongOnProjectProgress";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = searchTinhTrang }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
             return dt;
         }
 
-        public DataTable searchContractListByTime(DateTime searchNgayBatDau, DateTime searchNgayKetThuc)
+        public DataTable searchContractListByTime(DateTime searchNgayBatDau, DateTime searchNgayKetThuc, NguoiDung user)
         {
-            string procName = "searchTimeOnProjectProgress";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
             {
-                new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)searchNgayBatDau ?? DBNull.Value },
-                new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)searchNgayKetThuc ?? DBNull.Value }
-            };
+                string procName = "searchTimeOnProjectProgressOnlySale";
 
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)searchNgayBatDau ?? DBNull.Value },
+                    new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)searchNgayKetThuc ?? DBNull.Value },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchTimeOnProjectProgress";
 
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)searchNgayBatDau ?? DBNull.Value },
+                    new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)searchNgayKetThuc ?? DBNull.Value }
+                };
+
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
             return dt;
         }
 

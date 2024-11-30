@@ -621,7 +621,7 @@ GO
 
 
 
--- procedure dung cho Form ContractTrackingForSale
+-- procedure dung cho Form ContractTrackingForSale cho TẤT CẢ TRỪ SALE
 		--Procedure search hợp đồng On ContractTrackingForSale--
 CREATE PROC searchGlobalOnContractTrackingForSale
     @Keyword NVARCHAR(50)
@@ -706,7 +706,7 @@ select * from NGUOIDUNG
 --exec searchTinhTrangHopDongOnContractTrackingForSale
 
 
--- procedure dung cho Form ProjectProgress
+-- procedure dung cho Form ProjectProgress cho TẤT CẢ TRỪ SALE
 		-- Procedure search Contract on ProjectProgress
 CREATE PROC searchGlobalOnProjectProgress
     @Keyword NVARCHAR(50)
@@ -1033,6 +1033,347 @@ select * from NGUOIDUNG
 select * from GIAIDOANTHANHTOAN where MaHD = 'HD002'
 
 select * from GIAIDOANTHANHTOAN
+
+
+		--Procedure load Form Financial Report báo cáo tài chính
+create proc loadFormFinancialReport
+as
+begin
+    select MaHD as [Mã hợp đồng], 
+	TenHopDong as [Tên hợp đồng], 
+	NgayKetThuc as [Ngày kết thúc], 
+	CAST(ROUND(GiaTriHD - (GiaTriHD * 0.05), 0) AS INT) as [Doanh thu]
+    from HOPDONG
+	where TinhTrangHD = N'Đã xong'
+end
+go
+
+
+--drop proc loadFormFinancialReport
+exec loadFormFinancialReport
+select * from HOPDONG
+
+
+	--procedure lưu ContractDetails
+create proc updateContractDetails
+	@MaHD NVARCHAR(5)
+as
+begin
+	update HOPDONG
+	set TinhTrangHD = N'Đã xong'
+	where MaHD = @MaHD
+end
+go
+
+drop proc updateContractDetails
+exec updateContractDetails @MaHD = 'HD001'
+
+select * from HOPDONG
+
+
+	--Procedure báo cáo tài chính theo THÁNG
+create proc searchContractByMonth
+	@Month int
+as
+begin
+	select MaHD as [Mã hợp đồng], 
+	TenHopDong as [Tên hợp đồng], 
+	NgayKetThuc as [Ngày kết thúc], 
+	CAST(ROUND(GiaTriHD - (GiaTriHD * 0.05), 0) AS INT) as [Doanh thu]
+    from HOPDONG
+	where TinhTrangHD = N'Đã xong'
+	and YEAR(NgayKetThuc) = YEAR(GETDATE())
+    and MONTH(NgayKetThuc) = @Month
+end
+go
+
+exec searchContractByMonth @Month = 12
+select * from HOPDONG
+
+
+
+	--Procedure báo cáo tài chính theo NĂM
+create proc searchContractByYear
+	@Year int
+as
+begin
+	select MaHD as [Mã hợp đồng], 
+	TenHopDong as [Tên hợp đồng], 
+	NgayKetThuc as [Ngày kết thúc], 
+	CAST(ROUND(GiaTriHD - (GiaTriHD * 0.05), 0) AS INT) as [Doanh thu]
+    from HOPDONG
+	where TinhTrangHD = N'Đã xong'
+	and YEAR(NgayKetThuc) = @Year
+end
+go
+
+drop proc searchContractByYear
+exec searchContractByYear @Year = 2024
+select * from HOPDONG
+
+	--Procedure select tất cả các năm của tất cả hợp đồng 'đã xong'
+create proc searchContractBySelectAllYear
+as
+begin
+    select DISTINCT YEAR(NgayKetThuc) as [Năm]
+    from HOPDONG
+    where TinhTrangHD = N'Đã xong'
+    order by YEAR(NgayKetThuc) -- Sắp xếp các năm theo thứ tự tăng dần
+end
+go
+
+exec searchContractBySelectAllYear
+select * from HOPDONG
+
+
+
+	--Procedure báo cáo tài chính theo QUÝ
+create proc searchContractByQuarter
+	@Quarter INT
+as
+begin
+	select 
+        MaHD as [Mã hợp đồng], 
+        TenHopDong as [Tên hợp đồng], 
+        NgayKetThuc as [Ngày kết thúc], 
+        CAST(ROUND(GiaTriHD - (GiaTriHD * 0.05), 0) AS INT) as [Doanh thu]
+    from 
+        HOPDONG
+    where 
+        TinhTrangHD = N'Đã xong'
+        and YEAR(NgayKetThuc) = YEAR(GETDATE())  -- Lấy hợp đồng trong năm hiện tại
+        and (
+            (@Quarter = 1 and MONTH(NgayKetThuc) IN (1, 2, 3)) or
+            (@Quarter = 2 and MONTH(NgayKetThuc) IN (4, 5, 6)) or
+            (@Quarter = 3 and MONTH(NgayKetThuc) IN (7, 8, 9)) or
+            (@Quarter = 4 and MONTH(NgayKetThuc) IN (10, 11, 12))
+        )
+end
+go
+
+
+exec searchContractByQuarter @Quarter = 4
+select * from HOPDONG
+
+
+
+-- procedure dung cho Form ContractTrackingForSale cho SALE
+		--Procedure search hợp đồng On ContractTrackingForSaleOnly--
+CREATE PROC searchGlobalOnContractTrackingForSaleOnly
+    @Keyword NVARCHAR(50),
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE ((hd.MaHD LIKE '%' + @Keyword + '%')
+      OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+      OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
+      OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
+	  OR (CAST(hd.GiaTriHD AS NVARCHAR(11)) LIKE '%' + @Keyword + '%')
+	  OR (nv.HoTen LIKE '%' + @Keyword + '%')
+	  OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%'))
+	  AND (hd.MaNV = @MaNV)
+END
+GO
+
+--drop proc searchGlobalOnContractTrackingForSaleOnly
+--exec searchGlobalOnContractTrackingForSaleOnly @Keyword = N''
+
+		--Procedure lọc ngày bắt đầu và kết thúc On ContractTrackingForSaleOnly --
+CREATE PROC searchContractByTimeOnContractTrackingForSaleOnly
+    @NgayBatDau DATE = NULL,
+	@NgayKetThuc DATE = NULL,
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE ((@NgayBatDau IS NULL OR hd.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc <= @NgayKetThuc)) AND (hd.MaNV = @MaNV)
+END
+GO
+
+
+--drop proc searchContractByTimeOnContractTrackingForSaleOnly
+
+
+		--Procedure search tình trạng hợp đồng On ContractTrackingForSaleOnly --
+CREATE PROC searchTinhTrangHopDongOnContractTrackingForSaleOnly
+    @TinhTrangHD NVARCHAR(20) = NULL,
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        hd.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân], 
+        hd.TenNguoiLienHe AS [Người liên hệ], 
+        hd.NgayBatDau AS [Ngày bắt đầu], 
+        hd.NgayKetThuc AS [Ngày hết hạn], 
+        hd.GiaTriHD AS [Giá trị hợp đồng], 
+        hd.TinhTrangHD AS [Tình trạng hợp đồng], 
+        nv.HoTen AS [Phụ trách quản lý]
+    FROM HOPDONG AS hd
+    INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+    WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD) and (hd.MaNV = @MaNV)
+END
+GO
+select * from NGUOIDUNG
+
+--drop proc searchTinhTrangHopDongOnContractTrackingForSaleOnly
+--exec searchTinhTrangHopDongOnContractTrackingForSaleOnly @TinhTrangHD = N'Đã xong'
+--exec searchTinhTrangHopDongOnContractTrackingForSaleOnly
+
+
+
+
+-- procedure dung cho Form ProjectProgress cho SALE
+		-- Procedure search Contract on ProjectProgress
+CREATE PROC searchGlobalOnProjectProgressOnlySale
+    @Keyword NVARCHAR(50),
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        td.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong as [MaTD]
+    FROM TIENDOHOPDONG AS td
+	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
+    WHERE (td.MaNV = @MaNV)
+		AND (
+			(td.MaHD LIKE '%' + @Keyword + '%')
+	  OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+      OR (td.NoiDungCV LIKE '%' + @Keyword + '%')
+      OR (CAST(td.TongKhoiLuongCV AS NVARCHAR(3)) LIKE '%' + @Keyword + '%')
+      OR (CAST(td.KhoiLuongCV AS NVARCHAR(3)) LIKE '%' + @Keyword + '%')
+	  OR (td.NVThucHienCV LIKE '%' + @Keyword + '%')
+      OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%')
+		)
+END
+GO
+select * from NGUOIDUNG
+
+drop proc searchGlobalOnProjectProgressOnlySale
+exec searchGlobalOnProjectProgressOnlySale @Keyword = N'hình', @MaNV = '00012'
+
+
+		-- Procedure search Time on ProjectProgress cho Sale
+CREATE PROC searchTimeOnProjectProgressOnlySale
+    @NgayBatDau DATE = NULL,
+	@NgayKetThuc DATE = NULL,
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        td.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong AS [MaTD]
+    FROM TIENDOHOPDONG AS td
+	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
+    WHERE ((@NgayBatDau IS NULL OR td.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR td.NgayKetThuc <= @NgayKetThuc)) and (td.MaNV = @MaNV)
+END
+GO
+select * from NGUOIDUNG
+
+--drop proc searchTimeOnProjectProgressOnlySale
+--exec searchTimeOnProjectProgressOnlySale @NgayBatDau = '2024-10-13', @NgayKetThuc = '2024-11-30'
+--exec searchTimeOnProjectProgressOnlySale
+
+
+		-- Procedure search Tình trạng hợp đồng on ProjectProgress cho Sale
+CREATE PROC searchTinhTrangHopDongOnProjectProgressOnlySale
+	@TinhTrangHD NVARCHAR(20) = NULL,
+	@MaNV NVARCHAR(5)
+AS
+BEGIN
+    SELECT 
+        td.MaHD AS [Mã hợp đồng], 
+        hd.TenHopDong AS [Tên hợp đồng], 
+        td.NoiDungCV AS [Nội dung công việc], 
+        td.TongKhoiLuongCV AS [Khối lượng yêu cầu], 
+        td.NgayBatDau AS [Ngày bắt đầu], 
+        td.NgayKetThuc AS [Ngày kết thúc], 
+        td.KhoiLuongCV AS [Tiến độ], 
+        td.NVThucHienCV AS [Người thực hiện], 
+        hd.TinhTrangHD AS [Tình trạng],
+		td.MaTienDoHopDong AS [MaTD]
+    FROM TIENDOHOPDONG AS td
+	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
+    WHERE ((@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)) and (td.MaNV = @MaNV)
+END
+GO
+
+
+
+--Procedure load Form BÁO CÁO HIỆU SUẤT PERFORMANCE REPORT
+create proc loadPerformanceReport
+as
+begin
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+	WHERE nv.VaiTro = 'Sale'
+	GROUP BY nv.MaNV, nv.HoTen
+
+end
+go
+drop proc loadPerformanceReport
+exec loadPerformanceReport
+
+select * from NGUOIDUNG
+
+
+
+--Procedure báo cáo hiệu suất theo tháng 
+create proc PerformanceBymonth
+	@Month int
+as
+begin
+end
+go
+
+
+
+
 
 -- Trigger 
 
