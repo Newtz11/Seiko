@@ -127,7 +127,9 @@ namespace Design
                 int phanTramThanhToan = Convert.ToInt32(textBoxPhanTramThanhToan.Text.Trim().ToString());
                 DateTime ngayThanhToan = dateTimePickerNgayThanhToan.Value;
                 DateTime ngayNhanThanhToan = dateTimePickerNgayNhanThanhToan.Value;
-                int giaTriThanhToan = Convert.ToInt32(textBoxGiaTriThanhToan.Text.Trim().ToString());
+                string input = textBoxGiaTriThanhToan.Text.Trim();
+                string numberWithoutCommas = input.Replace(",", "");
+                int giaTriThanhToan = Convert.ToInt32(numberWithoutCommas);
                 string ghiChu = textBoxGhiChu.Text.Trim().ToString();
                 int giaiDoan = Convert.ToInt32(textBoxGiaiDoan.Text.Trim().ToString());
                 GiaiDoanThanhToan giaidoanMoi = new GiaiDoanThanhToan(phanTramThanhToan, ngayThanhToan, ngayNhanThanhToan, giaTriThanhToan, ghiChu, maHD, giaiDoan);

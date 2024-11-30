@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,7 @@ namespace Design
 {
     public partial class FinancialReport : System.Windows.Forms.Form
     {
+        private long tongDoanhThu = 0;
         public FinancialReport()
         {
             InitializeComponent();
@@ -52,7 +55,18 @@ namespace Design
 
         private void FinancialReport_Load(object sender, EventArgs e)
         {
-
+            dataGridViewListUser.Rows.Clear();
+            DataTable dt = HopDongBLL.loadFinancialReport();
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string ngayThanhToan = ((DateTime)row[2]).ToString("dd/MM/yyyy");
+                string doanhThu = row[3].ToString();
+                dataGridViewListUser.Rows.Add(maHopDong, tenHopDong, ngayThanhToan, doanhThu);
+            }
+            chartFinancialReport.Series["Doanh Thu"].IsValueShownAsLabel = true;
+            chartFinancialReport.Series["Doanh Thu"].LabelFormat = "{0:N0} VND";
         }
 
         private void radioButtonThang_CheckedChanged(object sender, EventArgs e)
@@ -84,24 +98,35 @@ namespace Design
         private void radioButtonNam_CheckedChanged(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
-            comboBox1.Items.Add("Kế toán");
-            comboBox1.Items.Add("Trưởng phòng Kế toán");
+            DataTable dt = HopDongBLL.getAllYear();
+            foreach (DataRow dr in dt.Rows) 
+            {
+                string year = dr[0].ToString();
+                comboBox1.Items.Add(year);
+            }
         }
 
         private void buttonLapThongKe_Click(object sender, EventArgs e)
         {
+            chartFinancialReport.Series["Doanh Thu"].Points.Clear();
             if (radioButtonThang.Checked)
             {
                 //lap thong ke theo thang
+                
             }
-            else if (radioButtonNam.Checked) 
+            else if (radioButtonQuy.Checked) 
             {
-                //lap thong ke theo quy
-                chartFinancialReport.Series.Add("");
+                
+               
+                chartFinancialReport.Visible = true;
+
             }
             else
             {
-                //lap thong ke theo nam
+               
+                chartFinancialReport.Visible = true;
+
+
             }
         }
     }

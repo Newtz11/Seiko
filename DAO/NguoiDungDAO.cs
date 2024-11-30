@@ -201,5 +201,13 @@ namespace DAO
             dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
+        public DataTable loadFormPerformance()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC loadPerformanceReport";
+            dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

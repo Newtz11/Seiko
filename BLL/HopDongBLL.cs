@@ -113,5 +113,43 @@ namespace BLL
         {
             HopDongDAO.Instance.delContract(maHD);
         }
+
+        public static DataTable loadFinancialReport()
+        {
+            return HopDongDAO.Instance.loadFinancialReport();
+        }
+
+        public static void updateContractState(string maHD)
+        {
+            HopDongDAO.Instance.updateContractState(maHD);
+        }
+
+        public static DataTable getChartByMonth(string thang)
+        {
+            string soChuoi = thang.Substring(5);
+            int so = int.Parse(soChuoi);
+            return HopDongDAO.Instance.getChartByMonth(so);
+        }
+
+
+        public static DataTable getChartByQuater(string quy)
+        {
+            string soChuoi = quy.Substring(4);
+            int so = int.Parse(soChuoi);
+            return HopDongDAO.Instance.getChartByQuy(so);
+        }
+
+       
+        public static DataTable getChartByYear(string year)
+        {
+            int so = int.Parse(year);
+            return HopDongDAO.Instance.getChartByYear(so);
+        }
+
+
+        public static DataTable getAllYear()
+        {
+            return HopDongDAO.Instance.getAllYear();
+        }
     }
 }

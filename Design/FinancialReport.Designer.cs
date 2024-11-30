@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinancialReport));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -52,13 +53,13 @@
             labelTuNgay = new Label();
             buttonLapThongKe = new Button();
             dataGridViewListUser = new DataGridView();
-            buttonSearch = new Button();
-            textBoxSearch = new TextBox();
-            labelProjectProgress = new Label();
             MaHD = new DataGridViewTextBoxColumn();
             TenHD = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
             DoanhThu = new DataGridViewTextBoxColumn();
+            buttonSearch = new Button();
+            textBoxSearch = new TextBox();
+            labelProjectProgress = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartFinancialReport).BeginInit();
@@ -194,6 +195,10 @@
             chartFinancialReport.Location = new Point(21, 401);
             chartFinancialReport.Name = "chartFinancialReport";
             chartFinancialReport.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Doanh Thu";
+            chartFinancialReport.Series.Add(series1);
             chartFinancialReport.Size = new Size(1197, 352);
             chartFinancialReport.TabIndex = 37;
             chartFinancialReport.Text = "chart1";
@@ -299,6 +304,7 @@
             dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewListUser.Location = new Point(21, 145);
             dataGridViewListUser.Name = "dataGridViewListUser";
+            dataGridViewListUser.ReadOnly = true;
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -319,6 +325,34 @@
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewListUser.Size = new Size(1197, 250);
             dataGridViewListUser.TabIndex = 8;
+            // 
+            // MaHD
+            // 
+            MaHD.HeaderText = "Mã hợp đồng";
+            MaHD.MinimumWidth = 6;
+            MaHD.Name = "MaHD";
+            MaHD.ReadOnly = true;
+            // 
+            // TenHD
+            // 
+            TenHD.HeaderText = "Tên hợp đồng";
+            TenHD.MinimumWidth = 6;
+            TenHD.Name = "TenHD";
+            TenHD.ReadOnly = true;
+            // 
+            // NgayThanhToan
+            // 
+            NgayThanhToan.HeaderText = "Ngày thanh toán";
+            NgayThanhToan.MinimumWidth = 6;
+            NgayThanhToan.Name = "NgayThanhToan";
+            NgayThanhToan.ReadOnly = true;
+            // 
+            // DoanhThu
+            // 
+            DoanhThu.HeaderText = "Doanh thu";
+            DoanhThu.MinimumWidth = 6;
+            DoanhThu.Name = "DoanhThu";
+            DoanhThu.ReadOnly = true;
             // 
             // buttonSearch
             // 
@@ -352,30 +386,6 @@
             labelProjectProgress.Name = "labelProjectProgress";
             labelProjectProgress.Size = new Size(0, 38);
             labelProjectProgress.TabIndex = 13;
-            // 
-            // MaHD
-            // 
-            MaHD.HeaderText = "Mã hợp đồng";
-            MaHD.MinimumWidth = 6;
-            MaHD.Name = "MaHD";
-            // 
-            // TenHD
-            // 
-            TenHD.HeaderText = "Tên hợp đồng";
-            TenHD.MinimumWidth = 6;
-            TenHD.Name = "TenHD";
-            // 
-            // NgayThanhToan
-            // 
-            NgayThanhToan.HeaderText = "Ngày thanh toán";
-            NgayThanhToan.MinimumWidth = 6;
-            NgayThanhToan.Name = "NgayThanhToan";
-            // 
-            // DoanhThu
-            // 
-            DoanhThu.HeaderText = "Doanh thu";
-            DoanhThu.MinimumWidth = 6;
-            DoanhThu.Name = "DoanhThu";
             // 
             // FinancialReport
             // 
