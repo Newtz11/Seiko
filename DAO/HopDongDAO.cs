@@ -136,8 +136,15 @@ namespace DAO
             return dt;
         }
 
+        public void delContract(string maHD)
+        {
+            string query1 = "delete from TIENDOHOPDONG WHERE MaHD = '" + maHD + "'";
+            string query2 = "delete from GIAIDOANTHANHTOAN WHERE MaHD = '" + maHD + "'";
+            string query3 = "delete from HOPDONG WHERE MaHD = '" + maHD + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query1 + query2 + query3);
+        }
 
-       
+
 
     }
 }

@@ -162,5 +162,12 @@ namespace DAO
             string query = "Delete from TIENDOHOPDONG where MaTienDoHopDong = '" + maTienDo + "'";
             DataTable dt = DataProvider.Instance.executeQuery(query);
         }
+
+        public DataTable checkDelTienDo(string maTienDo)
+        {
+            string query = "exec checkDelTienDo @MaTienDoHopDong = '" + maTienDo + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

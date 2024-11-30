@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerformanceReport));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pictureBoxIconPerformanceReport = new PictureBox();
             labelPerformanceReport = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -54,13 +54,13 @@
             labelStart = new Label();
             buttonSearch = new Button();
             dataGridViewPerformance = new DataGridView();
+            buttonLapThongKe = new Button();
+            textBoxSearch = new TextBox();
             MaNhanVien = new DataGridViewTextBoxColumn();
             TenNhanVien = new DataGridViewTextBoxColumn();
             DaHoanThanh = new DataGridViewTextBoxColumn();
             DangThucHien = new DataGridViewTextBoxColumn();
-            ChuaHoanThanh = new DataGridViewTextBoxColumn();
-            buttonLapThongKe = new Button();
-            textBoxSearch = new TextBox();
+            ChuaThucHien = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconPerformanceReport).BeginInit();
             groupBoxPerformance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartPerformance).BeginInit();
@@ -131,17 +131,17 @@
             // chartPerformance
             // 
             chartPerformance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chartArea2.Name = "ChartArea1";
-            chartPerformance.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartPerformance.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            chartPerformance.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartPerformance.Legends.Add(legend1);
             chartPerformance.Location = new Point(49, 387);
             chartPerformance.Name = "chartPerformance";
             chartPerformance.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartPerformance.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartPerformance.Series.Add(series1);
             chartPerformance.Size = new Size(1174, 375);
             chartPerformance.TabIndex = 84;
             chartPerformance.Text = "chart1";
@@ -276,48 +276,72 @@
             dataGridViewPerformance.BackgroundColor = Color.White;
             dataGridViewPerformance.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewPerformance.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPerformance.ColumnHeadersHeight = 50;
             dataGridViewPerformance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewPerformance.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, DaHoanThanh, DangThucHien, ChuaHoanThanh });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewPerformance.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, DaHoanThanh, DangThucHien, ChuaThucHien });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewPerformance.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewPerformance.Location = new Point(49, 161);
             dataGridViewPerformance.Name = "dataGridViewPerformance";
             dataGridViewPerformance.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dataGridViewPerformance.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewPerformance.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewPerformance.RowHeadersVisible = false;
             dataGridViewPerformance.RowHeadersWidth = 50;
             dataGridViewPerformance.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewPerformance.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewPerformance.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewPerformance.RowTemplate.Height = 35;
             dataGridViewPerformance.ScrollBars = ScrollBars.Vertical;
             dataGridViewPerformance.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewPerformance.Size = new Size(1174, 220);
             dataGridViewPerformance.TabIndex = 8;
+            // 
+            // buttonLapThongKe
+            // 
+            buttonLapThongKe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonLapThongKe.BackColor = Color.DodgerBlue;
+            buttonLapThongKe.FlatStyle = FlatStyle.Popup;
+            buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLapThongKe.ForeColor = Color.White;
+            buttonLapThongKe.Location = new Point(1087, 90);
+            buttonLapThongKe.Name = "buttonLapThongKe";
+            buttonLapThongKe.Size = new Size(136, 33);
+            buttonLapThongKe.TabIndex = 19;
+            buttonLapThongKe.Text = "Lập thống kê";
+            buttonLapThongKe.UseVisualStyleBackColor = false;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.Location = new Point(49, 26);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PlaceholderText = "Tìm kiếm thông tin";
+            textBoxSearch.Size = new Size(1000, 30);
+            textBoxSearch.TabIndex = 1;
             // 
             // MaNhanVien
             // 
@@ -343,35 +367,11 @@
             DangThucHien.MinimumWidth = 6;
             DangThucHien.Name = "DangThucHien";
             // 
-            // ChuaHoanThanh
+            // ChuaThucHien
             // 
-            ChuaHoanThanh.HeaderText = "Chưa hoàn thành (%)";
-            ChuaHoanThanh.MinimumWidth = 6;
-            ChuaHoanThanh.Name = "ChuaHoanThanh";
-            // 
-            // buttonLapThongKe
-            // 
-            buttonLapThongKe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonLapThongKe.BackColor = Color.DodgerBlue;
-            buttonLapThongKe.FlatStyle = FlatStyle.Popup;
-            buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLapThongKe.ForeColor = Color.White;
-            buttonLapThongKe.Location = new Point(1087, 90);
-            buttonLapThongKe.Name = "buttonLapThongKe";
-            buttonLapThongKe.Size = new Size(136, 33);
-            buttonLapThongKe.TabIndex = 19;
-            buttonLapThongKe.Text = "Lập thống kê";
-            buttonLapThongKe.UseVisualStyleBackColor = false;
-            // 
-            // textBoxSearch
-            // 
-            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.Location = new Point(49, 26);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.PlaceholderText = "Tìm kiếm thông tin";
-            textBoxSearch.Size = new Size(1000, 30);
-            textBoxSearch.TabIndex = 1;
+            ChuaThucHien.HeaderText = "Chưa thực hiện (%)";
+            ChuaThucHien.MinimumWidth = 6;
+            ChuaThucHien.Name = "ChuaThucHien";
             // 
             // PerformanceReport
             // 
@@ -418,12 +418,12 @@
         private RadioButton radioButtonQuy;
         private RadioButton radioButtonThang;
         private Label label1;
+        private Button buttonCapNhat;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartPerformance;
         private DataGridViewTextBoxColumn MaNhanVien;
         private DataGridViewTextBoxColumn TenNhanVien;
         private DataGridViewTextBoxColumn DaHoanThanh;
         private DataGridViewTextBoxColumn DangThucHien;
-        private DataGridViewTextBoxColumn ChuaHoanThanh;
-        private Button buttonCapNhat;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPerformance;
+        private DataGridViewTextBoxColumn ChuaThucHien;
     }
 }

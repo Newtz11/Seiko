@@ -149,5 +149,10 @@ namespace BLL
         {
             NguoiDungDAO.Instance.updateUserImage(user, image);
         }
+
+        public static DataTable loadThongTinNhanVien(string maNV)
+        {
+            return NguoiDungDAO.Instance.loadThongTinNhanVien(maNV);
+        }
     }
 }

@@ -88,7 +88,7 @@ namespace Design
 
                 comboBoxTinhTrang.SelectedIndex = -1;
                 comboBoxTinhTrang.Text = "Tình trạng";
-                
+
             }
         }
 
@@ -99,7 +99,7 @@ namespace Design
                 CreateContract createContract = new CreateContract(user);
                 createContract.Show();
             }
-           
+
         }
 
         private void ContractTracking_Load(object sender, EventArgs e)
@@ -142,6 +142,21 @@ namespace Design
         private void dataGridViewContractTracking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewContractTracking.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewContractTracking.SelectedRows[0];
+                string maHD = selectedRow.Cells[0].Value.ToString();
+                HopDongBLL.delContract(maHD);
+                MessageBox.Show("Xóa thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công!");
+            }
         }
     }
 }

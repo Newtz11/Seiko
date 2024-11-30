@@ -253,6 +253,13 @@ namespace Design
             {
                 DataGridViewRow selectedRow = dataGridViewProjectProgress.SelectedRows[0];
                 string maTienDo = selectedRow.Cells[9].Value.ToString();
+                int soTienDoCuaHD = TienDoHopDongBLL.checkDelTienDo(maTienDo);
+                if (soTienDoCuaHD <= 1)
+                {
+                    MessageBox.Show("Tiến độ duy nhất của hợp đồng không thể xóa!");
+                    return;
+
+                }
                 TienDoHopDongBLL.delTienDo(maTienDo);
                 MessageBox.Show("Xóa thành công tiến độ");
             }

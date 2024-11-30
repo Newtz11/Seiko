@@ -163,5 +163,12 @@ namespace DAO
                 };
             DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
         }
+
+        public DataTable checkDelGiaiDoan(string maHD)
+        {
+            string query = "select * from GIAIDOANTHANHTOAN where MaHD = '" + maHD + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace DTO
         public string phongBan { get; set; }
         public string ngayVaoLam { get; set; }
         public string diaChi { get; set; }
-        public bool tinhTrangHoatDong { get; set; } //-> true la đã thanh toán, false la chưa thanh toán.
+        public bool tinhTrangHoatDong { get; set; } //-> true la đang hoạt động, false la ngưng hoạt động
         
         public byte[] hinhAnh { get; set; } 
 
