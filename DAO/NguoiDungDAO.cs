@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DTO;
+using static Azure.Core.HttpHeader;
 
 
 namespace DAO
@@ -211,11 +212,6 @@ namespace DAO
         }
 
 
-        //public DataTable searchHieuSuatNhanVien(searchNhanVien, dateStart, dateEnd)
-        //{
-
-        //}
-
         public DataTable getChartByMonth(int thang)
         {
             DataTable dt = new DataTable();
@@ -240,5 +236,16 @@ namespace DAO
             return dt;
         }
 
+        public DataTable searchTenNhanVien(string searchNhanVien)
+        {
+            string procName = "searchGlobalOnPerformanceReport";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchNhanVien }
+                };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+            return dt;
+        }
     }
 }

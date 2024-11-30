@@ -161,52 +161,45 @@ namespace BLL
         }
 
 
-        public static DataTable searchHieuSuatNhanVien(string searchNhanVien, DateTime dateStart, DateTime dateEnd)
+        public static DataTable searchHieuSuatNhanVien(string searchNhanVien)
         {
-            //DataTable dtNhanVien = new DataTable();
-            //DataTable dtTime = new DataTable();
-            //DataTable mergedDataTable = new DataTable();
-            //List<DataTable> nonEmptyTables = new List<DataTable>();
-            //if (!string.IsNullOrEmpty(searchNhanVien))
-            //{
-            //    dtNhanVien = HopDongDAO.Instance.searchContractList(searchNhanVien);
+            DataTable dtNhanVien = new DataTable();
+            DataTable mergedDataTable = new DataTable();
+            List<DataTable> nonEmptyTables = new List<DataTable>();
+            if (!string.IsNullOrEmpty(searchNhanVien))
+            {
+                dtNhanVien = NguoiDungDAO.Instance.searchTenNhanVien(searchNhanVien);
 
-            //}
+            }
 
-            //if (dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
-            //{
-            //    dtTime = HopDongDAO.Instance.searchContractByTime(dateStart, dateEnd);
-            //}
+            if (dtNhanVien.Rows.Count > 0) nonEmptyTables.Add(dtNhanVien);
 
-            //if (dtNhanVien.Rows.Count > 0) nonEmptyTables.Add(dtNhanVien);
-            //if (dtTime.Rows.Count > 0) nonEmptyTables.Add(dtTime);
+            // Merge the non-empty DataTables
+            if (nonEmptyTables.Count > 0)
+            {
+                mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
+                foreach (DataRow row in nonEmptyTables[0].Rows)
+                {
+                    bool isInAllTables = true;
+                    foreach (DataTable table in nonEmptyTables.Skip(1))
+                    {
+                        var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
+                        if (matchingRows.Length == 0)
+                        {
+                            isInAllTables = false;
+                            break;
+                        }
+                    }
 
-            //// Merge the non-empty DataTables
-            //if (nonEmptyTables.Count > 0)
-            //{
-            //    mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
-            //    foreach (DataRow row in nonEmptyTables[0].Rows)
-            //    {
-            //        bool isInAllTables = true;
-            //        foreach (DataTable table in nonEmptyTables.Skip(1))
-            //        {
-            //            var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
-            //            if (matchingRows.Length == 0)
-            //            {
-            //                isInAllTables = false;
-            //                break;
-            //            }
-            //        }
+                    if (isInAllTables)
+                    {
+                        mergedDataTable.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            return mergedDataTable;
 
-            //        if (isInAllTables)
-            //        {
-            //            mergedDataTable.Rows.Add(row.ItemArray);
-            //        }
-            //    }
-            //}
-            //return mergedDataTable;
-
-
+        }
         public static DataTable getChartByMonth(string thang)
         {
             string soChuoi = thang.Substring(5);

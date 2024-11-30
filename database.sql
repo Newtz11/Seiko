@@ -1360,7 +1360,7 @@ go
 --drop proc loadPerformanceReport
 exec loadPerformanceReport
 
-drop proc loadPerformanceReport
+--drop proc loadPerformanceReport
 select * from NGUOIDUNG
 
 
@@ -1429,6 +1429,30 @@ end
 go
 
 exec PerformanceByYear @Year = 2025
+
+
+		--Procedure khung tìm kiếm
+create proc searchGlobalOnPerformanceReport
+	@Keyword NVARCHAR(50),
+as
+begin
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+	WHERE (nv.VaiTro = 'Sale') 
+		AND((hd.MaNV LIKE '%' + @Keyword + '%') OR (nv.HoTen LIKE '%' + @Keyword + '%')) 
+	GROUP BY nv.MaNV, nv.HoTen
+end
+go
+
+
+
+
+
 
 
 
