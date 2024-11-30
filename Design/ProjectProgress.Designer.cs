@@ -335,7 +335,7 @@
             // 
             comboBoxTinhTrang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             comboBoxTinhTrang.FormattingEnabled = true;
-            comboBoxTinhTrang.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Chờ nghiệm thu", "Đã xong" });
+            comboBoxTinhTrang.Items.AddRange(new object[] { "Đang thực hiện", "Đã xong" });
             comboBoxTinhTrang.Location = new Point(359, 173);
             comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             comboBoxTinhTrang.Size = new Size(161, 31);

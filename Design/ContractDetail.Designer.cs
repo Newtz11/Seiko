@@ -537,7 +537,7 @@
             // 
             comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.FormattingEnabled = true;
-            comboBoxTrangThai.Items.AddRange(new object[] { "Chưa thực hiện", "Đang thực hiện", "Đã xong", "Đã hủy" });
+            comboBoxTrangThai.Items.AddRange(new object[] { "Đang thực hiện", "Đã xong" });
             comboBoxTrangThai.Location = new Point(357, 476);
             comboBoxTrangThai.Name = "comboBoxTrangThai";
             comboBoxTrangThai.Size = new Size(310, 28);
