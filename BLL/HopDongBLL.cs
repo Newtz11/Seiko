@@ -109,5 +109,9 @@ namespace BLL
             return maTienDo;
         }
 
+        public static void delContract(string maHD)
+        {
+            HopDongDAO.Instance.delContract(maHD);
+        }
     }
 }

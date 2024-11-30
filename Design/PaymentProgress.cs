@@ -208,6 +208,13 @@ namespace Design
 
                 string maHD = this.dataGridViewPaymentProgress.CurrentRow.Cells[0].Value.ToString();
                 string giaiDoan = this.dataGridViewPaymentProgress.CurrentRow.Cells[2].Value.ToString();
+                int soGiaiDoanCuaHD = GiaiDoanThanhToanBLL.checkDelGiaiDoan(maHD);
+                if (soGiaiDoanCuaHD <= 1)
+                {
+                    MessageBox.Show("Giai đoạn duy nhất của hợp đồng không thể xóa!");
+                    return;
+
+                }
                 GiaiDoanThanhToanBLL.delGiaiDoanTT(maHD, giaiDoan);
 
                 MessageBox.Show("Xóa thành công!");

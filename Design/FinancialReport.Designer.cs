@@ -52,6 +52,9 @@
             labelTuNgay = new Label();
             buttonLapThongKe = new Button();
             dataGridViewListUser = new DataGridView();
+            buttonSearch = new Button();
+            textBoxSearch = new TextBox();
+            labelProjectProgress = new Label();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
@@ -322,6 +325,17 @@
             // 
             // MaHopDong
             // 
+            MaHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            MaHopDong.FillWeight = 320.85556F;
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 150;
+            MaHopDong.Name = "MaHopDong";
+            MaHopDong.Resizable = DataGridViewTriState.True;
+            // 
+            // TenHopDong
+            // 
+            // MaHopDong
+            // 
             MaHopDong.HeaderText = "Mã hợp đồng";
             MaHopDong.MinimumWidth = 6;
             MaHopDong.Name = "MaHopDong";
@@ -343,7 +357,6 @@
             SoTien.HeaderText = "Doanh thu";
             SoTien.MinimumWidth = 6;
             SoTien.Name = "SoTien";
-            // 
             // buttonSearch
             // 
             buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -376,6 +389,30 @@
             labelProjectProgress.Name = "labelProjectProgress";
             labelProjectProgress.Size = new Size(0, 38);
             labelProjectProgress.TabIndex = 13;
+            // 
+            // MaHopDong
+            // 
+            MaHopDong.HeaderText = "Mã hợp đồng";
+            MaHopDong.MinimumWidth = 6;
+            MaHopDong.Name = "MaHopDong";
+            // 
+            // TenHopDong
+            // 
+            TenHopDong.HeaderText = "Tên hợp đồng";
+            TenHopDong.MinimumWidth = 6;
+            TenHopDong.Name = "TenHopDong";
+            // 
+            // NgayThanhToan
+            // 
+            NgayThanhToan.HeaderText = "Ngày thanh toán";
+            NgayThanhToan.MinimumWidth = 6;
+            NgayThanhToan.Name = "NgayThanhToan";
+            // 
+            // SoTien
+            // 
+            SoTien.HeaderText = "Doanh thu";
+            SoTien.MinimumWidth = 6;
+            SoTien.Name = "SoTien";
             // 
             // FinancialReport
             // 

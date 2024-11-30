@@ -93,17 +93,36 @@ namespace Design
                 string GhiChu = row[6].ToString();
 
                 dataGridViewThongTinThanhToan.Rows.Add(GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), ngayNhanTT, PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, GhiChu);
+            
+            }
+
+            // Load data thông tin nhân viên
+            dataGridViewThongTinSale.Rows.Clear();
+            DataTable dtSale = NguoiDungBLL.loadThongTinNhanVien(hd.maNV);
+            foreach (DataRow row in dtSale.Rows)
+            {
+                string maNhanVien = row[0].ToString();
+                string tenNhanVien = row[1].ToString();
+                int hoaHong = Convert.ToInt32(row[2]);
+                
+                string tinhTrangHoatDongSale = "";
+                bool tinhTrangHoatDong = (bool)row[3];
+                if (tinhTrangHoatDong == false) tinhTrangHoatDongSale = "Ngưng hoạt động";
+                else tinhTrangHoatDongSale = "Đang hoạt động";
+
+                dataGridViewThongTinSale.Rows.Add(maNhanVien, tenNhanVien, hoaHong, tinhTrangHoatDongSale);
+
             }
         }
 
         private void dataGridViewThongTinSale_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewThongTinSale.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        
         }
 
         private void dataGridViewThongTinThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewThongTinThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+    
         }
 
         private void buttonQuayLai_Click(object sender, EventArgs e)
@@ -120,11 +139,6 @@ namespace Design
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void comboBoxHinhThucTT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Doi hinh thuc thanh toan");
         }
     }
 }

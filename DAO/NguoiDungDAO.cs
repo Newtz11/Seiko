@@ -193,5 +193,13 @@ namespace DAO
 
             
         }
+
+        public DataTable loadThongTinNhanVien(string maNV)
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC loadThongTinNhanVien @MaNV = '" + maNV + "'";
+            dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

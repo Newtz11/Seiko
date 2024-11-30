@@ -116,5 +116,11 @@ namespace BLL
         {
             TienDoHopDongDAO.Instance.delTienDo(maTienDo);
         }
+
+        public static int checkDelTienDo(string maTienDo)
+        {
+            DataTable dt = TienDoHopDongDAO.Instance.checkDelTienDo(maTienDo);
+            return dt.Rows.Count;
+        }
     }
 }

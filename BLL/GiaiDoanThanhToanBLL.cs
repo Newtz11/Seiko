@@ -102,5 +102,11 @@ namespace BLL
         {
             GiaiDoanThanhToanDAO.Instance.delGiaiDoanTT(maHD, giaiDoan);
         }
+
+        public static int checkDelGiaiDoan(string maHD)
+        {
+            DataTable dt = GiaiDoanThanhToanDAO.Instance.checkDelGiaiDoan(maHD);
+            return dt.Rows.Count;
+        }
     }
 }

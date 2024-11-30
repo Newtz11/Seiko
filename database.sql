@@ -286,6 +286,26 @@ go
 --drop proc loadThongTinThanhToan
 --exec loadThongTinThanhToan
 
+
+create proc loadThongTinNhanVien
+	@MaNV NVARCHAR(5)
+as
+begin
+	select hd.MaNV as [Mã nhân viên],
+			nv.HoTen as [Tên nhân viên],
+			hd.MucHoaHong as [Hoa hồng (%)],
+			nv.TinhTrangHoatDong as [Tình trạng]
+	from NGUOIDUNG as nv
+	INNER JOIN HOPDONG as hd ON nv.MaNV = hd.MaNV
+	where hd.MaNV = @MaNV
+end
+go
+
+--exec loadThongTinNhanVien @MaNV = '00007'
+
+
+
+
 		--Procedure ContractTrackingForSale--
 CREATE PROC loadContractTrackingForSale
     @MaNV NVARCHAR(5)
@@ -991,6 +1011,27 @@ end
 go
 
 exec delGiaiDoan @MaHD = 'HD001', @GiaiDoan = 3
+select * from GIAIDOANTHANHTOAN
+
+select * from NGUOIDUNG
+
+
+create proc checkDelTienDo
+	@MaTienDoHopDong NVARCHAR(5)
+as
+begin
+	declare @MaHD as NVARCHAR(5)
+	select @MaHD = MaHD from TIENDOHOPDONG where MaTienDoHopDong = @MaTienDoHopDong
+	select * from TIENDOHOPDONG where MaHD = @MaHD
+
+end
+go
+exec checkDelTienDo @MaTienDoHopDong = '00005'
+select * from NGUOIDUNG
+
+
+select * from GIAIDOANTHANHTOAN where MaHD = 'HD002'
+
 select * from GIAIDOANTHANHTOAN
 
 -- Trigger 
