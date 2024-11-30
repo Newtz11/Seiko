@@ -1433,7 +1433,7 @@ exec PerformanceByYear @Year = 2025
 
 		--Procedure khung tìm kiếm
 create proc searchGlobalOnPerformanceReport
-	@Keyword NVARCHAR(50),
+	@Keyword NVARCHAR(50)
 as
 begin
 	SELECT 
@@ -1449,13 +1449,112 @@ begin
 end
 go
 
+--exec searchGlobalOnPerformanceReport @Keyword = N'd'
+
+
+		--Procedure lọc thời gian trong BÁO CÁO HIỆU SUẤT
+create proc searchPerformanceByTime
+	@NgayBatDau DATE = NULL,
+	@NgayKetThuc DATE = NULL
+as
+begin
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+	WHERE (@NgayThanhToan IS NULL OR gd.NgayThanhToan >= @NgayThanhToan) AND (@NgayNhanThanhToan IS NULL OR gd.NgayNhanThanhToan <= @NgayNhanThanhToan)
+	GROUP BY nv.MaNV, nv.HoTen
+end
+go
+
+
+		--Procedure khung tìm kiếm BÁO CÁO TÀI CHÍNH
+create proc searchGlobalOnFinancialReport
+	@Keyword NVARCHAR(50)
+AS
+BEGIN
+	select MaHD as [Mã hợp đồng], 
+	TenHopDong as [Tên hợp đồng], 
+	NgayKetThuc as [Ngày kết thúc], 
+	CAST(ROUND(GiaTriHD - (GiaTriHD * 0.05), 0) AS INT) as [Doanh thu]
+    from HOPDONG
+	where (TinhTrangHD = N'Đã xong')
+		AND( (MaHD LIKE '%' + @Keyword + '%') OR (TenHopDong LIKE '%' + @Keyword + '%') )
+END
+GO
+
+exec searchGlobalOnFinancialReport @Keyword = N'der'
+select * from NGUOIDUNG
+
+
+		--Procedure khung tìm kiếm On CONTRACT HISTORY CHO TẤT  CẢ TRỪ SALE
+create proc searchGlobalOnContractHistory
+	@Keyword NVARCHAR(50)
+as
+begin
+	select hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+		nv.HoTen as [Account/Sale],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng]
+    FROM 
+        HOPDONG AS hd
+    INNER JOIN 
+        NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+	where (hd.TinhTrangHD = N'Đã xong') and ((hd.MaHD LIKE '%' + @Keyword + '%')
+		OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+		OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
+		OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
+		OR (CAST(hd.GiaTriHD AS NVARCHAR(11)) LIKE '%' + @Keyword + '%')
+		OR (nv.HoTen LIKE '%' + @Keyword + '%')
+		OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%'))
+end
+go
+--exec searchGlobalOnContractHistory @Keyword = N'minh'
+--drop proc searchGlobalOnContractHistory
 
 
 
 
+			--Procedure khung tìm kiếm On CONTRACT HISTORY CHỈ CHO SALE
+create proc searchGlobalOnContractHistoryOnlySale
+	@Keyword NVARCHAR(50),
+	@MaNV NVARCHAR(5)
+as
+begin
+	select hd.MaHD AS [Mã hợp đồng],
+        hd.TenHopDong AS [Tên hợp đồng],
+        hd.TenNguoiDaiDien AS [Tên Công ty/Cá nhân],
+        hd.TenNguoiLienHe AS [Người liên hệ],
+        hd.NgayBatDau AS [Ngày bắt đầu],
+        hd.NgayKetThuc AS [Ngày hết hạn],
+        hd.GiaTriHD AS [Giá trị hợp đồng],
+		nv.HoTen as [Account/Sale],
+        hd.TinhTrangHD AS [Tình trạng hợp đồng]
+    FROM 
+        HOPDONG AS hd
+    INNER JOIN 
+        NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
+	where (hd.MaNV = @MaNV and hd.TinhTrangHD = N'Đã xong') 
+		AND ( (hd.MaHD LIKE '%' + @Keyword + '%')
+		OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
+		OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
+		OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
+		OR (CAST(hd.GiaTriHD AS NVARCHAR(11)) LIKE '%' + @Keyword + '%')
+		OR (nv.HoTen LIKE '%' + @Keyword + '%')
+		OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%')
+		)
+end
+go
 
-
-
+--drop proc searchGlobalOnContractHistoryOnlySale
 -- Trigger 
 
 CREATE TRIGGER checkSDT

@@ -48,7 +48,7 @@
             chartFinancialReport = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label1 = new Label();
             buttonLapThongKe = new Button();
-            dataGridViewListUser = new DataGridView();
+            dataGridViewFinancial = new DataGridView();
             MaHD = new DataGridViewTextBoxColumn();
             TenHD = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxListUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartFinancialReport).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFinancial).BeginInit();
             SuspendLayout();
             // 
             // label9
@@ -95,7 +95,7 @@
             groupBoxListUser.Controls.Add(chartFinancialReport);
             groupBoxListUser.Controls.Add(label1);
             groupBoxListUser.Controls.Add(buttonLapThongKe);
-            groupBoxListUser.Controls.Add(dataGridViewListUser);
+            groupBoxListUser.Controls.Add(dataGridViewFinancial);
             groupBoxListUser.Controls.Add(buttonSearch);
             groupBoxListUser.Controls.Add(textBoxSearch);
             groupBoxListUser.Controls.Add(labelProjectProgress);
@@ -221,17 +221,17 @@
             buttonLapThongKe.UseVisualStyleBackColor = false;
             buttonLapThongKe.Click += buttonLapThongKe_Click;
             // 
-            // dataGridViewListUser
+            // dataGridViewFinancial
             // 
-            dataGridViewListUser.AllowUserToAddRows = false;
-            dataGridViewListUser.AllowUserToDeleteRows = false;
-            dataGridViewListUser.AllowUserToOrderColumns = true;
-            dataGridViewListUser.AllowUserToResizeRows = false;
-            dataGridViewListUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewListUser.BackgroundColor = Color.White;
-            dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewFinancial.AllowUserToAddRows = false;
+            dataGridViewFinancial.AllowUserToDeleteRows = false;
+            dataGridViewFinancial.AllowUserToOrderColumns = true;
+            dataGridViewFinancial.AllowUserToResizeRows = false;
+            dataGridViewFinancial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewFinancial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewFinancial.BackgroundColor = Color.White;
+            dataGridViewFinancial.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewFinancial.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = Color.DarkGray;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
@@ -239,10 +239,10 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewListUser.ColumnHeadersHeight = 80;
-            dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHD, TenHD, NgayThanhToan, DoanhThu });
+            dataGridViewFinancial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewFinancial.ColumnHeadersHeight = 80;
+            dataGridViewFinancial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewFinancial.Columns.AddRange(new DataGridViewColumn[] { MaHD, TenHD, NgayThanhToan, DoanhThu });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -250,12 +250,12 @@
             dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
             dataGridViewCellStyle6.SelectionForeColor = Color.Black;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewListUser.Location = new Point(21, 145);
-            dataGridViewListUser.Name = "dataGridViewListUser";
-            dataGridViewListUser.ReadOnly = true;
-            dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewFinancial.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewFinancial.GridColor = Color.FromArgb(224, 224, 224);
+            dataGridViewFinancial.Location = new Point(21, 145);
+            dataGridViewFinancial.Name = "dataGridViewFinancial";
+            dataGridViewFinancial.ReadOnly = true;
+            dataGridViewFinancial.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.Control;
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
@@ -263,18 +263,18 @@
             dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewListUser.RowHeadersVisible = false;
-            dataGridViewListUser.RowHeadersWidth = 51;
-            dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewFinancial.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewFinancial.RowHeadersVisible = false;
+            dataGridViewFinancial.RowHeadersWidth = 51;
+            dataGridViewFinancial.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewListUser.RowTemplate.Height = 35;
-            dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
-            dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewListUser.Size = new Size(1197, 250);
-            dataGridViewListUser.TabIndex = 8;
+            dataGridViewFinancial.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewFinancial.RowTemplate.Height = 35;
+            dataGridViewFinancial.ScrollBars = ScrollBars.Vertical;
+            dataGridViewFinancial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewFinancial.Size = new Size(1197, 250);
+            dataGridViewFinancial.TabIndex = 8;
             // 
             // MaHD
             // 
@@ -317,6 +317,7 @@
             buttonSearch.TabIndex = 17;
             buttonSearch.Text = "Tìm kiếm";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxSearch
             // 
@@ -355,7 +356,7 @@
             groupBoxListUser.ResumeLayout(false);
             groupBoxListUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chartFinancialReport).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewListUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFinancial).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -377,7 +378,7 @@
         private Label label9;
         private PictureBox pictureBoxIconContractTracking;
         private GroupBox groupBoxListUser;
-        private DataGridView dataGridViewListUser;
+        private DataGridView dataGridViewFinancial;
         private Button buttonSearch;
         private TextBox textBoxSearch;
         private Label labelProjectProgress;

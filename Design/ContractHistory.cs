@@ -20,7 +20,7 @@ namespace Design
         public ContractHistory(NguoiDung user)
         {
             InitializeComponent();
-            ApplyRoundedCorners(button1);
+            ApplyRoundedCorners(buttonTimKiem);
             ApplyRoundedCorners(buttonReset);
             this.user = user;
         }
@@ -65,6 +65,44 @@ namespace Design
                 string tenSale = row[7].ToString();
                 string tinhTrangHopDong = row[8].ToString();
                 dataGridViewContractHistory.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tenSale, tinhTrangHopDong);
+            }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            textBoxSearch.Text = "";
+
+            dataGridViewContractHistory.Rows.Clear();
+            ContractHistory_Load(sender, e);
+        }
+
+        private void buttonTimKiem_Click(object sender, EventArgs e)
+        {
+            string searchHopDong = textBoxSearch.Text.ToString().Trim();
+            DataTable dt = HopDongBLL.searchContractHistory(searchHopDong, user);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+                return;
+            }
+            else
+            {
+                dataGridViewContractHistory.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    string maHopDong = row[0].ToString();
+                    string tenHopDong = row[1].ToString();
+                    string tenCongTyCaNhan = row[2].ToString();
+                    string nguoiLienHe = row[3].ToString();
+                    DateTime ngayBatDau = Convert.ToDateTime(row[4]);
+                    DateTime ngayHetHan = Convert.ToDateTime(row[5]);
+                    int giaTriHopDong = Convert.ToInt32(row[6]);
+                    string tenSale = row[7].ToString();
+                    string tinhTrangHopDong = row[8].ToString();
+                    dataGridViewContractHistory.Rows.Add(maHopDong, tenHopDong, tenCongTyCaNhan, nguoiLienHe, ngayBatDau.ToString("dd/MM/yyyy"), ngayHetHan.ToString("dd/MM/yyyy"), giaTriHopDong, tenSale, tinhTrangHopDong);
+                }
+                textBoxSearch.Text = "";
             }
         }
     }

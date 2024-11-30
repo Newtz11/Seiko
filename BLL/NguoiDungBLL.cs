@@ -199,8 +199,6 @@ namespace BLL
                 }
             }
             return mergedDataTable;
-
-
         }
         public static DataTable getChartByMonth(string thang)
         {
