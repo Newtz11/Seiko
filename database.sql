@@ -49,7 +49,7 @@ values	(N'Giám đốc num0','trannguyenvanf', 0,'1972-11-20','giamdoc0@gmail.
 
 
 
-
+--delete from NGUOIDUNG WHERE MaNV = '00015'
 
 select * from NGUOIDUNG 
 

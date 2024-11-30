@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{B10F5EE8-F7B7-4AC0-A260-BE49DE647694}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{9CD4CE91-C40C-4756-84AF-211E75B6709B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSEIKO", "..\..\..\..\Máy tính\AppSEIKO\AppSEIKO.vdproj", "{00A3CC5F-93C9-4E77-840E-4F25C92E771E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +35,8 @@ Global
 		{B10F5EE8-F7B7-4AC0-A260-BE49DE647694}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10F5EE8-F7B7-4AC0-A260-BE49DE647694}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10F5EE8-F7B7-4AC0-A260-BE49DE647694}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CD4CE91-C40C-4756-84AF-211E75B6709B}.Debug|Any CPU.ActiveCfg = Debug
-		{9CD4CE91-C40C-4756-84AF-211E75B6709B}.Release|Any CPU.ActiveCfg = Release
+		{00A3CC5F-93C9-4E77-840E-4F25C92E771E}.Debug|Any CPU.ActiveCfg = Debug
+		{00A3CC5F-93C9-4E77-840E-4F25C92E771E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
