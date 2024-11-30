@@ -232,6 +232,7 @@ namespace BLL
             }
             return mergedDataTable;
 
+        }
 
         public static DataTable getAllHopDong(NguoiDung user)
         {
