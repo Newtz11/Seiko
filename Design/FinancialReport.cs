@@ -55,7 +55,7 @@ namespace Design
 
         private void FinancialReport_Load(object sender, EventArgs e)
         {
-            dataGridViewListUser.Rows.Clear();
+            dataGridViewFinancial.Rows.Clear();
             DataTable dt = HopDongBLL.loadFinancialReport();
             foreach (DataRow row in dt.Rows)
             {
@@ -63,7 +63,7 @@ namespace Design
                 string tenHopDong = row[1].ToString();
                 string ngayThanhToan = ((DateTime)row[2]).ToString("dd/MM/yyyy");
                 string doanhThu = row[3].ToString();
-                dataGridViewListUser.Rows.Add(maHopDong, tenHopDong, ngayThanhToan, doanhThu);
+                dataGridViewFinancial.Rows.Add(maHopDong, tenHopDong, ngayThanhToan, doanhThu);
             }
             chartFinancialReport.Series["Doanh Thu"].IsValueShownAsLabel = true;
             chartFinancialReport.Series["Doanh Thu"].LabelFormat = "{0:N0} VND";
@@ -99,7 +99,7 @@ namespace Design
         {
             comboBox1.Items.Clear();
             DataTable dt = HopDongBLL.getAllYear();
-            foreach (DataRow dr in dt.Rows) 
+            foreach (DataRow dr in dt.Rows)
             {
                 string year = dr[0].ToString();
                 comboBox1.Items.Add(year);
@@ -114,15 +114,15 @@ namespace Design
                 //lap thong ke theo thang
                 string thang = comboBox1.Text;
                 DataTable dt = HopDongBLL.getChartByMonth(thang);
-                foreach (DataRow dr in dt.Rows) 
+                foreach (DataRow dr in dt.Rows)
                 {
                     tongDoanhThu += long.Parse(dr[3].ToString());
                 }
                 chartFinancialReport.Series["Doanh Thu"].Points.AddXY(thang, tongDoanhThu);
-                chartFinancialReport.Visible = true;    
+                chartFinancialReport.Visible = true;
                 tongDoanhThu = 0;
             }
-            else if (radioButtonQuy.Checked) 
+            else if (radioButtonQuy.Checked)
             {
                 string quy = comboBox1.Text;
                 DataTable dt = HopDongBLL.getChartByQuater(quy);
@@ -156,12 +156,12 @@ namespace Design
                     doanhThuTheoThang.Add(i, 0);
                 }
 
-                
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     DateTime ngayThanhToan = (DateTime)dr[2];
                     int thang = ngayThanhToan.Month;
-                    long doanhThu = long.Parse(dr[3].ToString()); 
+                    long doanhThu = long.Parse(dr[3].ToString());
                     doanhThuTheoThang[thang] += doanhThu;
                 }
                 int index = 0;
@@ -174,7 +174,7 @@ namespace Design
 
                 }
 
-               
+
                 chartFinancialReport.Visible = true;
 
             }
@@ -210,6 +210,31 @@ namespace Design
                 chartFinancialReport.Visible = true;
 
 
+            }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string searchHopDong = textBoxSearch.Text.ToString().Trim();
+            DataTable dt = HopDongBLL.searchFinancialReport(searchHopDong);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
+                return;
+            }
+            else
+            {
+                dataGridViewFinancial.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    string maHopDong = row[0].ToString();
+                    string tenHopDong = row[1].ToString();
+                    DateTime ngayThanhToan = (DateTime)row[2];
+                    int doanhThu = Convert.ToInt32(row[3].ToString());
+                    dataGridViewFinancial.Rows.Add(maHopDong, tenHopDong, ngayThanhToan, doanhThu);
+                }
+                textBoxSearch.Text = "";
             }
         }
     }

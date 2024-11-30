@@ -39,6 +39,8 @@
             groupBoxContractHistory = new GroupBox();
             buttonReset = new Button();
             dataGridViewContractHistory = new DataGridView();
+            buttonTimKiem = new Button();
+            labelContractList = new Label();
             MaHopDong = new DataGridViewTextBoxColumn();
             TenHopDong = new DataGridViewTextBoxColumn();
             TenCongTyCaNhan = new DataGridViewTextBoxColumn();
@@ -46,15 +48,8 @@
             NgayBatDau = new DataGridViewTextBoxColumn();
             NgayHetHan = new DataGridViewTextBoxColumn();
             GiaTriHopDong = new DataGridViewTextBoxColumn();
-            AccountSale = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
-            comboBoxSale = new ComboBox();
-            labelNgayKetThuc = new Label();
-            dateTimePickerEnd = new DateTimePicker();
-            labelNgayBatDau = new Label();
-            dateTimePickerStart = new DateTimePicker();
-            button1 = new Button();
-            labelContractList = new Label();
+            TenNhanVien = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconContractTracking).BeginInit();
             groupBoxContractHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewContractHistory).BeginInit();
@@ -110,12 +105,7 @@
             groupBoxContractHistory.BackColor = Color.LightGray;
             groupBoxContractHistory.Controls.Add(buttonReset);
             groupBoxContractHistory.Controls.Add(dataGridViewContractHistory);
-            groupBoxContractHistory.Controls.Add(comboBoxSale);
-            groupBoxContractHistory.Controls.Add(labelNgayKetThuc);
-            groupBoxContractHistory.Controls.Add(dateTimePickerEnd);
-            groupBoxContractHistory.Controls.Add(labelNgayBatDau);
-            groupBoxContractHistory.Controls.Add(dateTimePickerStart);
-            groupBoxContractHistory.Controls.Add(button1);
+            groupBoxContractHistory.Controls.Add(buttonTimKiem);
             groupBoxContractHistory.Controls.Add(labelContractList);
             groupBoxContractHistory.Controls.Add(buttonSearch);
             groupBoxContractHistory.Controls.Add(textBoxSearch);
@@ -134,12 +124,13 @@
             buttonReset.FlatStyle = FlatStyle.Popup;
             buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReset.ForeColor = Color.White;
-            buttonReset.Location = new Point(1186, 143);
+            buttonReset.Location = new Point(1210, 134);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(130, 31);
             buttonReset.TabIndex = 32;
             buttonReset.Text = "Reset";
             buttonReset.UseVisualStyleBackColor = false;
+            buttonReset.Click += buttonReset_Click;
             // 
             // dataGridViewContractHistory
             // 
@@ -162,7 +153,7 @@
             dataGridViewContractHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewContractHistory.ColumnHeadersHeight = 60;
             dataGridViewContractHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewContractHistory.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, AccountSale, TinhTrang });
+            dataGridViewContractHistory.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, TenCongTyCaNhan, NguoiLienHe, NgayBatDau, NgayHetHan, GiaTriHopDong, TinhTrang, TenNhanVien });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -172,7 +163,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewContractHistory.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewContractHistory.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewContractHistory.Location = new Point(25, 200);
+            dataGridViewContractHistory.Location = new Point(21, 183);
             dataGridViewContractHistory.Name = "dataGridViewContractHistory";
             dataGridViewContractHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -189,8 +180,35 @@
             dataGridViewContractHistory.RowTemplate.Height = 35;
             dataGridViewContractHistory.ScrollBars = ScrollBars.Vertical;
             dataGridViewContractHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewContractHistory.Size = new Size(1337, 578);
+            dataGridViewContractHistory.Size = new Size(1337, 597);
             dataGridViewContractHistory.TabIndex = 7;
+            // 
+            // buttonTimKiem
+            // 
+            buttonTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonTimKiem.BackColor = Color.DodgerBlue;
+            buttonTimKiem.FlatAppearance.BorderSize = 2;
+            buttonTimKiem.FlatStyle = FlatStyle.Popup;
+            buttonTimKiem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonTimKiem.ForeColor = Color.White;
+            buttonTimKiem.Location = new Point(1210, 88);
+            buttonTimKiem.Name = "buttonTimKiem";
+            buttonTimKiem.Size = new Size(130, 30);
+            buttonTimKiem.TabIndex = 2;
+            buttonTimKiem.Text = "Tìm kiếm";
+            buttonTimKiem.UseVisualStyleBackColor = false;
+            buttonTimKiem.Click += buttonTimKiem_Click;
+            // 
+            // labelContractList
+            // 
+            labelContractList.AutoSize = true;
+            labelContractList.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            labelContractList.ForeColor = Color.Black;
+            labelContractList.Location = new Point(25, 22);
+            labelContractList.Name = "labelContractList";
+            labelContractList.Size = new Size(284, 38);
+            labelContractList.TabIndex = 20;
+            labelContractList.Text = "LỊCH SỬ HỢP ĐỒNG";
             // 
             // MaHopDong
             // 
@@ -246,93 +264,17 @@
             GiaTriHopDong.Name = "GiaTriHopDong";
             GiaTriHopDong.Width = 152;
             // 
-            // AccountSale
-            // 
-            AccountSale.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            AccountSale.HeaderText = "Account/Sale";
-            AccountSale.MinimumWidth = 6;
-            AccountSale.Name = "AccountSale";
-            // 
             // TinhTrang
             // 
-            TinhTrang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TinhTrang.HeaderText = "Tình trạng";
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
             // 
-            // comboBoxSale
+            // TenNhanVien
             // 
-            comboBoxSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            comboBoxSale.FormattingEnabled = true;
-            comboBoxSale.Location = new Point(660, 146);
-            comboBoxSale.Name = "comboBoxSale";
-            comboBoxSale.Size = new Size(197, 31);
-            comboBoxSale.TabIndex = 6;
-            comboBoxSale.Text = "Nhân viên phụ trách";
-            // 
-            // labelNgayKetThuc
-            // 
-            labelNgayKetThuc.AutoSize = true;
-            labelNgayKetThuc.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayKetThuc.Location = new Point(337, 146);
-            labelNgayKetThuc.Name = "labelNgayKetThuc";
-            labelNgayKetThuc.Size = new Size(126, 25);
-            labelNgayKetThuc.TabIndex = 31;
-            labelNgayKetThuc.Text = "Ngày kết thúc:";
-            // 
-            // dateTimePickerEnd
-            // 
-            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
-            dateTimePickerEnd.Location = new Point(467, 146);
-            dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(135, 27);
-            dateTimePickerEnd.TabIndex = 4;
-            // 
-            // labelNgayBatDau
-            // 
-            labelNgayBatDau.AutoSize = true;
-            labelNgayBatDau.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelNgayBatDau.Location = new Point(25, 146);
-            labelNgayBatDau.Name = "labelNgayBatDau";
-            labelNgayBatDau.Size = new Size(124, 25);
-            labelNgayBatDau.TabIndex = 29;
-            labelNgayBatDau.Text = "Ngày bắt đầu:";
-            // 
-            // dateTimePickerStart
-            // 
-            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
-            dateTimePickerStart.Location = new Point(155, 145);
-            dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(135, 27);
-            dateTimePickerStart.TabIndex = 3;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.BackColor = Color.DodgerBlue;
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1186, 89);
-            button1.Name = "button1";
-            button1.Size = new Size(130, 30);
-            button1.TabIndex = 2;
-            button1.Text = "Tìm kiếm";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // labelContractList
-            // 
-            labelContractList.AutoSize = true;
-            labelContractList.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            labelContractList.ForeColor = Color.Black;
-            labelContractList.Location = new Point(25, 22);
-            labelContractList.Name = "labelContractList";
-            labelContractList.Size = new Size(284, 38);
-            labelContractList.TabIndex = 20;
-            labelContractList.Text = "LỊCH SỬ HỢP ĐỒNG";
+            TenNhanVien.HeaderText = "Account/Sale";
+            TenNhanVien.MinimumWidth = 6;
+            TenNhanVien.Name = "TenNhanVien";
             // 
             // ContractHistory
             // 
@@ -363,13 +305,9 @@
         private Button buttonSearch;
         private GroupBox groupBoxContractHistory;
         private Label labelContractList;
-        private Button button1;
-        private ComboBox comboBoxSale;
-        private Label labelNgayKetThuc;
-        private DateTimePicker dateTimePickerEnd;
-        private Label labelNgayBatDau;
-        private DateTimePicker dateTimePickerStart;
+        private Button buttonTimKiem;
         private DataGridView dataGridViewContractHistory;
+        private Button buttonReset;
         private DataGridViewTextBoxColumn MaHopDong;
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn TenCongTyCaNhan;
@@ -377,8 +315,7 @@
         private DataGridViewTextBoxColumn NgayBatDau;
         private DataGridViewTextBoxColumn NgayHetHan;
         private DataGridViewTextBoxColumn GiaTriHopDong;
-        private DataGridViewTextBoxColumn AccountSale;
         private DataGridViewTextBoxColumn TinhTrang;
-        private Button buttonReset;
+        private DataGridViewTextBoxColumn TenNhanVien;
     }
 }

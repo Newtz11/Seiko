@@ -153,6 +153,86 @@ namespace BLL
         }
 
 
+        public static DataTable searchFinancialReport(string searchHopDong)
+        {
+            DataTable dtHopDong = new DataTable();
+            DataTable mergedDataTable = new DataTable();
+            List<DataTable> nonEmptyTables = new List<DataTable>();
+            if (!string.IsNullOrEmpty(searchHopDong))
+            {
+                dtHopDong = HopDongDAO.Instance.searchHopDongFinancial(searchHopDong);
+
+            }
+
+
+            if (dtHopDong.Rows.Count > 0) nonEmptyTables.Add(dtHopDong);
+
+            // Merge the non-empty DataTables
+            if (nonEmptyTables.Count > 0)
+            {
+                mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
+                foreach (DataRow row in nonEmptyTables[0].Rows)
+                {
+                    bool isInAllTables = true;
+                    foreach (DataTable table in nonEmptyTables.Skip(1))
+                    {
+                        var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
+                        if (matchingRows.Length == 0)
+                        {
+                            isInAllTables = false;
+                            break;
+                        }
+                    }
+
+                    if (isInAllTables)
+                    {
+                        mergedDataTable.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            return mergedDataTable;
+        }
+
+        public static DataTable searchContractHistory(string searchHopDong, NguoiDung user)
+        {
+            DataTable dtHopDong = new DataTable();
+            DataTable mergedDataTable = new DataTable();
+            List<DataTable> nonEmptyTables = new List<DataTable>();
+            if (!string.IsNullOrEmpty(searchHopDong))
+            {
+                dtHopDong = HopDongDAO.Instance.searchConTractHistory(searchHopDong, user);
+
+            }
+
+
+            if (dtHopDong.Rows.Count > 0) nonEmptyTables.Add(dtHopDong);
+
+            // Merge the non-empty DataTables
+            if (nonEmptyTables.Count > 0)
+            {
+                mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
+                foreach (DataRow row in nonEmptyTables[0].Rows)
+                {
+                    bool isInAllTables = true;
+                    foreach (DataTable table in nonEmptyTables.Skip(1))
+                    {
+                        var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
+                        if (matchingRows.Length == 0)
+                        {
+                            isInAllTables = false;
+                            break;
+                        }
+                    }
+
+                    if (isInAllTables)
+                    {
+                        mergedDataTable.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            return mergedDataTable;
+
+
         public static DataTable getAllHopDong(NguoiDung user)
         {
             return HopDongDAO.Instance.getAllHopDong(user);
@@ -161,6 +241,7 @@ namespace BLL
         public static DataTable searchHDGiaiDoan(NguoiDung user, string keyword)
         {
             return HopDongDAO.Instance.searchHDGiaiDoan(user, keyword);
+
         }
     }
 }

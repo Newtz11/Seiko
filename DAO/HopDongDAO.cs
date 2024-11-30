@@ -266,6 +266,44 @@ namespace DAO
             return dt;
         }
 
+        public DataTable searchHopDongFinancial(string searchHopDong)
+        {
+            string procName = "searchGlobalOnFinancialReport";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchHopDong }
+                };
+            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+            return dt;
+        }
+
+        public DataTable searchConTractHistory(string searchHopDong, NguoiDung user)
+        {
+            DataTable dt = new DataTable();
+            if(user.vaiTro == "Sale")
+            {
+                string procName = "searchGlobalOnContractHistoryOnlySale";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchHopDong },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchGlobalOnContractHistory";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = searchHopDong }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            return dt;
+        }
 
         public DataTable getAllHopDong(NguoiDung user)
         {

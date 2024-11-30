@@ -55,6 +55,7 @@ namespace Design
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
+                textBoxSearch.Text = "";
                 return;
             }
             else
