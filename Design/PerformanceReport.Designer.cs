@@ -217,7 +217,7 @@
             buttonSearch.FlatStyle = FlatStyle.Popup;
             buttonSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(1087, 23);
+            buttonSearch.Location = new Point(1087, 26);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(136, 33);
             buttonSearch.TabIndex = 30;
