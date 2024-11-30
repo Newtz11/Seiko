@@ -160,6 +160,7 @@ namespace BLL
             return NguoiDungDAO.Instance.loadFormPerformance();
         }
 
+
         public static DataTable searchHieuSuatNhanVien(string searchNhanVien, DateTime dateStart, DateTime dateEnd)
         {
             //DataTable dtNhanVien = new DataTable();
@@ -204,6 +205,28 @@ namespace BLL
             //    }
             //}
             //return mergedDataTable;
+
+
+        public static DataTable getChartByMonth(string thang)
+        {
+            string soChuoi = thang.Substring(5);
+            int so = int.Parse(soChuoi);
+            return NguoiDungDAO.Instance.getChartByMonth(so);
+        }
+
+        public static DataTable getChartByQuater(string quy)
+        {
+            string soChuoi = quy.Substring(4);
+            int so = int.Parse(soChuoi);
+            return NguoiDungDAO.Instance.getChartByQuy(so);
+        }
+
+
+        public static DataTable getChartByYear(string year)
+        {
+            int so = int.Parse(year);
+            return NguoiDungDAO.Instance.getChartByYear(so);
+
         }
     }
 }

@@ -210,9 +210,35 @@ namespace DAO
             return dt;
         }
 
+
         //public DataTable searchHieuSuatNhanVien(searchNhanVien, dateStart, dateEnd)
         //{
 
         //}
+
+        public DataTable getChartByMonth(int thang)
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC PerformanceBymonth @Month = '" + thang + "'";
+            dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+        public DataTable getChartByQuy(int quy)
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC PerformanceByQuarter @Quarter = '" + quy + "'";
+            dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
+        public DataTable getChartByYear(int year) 
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC PerformanceByYear @Year = '" + year + "'";
+            dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+
     }
 }
