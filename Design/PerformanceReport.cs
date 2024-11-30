@@ -111,109 +111,22 @@ namespace Design
 
         private void buttonLapThongKe_Click(object sender, EventArgs e)
         {
-            //chartPerformance.Series["Doanh Thu"].Points.Clear();
-            //if (radioButtonThang.Checked)
-            //{
-            //    //lap thong ke theo thang
-            //    string thang = comboBoxChonGiaTri.Text;
-            //    DataTable dt = HopDongBLL.getChartByMonth(thang);
-            //    foreach (DataRow dr in dt.Rows) 
-            //    {
-            //        tongDoanhThu += long.Parse(dr[3].ToString());
-            //    }
-            //    chartPerformance.Series["Doanh Thu"].Points.AddXY(thang, tongDoanhThu);
-            //    chartPerformance.Visible = true;    
-            //    tongDoanhThu = 0;
-            //}
-            //else if (radioButtonQuy.Checked) 
-            //{
-            //    string quy = comboBoxChonGiaTri.Text;
-            //    DataTable dt = HopDongBLL.getChartByQuater(quy);
+            chartPerformance.Series["Doanh Thu"].Points.Clear();
+            if (radioButtonThang.Checked)
+            {
+                //lap thong ke theo thang
 
-            //    int startMonth, endMonth;
-
-            //    switch (quy)
-            //    {
-            //        case "Quý 1":
-            //            startMonth = 1;
-            //            endMonth = 3;
-            //            break;
-            //        case "Quý 2":
-            //            startMonth = 4;
-            //            endMonth = 6;
-            //            break;
-            //        case "Quý 3":
-            //            startMonth = 7;
-            //            endMonth = 9;
-            //            break;
-            //        case "Quý 4":
-            //            startMonth = 10;
-            //            endMonth = 12;
-            //            break;
-            //        default:
-            //            return;
-            //    }
-            //    Dictionary<int, long> doanhThuTheoThang = new Dictionary<int, long>();
-            //    for (int i = startMonth; i <= endMonth; i++)
-            //    {
-            //        doanhThuTheoThang.Add(i, 0);
-            //    }
-
-                
-            //    foreach (DataRow dr in dt.Rows)
-            //    {
-            //        DateTime ngayThanhToan = (DateTime)dr[2];
-            //        int thang = ngayThanhToan.Month;
-            //        long doanhThu = long.Parse(dr[3].ToString()); 
-            //        doanhThuTheoThang[thang] += doanhThu;
-            //    }
-            //    int index = 0;
-            //    foreach (var item in doanhThuTheoThang)
-            //    {
-            //        string label = "Tháng " + item.Key.ToString();
-            //        chartPerformance.Series["Doanh Thu"].Points.AddXY(index, item.Value);
-            //        chartPerformance.Series["Doanh Thu"].Points[index].AxisLabel = label;
-            //        index++;
-
-            //    }
+            }
+            else if (radioButtonQuy.Checked)
+            {
 
 
-            //    chartPerformance.Visible = true;
+            }
+            else
+            {
+                //lap thong ke theo nam
 
-            //}
-            //else
-            //{
-            //    //lap thong ke theo nam
-            //    string year = comboBoxChonGiaTri.Text;
-            //    DataTable dt = HopDongBLL.getChartByYear(year); // Assuming this function fetches data for a specific year
-
-            //    Dictionary<int, long> doanhThuTheoThang = new Dictionary<int, long>();
-            //    for (int i = 1; i <= 12; i++)
-            //    {
-            //        doanhThuTheoThang.Add(i, 0);
-            //    }
-
-            //    foreach (DataRow dr in dt.Rows)
-            //    {
-            //        DateTime ngayThanhToan = (DateTime)dr[2];
-            //        int thang = ngayThanhToan.Month;
-            //        long doanhThu = long.Parse(dr[3].ToString());
-            //        doanhThuTheoThang[thang] += doanhThu;
-            //    }
-
-            //    int index = 0;
-            //    foreach (var item in doanhThuTheoThang)
-            //    {
-            //        string label = "Tháng " + item.Key.ToString();
-            //        chartPerformance.Series["Doanh Thu"].Points.AddXY(index, item.Value);
-            //        chartPerformance.Series["Doanh Thu"].Points[index].AxisLabel = label;
-            //        index++;
-            //    }
-
-            //    chartPerformance.Visible = true;
-
-
-            //}
+            }
         }
     }
 }
