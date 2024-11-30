@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Design
 {
@@ -51,14 +54,79 @@ namespace Design
 
         private void PerformanceReport_Load(object sender, EventArgs e)
         {
-            dataGridViewPerformance.Rows.Add("01234","Nguyen Van A", "60", "30", "10");
-            dataGridViewPerformance.Rows.Add("01235", "Nguyen Van B", "70", "30", "0");
-            dataGridViewPerformance.Rows.Add("01236", "Nguyen Van C", "60", "30", "10");
+            dataGridViewPerformance.Rows.Clear();
+            DataTable dt = NguoiDungBLL.loadFormPerformance();
+            foreach (DataRow row in dt.Rows)
+            {
+                string MaNhanVien = row[0].ToString();
+                string TenNhanVien = row[1].ToString();
+                int SLDaXong = Convert.ToInt32(row[2].ToString());
+                int SLDangThucHien = Convert.ToInt32(row[3].ToString());
+
+                dataGridViewPerformance.Rows.Add(MaNhanVien, TenNhanVien, SLDaXong, SLDangThucHien);
+            }
         }
 
         private void groupBoxListUser_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButtonThang_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxChonGiaTri.Items.Clear();
+            comboBoxChonGiaTri.Items.Add("Tháng 1");
+            comboBoxChonGiaTri.Items.Add("Tháng 2");
+            comboBoxChonGiaTri.Items.Add("Tháng 3");
+            comboBoxChonGiaTri.Items.Add("Tháng 4");
+            comboBoxChonGiaTri.Items.Add("Tháng 5");
+            comboBoxChonGiaTri.Items.Add("Tháng 6");
+            comboBoxChonGiaTri.Items.Add("Tháng 7");
+            comboBoxChonGiaTri.Items.Add("Tháng 8");
+            comboBoxChonGiaTri.Items.Add("Tháng 9");
+            comboBoxChonGiaTri.Items.Add("Tháng 10");
+            comboBoxChonGiaTri.Items.Add("Tháng 11");
+            comboBoxChonGiaTri.Items.Add("Tháng 12");
+        }
+
+        private void radioButtonQuy_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxChonGiaTri.Items.Clear();
+            comboBoxChonGiaTri.Items.Add("Quý 1");
+            comboBoxChonGiaTri.Items.Add("Quý 2");
+            comboBoxChonGiaTri.Items.Add("Quý 3");
+            comboBoxChonGiaTri.Items.Add("Quý 4");
+        }
+
+        private void radioButtonNam_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxChonGiaTri.Items.Clear();
+            DataTable dt = HopDongBLL.getAllYear();
+            foreach (DataRow dr in dt.Rows)
+            {
+                string year = dr[0].ToString();
+                comboBoxChonGiaTri.Items.Add(year);
+            }
+        }
+
+        private void buttonLapThongKe_Click(object sender, EventArgs e)
+        {
+            chartPerformance.Series["Doanh Thu"].Points.Clear();
+            if (radioButtonThang.Checked)
+            {
+                //lap thong ke theo thang
+
+            }
+            else if (radioButtonQuy.Checked)
+            {
+
+
+            }
+            else
+            {
+                //lap thong ke theo nam
+
+            }
         }
     }
 }

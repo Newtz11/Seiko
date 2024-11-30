@@ -32,6 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -54,13 +55,12 @@
             labelStart = new Label();
             buttonSearch = new Button();
             dataGridViewPerformance = new DataGridView();
-            buttonLapThongKe = new Button();
-            textBoxSearch = new TextBox();
             MaNhanVien = new DataGridViewTextBoxColumn();
             TenNhanVien = new DataGridViewTextBoxColumn();
             DaHoanThanh = new DataGridViewTextBoxColumn();
             DangThucHien = new DataGridViewTextBoxColumn();
-            ChuaThucHien = new DataGridViewTextBoxColumn();
+            buttonLapThongKe = new Button();
+            textBoxSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIconPerformanceReport).BeginInit();
             groupBoxPerformance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartPerformance).BeginInit();
@@ -140,8 +140,12 @@
             chartPerformance.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Đã Hoành Thành";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Chưa Hoàn Thành";
             chartPerformance.Series.Add(series1);
+            chartPerformance.Series.Add(series2);
             chartPerformance.Size = new Size(1174, 375);
             chartPerformance.TabIndex = 84;
             chartPerformance.Text = "chart1";
@@ -150,6 +154,7 @@
             // comboBoxChonGiaTri
             // 
             comboBoxChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBoxChonGiaTri.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxChonGiaTri.FormattingEnabled = true;
             comboBoxChonGiaTri.Location = new Point(899, 116);
             comboBoxChonGiaTri.Name = "comboBoxChonGiaTri";
@@ -177,6 +182,7 @@
             radioButtonNam.TabStop = true;
             radioButtonNam.Text = "Năm";
             radioButtonNam.UseVisualStyleBackColor = true;
+            radioButtonNam.CheckedChanged += radioButtonNam_CheckedChanged;
             // 
             // radioButtonQuy
             // 
@@ -188,6 +194,7 @@
             radioButtonQuy.TabStop = true;
             radioButtonQuy.Text = "Quý";
             radioButtonQuy.UseVisualStyleBackColor = true;
+            radioButtonQuy.CheckedChanged += radioButtonQuy_CheckedChanged;
             // 
             // radioButtonThang
             // 
@@ -199,6 +206,7 @@
             radioButtonThang.TabStop = true;
             radioButtonThang.Text = "Tháng";
             radioButtonThang.UseVisualStyleBackColor = true;
+            radioButtonThang.CheckedChanged += radioButtonThang_CheckedChanged;
             // 
             // label1
             // 
@@ -286,7 +294,7 @@
             dataGridViewPerformance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPerformance.ColumnHeadersHeight = 50;
             dataGridViewPerformance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewPerformance.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, DaHoanThanh, DangThucHien, ChuaThucHien });
+            dataGridViewPerformance.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, TenNhanVien, DaHoanThanh, DangThucHien });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -319,30 +327,6 @@
             dataGridViewPerformance.Size = new Size(1174, 220);
             dataGridViewPerformance.TabIndex = 8;
             // 
-            // buttonLapThongKe
-            // 
-            buttonLapThongKe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonLapThongKe.BackColor = Color.DodgerBlue;
-            buttonLapThongKe.FlatStyle = FlatStyle.Popup;
-            buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLapThongKe.ForeColor = Color.White;
-            buttonLapThongKe.Location = new Point(1087, 90);
-            buttonLapThongKe.Name = "buttonLapThongKe";
-            buttonLapThongKe.Size = new Size(136, 33);
-            buttonLapThongKe.TabIndex = 19;
-            buttonLapThongKe.Text = "Lập thống kê";
-            buttonLapThongKe.UseVisualStyleBackColor = false;
-            // 
-            // textBoxSearch
-            // 
-            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.Location = new Point(49, 26);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.PlaceholderText = "Tìm kiếm thông tin";
-            textBoxSearch.Size = new Size(1000, 30);
-            textBoxSearch.TabIndex = 1;
-            // 
             // MaNhanVien
             // 
             MaNhanVien.HeaderText = "Mã nhân viên";
@@ -367,11 +351,30 @@
             DangThucHien.MinimumWidth = 6;
             DangThucHien.Name = "DangThucHien";
             // 
-            // ChuaThucHien
+            // buttonLapThongKe
             // 
-            ChuaThucHien.HeaderText = "Chưa thực hiện (%)";
-            ChuaThucHien.MinimumWidth = 6;
-            ChuaThucHien.Name = "ChuaThucHien";
+            buttonLapThongKe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonLapThongKe.BackColor = Color.DodgerBlue;
+            buttonLapThongKe.FlatStyle = FlatStyle.Popup;
+            buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLapThongKe.ForeColor = Color.White;
+            buttonLapThongKe.Location = new Point(1087, 90);
+            buttonLapThongKe.Name = "buttonLapThongKe";
+            buttonLapThongKe.Size = new Size(136, 33);
+            buttonLapThongKe.TabIndex = 19;
+            buttonLapThongKe.Text = "Lập thống kê";
+            buttonLapThongKe.UseVisualStyleBackColor = false;
+            buttonLapThongKe.Click += buttonLapThongKe_Click;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.Location = new Point(49, 26);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PlaceholderText = "Tìm kiếm thông tin";
+            textBoxSearch.Size = new Size(1000, 30);
+            textBoxSearch.TabIndex = 1;
             // 
             // PerformanceReport
             // 
@@ -424,6 +427,5 @@
         private DataGridViewTextBoxColumn TenNhanVien;
         private DataGridViewTextBoxColumn DaHoanThanh;
         private DataGridViewTextBoxColumn DangThucHien;
-        private DataGridViewTextBoxColumn ChuaThucHien;
     }
 }

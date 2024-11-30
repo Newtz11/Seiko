@@ -159,7 +159,7 @@ namespace Design
             string TenDangNhap = textBoxUserName.Text.ToString().Trim();
             string HoTen = textBoxFullName.Text.ToString().Trim();
             string NgaySinh = dateTimePickerNgaySinh.Value.ToString("dd/MM/yyyy");
-            Console.WriteLine(NgaySinh);
+            
             bool GioiTinh = (radioButtonNam.Checked);
             string DiaChi = textBoxDiaChi.Text.ToString().Trim();
             string PhongBan = comboBoxPhongBan.Text.ToString().Trim();

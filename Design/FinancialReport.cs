@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,7 @@ namespace Design
 {
     public partial class FinancialReport : System.Windows.Forms.Form
     {
+        private long tongDoanhThu = 0;
         public FinancialReport()
         {
             InitializeComponent();
@@ -52,7 +55,18 @@ namespace Design
 
         private void FinancialReport_Load(object sender, EventArgs e)
         {
-
+            dataGridViewListUser.Rows.Clear();
+            DataTable dt = HopDongBLL.loadFinancialReport();
+            foreach (DataRow row in dt.Rows)
+            {
+                string maHopDong = row[0].ToString();
+                string tenHopDong = row[1].ToString();
+                string ngayThanhToan = ((DateTime)row[2]).ToString("dd/MM/yyyy");
+                string doanhThu = row[3].ToString();
+                dataGridViewListUser.Rows.Add(maHopDong, tenHopDong, ngayThanhToan, doanhThu);
+            }
+            chartFinancialReport.Series["Doanh Thu"].IsValueShownAsLabel = true;
+            chartFinancialReport.Series["Doanh Thu"].LabelFormat = "{0:N0} VND";
         }
 
         private void radioButtonThang_CheckedChanged(object sender, EventArgs e)
@@ -84,24 +98,118 @@ namespace Design
         private void radioButtonNam_CheckedChanged(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
-            comboBox1.Items.Add("Kế toán");
-            comboBox1.Items.Add("Trưởng phòng Kế toán");
+            DataTable dt = HopDongBLL.getAllYear();
+            foreach (DataRow dr in dt.Rows) 
+            {
+                string year = dr[0].ToString();
+                comboBox1.Items.Add(year);
+            }
         }
 
         private void buttonLapThongKe_Click(object sender, EventArgs e)
         {
+            chartFinancialReport.Series["Doanh Thu"].Points.Clear();
             if (radioButtonThang.Checked)
             {
                 //lap thong ke theo thang
+                string thang = comboBox1.Text;
+                DataTable dt = HopDongBLL.getChartByMonth(thang);
+                foreach (DataRow dr in dt.Rows) 
+                {
+                    tongDoanhThu += long.Parse(dr[3].ToString());
+                }
+                chartFinancialReport.Series["Doanh Thu"].Points.AddXY(thang, tongDoanhThu);
+                chartFinancialReport.Visible = true;    
+                tongDoanhThu = 0;
             }
-            else if (radioButtonNam.Checked) 
+            else if (radioButtonQuy.Checked) 
             {
-                //lap thong ke theo quy
-                chartFinancialReport.Series.Add("");
+                string quy = comboBox1.Text;
+                DataTable dt = HopDongBLL.getChartByQuater(quy);
+
+                int startMonth, endMonth;
+
+                switch (quy)
+                {
+                    case "Quý 1":
+                        startMonth = 1;
+                        endMonth = 3;
+                        break;
+                    case "Quý 2":
+                        startMonth = 4;
+                        endMonth = 6;
+                        break;
+                    case "Quý 3":
+                        startMonth = 7;
+                        endMonth = 9;
+                        break;
+                    case "Quý 4":
+                        startMonth = 10;
+                        endMonth = 12;
+                        break;
+                    default:
+                        return;
+                }
+                Dictionary<int, long> doanhThuTheoThang = new Dictionary<int, long>();
+                for (int i = startMonth; i <= endMonth; i++)
+                {
+                    doanhThuTheoThang.Add(i, 0);
+                }
+
+                
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DateTime ngayThanhToan = (DateTime)dr[2];
+                    int thang = ngayThanhToan.Month;
+                    long doanhThu = long.Parse(dr[3].ToString()); 
+                    doanhThuTheoThang[thang] += doanhThu;
+                }
+                int index = 0;
+                foreach (var item in doanhThuTheoThang)
+                {
+                    string label = "Tháng " + item.Key.ToString();
+                    chartFinancialReport.Series["Doanh Thu"].Points.AddXY(index, item.Value);
+                    chartFinancialReport.Series["Doanh Thu"].Points[index].AxisLabel = label;
+                    index++;
+
+                }
+
+               
+                chartFinancialReport.Visible = true;
+
             }
             else
             {
                 //lap thong ke theo nam
+                string year = comboBox1.Text;
+                DataTable dt = HopDongBLL.getChartByYear(year); // Assuming this function fetches data for a specific year
+
+                Dictionary<int, long> doanhThuTheoThang = new Dictionary<int, long>();
+                for (int i = 1; i <= 12; i++)
+                {
+                    doanhThuTheoThang.Add(i, 0);
+                }
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DateTime ngayThanhToan = (DateTime)dr[2];
+                    int thang = ngayThanhToan.Month;
+                    long doanhThu = long.Parse(dr[3].ToString());
+                    doanhThuTheoThang[thang] += doanhThu;
+                }
+
+                int index = 0;
+                foreach (var item in doanhThuTheoThang)
+                {
+                    string label = "Tháng " + item.Key.ToString();
+                    chartFinancialReport.Series["Doanh Thu"].Points.AddXY(index, item.Value);
+                    chartFinancialReport.Series["Doanh Thu"].Points[index].AxisLabel = label;
+                    index++;
+                }
+
+                chartFinancialReport.Visible = true;
+
+
             }
         }
     }
