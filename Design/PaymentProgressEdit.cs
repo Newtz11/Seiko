@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -28,7 +29,7 @@ namespace Design
         private bool trangThaiTT;
 
         // Danh cho sua
-        public PaymentProgressEdit(string maHD, int action,string tenHD,string giaiDoan, DateTime ngayThanhToan, int phanTramThanhToan,int giaTriThanhToan, bool trangThaiTT, DateTime ngayNhanThanhToan,string ghiChu)
+        public PaymentProgressEdit(string maHD, int action, string tenHD, string giaiDoan, DateTime ngayThanhToan, int phanTramThanhToan, int giaTriThanhToan, bool trangThaiTT, DateTime ngayNhanThanhToan, string ghiChu)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonLuu);
@@ -43,11 +44,11 @@ namespace Design
             this.giaTriThanhToan = giaTriThanhToan;
             this.ghiChu = ghiChu;
             this.trangThaiTT = trangThaiTT;
-            
+
         }
 
         // Danh cho them
-        public PaymentProgressEdit(string maHD, int action, string tenHD, string giaiDoan )
+        public PaymentProgressEdit(string maHD, int action, string tenHD, string giaiDoan)
         {
             InitializeComponent();
             ApplyRoundedCorners(buttonLuu);
@@ -103,15 +104,15 @@ namespace Design
                 //hanh dong sua
                 //khong lam gi ca
             }
-            
+
             textBoxGiaiDoan.Text = giaiDoan.ToString();
             textBoxTenHopDong.Text = tenHD;
             textBoxGiaTriThanhToan.Text = giaTriThanhToan.ToString();
             textBoxPhanTramThanhToan.Text = phanTramThanhToan.ToString();
             textBoxGhiChu.Text = ghiChu;
             comboBoxTrangThaiThanhToan.Text = trangThaiTT.ToString();
-           
-            
+
+
             if (trangThaiTT) comboBoxTrangThaiThanhToan.Text = "Đã thanh toán";
             else comboBoxTrangThaiThanhToan.Text = "Chưa thanh toán";
 
@@ -146,12 +147,14 @@ namespace Design
                 int phanTramThanhToan = Convert.ToInt32(textBoxPhanTramThanhToan.Text.Trim().ToString());
                 DateTime ngayThanhToan = dateTimePickerNgayThanhToan.Value;
                 DateTime ngayNhanThanhToan = dateTimePickerNgayNhanThanhToan.Value;
-                int giaTriThanhToan = Convert.ToInt32(textBoxGiaTriThanhToan.Text.Trim().ToString());
+                string input = textBoxGiaTriThanhToan.Text.Trim();
+                string numberWithoutCommas = input.Replace(",", "");
+                int giaTriThanhToan = Convert.ToInt32(numberWithoutCommas);
                 int giaiDoan = Convert.ToInt32(textBoxGiaiDoan.Text.Trim().ToString());
-                string maHD = textBoxMaHopDong.Text.Trim().ToString(); 
+                string maHD = textBoxMaHopDong.Text.Trim().ToString();
                 string trangthai = comboBoxTrangThaiThanhToan.Text.ToString().Trim();
                 bool trangThai = false;
-                if(trangthai.Equals("Đã thanh toán"))
+                if (trangthai.Equals("Đã thanh toán"))
                 {
                     trangThai = true;
                 }
@@ -166,6 +169,23 @@ namespace Design
                     this.Close();
                 }
                 else MessageBox.Show("Chỉnh sửa giai đoạn không thành công");
+            }
+        }
+
+        private void textBoxGiaTriThanhToan_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxGiaTriThanhToan.Text))
+                return;
+
+            string input = textBoxGiaTriThanhToan.Text;
+            decimal number;
+
+            if (decimal.TryParse(input, NumberStyles.Number, CultureInfo.InvariantCulture, out number))
+            {
+                // Format the number with commas for thousands separators
+                string formattedNumber = number.ToString("N0", CultureInfo.InvariantCulture); // "N0" for no decimals
+                textBoxGiaTriThanhToan.Text = formattedNumber;
+                textBoxGiaTriThanhToan.Select(formattedNumber.Length, 0); // Set the cursor to the end
             }
         }
     }

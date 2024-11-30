@@ -252,10 +252,11 @@
             // 
             textBoxGiaTriThanhToan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             textBoxGiaTriThanhToan.Location = new Point(221, 430);
-            textBoxGiaTriThanhToan.MaxLength = 11;
+            textBoxGiaTriThanhToan.MaxLength = 13;
             textBoxGiaTriThanhToan.Name = "textBoxGiaTriThanhToan";
             textBoxGiaTriThanhToan.Size = new Size(266, 30);
             textBoxGiaTriThanhToan.TabIndex = 5;
+            textBoxGiaTriThanhToan.TextChanged += textBoxGiaTriThanhToan_TextChanged;
             // 
             // label5
             // 
