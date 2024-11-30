@@ -25,8 +25,6 @@ namespace Design
             InitializeComponent();
             ApplyRoundedCorners(buttonSua);
             ApplyRoundedCorners(buttonLuu);
-            ApplyRoundedCorners(buttonThemSale);
-            ApplyRoundedCorners(buttonXoaSale);
             ApplyRoundedCorners(buttonQuayLai);
             this.user = user;
             this.hd = hd;

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListUser));
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pictureBoxIconListUser = new PictureBox();
             labelListUser = new Label();
             groupBoxListUser = new GroupBox();
@@ -49,7 +49,6 @@
             comboBoxTinhTrang = new ComboBox();
             comboBoxChucVu = new ComboBox();
             comboBoxPhongBan = new ComboBox();
-            buttonXoa = new Button();
             buttonTaoTaiKhoan = new Button();
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
@@ -88,7 +87,6 @@
             groupBoxListUser.Controls.Add(comboBoxTinhTrang);
             groupBoxListUser.Controls.Add(comboBoxChucVu);
             groupBoxListUser.Controls.Add(comboBoxPhongBan);
-            groupBoxListUser.Controls.Add(buttonXoa);
             groupBoxListUser.Controls.Add(buttonTaoTaiKhoan);
             groupBoxListUser.Controls.Add(buttonSearch);
             groupBoxListUser.Controls.Add(textBoxSearch);
@@ -106,7 +104,7 @@
             buttonReset.FlatStyle = FlatStyle.Popup;
             buttonReset.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReset.ForeColor = Color.White;
-            buttonReset.Location = new Point(765, 165);
+            buttonReset.Location = new Point(912, 165);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(136, 33);
             buttonReset.TabIndex = 30;
@@ -125,42 +123,42 @@
             dataGridViewListUser.BackgroundColor = Color.White;
             dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.DarkGray;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 50;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { SoThuTu, TenDangNhap, mail, TenNguoiDung, MaNguoiDung, PhongBan, ChucVu, TinhTrang });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewListUser.Location = new Point(39, 213);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = SystemColors.Control;
-            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
             dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -258,21 +256,6 @@
             comboBoxPhongBan.TabIndex = 26;
             comboBoxPhongBan.SelectedIndexChanged += comboBoxPhongBan_SelectedIndexChanged;
             // 
-            // buttonXoa
-            // 
-            buttonXoa.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonXoa.BackColor = Color.Crimson;
-            buttonXoa.FlatStyle = FlatStyle.Popup;
-            buttonXoa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonXoa.ForeColor = Color.White;
-            buttonXoa.Location = new Point(1122, 165);
-            buttonXoa.Name = "buttonXoa";
-            buttonXoa.Size = new Size(106, 33);
-            buttonXoa.TabIndex = 20;
-            buttonXoa.Text = "Xóa";
-            buttonXoa.UseVisualStyleBackColor = false;
-            buttonXoa.Click += buttonXoa_Click;
-            // 
             // buttonTaoTaiKhoan
             // 
             buttonTaoTaiKhoan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -280,7 +263,7 @@
             buttonTaoTaiKhoan.FlatStyle = FlatStyle.Popup;
             buttonTaoTaiKhoan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTaoTaiKhoan.ForeColor = Color.White;
-            buttonTaoTaiKhoan.Location = new Point(945, 165);
+            buttonTaoTaiKhoan.Location = new Point(1092, 165);
             buttonTaoTaiKhoan.Name = "buttonTaoTaiKhoan";
             buttonTaoTaiKhoan.Size = new Size(136, 33);
             buttonTaoTaiKhoan.TabIndex = 19;
@@ -353,7 +336,6 @@
         private TextBox textBoxSearch;
         private Button buttonSearch;
         private Label labelDanhSachNguoiDung;
-        private Button buttonXoa;
         private Button buttonTaoTaiKhoan;
         private ComboBox comboBoxChucVu;
         private ComboBox comboBoxPhongBan;

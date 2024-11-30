@@ -21,7 +21,6 @@ namespace Design
         public PersonalInformation(NguoiDung user)
         {
             InitializeComponent();
-            ApplyRoundedCorners(buttonChinhSua);
             ApplyRoundedCorners(buttonLuu);
             ApplyRoundedCorners(buttonThayAnhDaiDien);
             ApplyRoundedCorners(buttonDoiMatKhau);
@@ -49,11 +48,6 @@ namespace Design
             // Tạo vùng hình chữ nhật có góc bo tròn
             IntPtr hRgn = CreateRoundRectRgn(0, 0, button.Width, button.Height, 15, 15);
             button.Region = Region.FromHrgn(hRgn);
-        }
-
-        private void buttonChinhSua_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void PersonalInformation_Load(object sender, EventArgs e)

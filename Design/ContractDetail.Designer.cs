@@ -55,8 +55,6 @@
             TenNhanVien = new DataGridViewTextBoxColumn();
             HoaHong = new DataGridViewTextBoxColumn();
             TinhTrang = new DataGridViewTextBoxColumn();
-            buttonXoaSale = new Button();
-            buttonThemSale = new Button();
             labelThongTinSale = new Label();
             textBoxEmail = new TextBox();
             labelEmail = new Label();
@@ -124,8 +122,6 @@
             groupBoxEmail.Controls.Add(dataGridViewThongTinThanhToan);
             groupBoxEmail.Controls.Add(labelThongTinThanhToan);
             groupBoxEmail.Controls.Add(dataGridViewThongTinSale);
-            groupBoxEmail.Controls.Add(buttonXoaSale);
-            groupBoxEmail.Controls.Add(buttonThemSale);
             groupBoxEmail.Controls.Add(labelThongTinSale);
             groupBoxEmail.Controls.Add(textBoxEmail);
             groupBoxEmail.Controls.Add(labelEmail);
@@ -335,7 +331,7 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dataGridViewThongTinSale.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewThongTinSale.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewThongTinSale.Location = new Point(725, 354);
+            dataGridViewThongTinSale.Location = new Point(725, 291);
             dataGridViewThongTinSale.Name = "dataGridViewThongTinSale";
             dataGridViewThongTinSale.ReadOnly = true;
             dataGridViewThongTinSale.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -394,34 +390,6 @@
             TinhTrang.MinimumWidth = 6;
             TinhTrang.Name = "TinhTrang";
             TinhTrang.ReadOnly = true;
-            // 
-            // buttonXoaSale
-            // 
-            buttonXoaSale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonXoaSale.BackColor = Color.Crimson;
-            buttonXoaSale.FlatStyle = FlatStyle.Popup;
-            buttonXoaSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonXoaSale.ForeColor = Color.White;
-            buttonXoaSale.Location = new Point(908, 288);
-            buttonXoaSale.Name = "buttonXoaSale";
-            buttonXoaSale.Size = new Size(157, 41);
-            buttonXoaSale.TabIndex = 16;
-            buttonXoaSale.Text = "Xóa";
-            buttonXoaSale.UseVisualStyleBackColor = false;
-            // 
-            // buttonThemSale
-            // 
-            buttonThemSale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonThemSale.BackColor = Color.FromArgb(0, 192, 0);
-            buttonThemSale.FlatStyle = FlatStyle.Popup;
-            buttonThemSale.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonThemSale.ForeColor = Color.White;
-            buttonThemSale.Location = new Point(725, 288);
-            buttonThemSale.Name = "buttonThemSale";
-            buttonThemSale.Size = new Size(157, 41);
-            buttonThemSale.TabIndex = 15;
-            buttonThemSale.Text = "Thêm mới";
-            buttonThemSale.UseVisualStyleBackColor = false;
             // 
             // labelThongTinSale
             // 
@@ -809,7 +777,6 @@
         private Label labelTenNguoiLienHe;
         private Label label3;
         private TextBox textBoxTenNguoiLienHe;
-        private Button buttonThemSale;
         private Label labelThongTinSale;
         private TextBox textBoxEmail;
         private Label labelEmail;
@@ -817,7 +784,6 @@
         private Label labelSDT;
         private TextBox textBoxDiaChi;
         private Label labelDiaChi;
-        private Button buttonXoaSale;
         private DataGridView dataGridViewThongTinSale;
         private Label labelThongTinThanhToan;
         private DataGridView dataGridViewThongTinThanhToan;

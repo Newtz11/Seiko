@@ -29,6 +29,8 @@ CREATE TABLE NGUOIDUNG
 go
 
 
+
+
 ---Thêm dữ liệu Super Admin---
 insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
 values	(N'Admin','nguyenvana',0,'1967-02-01','admin@gmail.com',N'Admin','0912332222',N'IT','quan 7')
@@ -46,8 +48,7 @@ insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT,
 values	(N'Giám đốc num0','trannguyenvanf', 0,'1972-11-20','giamdoc0@gmail.com',N'Giám đốc','0936681910',N'Giám đốc','quan 7')
 
 
-insert into NGUOIDUNG(HoTen, TenDangNhap, GioiTinh, NgaySinh, Mail, VaiTro, SDT, PhongBan, DiaChi)
-values	(N'Bảo','dinhgiabao', 0,'1972-11-20','dgb2k4@gmail.com','CEO','0936681910','CEO','quan 7')
+
 
 
 select * from NGUOIDUNG 
@@ -565,11 +566,10 @@ END
 GO
 
 --drop proc searchGlobalOnPaymentProgress
---exec searchGlobalOnPaymentProgress @Keyword = N'HD001'
+--exec searchGlobalOnPaymentProgress @Keyword = N'tik'
 
 --select * from GIAIDOANTHANHTOAN
-
-
+select * from NGUOIDUNG
 	--Procedure search trạng thái thanh toán On PaymentProgress
 create proc searchTrangThaiOnPaymentProgress
 	@TrangThai BIT = NULL
@@ -880,7 +880,7 @@ begin
 end
 go
 
---EXEC createAccount @TenDangNhap = 'admin', @MatKhau = '12345', @HoTen = N'Admin', @NgaySinh = '2004-11-30', @GioiTinh = 1, @DiaChi = N'12 kbdnd', @PhongBan = N'IT', @VaiTro = N'Super Admin', @Mail = N'abc@gmail.com', @SDT = '09087456'
+--EXEC createAccount @TenDangNhap = 'admin', @MatKhau = '12345', @HoTen = N'Admin', @NgaySinh = '2004-11-30', @GioiTinh = 1, @DiaChi = N'12 kbdnd', @PhongBan = N'IT', @VaiTro = N'Super Admin', @Mail = N'minhgia2911@gmail.com', @SDT = '0907537916'
 --EXEC createAccount @TenDangNhap = 'bao', @MatKhau = '12345', @HoTen = N'ketoan2', @NgaySinh = '2004-11-30', @GioiTinh = 1, @DiaChi = N'12 kbdnd', @PhongBan = N'Kế toán', @VaiTro = N'Kế toán', @Mail = N'abcde@gmail.com', @SDT = '09087456'
 
 -- update account
