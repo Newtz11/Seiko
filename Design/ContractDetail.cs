@@ -60,6 +60,7 @@ namespace Design
         {
             // check để biết hợp đồng hoàn thành hay chưa
             int tongPhanTram = 0;
+            int tienDaTT = 0;
             textBoxMaHopDong.Text = hd.maHD;
             textBoxTenHopDong.Text = hd.tenHD;
             textBoxTenNguoiDaiDien.Text = hd.tenNguoiDaiDien;
@@ -97,12 +98,14 @@ namespace Design
 
                 dataGridViewThongTinThanhToan.Rows.Add(GiaiDoan, NgayThanhToan.ToString("dd/MM/yyyy"), ngayNhanTT, PhanTramThanhToan, GiaTriThanhToan, trangThaiTT, GhiChu);
                 // check xem có cộng không
+                
                 if (TrangThai)
                 {
                     tongPhanTram += PhanTramThanhToan;
+                    tienDaTT += GiaTriThanhToan;
                 }
             }
-
+            textBoxDaThanhToan.Text = tienDaTT.ToString();
             // Load data thông tin nhân viên
             dataGridViewThongTinSale.Rows.Clear();
             DataTable dtSale = NguoiDungBLL.loadThongTinNhanVien(hd.maNV);
@@ -122,7 +125,7 @@ namespace Design
             }
 
             // Check
-            if (tongPhanTram == 100)
+            if (tongPhanTram >= 100)
             {
                 choPhepDoi = true;
             }
@@ -159,6 +162,7 @@ namespace Design
                 HopDongBLL.updateContractState(hd.maHD);
                 comboBoxTrangThai.Enabled = false;
                 choPhepDoi = false;
+                textBoxDaThanhToan.Text = textBoxGiaTriHopDong.Text;
             }
         }
 

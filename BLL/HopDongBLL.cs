@@ -152,6 +152,7 @@ namespace BLL
             return HopDongDAO.Instance.getAllYear();
         }
 
+
         public static DataTable searchFinancialReport(string searchHopDong)
         {
             DataTable dtHopDong = new DataTable();
@@ -230,6 +231,17 @@ namespace BLL
                 }
             }
             return mergedDataTable;
+
+
+        public static DataTable getAllHopDong(NguoiDung user)
+        {
+            return HopDongDAO.Instance.getAllHopDong(user);
+        }
+
+        public static DataTable searchHDGiaiDoan(NguoiDung user, string keyword)
+        {
+            return HopDongDAO.Instance.searchHDGiaiDoan(user, keyword);
+
         }
     }
 }

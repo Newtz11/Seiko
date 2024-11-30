@@ -305,5 +305,29 @@ namespace DAO
             return dt;
         }
 
+        public DataTable getAllHopDong(NguoiDung user)
+        {
+            string query = "exec layThongTinGiaiDoanThanhToanByMaNV @MaNV = '" + user.maNV + "'";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
+        public DataTable searchHDGiaiDoan(NguoiDung user, string keyword)
+        {
+            DataTable dt = new DataTable();
+
+            string procName = "searchGiaiDoanThanhToanGlobal";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV},
+                new SqlParameter("@Keyword", SqlDbType.NVarChar, 5) { Value = keyword}
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        
+
     }
 }
