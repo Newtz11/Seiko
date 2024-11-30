@@ -51,29 +51,26 @@ namespace Design
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string searchNhanVien = textBoxSearch.Text.ToString().Trim();
-            DateTime dateStart = dateTimePickerStart.Value;
-            DateTime dateEnd = dateTimePickerEnd.Value;
+            DataTable dt = NguoiDungBLL.searchHieuSuatNhanVien(searchNhanVien);
+            if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
+            {
+                // DataTable is empty or has no columns
+                return;
+            }
+            else
+            {
+                dataGridViewPerformance.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    string maNhanVien = row[0].ToString();
+                    string tenNhanVien = row[1].ToString();
+                    int SLDaXong = Convert.ToInt32(row[2].ToString());
+                    int SLDangThucHien = Convert.ToInt32(row[3].ToString());
+                    dataGridViewPerformance.Rows.Add(maNhanVien, tenNhanVien, SLDaXong, SLDangThucHien);
+                }
 
-            //DataTable dt = NguoiDungBLL.searchHieuSuatNhanVien(searchNhanVien, dateStart, dateEnd);
-            //if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
-            //{
-            //    // DataTable is empty or has no columns
-            //    return;
-            //}
-            //else
-            //{
-            //    dataGridViewPerformance.Rows.Clear();
-            //    foreach (DataRow row in dt.Rows)
-            //    {
-            //        string maNhanVien = row[0].ToString();
-            //        string tenNhanVien = row[1].ToString();
-            //        int SLDaXong = Convert.ToInt32(row[2].ToString());
-            //        int SLDangThucHien = Convert.ToInt32(row[3].ToString());
-            //        dataGridViewPerformance.Rows.Add(maNhanVien, tenNhanVien, SLDaXong, SLDangThucHien);
-            //    }
-
-            //    currentTable = dt;
-            //}
+                currentTable = dt;
+            }
         }
 
         private void PerformanceReport_Load(object sender, EventArgs e)

@@ -49,10 +49,6 @@
             radioButtonQuy = new RadioButton();
             radioButtonThang = new RadioButton();
             label1 = new Label();
-            dateTimePickerEnd = new DateTimePicker();
-            dateTimePickerStart = new DateTimePicker();
-            labelEnd = new Label();
-            labelStart = new Label();
             buttonSearch = new Button();
             dataGridViewPerformance = new DataGridView();
             MaNhanVien = new DataGridViewTextBoxColumn();
@@ -99,10 +95,6 @@
             groupBoxPerformance.Controls.Add(radioButtonQuy);
             groupBoxPerformance.Controls.Add(radioButtonThang);
             groupBoxPerformance.Controls.Add(label1);
-            groupBoxPerformance.Controls.Add(dateTimePickerEnd);
-            groupBoxPerformance.Controls.Add(dateTimePickerStart);
-            groupBoxPerformance.Controls.Add(labelEnd);
-            groupBoxPerformance.Controls.Add(labelStart);
             groupBoxPerformance.Controls.Add(buttonSearch);
             groupBoxPerformance.Controls.Add(dataGridViewPerformance);
             groupBoxPerformance.Controls.Add(buttonLapThongKe);
@@ -156,7 +148,7 @@
             comboBoxChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBoxChonGiaTri.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxChonGiaTri.FormattingEnabled = true;
-            comboBoxChonGiaTri.Location = new Point(899, 116);
+            comboBoxChonGiaTri.Location = new Point(904, 87);
             comboBoxChonGiaTri.Name = "comboBoxChonGiaTri";
             comboBoxChonGiaTri.Size = new Size(150, 28);
             comboBoxChonGiaTri.TabIndex = 7;
@@ -166,7 +158,7 @@
             labelChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelChonGiaTri.AutoSize = true;
             labelChonGiaTri.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelChonGiaTri.Location = new Point(785, 119);
+            labelChonGiaTri.Location = new Point(790, 90);
             labelChonGiaTri.Name = "labelChonGiaTri";
             labelChonGiaTri.Size = new Size(108, 25);
             labelChonGiaTri.TabIndex = 82;
@@ -175,7 +167,7 @@
             // radioButtonNam
             // 
             radioButtonNam.AutoSize = true;
-            radioButtonNam.Location = new Point(442, 120);
+            radioButtonNam.Location = new Point(447, 91);
             radioButtonNam.Name = "radioButtonNam";
             radioButtonNam.Size = new Size(62, 24);
             radioButtonNam.TabIndex = 6;
@@ -187,7 +179,7 @@
             // radioButtonQuy
             // 
             radioButtonQuy.AutoSize = true;
-            radioButtonQuy.Location = new Point(380, 121);
+            radioButtonQuy.Location = new Point(385, 92);
             radioButtonQuy.Name = "radioButtonQuy";
             radioButtonQuy.Size = new Size(56, 24);
             radioButtonQuy.TabIndex = 5;
@@ -199,7 +191,7 @@
             // radioButtonThang
             // 
             radioButtonThang.AutoSize = true;
-            radioButtonThang.Location = new Point(303, 121);
+            radioButtonThang.Location = new Point(308, 92);
             radioButtonThang.Name = "radioButtonThang";
             radioButtonThang.Size = new Size(71, 24);
             radioButtonThang.TabIndex = 4;
@@ -212,51 +204,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(44, 119);
+            label1.Location = new Point(49, 90);
             label1.Name = "label1";
             label1.Size = new Size(234, 25);
             label1.TabIndex = 78;
             label1.Text = "Tính theo(Tháng/Quý/Năm):";
-            // 
-            // dateTimePickerEnd
-            // 
-            dateTimePickerEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePickerEnd.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
-            dateTimePickerEnd.Location = new Point(899, 69);
-            dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(150, 27);
-            dateTimePickerEnd.TabIndex = 3;
-            // 
-            // dateTimePickerStart
-            // 
-            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
-            dateTimePickerStart.Location = new Point(130, 68);
-            dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(148, 27);
-            dateTimePickerStart.TabIndex = 2;
-            // 
-            // labelEnd
-            // 
-            labelEnd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            labelEnd.AutoSize = true;
-            labelEnd.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            labelEnd.Location = new Point(809, 71);
-            labelEnd.Name = "labelEnd";
-            labelEnd.Size = new Size(84, 25);
-            labelEnd.TabIndex = 75;
-            labelEnd.Text = "Tới ngày:";
-            // 
-            // labelStart
-            // 
-            labelStart.AutoSize = true;
-            labelStart.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelStart.Location = new Point(44, 69);
-            labelStart.Name = "labelStart";
-            labelStart.Size = new Size(80, 25);
-            labelStart.TabIndex = 74;
-            labelStart.Text = "Từ ngày:";
             // 
             // buttonSearch
             // 
@@ -358,7 +310,7 @@
             buttonLapThongKe.FlatStyle = FlatStyle.Popup;
             buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLapThongKe.ForeColor = Color.White;
-            buttonLapThongKe.Location = new Point(1087, 90);
+            buttonLapThongKe.Location = new Point(1087, 86);
             buttonLapThongKe.Name = "buttonLapThongKe";
             buttonLapThongKe.Size = new Size(136, 33);
             buttonLapThongKe.TabIndex = 19;
@@ -411,10 +363,6 @@
         private DataGridView dataGridViewPerformance;
         private Button buttonLapThongKe;
         private TextBox textBoxSearch;
-        private DateTimePicker dateTimePickerEnd;
-        private DateTimePicker dateTimePickerStart;
-        private Label labelEnd;
-        private Label labelStart;
         private ComboBox comboBoxChonGiaTri;
         private Label labelChonGiaTri;
         private RadioButton radioButtonNam;

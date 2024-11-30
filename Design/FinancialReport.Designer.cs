@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinancialReport));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             label9 = new Label();
             pictureBoxIconContractTracking = new PictureBox();
             groupBoxListUser = new GroupBox();
@@ -47,10 +47,6 @@
             comboBox1 = new ComboBox();
             chartFinancialReport = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            labelToiNgay = new Label();
-            dateTimePickerStart = new DateTimePicker();
-            labelTuNgay = new Label();
             buttonLapThongKe = new Button();
             dataGridViewListUser = new DataGridView();
             MaHD = new DataGridViewTextBoxColumn();
@@ -98,10 +94,6 @@
             groupBoxListUser.Controls.Add(comboBox1);
             groupBoxListUser.Controls.Add(chartFinancialReport);
             groupBoxListUser.Controls.Add(label1);
-            groupBoxListUser.Controls.Add(dateTimePicker1);
-            groupBoxListUser.Controls.Add(labelToiNgay);
-            groupBoxListUser.Controls.Add(dateTimePickerStart);
-            groupBoxListUser.Controls.Add(labelTuNgay);
             groupBoxListUser.Controls.Add(buttonLapThongKe);
             groupBoxListUser.Controls.Add(dataGridViewListUser);
             groupBoxListUser.Controls.Add(buttonSearch);
@@ -133,7 +125,7 @@
             labelChonGiaTri.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelChonGiaTri.AutoSize = true;
             labelChonGiaTri.Font = new Font("Segoe UI", 10.8F);
-            labelChonGiaTri.Location = new Point(714, 110);
+            labelChonGiaTri.Location = new Point(714, 81);
             labelChonGiaTri.Name = "labelChonGiaTri";
             labelChonGiaTri.Size = new Size(108, 25);
             labelChonGiaTri.TabIndex = 61;
@@ -142,7 +134,7 @@
             // radioButtonQuy
             // 
             radioButtonQuy.AutoSize = true;
-            radioButtonQuy.Location = new Point(361, 119);
+            radioButtonQuy.Location = new Point(362, 86);
             radioButtonQuy.Name = "radioButtonQuy";
             radioButtonQuy.Size = new Size(56, 24);
             radioButtonQuy.TabIndex = 5;
@@ -154,7 +146,7 @@
             // radioButtonNam
             // 
             radioButtonNam.AutoSize = true;
-            radioButtonNam.Location = new Point(434, 119);
+            radioButtonNam.Location = new Point(435, 86);
             radioButtonNam.Name = "radioButtonNam";
             radioButtonNam.Size = new Size(62, 24);
             radioButtonNam.TabIndex = 6;
@@ -166,7 +158,7 @@
             // radioButtonThang
             // 
             radioButtonThang.AutoSize = true;
-            radioButtonThang.Location = new Point(282, 118);
+            radioButtonThang.Location = new Point(283, 85);
             radioButtonThang.Name = "radioButtonThang";
             radioButtonThang.Size = new Size(71, 24);
             radioButtonThang.TabIndex = 4;
@@ -180,7 +172,7 @@
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(829, 111);
+            comboBox1.Location = new Point(829, 82);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(157, 28);
             comboBox1.TabIndex = 7;
@@ -188,17 +180,17 @@
             // chartFinancialReport
             // 
             chartFinancialReport.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chartArea1.Name = "ChartArea1";
-            chartFinancialReport.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartFinancialReport.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            chartFinancialReport.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartFinancialReport.Legends.Add(legend2);
             chartFinancialReport.Location = new Point(21, 401);
             chartFinancialReport.Name = "chartFinancialReport";
             chartFinancialReport.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Doanh Thu";
-            chartFinancialReport.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Doanh Thu";
+            chartFinancialReport.Series.Add(series2);
             chartFinancialReport.Size = new Size(1197, 352);
             chartFinancialReport.TabIndex = 37;
             chartFinancialReport.Text = "chart1";
@@ -208,53 +200,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F);
-            label1.Location = new Point(21, 117);
+            label1.Location = new Point(22, 84);
             label1.Name = "label1";
             label1.Size = new Size(243, 25);
             label1.TabIndex = 35;
             label1.Text = "Tính theo: (Tháng, Quý, Năm)";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker1.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(829, 77);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(157, 27);
-            dateTimePicker1.TabIndex = 3;
-            // 
-            // labelToiNgay
-            // 
-            labelToiNgay.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            labelToiNgay.AutoSize = true;
-            labelToiNgay.Font = new Font("Segoe UI", 10.8F);
-            labelToiNgay.Location = new Point(714, 77);
-            labelToiNgay.Name = "labelToiNgay";
-            labelToiNgay.Size = new Size(84, 25);
-            labelToiNgay.TabIndex = 33;
-            labelToiNgay.Text = "Tới ngày:";
-            // 
-            // dateTimePickerStart
-            // 
-            dateTimePickerStart.CalendarFont = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
-            dateTimePickerStart.Location = new Point(107, 78);
-            dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(157, 27);
-            dateTimePickerStart.TabIndex = 2;
-            // 
-            // labelTuNgay
-            // 
-            labelTuNgay.AutoSize = true;
-            labelTuNgay.Font = new Font("Segoe UI", 10.8F);
-            labelTuNgay.Location = new Point(21, 79);
-            labelTuNgay.Name = "labelTuNgay";
-            labelTuNgay.Size = new Size(80, 25);
-            labelTuNgay.TabIndex = 31;
-            labelTuNgay.Text = "Từ ngày:";
             // 
             // buttonLapThongKe
             // 
@@ -263,7 +213,7 @@
             buttonLapThongKe.FlatStyle = FlatStyle.Popup;
             buttonLapThongKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLapThongKe.ForeColor = Color.White;
-            buttonLapThongKe.Location = new Point(1055, 78);
+            buttonLapThongKe.Location = new Point(1055, 81);
             buttonLapThongKe.Name = "buttonLapThongKe";
             buttonLapThongKe.Size = new Size(163, 33);
             buttonLapThongKe.TabIndex = 30;
@@ -282,44 +232,44 @@
             dataGridViewListUser.BackgroundColor = Color.White;
             dataGridViewListUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewListUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DarkGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewListUser.ColumnHeadersHeight = 80;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHD, TenHD, NgayThanhToan, DoanhThu });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridViewListUser.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewListUser.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewListUser.Location = new Point(21, 145);
             dataGridViewListUser.Name = "dataGridViewListUser";
             dataGridViewListUser.ReadOnly = true;
             dataGridViewListUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewListUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewListUser.RowHeadersVisible = false;
             dataGridViewListUser.RowHeadersWidth = 51;
             dataGridViewListUser.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dataGridViewListUser.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewListUser.RowTemplate.Height = 35;
             dataGridViewListUser.ScrollBars = ScrollBars.Vertical;
             dataGridViewListUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -432,10 +382,6 @@
         private TextBox textBoxSearch;
         private Label labelProjectProgress;
         private Button buttonLapThongKe;
-        private Label labelTuNgay;
-        private DateTimePicker dateTimePicker1;
-        private Label labelToiNgay;
-        private DateTimePicker dateTimePickerStart;
         private Label label1;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridViewTextBoxColumn TenNguoiDung;
