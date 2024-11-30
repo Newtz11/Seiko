@@ -542,6 +542,7 @@
             comboBoxTrangThai.Name = "comboBoxTrangThai";
             comboBoxTrangThai.Size = new Size(310, 28);
             comboBoxTrangThai.TabIndex = 10;
+            comboBoxTrangThai.SelectedIndexChanged += comboBoxTrangThai_SelectedIndexChanged;
             // 
             // labelTrangThai
             // 
@@ -743,6 +744,7 @@
             // 
             buttonLuu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonLuu.BackColor = Color.DodgerBlue;
+            buttonLuu.Enabled = false;
             buttonLuu.FlatStyle = FlatStyle.Popup;
             buttonLuu.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLuu.ForeColor = Color.White;

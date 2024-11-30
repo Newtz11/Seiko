@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,7 +60,7 @@ namespace Design
 
         private void groupBoxListUser_Enter(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

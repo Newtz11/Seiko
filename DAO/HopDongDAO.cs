@@ -145,6 +145,79 @@ namespace DAO
         }
 
 
+        public DataTable loadFinancialReport()
+        {
+            string query = "exec loadFormFinancialReport";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
 
+        public void updateContractState(string maHD) 
+        {
+
+            DataTable dt = new DataTable();
+            
+            string procName = "updateContractDetails";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", SqlDbType.NVarChar, 5) { Value = maHD}
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+            
+        }
+
+        public DataTable getChartByMonth(int so)
+        {
+            DataTable dt = new DataTable();
+
+            string procName = "searchContractByMonth";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Month", SqlDbType.Int) { Value = so}
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+
+        public DataTable getChartByQuy(int so)
+        {
+            DataTable dt = new DataTable();
+
+            string procName = "searchContractByQuarter";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Quarter", SqlDbType.Int) { Value = so}
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable getChartByYear(int so)
+        {
+            DataTable dt = new DataTable();
+
+            string procName = "searchContractByYear";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Year", SqlDbType.Int) { Value = so}
+            };
+            dt = DataProvider.Instance.executeProc(procName, parameters);
+
+            return dt;
+        }
+
+        public DataTable getAllYear()
+        {
+            string query = "exec searchContractBySelectAllYear";
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            return dt;
+        }
     }
 }

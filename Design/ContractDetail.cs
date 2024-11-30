@@ -19,6 +19,7 @@ namespace Design
         private HopDong hd;
         private System.Windows.Forms.Form f;
         private string hinhThucTT;
+        private bool choPhepDoi = false;
         public ContractDetail(NguoiDung user, HopDong hd, System.Windows.Forms.Form f)
         {
             InitializeComponent();
@@ -110,7 +111,7 @@ namespace Design
                 string maNhanVien = row[0].ToString();
                 string tenNhanVien = row[1].ToString();
                 int hoaHong = Convert.ToInt32(row[2]);
-                
+
                 string tinhTrangHoatDongSale = "";
                 bool tinhTrangHoatDong = (bool)row[3];
                 if (tinhTrangHoatDong == false) tinhTrangHoatDongSale = "Ngưng hoạt động";
@@ -123,18 +124,18 @@ namespace Design
             // Check
             if (tongPhanTram == 100)
             {
-                comboBoxTrangThai.Enabled = true;
+                choPhepDoi = true;
             }
         }
 
         private void dataGridViewThongTinSale_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+
         }
 
         private void dataGridViewThongTinThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-    
+
         }
 
         private void buttonQuayLai_Click(object sender, EventArgs e)
@@ -145,12 +146,25 @@ namespace Design
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            
+            if (choPhepDoi)
+            {
+                comboBoxTrangThai.Enabled = true;
+            }
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            
+            if (comboBoxTrangThai.Text == "Đã xong")
+            {
+                HopDongBLL.updateContractState(hd.maHD);
+                comboBoxTrangThai.Enabled = false;
+                choPhepDoi = false;
+            }
+        }
+
+        private void comboBoxTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonLuu.Enabled = true;
         }
     }
 }

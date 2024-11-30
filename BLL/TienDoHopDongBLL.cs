@@ -88,7 +88,7 @@ namespace BLL
             
             foreach (DataRow row in dtOld.Rows)
             {
-                Console.WriteLine(row[0].ToString());
+                
                 if (maTienDo == row[0].ToString())
                 {
                     TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien);
