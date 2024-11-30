@@ -1153,7 +1153,7 @@ go
 
 
 exec searchContractByQuarter @Quarter = 4
-select * from HOPDONG
+select * from NGUOIDUNG
 
 
 
@@ -1176,14 +1176,14 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE ((hd.MaHD LIKE '%' + @Keyword + '%')
+    WHERE (hd.MaNV = @MaNV)
+		AND ((hd.MaHD LIKE '%' + @Keyword + '%')
       OR (hd.TenHopDong LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiDaiDien LIKE '%' + @Keyword + '%')
       OR (hd.TenNguoiLienHe LIKE '%' + @Keyword + '%')
 	  OR (CAST(hd.GiaTriHD AS NVARCHAR(11)) LIKE '%' + @Keyword + '%')
 	  OR (nv.HoTen LIKE '%' + @Keyword + '%')
 	  OR (hd.TinhTrangHD LIKE '%' + @Keyword + '%'))
-	  AND (hd.MaNV = @MaNV)
 END
 GO
 
@@ -1209,13 +1209,13 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE ((@NgayBatDau IS NULL OR hd.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc <= @NgayKetThuc)) AND (hd.MaNV = @MaNV)
+    WHERE (hd.MaNV = @MaNV) AND ((@NgayBatDau IS NULL OR hd.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR hd.NgayKetThuc <= @NgayKetThuc))
 END
 GO
 
 
 --drop proc searchContractByTimeOnContractTrackingForSaleOnly
-
+select * from NGUOIDUNG
 
 		--Procedure search tình trạng hợp đồng On ContractTrackingForSaleOnly --
 CREATE PROC searchTinhTrangHopDongOnContractTrackingForSaleOnly
@@ -1235,7 +1235,7 @@ BEGIN
         nv.HoTen AS [Phụ trách quản lý]
     FROM HOPDONG AS hd
     INNER JOIN NGUOIDUNG AS nv ON hd.MaNV = nv.MaNV
-    WHERE (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD) and (hd.MaNV = @MaNV)
+    WHERE (hd.MaNV = @MaNV) AND (@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)
 END
 GO
 select * from NGUOIDUNG
@@ -1305,12 +1305,12 @@ BEGIN
 		td.MaTienDoHopDong AS [MaTD]
     FROM TIENDOHOPDONG AS td
 	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
-    WHERE ((@NgayBatDau IS NULL OR td.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR td.NgayKetThuc <= @NgayKetThuc)) and (td.MaNV = @MaNV)
+    WHERE (td.MaNV = @MaNV) AND ((@NgayBatDau IS NULL OR td.NgayBatDau >= @NgayBatDau) AND (@NgayKetThuc IS NULL OR td.NgayKetThuc <= @NgayKetThuc))
 END
 GO
 select * from NGUOIDUNG
 
---drop proc searchTimeOnProjectProgressOnlySale
+drop proc searchTimeOnProjectProgressOnlySale
 --exec searchTimeOnProjectProgressOnlySale @NgayBatDau = '2024-10-13', @NgayKetThuc = '2024-11-30'
 --exec searchTimeOnProjectProgressOnlySale
 
@@ -1334,10 +1334,11 @@ BEGIN
 		td.MaTienDoHopDong AS [MaTD]
     FROM TIENDOHOPDONG AS td
 	INNER JOIN HOPDONG AS hd ON td.MaHD = hd.MaHD
-    WHERE ((@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD)) and (td.MaNV = @MaNV)
+    WHERE (td.MaNV = @MaNV) AND ((@TinhTrangHD IS NULL OR hd.TinhTrangHD = @TinhTrangHD))
 END
 GO
 
+--drop proc searchTinhTrangHopDongOnProjectProgressOnlySale
 
 
 --Procedure load Form BÁO CÁO HIỆU SUẤT PERFORMANCE REPORT
@@ -1356,9 +1357,10 @@ begin
 
 end
 go
-drop proc loadPerformanceReport
+--drop proc loadPerformanceReport
 exec loadPerformanceReport
 
+drop proc loadPerformanceReport
 select * from NGUOIDUNG
 
 
@@ -1368,11 +1370,65 @@ create proc PerformanceBymonth
 	@Month int
 as
 begin
-	
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' AND MONTH(hd.NgayKetThuc) = @Month THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' AND MONTH(hd.NgayKetThuc) = @Month THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+    WHERE nv.VaiTro = 'Sale'
+    GROUP BY nv.MaNV, nv.HoTen
+end
+go
+--drop proc PerformanceBymonth
+--exec PerformanceBymonth @Month = 12
+
+
+
+--procedure báo cáo hiệu suất theo quý
+create proc PerformanceByQuarter
+	@Quarter INT
+as
+begin
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' AND 
+                        (MONTH(hd.NgayKetThuc) BETWEEN ((@Quarter-1) * 3 + 1) AND (@Quarter * 3)) 
+                        THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' AND 
+                        (MONTH(hd.NgayKetThuc) BETWEEN ((@Quarter-1) * 3 + 1) AND (@Quarter * 3)) 
+                        THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+    WHERE nv.VaiTro = 'Sale'
+    GROUP BY nv.MaNV, nv.HoTen
 end
 go
 
+exec PerformanceByQuarter @Quarter = 4
 
+
+
+--procedure báo cáo theo năm
+create proc PerformanceByYear
+	@Year INT
+as
+begin
+	SELECT 
+        nv.MaNV AS [Mã nhân viên],
+        nv.HoTen AS [Tên nhân viên],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đã xong' AND YEAR(hd.NgayKetThuc) = @Year THEN 1 END) AS [Đã hoàn thành (%)],
+        COUNT(CASE WHEN hd.TinhTrangHD = N'Đang thực hiện' AND YEAR(hd.NgayKetThuc) = @Year THEN 1 END) AS [Đang thực hiện (%)]
+    FROM NGUOIDUNG AS nv
+    LEFT JOIN HOPDONG AS hd ON nv.MaNV = hd.MaNV
+    WHERE nv.VaiTro = 'Sale'
+    GROUP BY nv.MaNV, nv.HoTen
+end
+go
+
+exec PerformanceByYear @Year = 2025
 
 
 

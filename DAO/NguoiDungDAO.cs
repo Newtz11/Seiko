@@ -210,6 +210,12 @@ namespace DAO
             return dt;
         }
 
+
+        //public DataTable searchHieuSuatNhanVien(searchNhanVien, dateStart, dateEnd)
+        //{
+
+        //}
+
         public DataTable getChartByMonth(int thang)
         {
             DataTable dt = new DataTable();
@@ -233,5 +239,6 @@ namespace DAO
             dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
     }
 }

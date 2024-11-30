@@ -56,7 +56,7 @@ namespace Design
             string searchTinhTrang = comboBoxTinhTrang.Text.ToString();
             DateTime searchTimeStart = dateTimePickerStart.Value;
             DateTime searchTimeEnd = dateTimePickerEnd.Value;
-            DataTable dt = HopDongBLL.searchConTract(searchHopDong, searchTinhTrang, searchTimeStart, searchTimeEnd);
+            DataTable dt = HopDongBLL.searchConTract(searchHopDong, searchTinhTrang, searchTimeStart, searchTimeEnd, user);
             if (dt.Rows.Count == 0 || dt.Columns.Count == 0)
             {
                 // DataTable is empty or has no columns
