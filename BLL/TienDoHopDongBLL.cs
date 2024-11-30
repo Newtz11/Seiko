@@ -22,27 +22,25 @@ namespace BLL
             return TienDoHopDongDAO.Instance.loadProjectProgress(user);
         }
 
-        public static DataTable searchProjectProgressList(string searchContract, string searchTinhTrang, DateTime searchNgayBatDau, DateTime searchNgayKetThuc)
+        public static DataTable searchProjectProgressList(string searchContract, string searchTinhTrang, DateTime searchNgayBatDau, DateTime searchNgayKetThuc, NguoiDung user)
         {
             DataTable dtHopDong = new DataTable();
             DataTable dtTinhTrang = new DataTable();
-            DataTable dtNguoiThucHien = new DataTable();
             DataTable dtTime = new DataTable();
             DataTable mergedDataTable = new DataTable();
             List<DataTable> nonEmptyTables = new List<DataTable>();
             if (!string.IsNullOrEmpty(searchContract))
             {
-                dtHopDong = TienDoHopDongDAO.Instance.searchContractList(searchContract);
+                dtHopDong = TienDoHopDongDAO.Instance.searchContractList(searchContract, user);
             }
-            if (!string.IsNullOrEmpty(searchTinhTrang)) dtTinhTrang = TienDoHopDongDAO.Instance.searchContractListByTinhTrang(searchTinhTrang);
+            if (!string.IsNullOrEmpty(searchTinhTrang)) dtTinhTrang = TienDoHopDongDAO.Instance.searchContractListByTinhTrang(searchTinhTrang, user);
             if (searchNgayBatDau != DateTime.MinValue && searchNgayKetThuc != DateTime.MinValue)
             {
-                dtTime = TienDoHopDongDAO.Instance.searchContractListByTime(searchNgayBatDau, searchNgayKetThuc);
+                dtTime = TienDoHopDongDAO.Instance.searchContractListByTime(searchNgayBatDau, searchNgayKetThuc, user);
             }
 
             if (dtHopDong.Rows.Count > 0) nonEmptyTables.Add(dtHopDong);
             if (dtTinhTrang.Rows.Count > 0) nonEmptyTables.Add(dtTinhTrang);
-            if (dtNguoiThucHien.Rows.Count > 0) nonEmptyTables.Add(dtNguoiThucHien);
             if (dtTime.Rows.Count > 0) nonEmptyTables.Add(dtTime);
 
             // Merge the non-empty DataTables
@@ -88,7 +86,6 @@ namespace BLL
             
             foreach (DataRow row in dtOld.Rows)
             {
-                Console.WriteLine(row[0].ToString());
                 if (maTienDo == row[0].ToString())
                 {
                     TienDoHopDongDAO.Instance.updateProjectProgress(maTienDo, noiDungCV, khoiLuongCV, ngayBatDau, ngayKetThuc, tienDo, tenNguoiThucHien);
