@@ -48,7 +48,7 @@ namespace BLL
             return hd;
         }
 
-        public static DataTable searchConTract(string searchHopDong, string searchTinhTrang, DateTime searchTimeStart, DateTime searchTimeEnd)
+        public static DataTable searchConTract(string searchHopDong, string searchTinhTrang, DateTime searchTimeStart, DateTime searchTimeEnd, NguoiDung user)
         {
             DataTable dtHopDong = new DataTable();
             DataTable dtTinhTrang = new DataTable();
@@ -58,14 +58,14 @@ namespace BLL
 
             if (!string.IsNullOrEmpty(searchHopDong))
             {
-                dtHopDong = HopDongDAO.Instance.searchContractList(searchHopDong);
+                dtHopDong = HopDongDAO.Instance.searchContractList(searchHopDong, user);
                 
             }
 
-            if (!string.IsNullOrEmpty(searchTinhTrang)) dtTinhTrang = HopDongDAO.Instance.searchContractByTinhTrang(searchTinhTrang);
+            if (!string.IsNullOrEmpty(searchTinhTrang)) dtTinhTrang = HopDongDAO.Instance.searchContractByTinhTrang(searchTinhTrang, user);
             if (searchTimeStart != DateTime.MinValue && searchTimeEnd != DateTime.MinValue)
             {
-                dtTime = HopDongDAO.Instance.searchContractByTime(searchTimeStart, searchTimeEnd);
+                dtTime = HopDongDAO.Instance.searchContractByTime(searchTimeStart, searchTimeEnd, user);
             }
 
             if (dtHopDong.Rows.Count > 0) nonEmptyTables.Add(dtHopDong);

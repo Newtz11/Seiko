@@ -209,5 +209,10 @@ namespace DAO
             dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
+        //public DataTable searchHieuSuatNhanVien(searchNhanVien, dateStart, dateEnd)
+        //{
+
+        //}
     }
 }

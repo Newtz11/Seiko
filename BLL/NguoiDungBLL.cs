@@ -159,5 +159,51 @@ namespace BLL
         {
             return NguoiDungDAO.Instance.loadFormPerformance();
         }
+
+        public static DataTable searchHieuSuatNhanVien(string searchNhanVien, DateTime dateStart, DateTime dateEnd)
+        {
+            //DataTable dtNhanVien = new DataTable();
+            //DataTable dtTime = new DataTable();
+            //DataTable mergedDataTable = new DataTable();
+            //List<DataTable> nonEmptyTables = new List<DataTable>();
+            //if (!string.IsNullOrEmpty(searchNhanVien))
+            //{
+            //    dtNhanVien = HopDongDAO.Instance.searchContractList(searchNhanVien);
+
+            //}
+
+            //if (dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            //{
+            //    dtTime = HopDongDAO.Instance.searchContractByTime(dateStart, dateEnd);
+            //}
+
+            //if (dtNhanVien.Rows.Count > 0) nonEmptyTables.Add(dtNhanVien);
+            //if (dtTime.Rows.Count > 0) nonEmptyTables.Add(dtTime);
+
+            //// Merge the non-empty DataTables
+            //if (nonEmptyTables.Count > 0)
+            //{
+            //    mergedDataTable = nonEmptyTables[0].Clone(); // Clone the structure of the first non-empty DataTable
+            //    foreach (DataRow row in nonEmptyTables[0].Rows)
+            //    {
+            //        bool isInAllTables = true;
+            //        foreach (DataTable table in nonEmptyTables.Skip(1))
+            //        {
+            //            var matchingRows = table.AsEnumerable().Where(r => r.ItemArray.SequenceEqual(row.ItemArray)).ToArray();
+            //            if (matchingRows.Length == 0)
+            //            {
+            //                isInAllTables = false;
+            //                break;
+            //            }
+            //        }
+
+            //        if (isInAllTables)
+            //        {
+            //            mergedDataTable.Rows.Add(row.ItemArray);
+            //        }
+            //    }
+            //}
+            //return mergedDataTable;
+        }
     }
 }

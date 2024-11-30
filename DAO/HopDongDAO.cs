@@ -58,43 +58,89 @@ namespace DAO
             return dt;
         }
 
-        public DataTable searchContractList(string name)
+        public DataTable searchContractList(string name, NguoiDung user)
         {
-            string procName = "searchGlobalOnContractTrackingForSale";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
             {
-                new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name }
-            };
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                string procName = "searchGlobalOnContractTrackingForSaleOnly";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchGlobalOnContractTrackingForSale";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@Keyword", SqlDbType.NVarChar, 50) { Value = name }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            return dt;
+        }
+
+        public DataTable searchContractByTinhTrang(string tinhTrang, NguoiDung user)
+        {
+            DataTable dt = new DataTable();
+            if (user.vaiTro == "Sale")
+            {
+                string procName = "searchTinhTrangHopDongOnContractTrackingForSaleOnly";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = tinhTrang },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
+            {
+                string procName = "searchTinhTrangHopDongOnContractTrackingForSale";
+
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = tinhTrang }
+                };
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
 
             return dt;
         }
 
-        public DataTable searchContractByTinhTrang(string tinhTrang)
+        public DataTable searchContractByTime(DateTime timeStart, DateTime timeEnd, NguoiDung user) 
         {
-            string procName = "searchTinhTrangHopDongOnContractTrackingForSale";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+            DataTable dt = new DataTable();
+            if(user.vaiTro == "Sale")
             {
-                new SqlParameter("@TinhTrangHD", SqlDbType.NVarChar, 20) { Value = tinhTrang }
-            };
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                string procName = "searchContractByTimeOnContractTrackingForSaleOnly";
 
-            return dt;
-        }
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)timeStart ?? DBNull.Value },
+                    new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)timeEnd ?? DBNull.Value },
+                    new SqlParameter("@MaNV", SqlDbType.NVarChar, 5) { Value = user.maNV }
+                };
 
-        public DataTable searchContractByTime(DateTime timeStart, DateTime timeEnd) 
-        {
-            string procName = "searchContractByTimeOnContractTrackingForSale";
-
-            List<SqlParameter> parameters = new List<SqlParameter>
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
+            else
             {
-                new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)timeStart ?? DBNull.Value },
-                new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)timeEnd ?? DBNull.Value }
-            };
+                string procName = "searchContractByTimeOnContractTrackingForSale";
 
-            DataTable dt = DataProvider.Instance.executeProc(procName, parameters);
+                List<SqlParameter> parameters = new List<SqlParameter>
+                {
+                    new SqlParameter("@NgayBatDau", SqlDbType.Date) { Value = (object)timeStart ?? DBNull.Value },
+                    new SqlParameter("@NgayKetThuc", SqlDbType.Date) { Value = (object)timeEnd ?? DBNull.Value }
+                };
+
+                dt = DataProvider.Instance.executeProc(procName, parameters);
+            }
 
             return dt;
         }
@@ -219,5 +265,7 @@ namespace DAO
             DataTable dt = DataProvider.Instance.executeQuery(query);
             return dt;
         }
+
+
     }
 }
