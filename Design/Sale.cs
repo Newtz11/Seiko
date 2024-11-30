@@ -93,7 +93,7 @@ namespace Design
 
         private void buttonCommission_Click(object sender, EventArgs e)
         {
-            loadform(new SaleCommissionView());
+            loadform(new SaleCommissionView(user));
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
