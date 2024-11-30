@@ -206,7 +206,7 @@ namespace BLL
             //}
             //return mergedDataTable;
 
-
+        }
         public static DataTable getChartByMonth(string thang)
         {
             string soChuoi = thang.Substring(5);
