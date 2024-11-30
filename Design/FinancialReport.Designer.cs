@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinancialReport));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -57,8 +56,6 @@
             TenHopDong = new DataGridViewTextBoxColumn();
             NgayThanhToan = new DataGridViewTextBoxColumn();
             SoTien = new DataGridViewTextBoxColumn();
-            LoaiHinhThanhToan = new DataGridViewTextBoxColumn();
-            NoiDungThanhToan = new DataGridViewTextBoxColumn();
             buttonSearch = new Button();
             textBoxSearch = new TextBox();
             labelProjectProgress = new Label();
@@ -149,8 +146,9 @@
             radioButtonQuy.Size = new Size(56, 24);
             radioButtonQuy.TabIndex = 5;
             radioButtonQuy.TabStop = true;
-            radioButtonQuy.Text = "Qúy";
+            radioButtonQuy.Text = "Quý";
             radioButtonQuy.UseVisualStyleBackColor = true;
+            radioButtonQuy.CheckedChanged += radioButtonQuy_CheckedChanged;
             // 
             // radioButtonNam
             // 
@@ -162,6 +160,7 @@
             radioButtonNam.TabStop = true;
             radioButtonNam.Text = "Năm";
             radioButtonNam.UseVisualStyleBackColor = true;
+            radioButtonNam.CheckedChanged += radioButtonNam_CheckedChanged;
             // 
             // radioButtonThang
             // 
@@ -173,10 +172,12 @@
             radioButtonThang.TabStop = true;
             radioButtonThang.Text = "Tháng";
             radioButtonThang.UseVisualStyleBackColor = true;
+            radioButtonThang.CheckedChanged += radioButtonThang_CheckedChanged;
             // 
             // comboBox1
             // 
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(829, 111);
             comboBox1.Name = "comboBox1";
@@ -193,10 +194,6 @@
             chartFinancialReport.Location = new Point(21, 401);
             chartFinancialReport.Name = "chartFinancialReport";
             chartFinancialReport.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartFinancialReport.Series.Add(series1);
             chartFinancialReport.Size = new Size(1197, 352);
             chartFinancialReport.TabIndex = 37;
             chartFinancialReport.Text = "chart1";
@@ -210,7 +207,7 @@
             label1.Name = "label1";
             label1.Size = new Size(243, 25);
             label1.TabIndex = 35;
-            label1.Text = "Tính theo: (Tháng, Qúy, Năm)";
+            label1.Text = "Tính theo: (Tháng, Quý, Năm)";
             // 
             // dateTimePicker1
             // 
@@ -267,6 +264,7 @@
             buttonLapThongKe.TabIndex = 30;
             buttonLapThongKe.Text = "Lập thống kê";
             buttonLapThongKe.UseVisualStyleBackColor = false;
+            buttonLapThongKe.Click += buttonLapThongKe_Click;
             // 
             // dataGridViewListUser
             // 
@@ -289,7 +287,7 @@
             dataGridViewListUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewListUser.ColumnHeadersHeight = 80;
             dataGridViewListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NgayThanhToan, SoTien, LoaiHinhThanhToan, NoiDungThanhToan });
+            dataGridViewListUser.Columns.AddRange(new DataGridViewColumn[] { MaHopDong, TenHopDong, NgayThanhToan, SoTien });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -324,47 +322,27 @@
             // 
             // MaHopDong
             // 
-            MaHopDong.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            MaHopDong.FillWeight = 320.85556F;
             MaHopDong.HeaderText = "Mã hợp đồng";
-            MaHopDong.MinimumWidth = 150;
+            MaHopDong.MinimumWidth = 6;
             MaHopDong.Name = "MaHopDong";
-            MaHopDong.Resizable = DataGridViewTriState.True;
             // 
             // TenHopDong
             // 
-            TenHopDong.FillWeight = 0.16366078F;
             TenHopDong.HeaderText = "Tên hợp đồng";
-            TenHopDong.MinimumWidth = 150;
+            TenHopDong.MinimumWidth = 6;
             TenHopDong.Name = "TenHopDong";
             // 
             // NgayThanhToan
             // 
-            NgayThanhToan.FillWeight = 0.350126535F;
             NgayThanhToan.HeaderText = "Ngày thanh toán";
-            NgayThanhToan.MinimumWidth = 150;
+            NgayThanhToan.MinimumWidth = 6;
             NgayThanhToan.Name = "NgayThanhToan";
             // 
             // SoTien
             // 
-            SoTien.FillWeight = 0.742286861F;
-            SoTien.HeaderText = "Số tiền";
-            SoTien.MinimumWidth = 150;
+            SoTien.HeaderText = "Doanh thu";
+            SoTien.MinimumWidth = 6;
             SoTien.Name = "SoTien";
-            // 
-            // LoaiHinhThanhToan
-            // 
-            LoaiHinhThanhToan.FillWeight = 234.425842F;
-            LoaiHinhThanhToan.HeaderText = "Loại hình thanh toán (tiền mặt hoặc chuyển khoản)";
-            LoaiHinhThanhToan.MinimumWidth = 400;
-            LoaiHinhThanhToan.Name = "LoaiHinhThanhToan";
-            // 
-            // NoiDungThanhToan
-            // 
-            NoiDungThanhToan.FillWeight = 43.4624023F;
-            NoiDungThanhToan.HeaderText = "Nội dung thanh toán";
-            NoiDungThanhToan.MinimumWidth = 200;
-            NoiDungThanhToan.Name = "NoiDungThanhToan";
             // 
             // buttonSearch
             // 
@@ -466,7 +444,5 @@
         private DataGridViewTextBoxColumn TenHopDong;
         private DataGridViewTextBoxColumn NgayThanhToan;
         private DataGridViewTextBoxColumn SoTien;
-        private DataGridViewTextBoxColumn LoaiHinhThanhToan;
-        private DataGridViewTextBoxColumn NoiDungThanhToan;
     }
 }

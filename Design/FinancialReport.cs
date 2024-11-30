@@ -54,5 +54,55 @@ namespace Design
         {
 
         }
+
+        private void radioButtonThang_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Tháng 1");
+            comboBox1.Items.Add("Tháng 2");
+            comboBox1.Items.Add("Tháng 3");
+            comboBox1.Items.Add("Tháng 4");
+            comboBox1.Items.Add("Tháng 5");
+            comboBox1.Items.Add("Tháng 6");
+            comboBox1.Items.Add("Tháng 7");
+            comboBox1.Items.Add("Tháng 8");
+            comboBox1.Items.Add("Tháng 9");
+            comboBox1.Items.Add("Tháng 10");
+            comboBox1.Items.Add("Tháng 11");
+            comboBox1.Items.Add("Tháng 12");
+        }
+
+        private void radioButtonQuy_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Quý 1");
+            comboBox1.Items.Add("Quý 2");
+            comboBox1.Items.Add("Quý 3");
+            comboBox1.Items.Add("Quý 4");
+        }
+
+        private void radioButtonNam_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Kế toán");
+            comboBox1.Items.Add("Trưởng phòng Kế toán");
+        }
+
+        private void buttonLapThongKe_Click(object sender, EventArgs e)
+        {
+            if (radioButtonThang.Checked)
+            {
+                //lap thong ke theo thang
+            }
+            else if (radioButtonNam.Checked) 
+            {
+                //lap thong ke theo quy
+                chartFinancialReport.Series.Add("");
+            }
+            else
+            {
+                //lap thong ke theo nam
+            }
+        }
     }
 }
