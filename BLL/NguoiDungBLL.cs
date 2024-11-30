@@ -154,5 +154,10 @@ namespace BLL
         {
             return NguoiDungDAO.Instance.loadThongTinNhanVien(maNV);
         }
+
+        public static DataTable loadFormPerformance()
+        {
+            return NguoiDungDAO.Instance.loadFormPerformance();
+        }
     }
 }
