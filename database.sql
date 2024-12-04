@@ -292,7 +292,7 @@ create proc loadThongTinNhanVien
 	@MaNV NVARCHAR(5)
 as
 begin
-	select hd.MaNV as [Mã nhân viên],
+	select DISTINCT hd.MaNV as [Mã nhân viên],
 			nv.HoTen as [Tên nhân viên],
 			hd.MucHoaHong as [Hoa hồng (%)],
 			nv.TinhTrangHoatDong as [Tình trạng]
@@ -301,8 +301,8 @@ begin
 	where hd.MaNV = @MaNV
 end
 go
-
---exec loadThongTinNhanVien @MaNV = '00007'
+--drop proc loadThongTinNhanVien
+exec loadThongTinNhanVien @MaNV = '00007'
 
 
 
@@ -466,7 +466,7 @@ BEGIN
     WHERE hd.TinhTrangHD = N'Đã xong'
 END
 GO
---exec loadConTractOnContractHistoryForAll
+exec loadConTractOnContractHistoryForAll
 
 
 -- procedure dung cho Form ListUser
