@@ -87,7 +87,6 @@ namespace Design
 
                 dataGridViewPerformance.Rows.Add(MaNhanVien, TenNhanVien, SLDaXong, SLDangThucHien);
                 chartPerformance.Series[0].IsValueShownAsLabel = true;
-                chartPerformance.Series[1].IsValueShownAsLabel = true;
             }
         }
 
@@ -136,16 +135,14 @@ namespace Design
         private void buttonLapThongKe_Click(object sender, EventArgs e)
         {
             chartPerformance.Series[0].Points.Clear();
-            chartPerformance.Series[1].Points.Clear();
             Dictionary<string, int> daHoanThanh = new Dictionary<string, int>();
-            Dictionary<string, int> chuaHoanThanh = new Dictionary<string, int>();
             DataTable dt = new DataTable();
             string thoigian = comboBoxChonGiaTri.Text;
             if (radioButtonThang.Checked)
             {
                 //lap thong ke theo thang
                 dt = NguoiDungBLL.getChartByMonth(thoigian);
-                
+
 
             }
             else if (radioButtonQuy.Checked)
@@ -164,7 +161,6 @@ namespace Design
                 string MaNhanVien = row[0].ToString();
                 string tenDangNhap = row[1].ToString();
                 daHoanThanh.Add(tenDangNhap, 0);
-                chuaHoanThanh.Add(tenDangNhap, 0);
             }
             foreach (DataRow dr in dt.Rows)
             {
@@ -173,7 +169,6 @@ namespace Design
                 int daHT = Convert.ToInt32(dr[2].ToString());
                 int chuaHT = Convert.ToInt32(dr[3].ToString());
                 daHoanThanh[tenDangNhap] += daHT;
-                chuaHoanThanh[tenDangNhap] += chuaHT;
             }
             int index = 0;
 
@@ -182,12 +177,16 @@ namespace Design
                 string tenDangNhap = dr[1].ToString();
                 string label = "Nhân viên " + tenDangNhap;
                 chartPerformance.Series[0].Points.AddXY(index, daHoanThanh[tenDangNhap]);
-                chartPerformance.Series[1].Points.AddXY(index, chuaHoanThanh[tenDangNhap]);
                 chartPerformance.Series[0].Points[index].AxisLabel = label;
                 index++;
             }
 
             chartPerformance.Visible = true;
+        }
+
+        private void chartPerformance_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

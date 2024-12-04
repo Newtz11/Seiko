@@ -32,7 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -132,16 +131,13 @@
             chartPerformance.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Đã Hoành Thành";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Chưa Hoàn Thành";
+            series1.Name = "Đã Hoàn Thành";
             chartPerformance.Series.Add(series1);
-            chartPerformance.Series.Add(series2);
             chartPerformance.Size = new Size(1174, 375);
             chartPerformance.TabIndex = 84;
             chartPerformance.Text = "chart1";
             chartPerformance.Visible = false;
+            chartPerformance.Click += chartPerformance_Click;
             // 
             // comboBoxChonGiaTri
             // 
